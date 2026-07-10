@@ -1,0 +1,251 @@
+[
+  {
+    "id": 1,
+    "word": "walk",
+    "translation": "caminar",
+    "type": "verb",
+    "regular": true,
+    "forms": {
+      "base": "walk",
+      "thirdPerson": "walks",
+      "presentParticiple": "walking",
+      "pastSimple": "walked",
+      "pastParticiple": "walked"
+    },
+    "pronunciation": { "ipa": "/wɔːk/", "audio": null },
+    "category": ["movement"],
+    "synonyms": ["stroll"],
+    "antonyms": ["run"],
+    "examples": [
+      { "english": "She walked home yesterday.", "spanish": "Ella caminó a casa ayer.", "level": "A1" },
+      { "english": "We walk every morning.", "spanish": "Caminamos todas las mañanas.", "level": "A1" }
+    ],
+    "tags": ["exercise"],
+    "difficulty": "EASY",
+    "source": "core"
+  },
+
+  {
+    "id": 2,
+    "word": "talk",
+    "translation": "hablar",
+    "type": "verb",
+    "regular": true,
+    "forms": {
+      "base": "talk",
+      "thirdPerson": "talks",
+      "presentParticiple": "talking",
+      "pastSimple": "talked",
+      "pastParticiple": "talked"
+    },
+    "pronunciation": { "ipa": "/tɔːk/", "audio": null },
+    "category": ["communication"],
+    "synonyms": ["speak", "chat"],
+    "antonyms": ["listen"],
+    "examples": [
+      { "english": "Let's talk after class.", "spanish": "Hablemos después de clase.", "level": "A1" },
+      { "english": "She is talking to her friend.", "spanish": "Ella está hablando con su amiga.", "level": "A1" }
+    ],
+    "tags": ["daily"],
+    "difficulty": "EASY",
+    "source": "core"
+  },
+
+  {
+    "id": 3,
+    "word": "play",
+    "translation": "jugar",
+    "type": "verb",
+    "regular": true,
+    "forms": {
+      "base": "play",
+      "thirdPerson": "plays",
+      "presentParticiple": "playing",
+      "pastSimple": "played",
+      "pastParticiple": "played"
+    },
+    "pronunciation": { "ipa": "/pleɪ/", "audio": null },
+    "category": ["leisure"],
+    "synonyms": ["game"],
+    "antonyms": [],
+    "examples": [
+      { "english": "The kids play in the park.", "spanish": "Los niños juegan en el parque.", "level": "A1" },
+      { "english": "I played soccer yesterday.", "spanish": "Jugué al fútbol ayer.", "level": "A2" }
+    ],
+    "tags": ["leisure", "sport"],
+    "difficulty": "EASY",
+    "source": "core"
+  },
+
+  {
+    "id": 4,
+    "word": "work",
+    "translation": "trabajar",
+    "type": "verb",
+    "regular": true,
+    "forms": {
+      "base": "work",
+      "thirdPerson": "works",
+      "presentParticiple": "working",
+      "pastSimple": "worked",
+      "pastParticiple": "worked"
+    },
+    "pronunciation": { "ipa": "/wɜːrk/", "audio": null },
+    "category": ["job"],
+    "synonyms": ["labor"],
+    "antonyms": ["rest"],
+    "examples": [
+      { "english": "I work from home.", "spanish": "Trabajo desde casa.", "level": "A2" },
+      { "english": "She worked late last night.", "spanish": "Ella trabajó hasta tarde anoche.", "level": "A2" }
+    ],
+    "tags": ["job"],
+    "difficulty": "MEDIUM",
+    "source": "core"
+  },
+
+  {
+    "id": 5,
+    "word": "go",
+    "translation": "ir",
+    "type": "verb",
+    "regular": false,
+    "forms": {
+      "base": "go",
+      "thirdPerson": "goes",
+      "presentParticiple": "going",
+      "pastSimple": "went",
+      "pastParticiple": "gone"
+    },
+    "pronunciation": { "ipa": "/ɡoʊ/", "audio": null },
+    "category": ["movement", "common"],
+    "synonyms": ["travel", "move"],
+    "antonyms": ["stay"],
+    "examples": [
+      { "english": "I go to school every day.", "spanish": "Voy a la escuela todos los días.", "level": "A1" },
+      { "english": "Let's go to the park.", "spanish": "Vamos al parque.", "level": "A1" },
+      { "english": "She has gone home.", "spanish": "Ella se ha ido a casa.", "level": "A2" }
+    ],
+    "tags": ["daily", "important"],
+    "difficulty": "EASY",
+    "source": "core"
+  },
+
+  {
+    "id": 6,
+    "word": "eat",
+    "translation": "comer",
+    "type": "verb",
+    "regular": false,
+    "forms": {
+      "base": "eat",
+      "thirdPerson": "eats",
+      "presentParticiple": "eating",
+      "pastSimple": "ate",
+      "pastParticiple": "eaten"
+    },
+    "pronunciation": { "ipa": "/iːt/", "audio": null },
+    "category": ["food"],
+    "synonyms": ["consume"],
+    "antonyms": [],
+    "examples": [
+      { "english": "We ate pizza.", "spanish": "Comimos pizza.", "level": "A1" },
+      { "english": "He eats breakfast every day.", "spanish": "Él desayuna todos los días.", "level": "A1" }
+    ],
+    "tags": ["daily"],
+    "difficulty": "MEDIUM",
+    "source": "core"
+  },
+
+  {
+    "id": 7,
+    "word": "be",
+    "translation": "ser/estar",
+    "type": "verb",
+    "regular": false,
+    "forms": {
+      "base": "be",
+      "thirdPerson": "is",
+      "presentParticiple": "being",
+      "pastSimple": "was/were",
+      "pastParticiple": "been"
+    },
+    "pronunciation": { "ipa": "/biː/", "audio": null },
+    "category": ["common", "core"],
+    "synonyms": ["exist"],
+    "antonyms": [],
+    "examples": [
+      { "english": "I am a student.", "spanish": "Soy estudiante.", "level": "A1" },
+      { "english": "She was tired yesterday.", "spanish": "Ella estaba cansada ayer.", "level": "A2" },
+      { "english": "They have been friends for years.", "spanish": "Han sido amigos durante años.", "level": "B1" }
+    ],
+    "tags": ["essential", "common"],
+    "difficulty": "MEDIUM",
+    "source": "core"
+  },
+
+  {
+    "id": 8,
+    "word": "have",
+    "translation": "tener",
+    "type": "verb",
+    "regular": false,
+    "forms": {
+      "base": "have",
+      "thirdPerson": "has",
+      "presentParticiple": "having",
+      "pastSimple": "had",
+      "pastParticiple": "had"
+    },
+    "pronunciation": { "ipa": "/hæv/", "audio": null },
+    "category": ["common", "core"],
+    "synonyms": ["possess", "own"],
+    "antonyms": ["lack"],
+    "examples": [
+      { "english": "I have two cats.", "spanish": "Tengo dos gatos.", "level": "A1" },
+      { "english": "She had breakfast at 8.", "spanish": "Ella desayunó a las 8.", "level": "A2" }
+    ],
+    "tags": ["essential", "common"],
+    "difficulty": "MEDIUM",
+    "source": "core"
+  },
+
+  {
+    "id": 9,
+    "word": "hello",
+    "translation": "hola",
+    "type": "interjection",
+    "regular": null,
+    "forms": null,
+    "pronunciation": { "ipa": "/həˈloʊ/", "audio": null },
+    "category": ["greetings"],
+    "synonyms": ["hi", "hey"],
+    "antonyms": ["goodbye"],
+    "examples": [
+      { "english": "Hello, how are you?", "spanish": "Hola, ¿cómo estás?", "level": "A1" },
+      { "english": "She said hello to her neighbour.", "spanish": "Ella dijo hola a su vecina.", "level": "A1" }
+    ],
+    "tags": ["greeting", "daily"],
+    "difficulty": "EASY",
+    "source": "user"
+  },
+
+  {
+    "id": 10,
+    "word": "knowledge",
+    "translation": "conocimiento",
+    "type": "noun",
+    "regular": null,
+    "forms": null,
+    "pronunciation": { "ipa": "/ˈnɒlɪdʒ/", "audio": null },
+    "category": ["abstract"],
+    "synonyms": ["wisdom", "understanding"],
+    "antonyms": ["ignorance"],
+    "examples": [
+      { "english": "Knowledge is power.", "spanish": "El conocimiento es poder.", "level": "A2" },
+      { "english": "She has deep knowledge of history.", "spanish": "Ella tiene un profundo conocimiento de la historia.", "level": "B1" }
+    ],
+    "tags": ["abstract", "important"],
+    "difficulty": "HARD",
+    "source": "user"
+  }
+]

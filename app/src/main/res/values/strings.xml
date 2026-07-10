@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">English Vault</string>
+
+    <!-- region: Bottom navigation -->
+    <string name="nav_progress">Progress</string>
+    <string name="nav_games">Games</string>
+    <string name="nav_test">Test</string>
+    <string name="nav_words">Words</string>
+    <!-- endregion -->
+
+    <!-- region: Progress screen -->
+    <string name="progress_title">Your progress</string>
+    <string name="progress_streak_days">%1$d day streak</string>
+    <string name="progress_xp_label">Level %1$d</string>
+    <string name="progress_xp_subtitle">%1$d / %2$d XP</string>
+    <string name="progress_daily_goal">Daily goal</string>
+    <string name="progress_daily_goal_value">%1$d / %2$d XP</string>
+    <string name="progress_your_path">Your path</string>
+    <!-- endregion -->
+
+    <!-- region: Games screen -->
+    <string name="games_title">Games zone</string>
+    <string name="games_subtitle">Train your English with fun mini-games.</string>
+    <string name="games_difficulty_easy">Easy</string>
+    <string name="games_difficulty_medium">Medium</string>
+    <string name="games_difficulty_hard">Hard</string>
+    <!-- endregion -->
+
+    <!-- region: Test screen -->
+    <string name="test_title">Test your knowledge</string>
+    <string name="test_subtitle">Pick a test format and start practising.</string>
+    <string name="test_quick_title">Quick test</string>
+    <string name="test_quick_subtitle">10 words · 5 min</string>
+    <string name="test_full_title">Full test</string>
+    <string name="test_full_subtitle">50 words · 20 min</string>
+    <string name="test_custom_title">Custom test</string>
+    <string name="test_custom_subtitle">Pick the words you want</string>
+    <string name="test_start">Start</string>
+    <!-- endregion -->
+
+    <!-- region: Words screen -->
+    <string name="words_title">My vocabulary</string>
+    <string name="words_subtitle">All the words you have saved.</string>
+    <string name="words_fab_add">Add word</string>
+    <string name="words_empty">No words yet. Tap + to add one.</string>
+    <string name="words_action_edit">Edit</string>
+    <string name="words_action_delete">Delete</string>
+    <string name="words_delete_title">Delete word?</string>
+    <string name="words_delete_message">This action cannot be undone.</string>
+    <string name="words_delete_confirm">Delete</string>
+    <string name="words_delete_cancel">Cancel</string>
+    <!-- endregion -->
+
+    <!-- region: Words tabs -->
+    <string name="words_tab_regular">Regular</string>
+    <string name="words_tab_irregular">Irregular</string>
+    <string name="words_tab_vocabulary">Vocabulary</string>
+    <string name="words_tab_mine">Mine</string>
+    <!-- endregion -->
+
+    <!-- region: Words empty states per tab -->
+    <string name="words_empty_regular">No regular verbs to show.</string>
+    <string name="words_empty_irregular">No irregular verbs to show.</string>
+    <string name="words_empty_vocabulary">No vocabulary words to show.</string>
+    <string name="words_empty_mine">Tap + to add your first word.</string>
+    <!-- endregion -->
+
+    <!-- region: Word badges -->
+    <string name="words_badge_mine">Mine</string>
+    <!-- endregion -->
+
+    <!-- region: Word form (add/edit) -->
+    <string name="form_title_new">New word</string>
+    <string name="form_title_edit">Edit word</string>
+    <string name="form_field_word">Word</string>
+    <string name="form_field_translation">Translation</string>
+    <string name="form_field_type">Type</string>
+    <string name="form_field_difficulty">Difficulty</string>
+    <string name="form_field_notes">Notes (optional)</string>
+    <string name="form_save">Save</string>
+    <string name="form_cancel">Cancel</string>
+    <string name="form_back">Back</string>
+    <!-- endregion -->
+</resources>
