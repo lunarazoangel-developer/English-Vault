@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import data.database.entities.CoreWordEntity
 import data.database.entities.Difficulty
+import data.database.entities.LearningStatus
 import data.database.entities.ProgressStats
 import data.database.entities.UserWordEntity
 import data.database.entities.WordEntity
@@ -73,6 +74,54 @@ interface WordDao {
     fun getAllWords(): Flow<List<WordEntity>>
 
     /**
+     * One-shot lookup of a single user-added word by its id.
+     *
+     * Used by the word form to load an existing row when the user
+     * taps the edit pencil on a `Mine` card. Scoped to
+     * `source = 'user'` so it never picks up a core entry that happens
+     * to share the id (the two AUTOINCREMENT sequences are
+     * independent).
+     *
+     * @return The persisted word, or `null` if no user-added row
+     *   matches the id.
+     */
+    @Query("SELECT * FROM words_view WHERE id = :id AND source = 'user' LIMIT 1")
+    suspend fun getUserWordById(id: Int): WordEntity?
+
+    /**
+     * One-shot list of core words eligible for the Word Match Verbs
+     * mini-game at the given [level].
+     *
+     * Filters applied:
+     *  - `source = 'core'` — only bundled dictionary entries.
+     *  - `level = :level` — progression bucket.
+     *  - `forms IS NOT NULL` — verbs that actually carry conjugation
+     *    tables. Interjections, nouns, etc. are excluded.
+     *  - `status != 'LEARNED'` — already mastered words are not
+     *    re-practiced.
+     *
+     * Returned alphabetically so the playthrough order is stable.
+     */
+    @Query(
+        """
+        SELECT * FROM words_view
+        WHERE source = 'core'
+          AND level = :level
+          AND forms IS NOT NULL
+          AND status != 'LEARNED'
+        ORDER BY word ASC
+        """
+    )
+    suspend fun getCoreWordsForGame(level: Int): List<WordEntity>
+
+    /**
+     * Maximum level currently used by the dictionary. Used by the
+     * level selector to know how many level cards to render.
+     */
+    @Query("SELECT IFNULL(MAX(level), 0) FROM words_view WHERE source = 'core' AND forms IS NOT NULL")
+    suspend fun maxCoreLevel(): Int
+
+    /**
      * Case-insensitive search across the word, its translation, category
      * tags and word tags.
      *
@@ -95,21 +144,22 @@ interface WordDao {
 
     // region: Updates (user-owned fields)
     // The dual-table pattern below is documented in the class-level KDoc.
-    @Query("UPDATE core_words SET learned = :learned WHERE id = :id")
-    suspend fun setLearnedCore(id: Int, learned: Boolean): Int
+    @Query("UPDATE core_words SET status = :status WHERE id = :id")
+    suspend fun setStatusCore(id: Int, status: LearningStatus): Int
 
-    @Query("UPDATE user_words SET learned = :learned WHERE id = :id")
-    suspend fun setLearnedUser(id: Int, learned: Boolean): Int
+    @Query("UPDATE user_words SET status = :status WHERE id = :id")
+    suspend fun setStatusUser(id: Int, status: LearningStatus): Int
 
     /**
-     * Marks a word as learned or not. The id is unique to whichever
-     * table holds the row, so the fan-out updates exactly one row.
+     * Promotes a word's [LearningStatus] (NOT_LEARNED, ALMOST or
+     * LEARNED). The id is unique to whichever table holds the row,
+     * so the fan-out updates exactly one row.
      *
      * @return Number of rows updated (0 if the id does not exist, 1
      *   otherwise).
      */
-    suspend fun setLearned(id: Int, learned: Boolean): Int =
-        setLearnedCore(id, learned) + setLearnedUser(id, learned)
+    suspend fun setStatus(id: Int, status: LearningStatus): Int =
+        setStatusCore(id, status) + setStatusUser(id, status)
 
     @Query("UPDATE core_words SET favorite = :favorite WHERE id = :id")
     suspend fun setFavoriteCore(id: Int, favorite: Boolean): Int
@@ -171,7 +221,7 @@ interface WordDao {
 
     // region: Filtered reactive queries
     /** Reactive list of words the user has marked as learned. */
-    @Query("SELECT * FROM words_view WHERE learned = 1 ORDER BY word ASC")
+    @Query("SELECT * FROM words_view WHERE status = 'LEARNED' ORDER BY word ASC")
     fun getLearnedWords(): Flow<List<WordEntity>>
 
     /** Reactive list of words the user has favorited. */
@@ -185,7 +235,7 @@ interface WordDao {
     @Query(
         """
         SELECT * FROM words_view
-        WHERE learned = 0
+        WHERE status != 'LEARNED'
           AND nextReview IS NOT NULL
           AND nextReview <= :now
         ORDER BY nextReview ASC
@@ -194,7 +244,7 @@ interface WordDao {
     fun getDueForReview(now: Long): Flow<List<WordEntity>>
 
     /** Words that have been reviewed at least once but are not yet learned. */
-    @Query("SELECT * FROM words_view WHERE learned = 0 AND reviewCount > 0 ORDER BY word ASC")
+    @Query("SELECT * FROM words_view WHERE status = 'ALMOST' ORDER BY word ASC")
     fun getInProgressWords(): Flow<List<WordEntity>>
     // endregion
 
@@ -204,7 +254,7 @@ interface WordDao {
     fun countAllFlow(): Flow<Int>
 
     /** Reactive count of words marked as learned. */
-    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE status = 'LEARNED'")
     fun countLearnedFlow(): Flow<Int>
 
     /** Reactive count of words marked as favorite. */
@@ -215,16 +265,24 @@ interface WordDao {
     @Query(
         """
         SELECT COUNT(*) FROM words_view
-        WHERE learned = 0
+        WHERE status != 'LEARNED'
           AND nextReview IS NOT NULL
           AND nextReview <= :now
         """
     )
     fun countDueForReviewFlow(now: Long): Flow<Int>
 
-    /** Reactive count of words in progress (reviewed but not learned). */
-    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 0 AND reviewCount > 0")
+    /** Reactive count of words in progress (status = ALMOST). */
+    @Query("SELECT COUNT(*) FROM words_view WHERE status = 'ALMOST'")
     fun countInProgressFlow(): Flow<Int>
+
+    /**
+     * Reactive count of distinct word rows whose `lastReview` timestamp
+     * is at or after [sinceMillis]. Used by the Progress screen to
+     * estimate today's XP earnings from the review history.
+     */
+    @Query("SELECT COUNT(*) FROM words_view WHERE lastReview >= :sinceMillis")
+    fun countReviewsSinceFlow(sinceMillis: Long): Flow<Int>
     // endregion
 
     // region: Aggregate counts (one-shot)
@@ -239,7 +297,7 @@ interface WordDao {
     suspend fun countWords(): Int
 
     /** One-shot count of learned words. */
-    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE status = 'LEARNED'")
     suspend fun countLearned(): Int
 
     /** One-shot count of favorite words. */
@@ -250,7 +308,7 @@ interface WordDao {
     @Query(
         """
         SELECT COUNT(*) FROM words_view
-        WHERE learned = 0
+        WHERE status != 'LEARNED'
           AND nextReview IS NOT NULL
           AND nextReview <= :now
         """
@@ -271,15 +329,14 @@ interface WordDao {
         """
         SELECT
             (SELECT COUNT(*) FROM words_view) AS totalWords,
-            (SELECT COUNT(*) FROM words_view WHERE learned = 1) AS learnedWords,
+            (SELECT COUNT(*) FROM words_view WHERE status = 'LEARNED') AS learnedWords,
             (SELECT COUNT(*) FROM words_view WHERE favorite = 1) AS favoriteWords,
             (SELECT COUNT(*) FROM words_view
-                WHERE learned = 0
+                WHERE status != 'LEARNED'
                   AND nextReview IS NOT NULL
                   AND nextReview <= :now) AS dueForReview,
             (SELECT COUNT(*) FROM words_view
-                WHERE learned = 0
-                  AND reviewCount > 0) AS inProgress
+                WHERE status = 'ALMOST') AS inProgress
         """
     )
     fun observeProgressStats(now: Long): Flow<ProgressStats>

@@ -6,7 +6,7 @@
 [![Android](https://img.shields.io/badge/Android-26%2B-3DDC84?logo=android&logoColor=white)](https://developer.android.com)
 [![Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?logo=jetpackcompose&logoColor=white)](https://developer.android.com/jetpack/compose)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Phase](https://img.shields.io/badge/Status-Phase%204.5%20%F0%9F%93%9A-brightgreen)](#roadmap)
+[![Phase](https://img.shields.io/badge/Status-Phase%206%20%F0%9F%8E%AE-brightgreen)](#roadmap)
 
 A Duolingo-inspired vocabulary app with streak tracking, XP/level progression, mini-games, self-tests and a personal word database you fully own. Built offline-first on top of Room and a versioned seed JSON asset.
 
@@ -35,17 +35,18 @@ A Duolingo-inspired vocabulary app with streak tracking, XP/level progression, m
 
 - 📚 **Offline dictionary** seeded from `assets/words.json` (**68 entries** covering regular/irregular verbs, nouns, adjectives, adverbs, prepositions, conjunctions and interjections, each with 2–4 bilingual examples tagged by CEFR level).
 - 🗄 **Room storage v5** with three artefacts:
-  - `core_words` — dictionary entries seeded from JSON. Conceptually read-only; the user can only update its user-state columns (`favorite`, `learned`, `notes`, …) via the dual-table DAO pattern.
+  - `core_words` — dictionary entries seeded from JSON. Conceptually read-only; the user can only update its user-state columns (`favorite`, `status`, `level`, `notes`, …) via the dual-table DAO pattern.
   - `user_words` — entries the learner added through the form. Fully mutable.
   - `words_view` — `UNION ALL` of both tables, exposed as the read-only `WordEntity` data class so the UI consumes a single model regardless of origin.
   - `user_profile` — single-row table for XP, streak, daily goal, display name and the dictionary seed version.
 - 🔌 **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
 - 💉 **Hilt DI graph** wiring `AppDatabase`, both DAOs (`WordDao`, `UserProfileDao`), `JsonLoader`, `WordMapper`, the new `DictionarySeeder` and the seed routine.
-- 🔁 **Four versioned migrations** that keep every previous install alive:
+- 🔁 **Five versioned migrations** that keep every previous install alive:
   - `MIGRATION_1_2` — adds the `user_profile` table.
   - `MIGRATION_2_3` — recreates `words` with `AUTOINCREMENT` ids.
   - `MIGRATION_3_4` — splits `words` into `core_words` + `user_words` + `words_view`.
   - `MIGRATION_4_5` — adds the `coreDictionaryVersion` column for versioned seeding.
+  - `MIGRATION_5_6` — replaces the boolean `learned` column with a tri-state `status` enum and adds a `level: Int` to both word tables.
 - 🌱 **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumps `CORE_DICTIONARY_VERSION` in code trigger an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - 🧠 **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) ready for the Progress screen to consume.
 - 🧭 **Bottom navigation shell** with four tabs: Progress · Games · Test · Words.
@@ -54,15 +55,18 @@ A Duolingo-inspired vocabulary app with streak tracking, XP/level progression, m
 - 🏷 **Read-only defaults** — `core_words` rows show a `📖 Dictionary` badge and have no edit/delete affordances; `user_words` rows show an `✏️ Mine` badge plus edit/delete icons. The `WordListViewModel` re-checks `isUserAdded()` before any delete so the invariant holds even if the UI regresses.
 - 📋 **Rich expandable cards** — each card collapses by default to the header + badges and expands in place (with smooth animation and per-card state persisted via `rememberSaveable`) to reveal pronunciation, verb forms, examples with CEFR badges, synonyms, antonyms, tags and category.
 - 🔢 **Live tab counts** — every tab in the Words screen shows the number of words matching its filter (`Regular (10)`, `Irregular (12)`, `Vocabulary (42)`, `Mine (N)`).
+- 🟢 **Tri-state learning progress** — every word carries a `LearningStatus` (`NOT_LEARNED` / `ALMOST` / `LEARNED`) with a dedicated status menu button on every card. Picking a status persists immediately via the dual-table DAO.
+- 🎚 **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once.
+- 🧮 **Wired Progress screen** — `ProgressViewModel` exposes `profile`, `stats`, `level / xpIntoLevel / xpRequired`, `dailyXp` (estimated from today's reviews) and a per-difficulty "Your path" breakdown sourced live from Room.
+- 🎮 **Word Match Verbs mini-game** — tap a level, the app loads the eligible verbs (`source = 'core'`, `level = N`, `forms != null`, `status != LEARNED`), asks one of three random conjugations per word, generates two plausible distractors via `DistractorGenerator` (vowel swaps + phonetically close consonants), shows ✓ / ✗ feedback, auto-advances after 1.5 s, and finishes with a results panel that lists every missed word with the right answer.
 
 ### Planned
 
-- 🔁 **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 5).
-- 🧮 **ProgressScreen wired to real data** — XP, level, streak and counters from `UserProfileDao` + `WordDao.observeProgressStats` (Phase 5).
-- 🎮 **Mini-game implementations** (Word Match, Speed Quiz, Listening, …) (Phase 6).
-- ⚙️ **User settings** — theme mode, daily goal editor, reminder time (Phase 5).
-- ☁️ **Cloud sync / backup** (Phase 7).
-- 🔎 **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 5).
+- 🔁 **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7).
+- 🎮 **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7).
+- ⚙️ **User settings** — theme mode, daily goal editor, reminder time, profile name (Phase 7).
+- 🔎 **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7).
+- ☁️ **Cloud sync / backup** (Phase 8).
 
 ---
 
@@ -73,6 +77,9 @@ A Duolingo-inspired vocabulary app with streak tracking, XP/level progression, m
 | Progress | Games | Test | Words |
 | :------: | :---: | :--: | :---: |
 |   _TBD_  | _TBD_ | _TBD_ | _TBD_ |
+
+> Word Match Verbs is reachable from **Games → Word Match** and
+> walks through `Level Select → Branded Loading → Verb / 3 Options → ✓/✗ → Results`.
 
 ---
 
@@ -140,10 +147,24 @@ English Vault follows a clean **offline-first** pipeline plus an MVVM-flavoured 
    └──────────┬──────────┘
               │  collectAsState
               ▼
-   ┌─────────────────────┐
-   │       ui/words      │   WordListScreen + WordFormScreen
-   │   Compose UI        │   + components/WordCard (expand /
-   └─────────────────────┘   collapse, badges, all sections)
+┌─────────────────────┐
+    │       ui/words      │   WordListScreen + WordFormScreen
+    │   Compose UI        │   + components/WordCard (expand /
+    └─────────────────────┘   collapse, badges, all sections)
+
+    ┌─────────────────────┐
+    │   ui/games/wordmatch │   Word Match Verbs mini-game
+    │                     │   WordMatchLevel / Game / EndContent
+    └─────────────────────┘
+                                ▲
+                                │ reads core verbs (level + status)
+                                │
+    ┌─────────────────────┐      │
+    │  data/database       │─────┘
+    │   WordDao           │  getCoreWordsForGame(level)
+    │   observeProgressStats(now)
+    │   setStatus(id, status)  (dual-table)
+    └─────────────────────┘
 ```
 
 Key principles:
@@ -151,9 +172,10 @@ Key principles:
 - **DTO ↔ Entity separation**: `WordDto` mirrors JSON; `CoreWordEntity` / `UserWordEntity` are the Room aggregates; `WordEntity` is the read-only view that unifies them. The mapper keeps DTO ↔ entity in sync.
 - **Two tables, one view**: writes explicitly target `core_words` or `user_words`; reads always target `words_view`. The view's `source` literal (`'core'` / `'user'`) is what `isUserAdded()` checks, so the rest of the app stays source-agnostic.
 - **Independent id sequences**: each table has its own `AUTOINCREMENT`. The JSON id is never carried into Room, so future JSON updates can never collide with user-added ids.
-- **Dual-table update pattern**: state-mutating DAO methods (`setLearned`, `setFavorite`, …) cannot be expressed as a single `UPDATE words` because there is no unified table. They are implemented as default methods that fan out into two `@Query` calls — one per underlying table. Because the two sequences are independent, only the table that actually holds the id touches a row; the other is a no-op.
+- **Dual-table update pattern**: state-mutating DAO methods (`setStatus`, `setFavorite`, …) cannot be expressed as a single `UPDATE words` because there is no unified table. They are implemented as default methods that fan out into two `@Query` calls — one per underlying table. Because the two sequences are independent, only the table that actually holds the id touches a row; the other is a no-op.
 - **Reactive data flow**: DAO queries expose `Flow<…>`; ViewModels turn them into `StateFlow`; Compose collects with `collectAsState`.
 - **Single source of truth for state**: the Room database. Compose observes; mutations go through the ViewModel.
+- **Game flow isolation**: mini-game VMs (`WordMatchVerbsViewModel`, etc.) live in their own scoped composables; their `LaunchedEffect(level)` patterns rely on the level being passed as a navigation argument so cross-screen state pollution cannot hang the loading screen.
 - **Domain rules live in the VM**: `WordListViewModel.deleteWord` re-checks `isUserAdded()` so the read-only defaults invariant holds even if a stale dialog slips through.
 - **Hilt singletons**: `AppDatabase`, `JsonLoader`, `WordMapper`, `DictionarySeeder` are application-scoped.
 - **Type safety**: enums (`Difficulty`) replace free-form strings as soon as data crosses the JSON boundary.
@@ -191,34 +213,47 @@ EnglishVault/
             │   └── ui/
             │       ├── app/MainScaffold.kt          ← bottom nav + NavHost
             │       ├── components/                  ← AppBottomBar, PrimaryButton, SectionHeader
-            │       ├── games/GamesScreen.kt
+            │       ├── games/
+            │       │   ├── GamesScreen.kt
+            │       │   └── wordmatch/               ← Word Match Verbs mini-game
+            │       │       ├── WordMatchLevelScreen.kt
+            │       │       ├── WordMatchGameScreen.kt
+            │       │       ├── WordMatchEndScreen.kt   (WordMatchEndContent composable)
+            │       │       ├── model/
+            │       │       │   ├── WordMatchQuestion.kt
+            │       │       │   └── WordMatchGameState.kt
+            │       │       ├── util/DistractorGenerator.kt
+            │       │       └── viewmodel/WordMatchVerbsViewModel.kt
             │       ├── navigation/                  ← Destination + BottomNavItem
-            │       ├── progress/ProgressScreen.kt   (still mocked; data ready in v5)
+            │       ├── progress/
+            │       │   ├── ProgressScreen.kt         ← wired to Room via VM
+            │       │   └── viewmodel/ProgressViewModel.kt
             │       ├── test/TestScreen.kt
             │       ├── theme/                       ← Duolingo-blue palette
             │       └── words/
             │           ├── WordListScreen.kt        ← tabs + counts + expandable cards
-            │           ├── WordFormScreen.kt        ← onSave emits WordEntity
-            │           ├── components/WordCard.kt   ← rich, expandable
+            │           ├── WordFormScreen.kt        ← loads existing word on edit
+            │           ├── components/WordCard.kt   ← rich, expandable, status menu
             │           └── viewmodel/WordListViewModel.kt   ← @HiltViewModel
             └── data/
                 ├── database/
-                │   ├── AppDatabase.kt               (v5)
-                │   ├── Migrations.kt                ← 4 migrations (1→2, 2→3, 3→4, 4→5)
+                │   ├── AppDatabase.kt               (v6)
+                │   ├── Migrations.kt                ← 5 migrations (1→2, 2→3, 3→4, 4→5, 5→6)
                 │   ├── UserLevel.kt                 ← XP/Level pure math
                 │   ├── dao/
-                │   │   ├── WordDao.kt                ← dual-table updates
+                │   │   ├── WordDao.kt                ← dual-table updates, game queries
                 │   │   └── UserProfileDao.kt
                 │   ├── entities/
-                │   │   ├── CoreWordEntity.kt         ← @Entity(core_words)
-                │   │   ├── UserWordEntity.kt         ← @Entity(user_words)
+                │   │   ├── CoreWordEntity.kt         ← @Entity(core_words), status + level
+                │   │   ├── UserWordEntity.kt         ← @Entity(user_words), status + level
                 │   │   ├── WordEntity.kt             ← @DatabaseView(words_view)
+                │   │   ├── LearningStatus.kt         ← enum: NOT_LEARNED / ALMOST / LEARNED
                 │   │   ├── WordMappers.kt            ← toUserEntity() / toCoreEntity()
                 │   │   ├── UserProfileEntity.kt
                 │   │   └── ProgressStats.kt
                 │   └── converters/                  ← 5 type converters
                 ├── json/
-                │   ├── dto/WordDto.kt
+                │   ├── dto/WordDto.kt               ← +level field
                 │   └── loader/JsonLoader.kt
                 ├── mapper/WordMapper.kt
                 └── seed/DictionarySeeder.kt          ← versioned re-seed
@@ -292,15 +327,52 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 3      | ✅ Done    | Split `words` into `core_words` + `user_words` + `words_view` · `@DatabaseView` |
 | 4      | ✅ Done    | Rich expandable `WordCard` · Dictionary / Mine badges · tab counts · richer JSON |
 | 4.5    | ✅ Done    | Versioned seed (`DictionarySeeder`, `CORE_DICTIONARY_VERSION`, `MIGRATION_4_5`) |
-| 5      | 📋 Planned | Wire ProgressScreen · SRS review scheduling · settings UI · search + filters   |
-| 6      | 📋 Planned | Mini-game implementations (Word Match, Speed Quiz, Listening, …)                |
-| 7      | 📋 Planned | Cloud sync, user accounts, multi-device                                        |
+| 5      | ✅ Done    | Progress screen wired · tri-state `LearningStatus` · word `level` field · real edit flow |
+| 5.5    | ✅ Done    | Edit form loads from Room · preserves `id` for `OnConflictStrategy.REPLACE`     |
+| 6      | ✅ Done    | Word Match Verbs mini-game · `DistractorGenerator` · branded loading screen    |
+| 7      | 📋 Planned | SRS review scheduling · settings UI · search + filters · other mini-games       |
+| 8      | 📋 Planned | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## 📝 Changelog
 
-### Phase 4.5 — Versioned seed (current)
+### Phase 6 — Word Match Verbs mini-game (current)
+
+- ➕ `ui/games/wordmatch/` package — level selector, game screen, in-place end-content composable, model, util, and ViewModel for the first playable mini-game.
+- ➕ `DistractorGenerator` — single-character substitution that prefers vowel swaps (`a↔e↔i↔o↔u`) and falls back to phonetically close consonants (`b↔p↔v`, `d↔t`, `g↔c↔k`, `f↔v`, `s↔z`, `m↔n`, `l↔r`) to produce plausible misspellings.
+- ➕ `WordDao.getCoreWordsForGame(level)` + `maxCoreLevel()` — filtered query for game-eligible verbs (`source='core'`, `forms != null`, `status != 'LEARNED'`, `level = :level`).
+- ➕ `WordMatchAskType` enum + `correctAnswer(word)` that resolves the right conjugation from `forms`.
+- ➕ `WordMatchGameState` sealed class with `Loading`, `Empty`, `InProgress`, `Finished` sub-states, the latter carrying the error breakdown.
+- ➕ `WordMatchVerbsViewModel` — `@HiltViewModel` that builds questions, accumulates errors, and exposes `startGame(level)`, `submitAnswer(picked)`, `acknowledgeAnswer()`.
+- ➕ `WordMatchLevelScreen` — grid 2×N of level cards with the count of eligible verbs; disabled when the count is 0.
+- ➕ `WordMatchGameScreen(level: Int)` — accepts the level via nav arg, kicks off `startGame(level)` from `LaunchedEffect`, renders the question and three option cards with ✓/✗ feedback that auto-advances after 1.5 s.
+- ➕ `WordMatchEndContent` — score card, "Words you missed" list, "Play again" / "Back to games" actions; rendered in place inside the game screen so the same VM survives the transition.
+- ➕ Branded loading / empty panel — full-screen `Brush.verticalGradient` in the primary blue (`#1CB0F6`) with a centred `CircularProgressIndicator` so the user never sees a plain "Loading…" flash.
+- 🔁 `Destination.WordMatchEnd` removed; the results UI now lives inside the play destination so there is no cross-VM state to share.
+- ➕ New strings: `game_wordmatch_*` (title, prompts, score format, errors, perfect, loading).
+
+### Phase 5.5 — Real edit flow
+
+- 🔁 `WordFormScreen` now loads the existing word from Room when `wordId` is non-null, replacing the previous hard-coded "Hello" / "Practice" mockup.
+- ➕ `WordDao.getUserWordById(id)` — one-shot lookup scoped to `source = 'user'`.
+- ➕ `WordListViewModel.loadWordForEdit(id)` and `updateUserWord(word)`.
+- 🔁 `toUserEntity(preserveId: Boolean = false)` — keeps the source id when editing so `OnConflictStrategy.REPLACE` updates the same row instead of inserting a duplicate.
+- 🔁 `MainScaffold` routes `onSave` to `updateUserWord` when `effectiveId != null`, otherwise `addUserWord`.
+
+### Phase 5 — Progress screen, tri-state status, word levels
+
+- ➕ `LearningStatus` enum (`NOT_LEARNED` / `ALMOST` / `LEARNED`) replaces the legacy `learned: Boolean` column on both word tables.
+- ➕ `level: Int` column on `CoreWordEntity`, `UserWordEntity` and `WordEntity` (view) — independent from `Difficulty` and used to gate mini-game availability.
+- ➕ `MIGRATION_5_6` — recreates both word tables, translates `learned → status`, defaults `level = 1`, drops the legacy column.
+- ➕ `WordDao.setStatusCore` / `setStatusUser` (dual-table pattern); the rest of the DAO queries now compare against `status` literals.
+- ➕ `WordDto.level`; `DictionarySeeder.CORE_DICTIONARY_VERSION = 3`; the JSON now distributes the 68 entries across level 1 (34) and level 2 (34).
+- ➕ `WordCard` gains a `StatusMenuButton` (`DropdownMenu` with three options) plus a `LevelChip`; both render on every card (core and user).
+- ➕ `WordFormScreen` exposes a numeric `level` field with input sanitisation.
+- ➕ `ProgressViewModel` (`@HiltViewModel`) exposes `profile`, `stats`, `xp` (`level + xpIntoLevel + xpRequired + nextLevel`), `dailyXp` (estimated from today's reviews via `countReviewsSinceFlow`), and `units` aggregated by `Difficulty` for the "Your path" list.
+- 🔁 `ProgressScreen` rewritten to consume the VM end-to-end — greeting with `profile.name`, streak, level/exp card, daily goal %, per-difficulty progress rows.
+
+### Phase 4.5 — Versioned seed
 
 - ➕ `data/seed/DictionarySeeder.kt` — `@Singleton` that compares `CORE_DICTIONARY_VERSION = 2` against `UserProfileEntity.coreDictionaryVersion` and re-imports the JSON when the bundled version is newer. Exposes `seedIfNeeded()` for the bootstrap and `forceReseed()` for future debug flows.
 - ➕ `UserProfileEntity.coreDictionaryVersion: Int = 0` field.

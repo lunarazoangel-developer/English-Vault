@@ -29,10 +29,10 @@ import androidx.room.DatabaseView
  * shared constant guarantees they stay in sync.
  */
 const val WORDS_VIEW_BODY: String =
-    "SELECT 'core' AS source, id, word, translation, type, regular, forms, pronunciation, category, synonyms, antonyms, examples, tags, difficulty, favorite, learned, notes, reviewCount, lastReview, nextReview, customDifficulty\n" +
+    "SELECT 'core' AS source, id, word, translation, type, regular, forms, pronunciation, category, synonyms, antonyms, examples, tags, difficulty, status, level, favorite, notes, reviewCount, lastReview, nextReview, customDifficulty\n" +
         "        FROM core_words\n" +
         "        UNION ALL\n" +
-        "        SELECT 'user' AS source, id, word, translation, type, regular, forms, pronunciation, category, synonyms, antonyms, examples, tags, difficulty, favorite, learned, notes, reviewCount, lastReview, nextReview, customDifficulty\n" +
+        "        SELECT 'user' AS source, id, word, translation, type, regular, forms, pronunciation, category, synonyms, antonyms, examples, tags, difficulty, status, level, favorite, notes, reviewCount, lastReview, nextReview, customDifficulty\n" +
         "        FROM user_words"
 // endregion
 
@@ -76,8 +76,18 @@ data class WordEntity(
     val examples: List<Example>?,
     val tags: List<String>?,
     val difficulty: Difficulty,
+    /**
+     * Tri-state learning progress. Promoted by the user through the
+     * status button on each [WordCard] and stored on either underlying
+     * table as TEXT.
+     */
+    val status: LearningStatus = LearningStatus.NOT_LEARNED,
+    /**
+     * Progression bucket. Independent from [difficulty]; controls
+     * when the word becomes available in mini-games.
+     */
+    val level: Int = 1,
     val favorite: Boolean = false,
-    val learned: Boolean = false,
     val notes: String = "",
     val reviewCount: Int = 0,
     val lastReview: Long? = null,

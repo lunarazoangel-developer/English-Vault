@@ -3,9 +3,9 @@ package com.example.englishvault.ui.navigation
 /**
  * Sealed hierarchy describing every navigation destination in the app.
  *
- * Phase 2 keeps navigation intentionally simple: four bottom-bar entries
- * plus a Word form destination for the Add/Edit flow. Routes are built
- * once and reused by [NavHost] and the bottom bar to stay in sync.
+ * Phase 6 keeps navigation intentionally simple: four bottom-bar
+ * entries plus the Word CRUD flow and the Word Match Verbs
+ * mini-game flow.
  */
 sealed class Destination(val route: String) {
 
@@ -22,6 +22,19 @@ sealed class Destination(val route: String) {
         fun buildRoute(wordId: Int? = null): String =
             if (wordId == null) "words/form?wordId=-1"
             else "words/form?wordId=$wordId"
+    }
+    // endregion
+
+    // region: Word Match Verbs mini-game
+    /** Level selector. */
+    data object WordMatchLevel : Destination("games/wordmatch/level")
+
+    /** Active game. Carries the chosen level in the route. The
+     *  finished state is rendered in place inside this same
+     *  destination, so there is no separate "end" route. */
+    data object WordMatchPlay : Destination("games/wordmatch/play?level={level}") {
+        const val ARG_LEVEL: String = "level"
+        fun buildRoute(level: Int): String = "games/wordmatch/play?level=$level"
     }
     // endregion
 

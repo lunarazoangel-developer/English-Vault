@@ -11,9 +11,9 @@ import androidx.room.PrimaryKey
  * immutable from the user's perspective — the Words screen hides
  * edit/delete controls for them and the DAO never exposes a
  * `deleteCoreWord` operation. The user state columns
- * ([favorite], [learned], [notes], [reviewCount], [lastReview],
+ * ([favorite], [status], [notes], [reviewCount], [lastReview],
  * [nextReview], [customDifficulty]) are still updatable so the
- * learner can mark a core word as learned or favourite.
+ * learner can mark a core word as learned, almost, etc.
  *
  * Schema parity with [UserWordEntity] is intentional: the
  * `words_view` UNIONs both tables into a single read model and
@@ -41,8 +41,19 @@ data class CoreWordEntity(
     val examples: List<Example>?,
     val tags: List<String>?,
     val difficulty: Difficulty,
+    /**
+     * Tri-state learning progress. Defaults to [LearningStatus.NOT_LEARNED]
+     * for freshly seeded rows; promoted manually by the user through
+     * the status button on each [WordCard].
+     */
+    val status: LearningStatus = LearningStatus.NOT_LEARNED,
+    /**
+     * Progression bucket the word belongs to. Independent from
+     * [difficulty]: this gates when the word becomes available
+     * inside mini-games.
+     */
+    val level: Int = 1,
     val favorite: Boolean = false,
-    val learned: Boolean = false,
     val notes: String = "",
     val reviewCount: Int = 0,
     val lastReview: Long? = null,

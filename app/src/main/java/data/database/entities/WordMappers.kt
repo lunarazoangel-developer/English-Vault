@@ -12,20 +12,29 @@ package data.database.entities
 
 // region: WordEntity → UserWordEntity
 /**
- * Converts a [WordEntity] coming from the view into a fresh
- * [UserWordEntity] ready to be inserted via `WordDao.insertUserWord`.
+ * Converts a [WordEntity] coming from the view into a [UserWordEntity]
+ * ready to be persisted via `WordDao.insertUserWord`.
  *
  * The `source` column is dropped because it is a view-projected
- * literal, and `id` is forced to `0` so SQLite's AUTOINCREMENT
- * sequence assigns the next free value in the `user_words` table.
- * All user-state columns are preserved so the caller's `favorite`,
- * `learned`, `notes`, `reviewCount`, `lastReview`, `nextReview` and
- * `customDifficulty` are not lost in translation.
+ * literal. The id defaults to `0` so SQLite's AUTOINCREMENT sequence
+ * assigns the next free value in the `user_words` table — callers
+ * passing a new word should leave the default in place.
  *
+ * When [preserveId] is `true` (used by the edit flow), the original
+ * id is kept so `OnConflictStrategy.REPLACE` updates the existing
+ * row instead of inserting a new one.
+ *
+ * All user-state columns (`status`, `level`, `favorite`, `notes`,
+ * `reviewCount`, `lastReview`, `nextReview`, `customDifficulty`) are
+ * preserved so the caller's progress is not lost in translation.
+ *
+ * @param preserveId When `true`, keep the source entity's id; when
+ *   `false` (the default), reset it to `0` so AUTOINCREMENT assigns a
+ *   fresh value.
  * @return A [UserWordEntity] ready for persistence.
  */
-fun WordEntity.toUserEntity(): UserWordEntity = UserWordEntity(
-    id = 0,
+fun WordEntity.toUserEntity(preserveId: Boolean = false): UserWordEntity = UserWordEntity(
+    id = if (preserveId) id else 0,
     word = word,
     translation = translation,
     type = type,
@@ -38,8 +47,9 @@ fun WordEntity.toUserEntity(): UserWordEntity = UserWordEntity(
     examples = examples,
     tags = tags,
     difficulty = difficulty,
+    status = status,
+    level = level,
     favorite = favorite,
-    learned = learned,
     notes = notes,
     reviewCount = reviewCount,
     lastReview = lastReview,
@@ -74,8 +84,9 @@ fun WordEntity.toCoreEntity(): CoreWordEntity = CoreWordEntity(
     examples = examples,
     tags = tags,
     difficulty = difficulty,
+    status = status,
+    level = level,
     favorite = favorite,
-    learned = learned,
     notes = notes,
     reviewCount = reviewCount,
     lastReview = lastReview,

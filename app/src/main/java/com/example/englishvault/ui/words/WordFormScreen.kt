@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -29,6 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,29 +38,37 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.components.PrimaryButton
+import com.example.englishvault.ui.words.viewmodel.WordListViewModel
 import data.database.entities.Difficulty
 import data.database.entities.WordEntity
 
 /**
- * Word form screen — used for both creating a new word and editing an
- * existing one.
+ * Word form screen — used for both creating a new word and editing
+ * an existing one.
  *
- * Phase 2.5:
- *  - The form is still largely visual: typing into the fields updates
- *    local state only.
- *  - The Save callback now receives a fully built [WordEntity] (with
- *    id=0 by default and default user-owned flags) so the parent can
- *    persist it via [com.example.englishvault.ui.words.viewmodel.WordListViewModel].
- *  - When [wordId] is non-null the form pre-fills from the existing row.
- *    Edit is currently visual (no persistence), as agreed for Phase 2.5.
+ * Phase 5.5:
+ *  - The form injects [WordListViewModel] (shared with the Words
+ *    list via Hilt's navigation-scoped graph) and loads the row
+ *    referenced by [wordId] on first composition. The pre-fill
+ *    replaces the legacy hard-coded mockup data.
+ *  - When saving, the original id is preserved so the edit path
+ *    updates the existing row via `OnConflictStrategy.REPLACE`
+ *    instead of inserting a duplicate.
+ *  - The form still surfaces every field that [WordEntity] persists,
+ *    including the `level` integer used to bucket the word into a
+ *    progression tier.
  *
- * @param wordId Optional id of the word being edited. `null` means "new".
+ * @param wordId Optional id of the word being edited. `null` (or a
+ *   negative value) means "new".
  * @param onBack Called when the user taps the back arrow.
- * @param onSave Called when the user taps Save. Receives the assembled
- *   [WordEntity] ready to be inserted by the caller.
+ * @param onSave Called when the user taps Save. The parent typically
+ *   routes to [WordListViewModel.addUserWord] or
+ *   [WordListViewModel.updateUserWord] depending on [wordId].
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -66,29 +76,52 @@ fun WordFormScreen(
     wordId: Int?,
     onBack: () -> Unit,
     onSave: (WordEntity) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: WordListViewModel = hiltViewModel()
 ) {
-    // region: Pre-filled mock values when editing — Phase 3 will source them from Room
-    val initial = remember(wordId) {
-        if (wordId == null || wordId < 0) {
-            WordFormState()
-        } else {
-            when (wordId) {
-                1 -> WordFormState("Hello", "Hola", "interjection", FormDifficulty.EASY, "")
-                2 -> WordFormState("Practice", "Practicar", "verb", FormDifficulty.MEDIUM, "Use it daily.")
-                else -> WordFormState()
-            }
+    val isEdit = wordId != null && wordId >= 0
+
+    // region: Load existing word when editing
+    var loadedWord by remember { mutableStateOf<WordEntity?>(null) }
+    var hasLoaded by remember { mutableStateOf(false) }
+
+    LaunchedEffect(wordId) {
+        if (isEdit) {
+            loadedWord = viewModel.loadWordForEdit(wordId!!)
         }
+        hasLoaded = true
     }
     // endregion
 
-    var word by remember { mutableStateOf(initial.word) }
-    var translation by remember { mutableStateOf(initial.translation) }
-    var type by remember { mutableStateOf(initial.type) }
-    var difficulty by remember { mutableStateOf(initial.difficulty) }
-    var notes by remember { mutableStateOf(initial.notes) }
+    // region: Pre-fill state derived from the loaded word
+    // Re-key the remembered state on `loadedWord` so a fresh edit
+    // re-initialises every field when the user navigates between
+    // different word ids.
+    val initial = remember(loadedWord) {
+        val loaded = loadedWord
+        if (loaded != null) {
+            WordFormState(
+                word = loaded.word,
+                translation = loaded.translation,
+                type = loaded.type,
+                difficulty = loaded.difficulty.toFormDifficulty(),
+                level = loaded.level,
+                notes = loaded.notes
+            )
+        } else {
+            WordFormState()
+        }
+    }
 
-    val titleRes = if (wordId == null || wordId < 0) R.string.form_title_new else R.string.form_title_edit
+    var word by remember(loadedWord) { mutableStateOf(initial.word) }
+    var translation by remember(loadedWord) { mutableStateOf(initial.translation) }
+    var type by remember(loadedWord) { mutableStateOf(initial.type) }
+    var difficulty by remember(loadedWord) { mutableStateOf(initial.difficulty) }
+    var levelText by remember(loadedWord) { mutableStateOf(initial.level.toString()) }
+    var notes by remember(loadedWord) { mutableStateOf(initial.notes) }
+    // endregion
+
+    val titleRes = if (isEdit) R.string.form_title_edit else R.string.form_title_new
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
@@ -183,6 +216,21 @@ fun WordFormScreen(
             }
 
             OutlinedTextField(
+                value = levelText,
+                onValueChange = { input ->
+                    // Allow only positive integers to keep the level sane.
+                    if (input.isEmpty() || input.all { it.isDigit() }) {
+                        levelText = input
+                    }
+                },
+                label = { Text(stringResource(id = R.string.form_field_level)) },
+                singleLine = true,
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(12.dp)
+            )
+
+            OutlinedTextField(
                 value = notes,
                 onValueChange = { notes = it },
                 label = { Text(stringResource(id = R.string.form_field_notes)) },
@@ -197,37 +245,48 @@ fun WordFormScreen(
             PrimaryButton(
                 text = stringResource(id = R.string.form_save),
                 onClick = {
+                    val parsedLevel = levelText.toIntOrNull()?.coerceAtLeast(1) ?: 1
+                    val original = loadedWord
                     onSave(
                         WordEntity(
-                            // id = 0 so the ViewModel's `toUserEntity`
-                            // conversion hands a fresh AUTOINCREMENT slot
-                            // to SQLite when persisting the row.
-                            id = 0,
+                            // Preserve the original id when editing so
+                            // the insert call updates the same row via
+                            // `OnConflictStrategy.REPLACE`. New words
+                            // default to 0 which lets AUTOINCREMENT
+                            // assign the next free value.
+                            id = original?.id ?: 0,
                             word = word,
                             translation = translation,
                             type = type,
-                            regular = null,
-                            forms = null,
-                            pronunciation = null,
-                            category = null,
-                            synonyms = null,
-                            antonyms = null,
-                            examples = null,
-                            tags = null,
+                            regular = original?.regular,
+                            forms = original?.forms,
+                            pronunciation = original?.pronunciation,
+                            category = original?.category,
+                            synonyms = original?.synonyms,
+                            antonyms = original?.antonyms,
+                            examples = original?.examples,
+                            tags = original?.tags,
                             difficulty = difficulty.toEntityDifficulty(),
+                            level = parsedLevel,
+                            // Preserve the tri-state progress and any
+                            // user-owned counters when editing; default
+                            // to NOT_LEARNED + zero counters for new
+                            // words.
+                            status = original?.status
+                                ?: data.database.entities.LearningStatus.NOT_LEARNED,
                             // Persist as user-added so the row shows up
                             // in the Mine tab and exposes edit/delete.
                             source = WordEntity.SOURCE_USER,
-                            favorite = false,
-                            learned = false,
+                            favorite = original?.favorite ?: false,
                             notes = notes,
-                            reviewCount = 0,
-                            lastReview = null,
-                            nextReview = null,
-                            customDifficulty = null
+                            reviewCount = original?.reviewCount ?: 0,
+                            lastReview = original?.lastReview,
+                            nextReview = original?.nextReview,
+                            customDifficulty = original?.customDifficulty
                         )
                     )
-                }
+                },
+                enabled = hasLoaded
             )
 
             AssistChip(
@@ -244,12 +303,13 @@ fun WordFormScreen(
     }
 }
 
-/** Local-only state for the word form mockup. */
+/** Local-only state for the word form. */
 private data class WordFormState(
     val word: String = "",
     val translation: String = "",
     val type: String = "",
     val difficulty: FormDifficulty = FormDifficulty.EASY,
+    val level: Int = 1,
     val notes: String = ""
 )
 
@@ -265,4 +325,11 @@ private enum class FormDifficulty(val labelRes: Int) {
         MEDIUM -> Difficulty.MEDIUM
         HARD -> Difficulty.HARD
     }
+}
+
+/** Maps the Room-backed [Difficulty] enum back into the form-facing [FormDifficulty]. */
+private fun Difficulty.toFormDifficulty(): FormDifficulty = when (this) {
+    Difficulty.EASY -> FormDifficulty.EASY
+    Difficulty.MEDIUM -> FormDifficulty.MEDIUM
+    Difficulty.HARD -> FormDifficulty.HARD
 }

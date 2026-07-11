@@ -14,6 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.englishvault.ui.components.AppBottomBar
 import com.example.englishvault.ui.games.GamesScreen
+import com.example.englishvault.ui.games.wordmatch.WordMatchGameScreen
+import com.example.englishvault.ui.games.wordmatch.WordMatchLevelScreen
 import com.example.englishvault.ui.navigation.Destination
 import com.example.englishvault.ui.progress.ProgressScreen
 import com.example.englishvault.ui.test.TestScreen
@@ -30,6 +32,13 @@ import com.example.englishvault.ui.words.viewmodel.WordListViewModel
  *  - the list reflects the Room-backed data set, and
  *  - the form's Save callback persists the new word into Room through
  *    the same VM instance.
+ *
+ * Phase 6: the Word Match Verbs mini-game is reachable from
+ * [GamesScreen] and walks the user through
+ * `WordMatchLevel → WordMatchPlay → WordMatchEnd`. The play and end
+ * screens share the same VM scoped to that navigation entry so the
+ * end screen can read the results without serialising them into the
+ * route.
  */
 @Composable
 fun MainScaffold(modifier: Modifier = Modifier) {
@@ -58,7 +67,11 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                 ProgressScreen()
             }
             composable(Destination.Games.route) {
-                GamesScreen()
+                GamesScreen(
+                    onOpenWordMatch = {
+                        navController.navigate(Destination.WordMatchLevel.route)
+                    }
+                )
             }
             composable(Destination.Test.route) {
                 TestScreen()
@@ -96,8 +109,48 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                     wordId = effectiveId,
                     onBack = { navController.popBackStack() },
                     onSave = { word ->
-                        viewModel.addUserWord(word)
+                        // Route to insert vs update based on whether the
+                        // form was opened in edit mode. The form itself
+                        // decides whether the id is preserved.
+                        if (effectiveId != null) {
+                            viewModel.updateUserWord(word)
+                        } else {
+                            viewModel.addUserWord(word)
+                        }
                         navController.popBackStack()
+                    }
+                )
+            }
+            // endregion
+
+            // region: Word Match Verbs mini-game
+            composable(Destination.WordMatchLevel.route) {
+                WordMatchLevelScreen(
+                    onBack = { navController.popBackStack() },
+                    onLevelChosen = { level ->
+                        navController.navigate(Destination.WordMatchPlay.buildRoute(level))
+                    }
+                )
+            }
+            composable(
+                route = Destination.WordMatchPlay.route,
+                arguments = listOf(
+                    navArgument(Destination.WordMatchPlay.ARG_LEVEL) {
+                        type = NavType.IntType
+                        defaultValue = 1
+                    }
+                )
+            ) { backStackEntry ->
+                val level = backStackEntry.arguments
+                    ?.getInt(Destination.WordMatchPlay.ARG_LEVEL) ?: 1
+                WordMatchGameScreen(
+                    level = level,
+                    onBack = { navController.popBackStack() },
+                    onExitToGames = {
+                        navController.popBackStack(
+                            route = Destination.Games.route,
+                            inclusive = false
+                        )
                     }
                 )
             }

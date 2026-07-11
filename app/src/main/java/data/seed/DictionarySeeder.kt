@@ -83,7 +83,10 @@ class DictionarySeeder @Inject constructor(
          * History:
          *  - 1 — implicit, 10 entries (never explicitly tracked).
          *  - 2 — 68 entries with rich examples / categories / tags.
+         *  - 3 — same 68 entries, now distributed across two
+         *    `level` buckets (34 in level 1, 34 in level 2) for the
+         *    upcoming mini-games progression mechanic.
          */
-        const val CORE_DICTIONARY_VERSION: Int = 2
+        const val CORE_DICTIONARY_VERSION: Int = 3
     }
 }

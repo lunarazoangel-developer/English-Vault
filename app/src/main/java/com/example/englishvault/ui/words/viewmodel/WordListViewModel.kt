@@ -3,6 +3,7 @@ package com.example.englishvault.ui.words.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import data.database.dao.WordDao
+import data.database.entities.LearningStatus
 import data.database.entities.WordEntity
 import data.database.entities.isUserAdded
 import data.database.entities.toUserEntity
@@ -64,18 +65,49 @@ class WordListViewModel @Inject constructor(
     }
 
     /**
-     * Persists a brand-new user-owned word. The [WordEntity] coming from
-     * the form (or from any other UI source) is converted into a
-     * [data.database.entities.UserWordEntity] via [toUserEntity], which
-     * drops the view-projected `source` column and resets `id` to `0`
-     * so SQLite's AUTOINCREMENT assigns the next free value in the
-     * `user_words` sequence.
+     * Promotes the [LearningStatus] of any word (core or user-added)
+     * through the dual-table DAO. Available on every card so the
+     * learner can mark progress even on dictionary entries.
+     */
+    fun setStatus(id: Int, status: LearningStatus) {
+        viewModelScope.launch { wordDao.setStatus(id, status) }
+    }
+
+    /**
+     * Inserts a brand-new user-owned word. The [WordEntity] coming
+     * from the form (or any other UI source) is converted into a
+     * [data.database.entities.UserWordEntity] via [toUserEntity] with
+     * `preserveId = false`, which resets `id` to `0` so SQLite's
+     * AUTOINCREMENT assigns the next free value in the `user_words`
+     * sequence.
      */
     fun addUserWord(word: WordEntity) {
         viewModelScope.launch {
-            wordDao.insertUserWord(word.toUserEntity())
+            wordDao.insertUserWord(word.toUserEntity(preserveId = false))
         }
     }
+
+    /**
+     * Updates an existing user-owned word. The id from [word] is
+     * preserved so `OnConflictStrategy.REPLACE` overwrites the row
+     * instead of inserting a duplicate.
+     */
+    fun updateUserWord(word: WordEntity) {
+        viewModelScope.launch {
+            wordDao.insertUserWord(word.toUserEntity(preserveId = true))
+        }
+    }
+    // endregion
+
+    // region: One-shot lookups
+    /**
+     * Loads a single user-added word by id for the edit form.
+     *
+     * @param id Primary key in the `user_words` table.
+     * @return The persisted [WordEntity] or `null` when no user-added
+     *   row matches.
+     */
+    suspend fun loadWordForEdit(id: Int): WordEntity? = wordDao.getUserWordById(id)
     // endregion
 
     companion object {

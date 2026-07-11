@@ -36,8 +36,18 @@ data class UserWordEntity(
     val examples: List<Example>?,
     val tags: List<String>?,
     val difficulty: Difficulty,
+    /**
+     * Tri-state learning progress. Defaults to [LearningStatus.NOT_LEARNED]
+     * for fresh user-added rows; promoted manually by the user through
+     * the status button on each [WordCard].
+     */
+    val status: LearningStatus = LearningStatus.NOT_LEARNED,
+    /**
+     * Progression bucket the word belongs to. Independent from
+     * [difficulty]. Defaults to `1`; can be edited through the form.
+     */
+    val level: Int = 1,
     val favorite: Boolean = false,
-    val learned: Boolean = false,
     val notes: String = "",
     val reviewCount: Int = 0,
     val lastReview: Long? = null,

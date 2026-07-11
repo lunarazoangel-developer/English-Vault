@@ -23,45 +23,53 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.components.SectionHeader
+import com.example.englishvault.ui.progress.viewmodel.ProgressViewModel
+import com.example.englishvault.ui.progress.viewmodel.UnitProgress
+import com.example.englishvault.ui.progress.viewmodel.XpProgress
+import data.database.entities.UserProfileEntity
 
 /**
  * Progress dashboard.
  *
- * Visual mockup of the user's learning progress. Data is hardcoded because
- * Phase 2 focuses on UI; later phases will plug in real values from Room
- * and/or a ViewModel.
+ * Wires the screen to Room through [ProgressViewModel]. Every counter
+ * and derived value (level, XP slice, daily goal, streak, units by
+ * difficulty) is a [kotlinx.coroutines.flow.StateFlow] so the UI
+ * updates reactively when the underlying tables change.
  *
  * Layout:
- *  - Streak banner (top, amber accent)
- *  - XP / level card
+ *  - Greeting + header (`Your progress`)
+ *  - Streak banner (amber accent)
+ *  - XP card with the current level number and a progress bar to the
+ *    next level (visual only — the actual XP-reward mechanic is not
+ *    wired yet).
  *  - Daily goal card with circular progress
- *  - "Your path" list of units with linear progress bars
+ *  - "Your path" list of three buckets (EASY / MEDIUM / HARD) with
+ *    learned / total counts and linear progress bars.
  */
 @Composable
-fun ProgressScreen(modifier: Modifier = Modifier) {
-    // region: Mock state — replace with real data in Phase 3
-    val streakDays = 7
-    val level = 4
-    val currentXp = 320
-    val xpForNextLevel = 500
-    val dailyXp = 35
-    val dailyGoalXp = 50
-    val units = listOf(
-        Triple("Basics", 0.9f, "12 / 13"),
-        Triple("Travel", 0.55f, "8 / 15"),
-        Triple("Food & drinks", 0.2f, "3 / 14"),
-        Triple("Family", 0f, "0 / 11"),
-        Triple("Work", 0f, "0 / 10")
-    )
-    // endregion
+fun ProgressScreen(
+    modifier: Modifier = Modifier,
+    viewModel: ProgressViewModel = hiltViewModel()
+) {
+    val profile by viewModel.profile.collectAsState()
+    val stats by viewModel.stats.collectAsState()
+    val xp by viewModel.xp.collectAsState()
+    val dailyXp by viewModel.dailyXp.collectAsState()
+    val units by viewModel.units.collectAsState()
+
+    val greetingName = profile?.name
+        ?: stringResource(id = R.string.progress_default_name)
 
     Column(
         modifier = modifier
@@ -72,21 +80,37 @@ fun ProgressScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
+            text = stringResource(id = R.string.progress_greeting, greetingName),
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Text(
             text = stringResource(id = R.string.progress_title),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold
         )
 
-        StreakBanner(days = streakDays)
+        StreakBanner(days = profile?.streakDays ?: 0)
 
-        XpCard(level = level, currentXp = currentXp, xpForNextLevel = xpForNextLevel)
+        XpCard(
+            xp = xp,
+            totalWords = stats.totalWords,
+            learnedWords = stats.learnedWords
+        )
 
-        DailyGoalCard(dailyXp = dailyXp, dailyGoalXp = dailyGoalXp)
+        DailyGoalCard(
+            dailyXp = dailyXp,
+            dailyGoalXp = profile?.dailyGoalXp ?: UserProfileEntity.DEFAULT_DAILY_GOAL
+        )
 
         SectionHeader(title = stringResource(id = R.string.progress_your_path))
 
-        units.forEach { (name, progress, label) ->
-            UnitProgressRow(name = name, progress = progress, label = label)
+        if (units.isEmpty()) {
+            EmptyPathPlaceholder()
+        } else {
+            units.forEach { unit ->
+                UnitProgressRow(unit = unit)
+            }
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -132,8 +156,17 @@ private fun StreakBanner(days: Int) {
     }
 }
 
+/**
+ * XP card with the level number as the headline and a linear bar that
+ * shows progress into the next level. The numbers above the bar are
+ * the absolute slice ("320 / 500 XP to Level 5").
+ */
 @Composable
-private fun XpCard(level: Int, currentXp: Int, xpForNextLevel: Int) {
+private fun XpCard(
+    xp: XpProgress,
+    totalWords: Int,
+    learnedWords: Int
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
@@ -143,20 +176,28 @@ private fun XpCard(level: Int, currentXp: Int, xpForNextLevel: Int) {
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             Text(
-                text = stringResource(id = R.string.progress_xp_label, level),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
+                text = stringResource(id = R.string.progress_xp_label, xp.level),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.ExtraBold,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = stringResource(id = R.string.progress_xp_subtitle, currentXp, xpForNextLevel),
+                text = stringResource(
+                    id = R.string.progress_xp_to_next,
+                    xp.xpIntoLevel,
+                    xp.xpRequired,
+                    xp.nextLevel
+                ),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
             Spacer(modifier = Modifier.height(12.dp))
             LinearProgressIndicator(
-                progress = { currentXp.toFloat() / xpForNextLevel },
+                progress = {
+                    if (xp.xpRequired <= 0) 0f
+                    else (xp.xpIntoLevel.toFloat() / xp.xpRequired).coerceIn(0f, 1f)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(12.dp)
@@ -164,6 +205,12 @@ private fun XpCard(level: Int, currentXp: Int, xpForNextLevel: Int) {
                 color = MaterialTheme.colorScheme.primary,
                 trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.15f),
                 strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            Text(
+                text = "$learnedWords / $totalWords words learned",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.75f)
             )
         }
     }
@@ -183,6 +230,8 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
             modifier = Modifier.padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            val progressFraction = if (dailyGoalXp <= 0) 0f
+                else (dailyXp.toFloat() / dailyGoalXp).coerceIn(0f, 1f)
             Box(
                 modifier = Modifier
                     .size(72.dp)
@@ -191,7 +240,7 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "${(dailyXp.toFloat() / dailyGoalXp * 100).toInt()}%",
+                    text = "${(progressFraction * 100).toInt()}%",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSecondary
@@ -205,7 +254,11 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = stringResource(id = R.string.progress_daily_goal_value, dailyXp, dailyGoalXp),
+                    text = stringResource(
+                        id = R.string.progress_daily_goal_value,
+                        dailyXp,
+                        dailyGoalXp
+                    ),
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
@@ -214,7 +267,9 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
 }
 
 @Composable
-private fun UnitProgressRow(name: String, progress: Float, label: String) {
+private fun UnitProgressRow(unit: UnitProgress) {
+    val progress = if (unit.total <= 0) 0f
+        else (unit.learned.toFloat() / unit.total).coerceIn(0f, 1f)
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -228,12 +283,16 @@ private fun UnitProgressRow(name: String, progress: Float, label: String) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = name,
+                    text = unit.name,
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = label,
+                    text = stringResource(
+                        id = R.string.progress_unit_format,
+                        unit.learned,
+                        unit.total
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -249,5 +308,23 @@ private fun UnitProgressRow(name: String, progress: Float, label: String) {
                 trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
             )
         }
+    }
+}
+
+@Composable
+private fun EmptyPathPlaceholder() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        )
+    ) {
+        Text(
+            text = "Add words to start tracking your path.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(16.dp)
+        )
     }
 }

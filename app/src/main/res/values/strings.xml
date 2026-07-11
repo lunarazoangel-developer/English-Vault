@@ -10,12 +10,16 @@
 
     <!-- region: Progress screen -->
     <string name="progress_title">Your progress</string>
+    <string name="progress_greeting">Hello, %1$s</string>
+    <string name="progress_default_name">Player</string>
     <string name="progress_streak_days">%1$d day streak</string>
     <string name="progress_xp_label">Level %1$d</string>
     <string name="progress_xp_subtitle">%1$d / %2$d XP</string>
+    <string name="progress_xp_to_next">%1$d / %2$d XP to Level %3$d</string>
     <string name="progress_daily_goal">Daily goal</string>
     <string name="progress_daily_goal_value">%1$d / %2$d XP</string>
     <string name="progress_your_path">Your path</string>
+    <string name="progress_unit_format">%1$d / %2$d</string>
     <!-- endregion -->
 
     <!-- region: Games screen -->
@@ -80,6 +84,14 @@
     <string name="words_section_category">Category</string>
     <!-- endregion -->
 
+    <!-- region: Word card status -->
+    <string name="words_status_not_learned">Not learned</string>
+    <string name="words_status_almost">Almost</string>
+    <string name="words_status_learned">Learned</string>
+    <string name="words_status_change">Change learning status</string>
+    <string name="words_level_badge">Level %1$d</string>
+    <!-- endregion -->
+
     <!-- region: Verb forms labels -->
     <string name="words_forms_base">Base</string>
     <string name="words_forms_third">3rd person</string>
@@ -100,9 +112,36 @@
     <string name="form_field_translation">Translation</string>
     <string name="form_field_type">Type</string>
     <string name="form_field_difficulty">Difficulty</string>
+    <string name="form_field_level">Level</string>
     <string name="form_field_notes">Notes (optional)</string>
     <string name="form_save">Save</string>
     <string name="form_cancel">Cancel</string>
     <string name="form_back">Back</string>
+    <!-- endregion -->
+
+    <!-- region: Word Match Verbs mini-game -->
+    <string name="game_wordmatch_title">Word Match Verbs</string>
+    <string name="game_wordmatch_choose_level">Choose a level</string>
+    <string name="game_wordmatch_level_format">Level %1$d</string>
+    <string name="game_wordmatch_to_play_format">%1$d to play</string>
+    <string name="game_wordmatch_header">Level %1$d</string>
+    <string name="game_wordmatch_progress">%1$d / %2$d</string>
+    <string name="game_wordmatch_ask_past_simple">What is the past simple?</string>
+    <string name="game_wordmatch_ask_third_person">What is the third person?</string>
+    <string name="game_wordmatch_ask_past_participle">What is the past participle?</string>
+    <string name="game_wordmatch_correct">Correct!</string>
+    <string name="game_wordmatch_wrong_short">Wrong</string>
+    <string name="game_wordmatch_no_words">No verbs to practice at this level — come back after learning more!</string>
+    <string name="game_wordmatch_game_over">Game over!</string>
+    <string name="game_wordmatch_score_format">%1$d / %2$d correct</string>
+    <string name="game_wordmatch_errors_title">Words you missed</string>
+    <string name="game_wordmatch_perfect">Perfect score — nothing to review!</string>
+    <string name="game_wordmatch_error_user_format">You picked: %1$s</string>
+    <string name="game_wordmatch_error_correct_format">Correct: %1$s</string>
+    <string name="game_wordmatch_play_again">Play again</string>
+    <string name="game_wordmatch_back_games">Back to games</string>
+    <string name="game_wordmatch_back">Back</string>
+    <string name="game_wordmatch_loading_title">Word Match Verbs</string>
+    <string name="game_wordmatch_loading_subtitle">Loading your words…</string>
     <!-- endregion -->
 </resources>

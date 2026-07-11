@@ -257,4 +257,109 @@ object Migrations {
             )
         }
     }
+
+    /**
+     * Phase 5.5 — replaces the legacy `learned: Boolean` column with
+     * a tri-state `status: LearningStatus` and adds a `level: Int`
+     * column to both `core_words` and `user_words`.
+     *
+     * SQLite < 3.35 does not support `DROP COLUMN`, so each table is
+     * recreated from scratch: a `_new` table with the target schema
+     * is created, rows are copied with the boolean `learned` value
+     * translated into the [LearningStatus] literal, the legacy table
+     * is dropped, and the new one is renamed back. `level` defaults
+     * to `1` for every existing row.
+     *
+     * The `words_view` is dropped and recreated from
+     * [data.database.entities.WORDS_VIEW_BODY], which now projects
+     * `status` and `level` instead of `learned`.
+     *
+     * User-added words in `user_words` are preserved with their
+     * `favorite`, `notes`, `reviewCount`, etc. The boolean `learned`
+     * field is translated as follows: `true → 'LEARNED'`,
+     * `false → 'NOT_LEARNED'`. The intermediate `ALMOST` state is
+     * unreachable from the v5 schema, so any pre-existing row that
+     * was marked `learned = false` simply starts at `NOT_LEARNED`.
+     */
+    val MIGRATION_5_6: Migration = object : Migration(5, 6) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            migrateWordsTable(
+                db = db,
+                legacyTable = "core_words",
+                newTable = "core_words_new"
+            )
+            migrateWordsTable(
+                db = db,
+                legacyTable = "user_words",
+                newTable = "user_words_new"
+            )
+
+            // Recreate the unified read view against the new schema.
+            db.execSQL("DROP VIEW IF EXISTS `words_view`")
+            db.execSQL("CREATE VIEW `words_view` AS $WORDS_VIEW_BODY")
+        }
+
+        /**
+         * Recreates a single words table with the v6 schema. The
+         * SQL is shared between `core_words` and `user_words` because
+         * both tables have the same column layout.
+         */
+        private fun migrateWordsTable(
+            db: SupportSQLiteDatabase,
+            legacyTable: String,
+            newTable: String
+        ) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `$newTable` (
+                    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    `word` TEXT NOT NULL,
+                    `translation` TEXT NOT NULL,
+                    `type` TEXT NOT NULL,
+                    `regular` INTEGER,
+                    `forms` TEXT,
+                    `pronunciation` TEXT,
+                    `category` TEXT,
+                    `synonyms` TEXT,
+                    `antonyms` TEXT,
+                    `examples` TEXT,
+                    `tags` TEXT,
+                    `difficulty` TEXT NOT NULL,
+                    `status` TEXT NOT NULL DEFAULT 'NOT_LEARNED',
+                    `level` INTEGER NOT NULL DEFAULT 1,
+                    `favorite` INTEGER NOT NULL,
+                    `notes` TEXT NOT NULL,
+                    `reviewCount` INTEGER NOT NULL,
+                    `lastReview` INTEGER,
+                    `nextReview` INTEGER,
+                    `customDifficulty` TEXT
+                )
+                """.trimIndent()
+            )
+
+            db.execSQL(
+                """
+                INSERT INTO `$newTable` (
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`, `status`, `level`,
+                    `favorite`, `notes`, `reviewCount`, `lastReview`,
+                    `nextReview`, `customDifficulty`
+                )
+                SELECT
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`,
+                    CASE WHEN `learned` = 1 THEN 'LEARNED' ELSE 'NOT_LEARNED' END,
+                    1,
+                    `favorite`, `notes`, `reviewCount`, `lastReview`,
+                    `nextReview`, `customDifficulty`
+                FROM `$legacyTable`
+                """.trimIndent()
+            )
+
+            db.execSQL("DROP TABLE `$legacyTable`")
+            db.execSQL("ALTER TABLE `$newTable` RENAME TO `$legacyTable`")
+        }
+    }
 }

@@ -20,19 +20,28 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.RadioButtonUnchecked
+import androidx.compose.material.icons.outlined.CompareArrows
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -44,6 +53,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
 import data.database.entities.Difficulty
+import data.database.entities.LearningStatus
 import data.database.entities.WordEntity
 import data.database.entities.isUserAdded
 
@@ -73,12 +83,16 @@ import data.database.entities.isUserAdded
  *   the row is not user-owned.
  * @param onDelete Called when the trash icon is tapped. Ignored when
  *   the row is not user-owned.
+ * @param onCycleStatus Called when the user picks a new
+ *   [LearningStatus] from the status menu button. Available on every
+ *   card, including dictionary entries.
  */
 @Composable
 fun WordCard(
     entity: WordEntity,
     expanded: Boolean,
     onToggle: () -> Unit,
+    onCycleStatus: (LearningStatus) -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
@@ -89,6 +103,8 @@ fun WordCard(
         type = entity.type,
         difficulty = entity.difficulty.toCardDifficulty(),
         isUserAdded = entity.isUserAdded(),
+        status = entity.status,
+        level = entity.level,
         pronunciation = entity.pronunciation?.ipa,
         forms = entity.forms,
         examples = entity.examples,
@@ -98,6 +114,7 @@ fun WordCard(
         category = entity.category,
         expanded = expanded,
         onToggle = onToggle,
+        onCycleStatus = onCycleStatus,
         onEdit = onEdit,
         onDelete = onDelete,
         modifier = modifier
@@ -115,6 +132,8 @@ fun WordCard(
     type: String,
     difficulty: WordCardDifficulty,
     isUserAdded: Boolean,
+    status: LearningStatus,
+    level: Int,
     pronunciation: String?,
     forms: data.database.entities.Forms?,
     examples: List<data.database.entities.Example>?,
@@ -124,6 +143,7 @@ fun WordCard(
     category: List<String>?,
     expanded: Boolean,
     onToggle: () -> Unit,
+    onCycleStatus: (LearningStatus) -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
@@ -191,6 +211,11 @@ fun WordCard(
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
+                // Status button — available on every card (core and user).
+                StatusMenuButton(
+                    status = status,
+                    onPick = onCycleStatus
+                )
                 if (isUserAdded) {
                     IconButton(onClick = onEdit) {
                         Icon(
@@ -227,6 +252,7 @@ fun WordCard(
                 }
                 MetaChip(text = type)
                 DifficultyChip(difficulty = difficulty)
+                LevelChip(level = level)
             }
 
             // region: Expanded detail section
@@ -287,6 +313,128 @@ fun WordCard(
 }
 
 // region: Helpers
+
+/**
+ * Status menu button rendered on every card.
+ *
+ * The icon reflects the current [LearningStatus]; tap opens a
+ * [DropdownMenu] with the three options. Picking an item fires
+ * [onPick] and dismisses the menu.
+ */
+@Composable
+private fun StatusMenuButton(
+    status: LearningStatus,
+    onPick: (LearningStatus) -> Unit
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val icon = when (status) {
+        LearningStatus.NOT_LEARNED -> Icons.Filled.RadioButtonUnchecked
+        LearningStatus.ALMOST -> Icons.Outlined.CompareArrows
+        LearningStatus.LEARNED -> Icons.Filled.CheckCircle
+    }
+    val tint = when (status) {
+        LearningStatus.NOT_LEARNED -> MaterialTheme.colorScheme.onSurfaceVariant
+        LearningStatus.ALMOST -> MaterialTheme.colorScheme.tertiary
+        LearningStatus.LEARNED -> MaterialTheme.colorScheme.primary
+    }
+    Box {
+        IconButton(onClick = { expanded = true }) {
+            Icon(
+                imageVector = icon,
+                contentDescription = stringResource(id = R.string.words_status_change),
+                tint = tint
+            )
+        }
+        DropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            StatusMenuEntry(
+                status = LearningStatus.NOT_LEARNED,
+                selected = status == LearningStatus.NOT_LEARNED,
+                onClick = {
+                    onPick(LearningStatus.NOT_LEARNED)
+                    expanded = false
+                }
+            )
+            StatusMenuEntry(
+                status = LearningStatus.ALMOST,
+                selected = status == LearningStatus.ALMOST,
+                onClick = {
+                    onPick(LearningStatus.ALMOST)
+                    expanded = false
+                }
+            )
+            StatusMenuEntry(
+                status = LearningStatus.LEARNED,
+                selected = status == LearningStatus.LEARNED,
+                onClick = {
+                    onPick(LearningStatus.LEARNED)
+                    expanded = false
+                }
+            )
+        }
+    }
+}
+
+/**
+ * Single row inside the status dropdown. Shows the status icon plus
+ * the localised label and bolds the entry that matches the current
+ * selection so the user can see what's already set.
+ */
+@Composable
+private fun StatusMenuEntry(
+    status: LearningStatus,
+    selected: Boolean,
+    onClick: () -> Unit
+) {
+    val icon = when (status) {
+        LearningStatus.NOT_LEARNED -> Icons.Filled.RadioButtonUnchecked
+        LearningStatus.ALMOST -> Icons.Outlined.CompareArrows
+        LearningStatus.LEARNED -> Icons.Filled.CheckCircle
+    }
+    val tint = when (status) {
+        LearningStatus.NOT_LEARNED -> MaterialTheme.colorScheme.onSurfaceVariant
+        LearningStatus.ALMOST -> MaterialTheme.colorScheme.tertiary
+        LearningStatus.LEARNED -> MaterialTheme.colorScheme.primary
+    }
+    val labelRes = when (status) {
+        LearningStatus.NOT_LEARNED -> R.string.words_status_not_learned
+        LearningStatus.ALMOST -> R.string.words_status_almost
+        LearningStatus.LEARNED -> R.string.words_status_learned
+    }
+    DropdownMenuItem(
+        text = {
+            Text(
+                text = stringResource(id = labelRes),
+                fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
+            )
+        },
+        leadingIcon = {
+            Icon(imageVector = icon, contentDescription = null, tint = tint)
+        },
+        onClick = onClick
+    )
+}
+
+/** Compact pill that surfaces the progression bucket the word belongs to. */
+@Composable
+private fun LevelChip(level: Int) {
+    AssistChip(
+        onClick = {},
+        label = {
+            Text(
+                text = stringResource(id = R.string.words_level_badge, level),
+                style = MaterialTheme.typography.labelSmall,
+                fontWeight = FontWeight.SemiBold
+            )
+        },
+        colors = AssistChipDefaults.assistChipColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            labelColor = MaterialTheme.colorScheme.onPrimaryContainer
+        )
+    )
+}
 
 /**
  * Rounded source badge used to communicate whether a row comes from

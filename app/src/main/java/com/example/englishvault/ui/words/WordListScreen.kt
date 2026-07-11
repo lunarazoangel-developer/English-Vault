@@ -143,6 +143,9 @@ fun WordListScreen(
                         onToggle = {
                             expandedIds[word.id] = expandedIds[word.id] != true
                         },
+                        onCycleStatus = { status ->
+                            viewModel.setStatus(word.id, status)
+                        },
                         onEdit = { onEditWord(word.id) },
                         onDelete = { wordPendingDelete = word }
                     )

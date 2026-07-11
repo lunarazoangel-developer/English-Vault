@@ -41,7 +41,14 @@ data class WordDto(
     @SerializedName("antonyms") val antonyms: List<String>?,
     @SerializedName("examples") val examples: List<ExampleDto>?,
     @SerializedName("tags") val tags: List<String>?,
-    @SerializedName("difficulty") val difficulty: String?
+    @SerializedName("difficulty") val difficulty: String?,
+    /**
+     * Progression bucket the word belongs to. Independent from
+     * [difficulty]: this controls when the word becomes available
+     * inside mini-games so the learner does not face the full
+     * dictionary at once.
+     */
+    @SerializedName("level") val level: Int = 1
 )
 // endregion
 

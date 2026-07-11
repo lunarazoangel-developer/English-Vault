@@ -1,1425 +1,3222 @@
 [
-  {
-    "word": "walk",
-    "translation": "caminar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "walk",
-      "thirdPerson": "walks",
-      "presentParticiple": "walking",
-      "pastSimple": "walked",
-      "pastParticiple": "walked"
+    {
+        "word":  "walk",
+        "translation":  "caminar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "walk",
+                      "thirdPerson":  "walks",
+                      "presentParticiple":  "walking",
+                      "pastSimple":  "walked",
+                      "pastParticiple":  "walked"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/wɔːk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "movement"
+                     ],
+        "synonyms":  [
+                         "stroll",
+                         "march"
+                     ],
+        "antonyms":  [
+                         "run",
+                         "stay"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She walked home yesterday.",
+                             "spanish":  "Ella caminó a casa ayer.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We walk every morning.",
+                             "spanish":  "Caminamos todas las mañanas.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "They have walked five miles today.",
+                             "spanish":  "Han caminado cinco millas hoy.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "exercise",
+                     "movement",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/wɔːk/", "audio": null },
-    "category": ["movement"],
-    "synonyms": ["stroll", "march"],
-    "antonyms": ["run", "stay"],
-    "examples": [
-      { "english": "She walked home yesterday.", "spanish": "Ella caminó a casa ayer.", "level": "A1" },
-      { "english": "We walk every morning.", "spanish": "Caminamos todas las mañanas.", "level": "A1" },
-      { "english": "They have walked five miles today.", "spanish": "Han caminado cinco millas hoy.", "level": "B1" }
-    ],
-    "tags": ["exercise", "movement", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "talk",
-    "translation": "hablar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "talk",
-      "thirdPerson": "talks",
-      "presentParticiple": "talking",
-      "pastSimple": "talked",
-      "pastParticiple": "talked"
+    {
+        "word":  "talk",
+        "translation":  "hablar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "talk",
+                      "thirdPerson":  "talks",
+                      "presentParticiple":  "talking",
+                      "pastSimple":  "talked",
+                      "pastParticiple":  "talked"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/tɔːk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication"
+                     ],
+        "synonyms":  [
+                         "speak",
+                         "chat"
+                     ],
+        "antonyms":  [
+                         "listen",
+                         "silence"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Let\u0027s talk after class.",
+                             "spanish":  "Hablemos después de clase.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She is talking to her friend.",
+                             "spanish":  "Ella está hablando con su amiga.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We talked for hours about the project.",
+                             "spanish":  "Hablamos durante horas sobre el proyecto.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "daily",
+                     "communication"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/tɔːk/", "audio": null },
-    "category": ["communication"],
-    "synonyms": ["speak", "chat"],
-    "antonyms": ["listen", "silence"],
-    "examples": [
-      { "english": "Let's talk after class.", "spanish": "Hablemos después de clase.", "level": "A1" },
-      { "english": "She is talking to her friend.", "spanish": "Ella está hablando con su amiga.", "level": "A1" },
-      { "english": "We talked for hours about the project.", "spanish": "Hablamos durante horas sobre el proyecto.", "level": "B1" }
-    ],
-    "tags": ["daily", "communication"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "play",
-    "translation": "jugar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "play",
-      "thirdPerson": "plays",
-      "presentParticiple": "playing",
-      "pastSimple": "played",
-      "pastParticiple": "played"
+    {
+        "word":  "play",
+        "translation":  "jugar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "play",
+                      "thirdPerson":  "plays",
+                      "presentParticiple":  "playing",
+                      "pastSimple":  "played",
+                      "pastParticiple":  "played"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/pleɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "leisure"
+                     ],
+        "synonyms":  [
+                         "game",
+                         "perform"
+                     ],
+        "antonyms":  [
+                         "rest",
+                         "stop"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The kids play in the park.",
+                             "spanish":  "Los niños juegan en el parque.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I played soccer yesterday.",
+                             "spanish":  "Jugué al fútbol ayer.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She is playing the piano beautifully.",
+                             "spanish":  "Ella está tocando el piano bellamente.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "leisure",
+                     "sport"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/pleɪ/", "audio": null },
-    "category": ["leisure"],
-    "synonyms": ["game", "perform"],
-    "antonyms": ["rest", "stop"],
-    "examples": [
-      { "english": "The kids play in the park.", "spanish": "Los niños juegan en el parque.", "level": "A1" },
-      { "english": "I played soccer yesterday.", "spanish": "Jugué al fútbol ayer.", "level": "A2" },
-      { "english": "She is playing the piano beautifully.", "spanish": "Ella está tocando el piano bellamente.", "level": "B1" }
-    ],
-    "tags": ["leisure", "sport"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "work",
-    "translation": "trabajar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "work",
-      "thirdPerson": "works",
-      "presentParticiple": "working",
-      "pastSimple": "worked",
-      "pastParticiple": "worked"
+    {
+        "word":  "work",
+        "translation":  "trabajar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "work",
+                      "thirdPerson":  "works",
+                      "presentParticiple":  "working",
+                      "pastSimple":  "worked",
+                      "pastParticiple":  "worked"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/wɜːrk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "job"
+                     ],
+        "synonyms":  [
+                         "labor",
+                         "function"
+                     ],
+        "antonyms":  [
+                         "rest",
+                         "idle"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I work from home.",
+                             "spanish":  "Trabajo desde casa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She worked late last night.",
+                             "spanish":  "Ella trabajó hasta tarde anoche.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have been working on this project for months.",
+                             "spanish":  "Han estado trabajando en este proyecto durante meses.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "job",
+                     "professional"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/wɜːrk/", "audio": null },
-    "category": ["job"],
-    "synonyms": ["labor", "function"],
-    "antonyms": ["rest", "idle"],
-    "examples": [
-      { "english": "I work from home.", "spanish": "Trabajo desde casa.", "level": "A2" },
-      { "english": "She worked late last night.", "spanish": "Ella trabajó hasta tarde anoche.", "level": "A2" },
-      { "english": "They have been working on this project for months.", "spanish": "Han estado trabajando en este proyecto durante meses.", "level": "B2" }
-    ],
-    "tags": ["job", "professional"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "go",
-    "translation": "ir",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "go",
-      "thirdPerson": "goes",
-      "presentParticiple": "going",
-      "pastSimple": "went",
-      "pastParticiple": "gone"
+    {
+        "word":  "go",
+        "translation":  "ir",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "go",
+                      "thirdPerson":  "goes",
+                      "presentParticiple":  "going",
+                      "pastSimple":  "went",
+                      "pastParticiple":  "gone"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/ɡoʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "movement",
+                         "common"
+                     ],
+        "synonyms":  [
+                         "travel",
+                         "move"
+                     ],
+        "antonyms":  [
+                         "stay",
+                         "stop"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I go to school every day.",
+                             "spanish":  "Voy a la escuela todos los días.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Let\u0027s go to the park.",
+                             "spanish":  "Vamos al parque.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She has gone home.",
+                             "spanish":  "Ella se ha ido a casa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They went to the cinema yesterday.",
+                             "spanish":  "Fueron al cine ayer.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "daily",
+                     "important",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/ɡoʊ/", "audio": null },
-    "category": ["movement", "common"],
-    "synonyms": ["travel", "move"],
-    "antonyms": ["stay", "stop"],
-    "examples": [
-      { "english": "I go to school every day.", "spanish": "Voy a la escuela todos los días.", "level": "A1" },
-      { "english": "Let's go to the park.", "spanish": "Vamos al parque.", "level": "A1" },
-      { "english": "She has gone home.", "spanish": "Ella se ha ido a casa.", "level": "A2" },
-      { "english": "They went to the cinema yesterday.", "spanish": "Fueron al cine ayer.", "level": "B1" }
-    ],
-    "tags": ["daily", "important", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "eat",
-    "translation": "comer",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "eat",
-      "thirdPerson": "eats",
-      "presentParticiple": "eating",
-      "pastSimple": "ate",
-      "pastParticiple": "eaten"
+    {
+        "word":  "eat",
+        "translation":  "comer",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "eat",
+                      "thirdPerson":  "eats",
+                      "presentParticiple":  "eating",
+                      "pastSimple":  "ate",
+                      "pastParticiple":  "eaten"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/iːt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "food"
+                     ],
+        "synonyms":  [
+                         "consume",
+                         "devour"
+                     ],
+        "antonyms":  [
+                         "fast"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "We ate pizza.",
+                             "spanish":  "Comimos pizza.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "He eats breakfast every day.",
+                             "spanish":  "Él desayuna todos los días.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "They have eaten all the cake.",
+                             "spanish":  "Se han comido todo el pastel.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "daily",
+                     "food"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/iːt/", "audio": null },
-    "category": ["food"],
-    "synonyms": ["consume", "devour"],
-    "antonyms": ["fast"],
-    "examples": [
-      { "english": "We ate pizza.", "spanish": "Comimos pizza.", "level": "A1" },
-      { "english": "He eats breakfast every day.", "spanish": "Él desayuna todos los días.", "level": "A1" },
-      { "english": "They have eaten all the cake.", "spanish": "Se han comido todo el pastel.", "level": "B1" }
-    ],
-    "tags": ["daily", "food"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "be",
-    "translation": "ser/estar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "be",
-      "thirdPerson": "is",
-      "presentParticiple": "being",
-      "pastSimple": "was/were",
-      "pastParticiple": "been"
+    {
+        "word":  "be",
+        "translation":  "ser/estar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "be",
+                      "thirdPerson":  "is",
+                      "presentParticiple":  "being",
+                      "pastSimple":  "was/were",
+                      "pastParticiple":  "been"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/biː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common",
+                         "core"
+                     ],
+        "synonyms":  [
+                         "exist"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am a student.",
+                             "spanish":  "Soy estudiante.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She was tired yesterday.",
+                             "spanish":  "Ella estaba cansada ayer.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have been friends for years.",
+                             "spanish":  "Han sido amigos durante años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "essential",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/biː/", "audio": null },
-    "category": ["common", "core"],
-    "synonyms": ["exist"],
-    "antonyms": [],
-    "examples": [
-      { "english": "I am a student.", "spanish": "Soy estudiante.", "level": "A1" },
-      { "english": "She was tired yesterday.", "spanish": "Ella estaba cansada ayer.", "level": "A2" },
-      { "english": "They have been friends for years.", "spanish": "Han sido amigos durante años.", "level": "B1" }
-    ],
-    "tags": ["essential", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "have",
-    "translation": "tener",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "have",
-      "thirdPerson": "has",
-      "presentParticiple": "having",
-      "pastSimple": "had",
-      "pastParticiple": "had"
+    {
+        "word":  "have",
+        "translation":  "tener",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "have",
+                      "thirdPerson":  "has",
+                      "presentParticiple":  "having",
+                      "pastSimple":  "had",
+                      "pastParticiple":  "had"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/hæv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common",
+                         "core"
+                     ],
+        "synonyms":  [
+                         "possess",
+                         "own"
+                     ],
+        "antonyms":  [
+                         "lack"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I have two cats.",
+                             "spanish":  "Tengo dos gatos.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She had breakfast at 8.",
+                             "spanish":  "Ella desayunó a las 8.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "We have had this car for ten years.",
+                             "spanish":  "Hemos tenido este coche durante diez años.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "essential",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/hæv/", "audio": null },
-    "category": ["common", "core"],
-    "synonyms": ["possess", "own"],
-    "antonyms": ["lack"],
-    "examples": [
-      { "english": "I have two cats.", "spanish": "Tengo dos gatos.", "level": "A1" },
-      { "english": "She had breakfast at 8.", "spanish": "Ella desayunó a las 8.", "level": "A2" },
-      { "english": "We have had this car for ten years.", "spanish": "Hemos tenido este coche durante diez años.", "level": "B2" }
-    ],
-    "tags": ["essential", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "run",
-    "translation": "correr",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "run",
-      "thirdPerson": "runs",
-      "presentParticiple": "running",
-      "pastSimple": "ran",
-      "pastParticiple": "run"
+    {
+        "word":  "run",
+        "translation":  "correr",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "run",
+                      "thirdPerson":  "runs",
+                      "presentParticiple":  "running",
+                      "pastSimple":  "ran",
+                      "pastParticiple":  "run"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/rʌn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "movement",
+                         "sport"
+                     ],
+        "synonyms":  [
+                         "jog",
+                         "sprint"
+                     ],
+        "antonyms":  [
+                         "walk",
+                         "stop"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "He runs every morning.",
+                             "spanish":  "Él corre todas las mañanas.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She ran a marathon last year.",
+                             "spanish":  "Ella corrió un maratón el año pasado.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "They have run out of milk.",
+                             "spanish":  "Se han quedado sin leche.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "sport",
+                     "movement",
+                     "exercise"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/rʌn/", "audio": null },
-    "category": ["movement", "sport"],
-    "synonyms": ["jog", "sprint"],
-    "antonyms": ["walk", "stop"],
-    "examples": [
-      { "english": "He runs every morning.", "spanish": "Él corre todas las mañanas.", "level": "A1" },
-      { "english": "She ran a marathon last year.", "spanish": "Ella corrió un maratón el año pasado.", "level": "B1" },
-      { "english": "They have run out of milk.", "spanish": "Se han quedado sin leche.", "level": "B2" }
-    ],
-    "tags": ["sport", "movement", "exercise"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "write",
-    "translation": "escribir",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "write",
-      "thirdPerson": "writes",
-      "presentParticiple": "writing",
-      "pastSimple": "wrote",
-      "pastParticiple": "written"
+    {
+        "word":  "write",
+        "translation":  "escribir",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "write",
+                      "thirdPerson":  "writes",
+                      "presentParticiple":  "writing",
+                      "pastSimple":  "wrote",
+                      "pastParticiple":  "written"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/raɪt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication"
+                     ],
+        "synonyms":  [
+                         "compose",
+                         "note"
+                     ],
+        "antonyms":  [
+                         "read",
+                         "erase"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I write in my journal every night.",
+                             "spanish":  "Escribo en mi diario cada noche.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She wrote a letter to her grandmother.",
+                             "spanish":  "Ella escribió una carta a su abuela.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has written three books so far.",
+                             "spanish":  "Él ha escrito tres libros hasta ahora.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "communication",
+                     "creative"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/raɪt/", "audio": null },
-    "category": ["communication"],
-    "synonyms": ["compose", "note"],
-    "antonyms": ["read", "erase"],
-    "examples": [
-      { "english": "I write in my journal every night.", "spanish": "Escribo en mi diario cada noche.", "level": "A2" },
-      { "english": "She wrote a letter to her grandmother.", "spanish": "Ella escribió una carta a su abuela.", "level": "A2" },
-      { "english": "He has written three books so far.", "spanish": "Él ha escrito tres libros hasta ahora.", "level": "B2" }
-    ],
-    "tags": ["communication", "creative"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "read",
-    "translation": "leer",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "read",
-      "thirdPerson": "reads",
-      "presentParticiple": "reading",
-      "pastSimple": "read",
-      "pastParticiple": "read"
+    {
+        "word":  "read",
+        "translation":  "leer",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "read",
+                      "thirdPerson":  "reads",
+                      "presentParticiple":  "reading",
+                      "pastSimple":  "read",
+                      "pastParticiple":  "read"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/riːd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication",
+                         "education"
+                     ],
+        "synonyms":  [
+                         "study",
+                         "scan"
+                     ],
+        "antonyms":  [
+                         "write"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I read every night before bed.",
+                             "spanish":  "Leo cada noche antes de dormir.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She read the entire book in one day.",
+                             "spanish":  "Leyó el libro entero en un día.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He has read that article already.",
+                             "spanish":  "Ya ha leído ese artículo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "education",
+                     "communication"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/riːd/", "audio": null },
-    "category": ["communication", "education"],
-    "synonyms": ["study", "scan"],
-    "antonyms": ["write"],
-    "examples": [
-      { "english": "I read every night before bed.", "spanish": "Leo cada noche antes de dormir.", "level": "A2" },
-      { "english": "She read the entire book in one day.", "spanish": "Leyó el libro entero en un día.", "level": "B1" },
-      { "english": "He has read that article already.", "spanish": "Ya ha leído ese artículo.", "level": "B1" }
-    ],
-    "tags": ["education", "communication"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "speak",
-    "translation": "hablar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "speak",
-      "thirdPerson": "speaks",
-      "presentParticiple": "speaking",
-      "pastSimple": "spoke",
-      "pastParticiple": "spoken"
+    {
+        "word":  "speak",
+        "translation":  "hablar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "speak",
+                      "thirdPerson":  "speaks",
+                      "presentParticiple":  "speaking",
+                      "pastSimple":  "spoke",
+                      "pastParticiple":  "spoken"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/spiːk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication"
+                     ],
+        "synonyms":  [
+                         "talk",
+                         "converse"
+                     ],
+        "antonyms":  [
+                         "listen",
+                         "silence"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She speaks three languages.",
+                             "spanish":  "Ella habla tres idiomas.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He spoke to the manager yesterday.",
+                             "spanish":  "Habló con el gerente ayer.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "We have spoken about this before.",
+                             "spanish":  "Hemos hablado de esto antes.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "communication",
+                     "language"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/spiːk/", "audio": null },
-    "category": ["communication"],
-    "synonyms": ["talk", "converse"],
-    "antonyms": ["listen", "silence"],
-    "examples": [
-      { "english": "She speaks three languages.", "spanish": "Ella habla tres idiomas.", "level": "A2" },
-      { "english": "He spoke to the manager yesterday.", "spanish": "Habló con el gerente ayer.", "level": "B1" },
-      { "english": "We have spoken about this before.", "spanish": "Hemos hablado de esto antes.", "level": "B2" }
-    ],
-    "tags": ["communication", "language"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "listen",
-    "translation": "escuchar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "listen",
-      "thirdPerson": "listens",
-      "presentParticiple": "listening",
-      "pastSimple": "listened",
-      "pastParticiple": "listened"
+    {
+        "word":  "listen",
+        "translation":  "escuchar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "listen",
+                      "thirdPerson":  "listens",
+                      "presentParticiple":  "listening",
+                      "pastSimple":  "listened",
+                      "pastParticiple":  "listened"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/ˈlɪsn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication"
+                     ],
+        "synonyms":  [
+                         "hear",
+                         "attend"
+                     ],
+        "antonyms":  [
+                         "ignore",
+                         "speak"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Listen to this song.",
+                             "spanish":  "Escucha esta canción.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She listened carefully to the lecture.",
+                             "spanish":  "Ella escuchó la conferencia con atención.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "We have been listening to the news all morning.",
+                             "spanish":  "Hemos estado escuchando las noticias toda la mañana.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "communication",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/ˈlɪsn/", "audio": null },
-    "category": ["communication"],
-    "synonyms": ["hear", "attend"],
-    "antonyms": ["ignore", "speak"],
-    "examples": [
-      { "english": "Listen to this song.", "spanish": "Escucha esta canción.", "level": "A1" },
-      { "english": "She listened carefully to the lecture.", "spanish": "Ella escuchó la conferencia con atención.", "level": "A2" },
-      { "english": "We have been listening to the news all morning.", "spanish": "Hemos estado escuchando las noticias toda la mañana.", "level": "B2" }
-    ],
-    "tags": ["communication", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "learn",
-    "translation": "aprender",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "learn",
-      "thirdPerson": "learns",
-      "presentParticiple": "learning",
-      "pastSimple": "learned",
-      "pastParticiple": "learned"
+    {
+        "word":  "learn",
+        "translation":  "aprender",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "learn",
+                      "thirdPerson":  "learns",
+                      "presentParticiple":  "learning",
+                      "pastSimple":  "learned",
+                      "pastParticiple":  "learned"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/lɜːrn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "education"
+                     ],
+        "synonyms":  [
+                         "study",
+                         "acquire"
+                     ],
+        "antonyms":  [
+                         "teach",
+                         "forget"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I learn English every day.",
+                             "spanish":  "Aprendo inglés cada día.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She learned to swim when she was six.",
+                             "spanish":  "Ella aprendió a nadar a los seis años.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have learned a lot this semester.",
+                             "spanish":  "Han aprendido mucho este semestre.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "education",
+                     "important"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/lɜːrn/", "audio": null },
-    "category": ["education"],
-    "synonyms": ["study", "acquire"],
-    "antonyms": ["teach", "forget"],
-    "examples": [
-      { "english": "I learn English every day.", "spanish": "Aprendo inglés cada día.", "level": "A1" },
-      { "english": "She learned to swim when she was six.", "spanish": "Ella aprendió a nadar a los seis años.", "level": "A2" },
-      { "english": "They have learned a lot this semester.", "spanish": "Han aprendido mucho este semestre.", "level": "B1" }
-    ],
-    "tags": ["education", "important"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "teach",
-    "translation": "enseñar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "teach",
-      "thirdPerson": "teaches",
-      "presentParticiple": "teaching",
-      "pastSimple": "taught",
-      "pastParticiple": "taught"
+    {
+        "word":  "teach",
+        "translation":  "enseñar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "teach",
+                      "thirdPerson":  "teaches",
+                      "presentParticiple":  "teaching",
+                      "pastSimple":  "taught",
+                      "pastParticiple":  "taught"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/tiːtʃ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "education"
+                     ],
+        "synonyms":  [
+                         "instruct",
+                         "educate"
+                     ],
+        "antonyms":  [
+                         "learn"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She teaches math at the high school.",
+                             "spanish":  "Ella enseña matemáticas en la escuela secundaria.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He taught me how to cook.",
+                             "spanish":  "Él me enseñó a cocinar.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have taught here for ten years.",
+                             "spanish":  "Han enseñado aquí durante diez años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "education",
+                     "job"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/tiːtʃ/", "audio": null },
-    "category": ["education"],
-    "synonyms": ["instruct", "educate"],
-    "antonyms": ["learn"],
-    "examples": [
-      { "english": "She teaches math at the high school.", "spanish": "Ella enseña matemáticas en la escuela secundaria.", "level": "A2" },
-      { "english": "He taught me how to cook.", "spanish": "Él me enseñó a cocinar.", "level": "A2" },
-      { "english": "They have taught here for ten years.", "spanish": "Han enseñado aquí durante diez años.", "level": "B1" }
-    ],
-    "tags": ["education", "job"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "make",
-    "translation": "hacer",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "make",
-      "thirdPerson": "makes",
-      "presentParticiple": "making",
-      "pastSimple": "made",
-      "pastParticiple": "made"
+    {
+        "word":  "make",
+        "translation":  "hacer",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "make",
+                      "thirdPerson":  "makes",
+                      "presentParticiple":  "making",
+                      "pastSimple":  "made",
+                      "pastParticiple":  "made"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/meɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common",
+                         "core"
+                     ],
+        "synonyms":  [
+                         "create",
+                         "produce"
+                     ],
+        "antonyms":  [
+                         "destroy",
+                         "break"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I make breakfast every morning.",
+                             "spanish":  "Hago el desayuno cada mañana.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She made a cake for his birthday.",
+                             "spanish":  "Ella hizo un pastel para su cumpleaños.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have made a great decision.",
+                             "spanish":  "Han tomado una gran decisión.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "essential"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/meɪk/", "audio": null },
-    "category": ["common", "core"],
-    "synonyms": ["create", "produce"],
-    "antonyms": ["destroy", "break"],
-    "examples": [
-      { "english": "I make breakfast every morning.", "spanish": "Hago el desayuno cada mañana.", "level": "A1" },
-      { "english": "She made a cake for his birthday.", "spanish": "Ella hizo un pastel para su cumpleaños.", "level": "A2" },
-      { "english": "They have made a great decision.", "spanish": "Han tomado una gran decisión.", "level": "B1" }
-    ],
-    "tags": ["common", "essential"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "take",
-    "translation": "tomar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "take",
-      "thirdPerson": "takes",
-      "presentParticiple": "taking",
-      "pastSimple": "took",
-      "pastParticiple": "taken"
+    {
+        "word":  "take",
+        "translation":  "tomar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "take",
+                      "thirdPerson":  "takes",
+                      "presentParticiple":  "taking",
+                      "pastSimple":  "took",
+                      "pastParticiple":  "taken"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/teɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common",
+                         "core"
+                     ],
+        "synonyms":  [
+                         "grab",
+                         "accept"
+                     ],
+        "antonyms":  [
+                         "give",
+                         "refuse"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Take a seat, please.",
+                             "spanish":  "Toma asiento, por favor.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She took the bus to work.",
+                             "spanish":  "Ella tomó el autobús al trabajo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has taken many photos today.",
+                             "spanish":  "Ha tomado muchas fotos hoy.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/teɪk/", "audio": null },
-    "category": ["common", "core"],
-    "synonyms": ["grab", "accept"],
-    "antonyms": ["give", "refuse"],
-    "examples": [
-      { "english": "Take a seat, please.", "spanish": "Toma asiento, por favor.", "level": "A1" },
-      { "english": "She took the bus to work.", "spanish": "Ella tomó el autobús al trabajo.", "level": "A2" },
-      { "english": "He has taken many photos today.", "spanish": "Ha tomado muchas fotos hoy.", "level": "B1" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "give",
-    "translation": "dar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "give",
-      "thirdPerson": "gives",
-      "presentParticiple": "giving",
-      "pastSimple": "gave",
-      "pastParticiple": "given"
+    {
+        "word":  "give",
+        "translation":  "dar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "give",
+                      "thirdPerson":  "gives",
+                      "presentParticiple":  "giving",
+                      "pastSimple":  "gave",
+                      "pastParticiple":  "given"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/ɡɪv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common",
+                         "core"
+                     ],
+        "synonyms":  [
+                         "donate",
+                         "offer"
+                     ],
+        "antonyms":  [
+                         "take",
+                         "receive"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Can you give me a hand?",
+                             "spanish":  "¿Me puedes dar una mano?",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She gave him a book for his birthday.",
+                             "spanish":  "Ella le dio un libro para su cumpleaños.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have given generously to the cause.",
+                             "spanish":  "Han dado generosamente a la causa.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "social"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/ɡɪv/", "audio": null },
-    "category": ["common", "core"],
-    "synonyms": ["donate", "offer"],
-    "antonyms": ["take", "receive"],
-    "examples": [
-      { "english": "Can you give me a hand?", "spanish": "¿Me puedes dar una mano?", "level": "A2" },
-      { "english": "She gave him a book for his birthday.", "spanish": "Ella le dio un libro para su cumpleaños.", "level": "A2" },
-      { "english": "They have given generously to the cause.", "spanish": "Han dado generosamente a la causa.", "level": "B2" }
-    ],
-    "tags": ["common", "social"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "see",
-    "translation": "ver",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "see",
-      "thirdPerson": "sees",
-      "presentParticiple": "seeing",
-      "pastSimple": "saw",
-      "pastParticiple": "seen"
+    {
+        "word":  "see",
+        "translation":  "ver",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "see",
+                      "thirdPerson":  "sees",
+                      "presentParticiple":  "seeing",
+                      "pastSimple":  "saw",
+                      "pastParticiple":  "seen"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/siː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "perception",
+                         "common"
+                     ],
+        "synonyms":  [
+                         "watch",
+                         "spot"
+                     ],
+        "antonyms":  [
+                         "miss"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I see you.",
+                             "spanish":  "Te veo.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She saw a beautiful bird.",
+                             "spanish":  "Ella vio un pájaro hermoso.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We have seen that movie twice.",
+                             "spanish":  "Hemos visto esa película dos veces.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "perception",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/siː/", "audio": null },
-    "category": ["perception", "common"],
-    "synonyms": ["watch", "spot"],
-    "antonyms": ["miss"],
-    "examples": [
-      { "english": "I see you.", "spanish": "Te veo.", "level": "A1" },
-      { "english": "She saw a beautiful bird.", "spanish": "Ella vio un pájaro hermoso.", "level": "A1" },
-      { "english": "We have seen that movie twice.", "spanish": "Hemos visto esa película dos veces.", "level": "B1" }
-    ],
-    "tags": ["perception", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "say",
-    "translation": "decir",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "say",
-      "thirdPerson": "says",
-      "presentParticiple": "saying",
-      "pastSimple": "said",
-      "pastParticiple": "said"
+    {
+        "word":  "say",
+        "translation":  "decir",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "say",
+                      "thirdPerson":  "says",
+                      "presentParticiple":  "saying",
+                      "pastSimple":  "said",
+                      "pastParticiple":  "said"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/seɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "communication"
+                     ],
+        "synonyms":  [
+                         "tell",
+                         "utter"
+                     ],
+        "antonyms":  [
+                         "silence"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "What did you say?",
+                             "spanish":  "¿Qué dijiste?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said she was tired.",
+                             "spanish":  "Ella dijo que estaba cansada.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has said nothing all morning.",
+                             "spanish":  "No ha dicho nada en toda la mañana.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "communication",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/seɪ/", "audio": null },
-    "category": ["communication"],
-    "synonyms": ["tell", "utter"],
-    "antonyms": ["silence"],
-    "examples": [
-      { "english": "What did you say?", "spanish": "¿Qué dijiste?", "level": "A1" },
-      { "english": "She said she was tired.", "spanish": "Ella dijo que estaba cansada.", "level": "A2" },
-      { "english": "He has said nothing all morning.", "spanish": "No ha dicho nada en toda la mañana.", "level": "B1" }
-    ],
-    "tags": ["communication", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "know",
-    "translation": "saber",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "know",
-      "thirdPerson": "knows",
-      "presentParticiple": "knowing",
-      "pastSimple": "knew",
-      "pastParticiple": "known"
+    {
+        "word":  "know",
+        "translation":  "saber",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "know",
+                      "thirdPerson":  "knows",
+                      "presentParticiple":  "knowing",
+                      "pastSimple":  "knew",
+                      "pastParticiple":  "known"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/noʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "cognition"
+                     ],
+        "synonyms":  [
+                         "understand",
+                         "realize"
+                     ],
+        "antonyms":  [
+                         "ignore"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I know the answer.",
+                             "spanish":  "Yo sé la respuesta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She knew him very well.",
+                             "spanish":  "Ella lo conocía muy bien.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have known each other since childhood.",
+                             "spanish":  "Se conocen desde la infancia.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "cognition",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/noʊ/", "audio": null },
-    "category": ["cognition"],
-    "synonyms": ["understand", "realize"],
-    "antonyms": ["ignore"],
-    "examples": [
-      { "english": "I know the answer.", "spanish": "Yo sé la respuesta.", "level": "A2" },
-      { "english": "She knew him very well.", "spanish": "Ella lo conocía muy bien.", "level": "A2" },
-      { "english": "They have known each other since childhood.", "spanish": "Se conocen desde la infancia.", "level": "B2" }
-    ],
-    "tags": ["cognition", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "think",
-    "translation": "pensar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "think",
-      "thirdPerson": "thinks",
-      "presentParticiple": "thinking",
-      "pastSimple": "thought",
-      "pastParticiple": "thought"
+    {
+        "word":  "think",
+        "translation":  "pensar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "think",
+                      "thirdPerson":  "thinks",
+                      "presentParticiple":  "thinking",
+                      "pastSimple":  "thought",
+                      "pastParticiple":  "thought"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/θɪŋk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "cognition"
+                     ],
+        "synonyms":  [
+                         "believe",
+                         "consider"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I think this is correct.",
+                             "spanish":  "Creo que esto es correcto.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She thought about the problem all day.",
+                             "spanish":  "Pensó en el problema todo el día.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "We have thought of a better solution.",
+                             "spanish":  "Hemos pensado en una mejor solución.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "cognition",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/θɪŋk/", "audio": null },
-    "category": ["cognition"],
-    "synonyms": ["believe", "consider"],
-    "antonyms": [],
-    "examples": [
-      { "english": "I think this is correct.", "spanish": "Creo que esto es correcto.", "level": "A2" },
-      { "english": "She thought about the problem all day.", "spanish": "Pensó en el problema todo el día.", "level": "B1" },
-      { "english": "We have thought of a better solution.", "spanish": "Hemos pensado en una mejor solución.", "level": "B2" }
-    ],
-    "tags": ["cognition", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "come",
-    "translation": "venir",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "come",
-      "thirdPerson": "comes",
-      "presentParticiple": "coming",
-      "pastSimple": "came",
-      "pastParticiple": "come"
+    {
+        "word":  "come",
+        "translation":  "venir",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "come",
+                      "thirdPerson":  "comes",
+                      "presentParticiple":  "coming",
+                      "pastSimple":  "came",
+                      "pastParticiple":  "come"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/kʌm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "movement"
+                     ],
+        "synonyms":  [
+                         "arrive",
+                         "approach"
+                     ],
+        "antonyms":  [
+                         "leave",
+                         "go"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Come here, please.",
+                             "spanish":  "Ven aquí, por favor.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She came to the party late.",
+                             "spanish":  "Ella vino a la fiesta tarde.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have come a long way.",
+                             "spanish":  "Han recorrido un largo camino.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "movement",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/kʌm/", "audio": null },
-    "category": ["movement"],
-    "synonyms": ["arrive", "approach"],
-    "antonyms": ["leave", "go"],
-    "examples": [
-      { "english": "Come here, please.", "spanish": "Ven aquí, por favor.", "level": "A1" },
-      { "english": "She came to the party late.", "spanish": "Ella vino a la fiesta tarde.", "level": "A2" },
-      { "english": "They have come a long way.", "spanish": "Han recorrido un largo camino.", "level": "B1" }
-    ],
-    "tags": ["movement", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "want",
-    "translation": "querer",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "want",
-      "thirdPerson": "wants",
-      "presentParticiple": "wanting",
-      "pastSimple": "wanted",
-      "pastParticiple": "wanted"
+    {
+        "word":  "want",
+        "translation":  "querer",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "want",
+                      "thirdPerson":  "wants",
+                      "presentParticiple":  "wanting",
+                      "pastSimple":  "wanted",
+                      "pastParticiple":  "wanted"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/wɒnt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "desire",
+                         "need"
+                     ],
+        "antonyms":  [
+                         "dislike"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I want some water.",
+                             "spanish":  "Quiero un poco de agua.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She wanted to leave early.",
+                             "spanish":  "Ella quería irse temprano.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have wanted this for years.",
+                             "spanish":  "Han querido esto durante años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/wɒnt/", "audio": null },
-    "category": ["common"],
-    "synonyms": ["desire", "need"],
-    "antonyms": ["dislike"],
-    "examples": [
-      { "english": "I want some water.", "spanish": "Quiero un poco de agua.", "level": "A1" },
-      { "english": "She wanted to leave early.", "spanish": "Ella quería irse temprano.", "level": "A2" },
-      { "english": "They have wanted this for years.", "spanish": "Han querido esto durante años.", "level": "B1" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "need",
-    "translation": "necesitar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "need",
-      "thirdPerson": "needs",
-      "presentParticiple": "needing",
-      "pastSimple": "needed",
-      "pastParticiple": "needed"
+    {
+        "word":  "need",
+        "translation":  "necesitar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "need",
+                      "thirdPerson":  "needs",
+                      "presentParticiple":  "needing",
+                      "pastSimple":  "needed",
+                      "pastParticiple":  "needed"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/niːd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "require",
+                         "demand"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I need help.",
+                             "spanish":  "Necesito ayuda.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She needed more time.",
+                             "spanish":  "Ella necesitaba más tiempo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have needed this tool for a while.",
+                             "spanish":  "Han necesitado esta herramienta por un tiempo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/niːd/", "audio": null },
-    "category": ["common"],
-    "synonyms": ["require", "demand"],
-    "antonyms": [],
-    "examples": [
-      { "english": "I need help.", "spanish": "Necesito ayuda.", "level": "A1" },
-      { "english": "She needed more time.", "spanish": "Ella necesitaba más tiempo.", "level": "A2" },
-      { "english": "They have needed this tool for a while.", "spanish": "Han necesitado esta herramienta por un tiempo.", "level": "B2" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "like",
-    "translation": "gustar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "like",
-      "thirdPerson": "likes",
-      "presentParticiple": "liking",
-      "pastSimple": "liked",
-      "pastParticiple": "liked"
+    {
+        "word":  "like",
+        "translation":  "gustar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "like",
+                      "thirdPerson":  "likes",
+                      "presentParticiple":  "liking",
+                      "pastSimple":  "liked",
+                      "pastParticiple":  "liked"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/laɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion"
+                     ],
+        "synonyms":  [
+                         "enjoy",
+                         "love"
+                     ],
+        "antonyms":  [
+                         "dislike",
+                         "hate"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I like coffee.",
+                             "spanish":  "Me gusta el café.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She liked the movie a lot.",
+                             "spanish":  "Le gustó mucho la película.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have liked each other for years.",
+                             "spanish":  "Se gustan desde hace años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "emotion",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/laɪk/", "audio": null },
-    "category": ["emotion"],
-    "synonyms": ["enjoy", "love"],
-    "antonyms": ["dislike", "hate"],
-    "examples": [
-      { "english": "I like coffee.", "spanish": "Me gusta el café.", "level": "A1" },
-      { "english": "She liked the movie a lot.", "spanish": "Le gustó mucho la película.", "level": "A2" },
-      { "english": "They have liked each other for years.", "spanish": "Se gustan desde hace años.", "level": "B1" }
-    ],
-    "tags": ["emotion", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "love",
-    "translation": "amar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "love",
-      "thirdPerson": "loves",
-      "presentParticiple": "loving",
-      "pastSimple": "loved",
-      "pastParticiple": "loved"
+    {
+        "word":  "love",
+        "translation":  "amar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "love",
+                      "thirdPerson":  "loves",
+                      "presentParticiple":  "loving",
+                      "pastSimple":  "loved",
+                      "pastParticiple":  "loved"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/lʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion"
+                     ],
+        "synonyms":  [
+                         "adore",
+                         "cherish"
+                     ],
+        "antonyms":  [
+                         "hate"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I love you.",
+                             "spanish":  "Te amo.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She loved the gift.",
+                             "spanish":  "Ella amó el regalo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have loved this place since childhood.",
+                             "spanish":  "Han amado este lugar desde la infancia.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "emotion",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/lʌv/", "audio": null },
-    "category": ["emotion"],
-    "synonyms": ["adore", "cherish"],
-    "antonyms": ["hate"],
-    "examples": [
-      { "english": "I love you.", "spanish": "Te amo.", "level": "A1" },
-      { "english": "She loved the gift.", "spanish": "Ella amó el regalo.", "level": "A2" },
-      { "english": "They have loved this place since childhood.", "spanish": "Han amado este lugar desde la infancia.", "level": "B1" }
-    ],
-    "tags": ["emotion", "important"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "live",
-    "translation": "vivir",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "live",
-      "thirdPerson": "lives",
-      "presentParticiple": "living",
-      "pastSimple": "lived",
-      "pastParticiple": "lived"
+    {
+        "word":  "live",
+        "translation":  "vivir",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "live",
+                      "thirdPerson":  "lives",
+                      "presentParticiple":  "living",
+                      "pastSimple":  "lived",
+                      "pastParticiple":  "lived"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/lɪv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "life"
+                     ],
+        "synonyms":  [
+                         "reside",
+                         "exist"
+                     ],
+        "antonyms":  [
+                         "die"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I live in Mexico City.",
+                             "spanish":  "Vivo en la Ciudad de México.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She lived in Spain for two years.",
+                             "spanish":  "Ella vivió en España durante dos años.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have lived here since 2010.",
+                             "spanish":  "Han vivido aquí desde 2010.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "life",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/lɪv/", "audio": null },
-    "category": ["life"],
-    "synonyms": ["reside", "exist"],
-    "antonyms": ["die"],
-    "examples": [
-      { "english": "I live in Mexico City.", "spanish": "Vivo en la Ciudad de México.", "level": "A1" },
-      { "english": "She lived in Spain for two years.", "spanish": "Ella vivió en España durante dos años.", "level": "A2" },
-      { "english": "They have lived here since 2010.", "spanish": "Han vivido aquí desde 2010.", "level": "B1" }
-    ],
-    "tags": ["life", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "sleep",
-    "translation": "dormir",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "sleep",
-      "thirdPerson": "sleeps",
-      "presentParticiple": "sleeping",
-      "pastSimple": "slept",
-      "pastParticiple": "slept"
+    {
+        "word":  "sleep",
+        "translation":  "dormir",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "sleep",
+                      "thirdPerson":  "sleeps",
+                      "presentParticiple":  "sleeping",
+                      "pastSimple":  "slept",
+                      "pastParticiple":  "slept"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/sliːp/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "daily"
+                     ],
+        "synonyms":  [
+                         "rest",
+                         "nap"
+                     ],
+        "antonyms":  [
+                         "wake"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I sleep eight hours a night.",
+                             "spanish":  "Duermo ocho horas por noche.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She slept on the couch.",
+                             "spanish":  "Ella durmió en el sofá.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have slept in this room many times.",
+                             "spanish":  "Han dormido en esta habitación muchas veces.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "daily",
+                     "health"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/sliːp/", "audio": null },
-    "category": ["daily"],
-    "synonyms": ["rest", "nap"],
-    "antonyms": ["wake"],
-    "examples": [
-      { "english": "I sleep eight hours a night.", "spanish": "Duermo ocho horas por noche.", "level": "A1" },
-      { "english": "She slept on the couch.", "spanish": "Ella durmió en el sofá.", "level": "A2" },
-      { "english": "They have slept in this room many times.", "spanish": "Han dormido en esta habitación muchas veces.", "level": "B1" }
-    ],
-    "tags": ["daily", "health"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "wake",
-    "translation": "despertar",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "wake",
-      "thirdPerson": "wakes",
-      "presentParticiple": "waking",
-      "pastSimple": "woke",
-      "pastParticiple": "woken"
+    {
+        "word":  "wake",
+        "translation":  "despertar",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "wake",
+                      "thirdPerson":  "wakes",
+                      "presentParticiple":  "waking",
+                      "pastSimple":  "woke",
+                      "pastParticiple":  "woken"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/weɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "daily"
+                     ],
+        "synonyms":  [
+                         "arise",
+                         "awaken"
+                     ],
+        "antonyms":  [
+                         "sleep"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I wake up at seven.",
+                             "spanish":  "Me despierto a las siete.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She woke up late yesterday.",
+                             "spanish":  "Ella se despertó tarde ayer.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has woken up early every day this week.",
+                             "spanish":  "Se ha despertado temprano todos los días esta semana.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "daily",
+                     "health"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/weɪk/", "audio": null },
-    "category": ["daily"],
-    "synonyms": ["arise", "awaken"],
-    "antonyms": ["sleep"],
-    "examples": [
-      { "english": "I wake up at seven.", "spanish": "Me despierto a las siete.", "level": "A1" },
-      { "english": "She woke up late yesterday.", "spanish": "Ella se despertó tarde ayer.", "level": "A2" },
-      { "english": "He has woken up early every day this week.", "spanish": "Se ha despertado temprano todos los días esta semana.", "level": "B2" }
-    ],
-    "tags": ["daily", "health"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "drive",
-    "translation": "conducir",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "drive",
-      "thirdPerson": "drives",
-      "presentParticiple": "driving",
-      "pastSimple": "drove",
-      "pastParticiple": "driven"
+    {
+        "word":  "drive",
+        "translation":  "conducir",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "drive",
+                      "thirdPerson":  "drives",
+                      "presentParticiple":  "driving",
+                      "pastSimple":  "drove",
+                      "pastParticiple":  "driven"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/draɪv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "movement"
+                     ],
+        "synonyms":  [
+                         "operate",
+                         "ride"
+                     ],
+        "antonyms":  [
+                         "walk"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I drive to work every day.",
+                             "spanish":  "Conduzco al trabajo cada día.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She drove to the beach last weekend.",
+                             "spanish":  "Ella condujo a la playa el fin de semana pasado.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "They have driven across the country twice.",
+                             "spanish":  "Han conducido por todo el país dos veces.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "movement",
+                     "travel"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/draɪv/", "audio": null },
-    "category": ["movement"],
-    "synonyms": ["operate", "ride"],
-    "antonyms": ["walk"],
-    "examples": [
-      { "english": "I drive to work every day.", "spanish": "Conduzco al trabajo cada día.", "level": "A2" },
-      { "english": "She drove to the beach last weekend.", "spanish": "Ella condujo a la playa el fin de semana pasado.", "level": "B1" },
-      { "english": "They have driven across the country twice.", "spanish": "Han conducido por todo el país dos veces.", "level": "B2" }
-    ],
-    "tags": ["movement", "travel"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "buy",
-    "translation": "comprar",
-    "type": "verb",
-    "regular": false,
-    "forms": {
-      "base": "buy",
-      "thirdPerson": "buys",
-      "presentParticiple": "buying",
-      "pastSimple": "bought",
-      "pastParticiple": "bought"
+    {
+        "word":  "buy",
+        "translation":  "comprar",
+        "type":  "verb",
+        "regular":  false,
+        "forms":  {
+                      "base":  "buy",
+                      "thirdPerson":  "buys",
+                      "presentParticiple":  "buying",
+                      "pastSimple":  "bought",
+                      "pastParticiple":  "bought"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/baɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "commerce"
+                     ],
+        "synonyms":  [
+                         "purchase",
+                         "acquire"
+                     ],
+        "antonyms":  [
+                         "sell"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I buy groceries every week.",
+                             "spanish":  "Compro víveres cada semana.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She bought a new dress.",
+                             "spanish":  "Ella compró un vestido nuevo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They have bought a house.",
+                             "spanish":  "Han comprado una casa.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "commerce",
+                     "daily"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/baɪ/", "audio": null },
-    "category": ["commerce"],
-    "synonyms": ["purchase", "acquire"],
-    "antonyms": ["sell"],
-    "examples": [
-      { "english": "I buy groceries every week.", "spanish": "Compro víveres cada semana.", "level": "A2" },
-      { "english": "She bought a new dress.", "spanish": "Ella compró un vestido nuevo.", "level": "A2" },
-      { "english": "They have bought a house.", "spanish": "Han comprado una casa.", "level": "B1" }
-    ],
-    "tags": ["commerce", "daily"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "sell",
-    "translation": "vender",
-    "type": "verb",
-    "regular": true,
-    "forms": {
-      "base": "sell",
-      "thirdPerson": "sells",
-      "presentParticiple": "selling",
-      "pastSimple": "sold",
-      "pastParticiple": "sold"
+    {
+        "word":  "sell",
+        "translation":  "vender",
+        "type":  "verb",
+        "regular":  true,
+        "forms":  {
+                      "base":  "sell",
+                      "thirdPerson":  "sells",
+                      "presentParticiple":  "selling",
+                      "pastSimple":  "sold",
+                      "pastParticiple":  "sold"
+                  },
+        "pronunciation":  {
+                              "ipa":  "/sɛl/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "commerce"
+                     ],
+        "synonyms":  [
+                         "trade",
+                         "market"
+                     ],
+        "antonyms":  [
+                         "buy"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "They sell fresh fruit at the market.",
+                             "spanish":  "Venden fruta fresca en el mercado.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She sold her car last month.",
+                             "spanish":  "Ella vendió su coche el mes pasado.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He has sold over a thousand copies.",
+                             "spanish":  "Ha vendido más de mil copias.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "commerce",
+                     "business"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
     },
-    "pronunciation": { "ipa": "/sɛl/", "audio": null },
-    "category": ["commerce"],
-    "synonyms": ["trade", "market"],
-    "antonyms": ["buy"],
-    "examples": [
-      { "english": "They sell fresh fruit at the market.", "spanish": "Venden fruta fresca en el mercado.", "level": "A2" },
-      { "english": "She sold her car last month.", "spanish": "Ella vendió su coche el mes pasado.", "level": "B1" },
-      { "english": "He has sold over a thousand copies.", "spanish": "Ha vendido más de mil copias.", "level": "B2" }
-    ],
-    "tags": ["commerce", "business"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "hello",
-    "translation": "hola",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/həˈloʊ/", "audio": null },
-    "category": ["greetings"],
-    "synonyms": ["hi", "hey"],
-    "antonyms": ["goodbye"],
-    "examples": [
-      { "english": "Hello, how are you?", "spanish": "Hola, ¿cómo estás?", "level": "A1" },
-      { "english": "She said hello to her neighbour.", "spanish": "Ella dijo hola a su vecina.", "level": "A1" },
-      { "english": "Hello everyone, welcome to the show!", "spanish": "¡Hola a todos, bienvenidos al show!", "level": "A2" }
-    ],
-    "tags": ["greeting", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "goodbye",
-    "translation": "adiós",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ɡʊdˈbaɪ/", "audio": null },
-    "category": ["greetings"],
-    "synonyms": ["bye", "farewell"],
-    "antonyms": ["hello"],
-    "examples": [
-      { "english": "Goodbye, see you tomorrow.", "spanish": "Adiós, nos vemos mañana.", "level": "A1" },
-      { "english": "She waved goodbye to her friends.", "spanish": "Ella se despidió con la mano de sus amigos.", "level": "A2" },
-      { "english": "It was hard to say goodbye.", "spanish": "Fue difícil decir adiós.", "level": "B1" }
-    ],
-    "tags": ["greeting", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "please",
-    "translation": "por favor",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/pliːz/", "audio": null },
-    "category": ["polite"],
-    "synonyms": [],
-    "antonyms": [],
-    "examples": [
-      { "english": "Could you help me, please?", "spanish": "¿Puedes ayudarme, por favor?", "level": "A1" },
-      { "english": "She asked politely, please.", "spanish": "Ella pidió amablemente, por favor.", "level": "A2" },
-      { "english": "Please sit down and make yourself comfortable.", "spanish": "Por favor, siéntate y ponte cómodo.", "level": "B1" }
-    ],
-    "tags": ["polite", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "thank you",
-    "translation": "gracias",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/θæŋk juː/", "audio": null },
-    "category": ["polite"],
-    "synonyms": ["thanks"],
-    "antonyms": [],
-    "examples": [
-      { "english": "Thank you for your help.", "spanish": "Gracias por tu ayuda.", "level": "A1" },
-      { "english": "She said thank you with a smile.", "spanish": "Ella dijo gracias con una sonrisa.", "level": "A2" },
-      { "english": "Thank you all for coming tonight.", "spanish": "Gracias a todos por venir esta noche.", "level": "B1" }
-    ],
-    "tags": ["polite", "daily", "important"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "sorry",
-    "translation": "lo siento",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈsɒri/", "audio": null },
-    "category": ["emotion", "polite"],
-    "synonyms": ["apologetic", "regretful"],
-    "antonyms": [],
-    "examples": [
-      { "english": "Sorry, I am late.", "spanish": "Lo siento, llego tarde.", "level": "A1" },
-      { "english": "She felt sorry for what she said.", "spanish": "Ella se sintió mal por lo que dijo.", "level": "A2" },
-      { "english": "I'm sorry to hear that.", "spanish": "Siento escuchar eso.", "level": "B1" }
-    ],
-    "tags": ["polite", "emotion"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "yes",
-    "translation": "sí",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/jɛs/", "audio": null },
-    "category": ["common"],
-    "synonyms": ["sure", "okay"],
-    "antonyms": ["no"],
-    "examples": [
-      { "english": "Yes, I agree.", "spanish": "Sí, estoy de acuerdo.", "level": "A1" },
-      { "english": "She said yes to the proposal.", "spanish": "Ella dijo sí a la propuesta.", "level": "A2" },
-      { "english": "Yes, that is exactly what I meant.", "spanish": "Sí, eso es exactamente lo que quise decir.", "level": "B1" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "no",
-    "translation": "no",
-    "type": "interjection",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/noʊ/", "audio": null },
-    "category": ["common"],
-    "synonyms": ["nope"],
-    "antonyms": ["yes"],
-    "examples": [
-      { "english": "No, thank you.", "spanish": "No, gracias.", "level": "A1" },
-      { "english": "She said no to the offer.", "spanish": "Ella dijo no a la oferta.", "level": "A2" },
-      { "english": "No, I don't think that's right.", "spanish": "No, no creo que eso sea correcto.", "level": "B1" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "knowledge",
-    "translation": "conocimiento",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈnɒlɪdʒ/", "audio": null },
-    "category": ["abstract"],
-    "synonyms": ["wisdom", "understanding"],
-    "antonyms": ["ignorance"],
-    "examples": [
-      { "english": "Knowledge is power.", "spanish": "El conocimiento es poder.", "level": "A2" },
-      { "english": "She has deep knowledge of history.", "spanish": "Ella tiene un profundo conocimiento de la historia.", "level": "B1" },
-      { "english": "He shared his knowledge freely with the team.", "spanish": "Compartió su conocimiento libremente con el equipo.", "level": "B2" }
-    ],
-    "tags": ["abstract", "important"],
-    "difficulty": "HARD"
-  },
-  {
-    "word": "time",
-    "translation": "tiempo",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/taɪm/", "audio": null },
-    "category": ["common"],
-    "synonyms": ["moment", "period"],
-    "antonyms": [],
-    "examples": [
-      { "english": "What time is it?", "spanish": "¿Qué hora es?", "level": "A1" },
-      { "english": "We had a great time at the party.", "spanish": "Nos divertimos mucho en la fiesta.", "level": "A2" },
-      { "english": "Time flies when you are having fun.", "spanish": "El tiempo vuela cuando te estás divirtiendo.", "level": "B1" }
-    ],
-    "tags": ["common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "day",
-    "translation": "día",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/deɪ/", "audio": null },
-    "category": ["time"],
-    "synonyms": ["date", "period"],
-    "antonyms": ["night"],
-    "examples": [
-      { "english": "Have a nice day!", "spanish": "¡Que tengas un buen día!", "level": "A1" },
-      { "english": "She works out every day.", "spanish": "Ella hace ejercicio cada día.", "level": "A1" },
-      { "english": "It was a long day at the office.", "spanish": "Fue un largo día en la oficina.", "level": "B1" }
-    ],
-    "tags": ["time", "common", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "night",
-    "translation": "noche",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/naɪt/", "audio": null },
-    "category": ["time"],
-    "synonyms": ["evening"],
-    "antonyms": ["day"],
-    "examples": [
-      { "english": "Good night!", "spanish": "¡Buenas noches!", "level": "A1" },
-      { "english": "We went out last night.", "spanish": "Salimos anoche.", "level": "A2" },
-      { "english": "She studied through the night.", "spanish": "Ella estudió durante toda la noche.", "level": "B1" }
-    ],
-    "tags": ["time", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "water",
-    "translation": "agua",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈwɔːtər/", "audio": null },
-    "category": ["food", "nature"],
-    "synonyms": [],
-    "antonyms": [],
-    "examples": [
-      { "english": "Can I have some water?", "spanish": "¿Puedo tener un poco de agua?", "level": "A1" },
-      { "english": "She drinks eight glasses of water a day.", "spanish": "Ella bebe ocho vasos de agua al día.", "level": "A2" },
-      { "english": "Water covers most of the planet.", "spanish": "El agua cubre la mayor parte del planeta.", "level": "B1" }
-    ],
-    "tags": ["food", "nature", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "house",
-    "translation": "casa",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/haʊs/", "audio": null },
-    "category": ["home"],
-    "synonyms": ["home", "residence"],
-    "antonyms": [],
-    "examples": [
-      { "english": "My house is small.", "spanish": "Mi casa es pequeña.", "level": "A1" },
-      { "english": "They bought a new house last year.", "spanish": "Ellos compraron una casa nueva el año pasado.", "level": "A2" },
-      { "english": "Their house overlooks the ocean.", "spanish": "Su casa tiene vista al océano.", "level": "B1" }
-    ],
-    "tags": ["home", "daily"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "friend",
-    "translation": "amigo",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/frɛnd/", "audio": null },
-    "category": ["social"],
-    "synonyms": ["companion", "buddy"],
-    "antonyms": ["enemy", "stranger"],
-    "examples": [
-      { "english": "She is my best friend.", "spanish": "Ella es mi mejor amiga.", "level": "A1" },
-      { "english": "I made many friends at school.", "spanish": "Hice muchos amigos en la escuela.", "level": "A2" },
-      { "english": "True friends are hard to find.", "spanish": "Los verdaderos amigos son difíciles de encontrar.", "level": "B1" }
-    ],
-    "tags": ["social", "important"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "family",
-    "translation": "familia",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈfæmɪli/", "audio": null },
-    "category": ["social"],
-    "synonyms": ["relatives", "kin"],
-    "antonyms": [],
-    "examples": [
-      { "english": "I love my family.", "spanish": "Amo a mi familia.", "level": "A1" },
-      { "english": "We have a big family.", "spanish": "Tenemos una familia grande.", "level": "A2" },
-      { "english": "Family comes first in her life.", "spanish": "La familia es lo primero en su vida.", "level": "B1" }
-    ],
-    "tags": ["social", "important"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "world",
-    "translation": "mundo",
-    "type": "noun",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/wɜːrld/", "audio": null },
-    "category": ["abstract"],
-    "synonyms": ["planet", "globe"],
-    "antonyms": [],
-    "examples": [
-      { "english": "The world is big.", "spanish": "El mundo es grande.", "level": "A2" },
-      { "english": "She has travelled the world.", "spanish": "Ella ha viajado por el mundo.", "level": "B1" },
-      { "english": "It is a small world after all.", "spanish": "Es un mundo pequeño después de todo.", "level": "B2" }
-    ],
-    "tags": ["abstract", "geography"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "happy",
-    "translation": "feliz",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈhæpi/", "audio": null },
-    "category": ["emotion"],
-    "synonyms": ["joyful", "glad"],
-    "antonyms": ["sad", "unhappy"],
-    "examples": [
-      { "english": "I am so happy today.", "spanish": "Estoy muy feliz hoy.", "level": "A1" },
-      { "english": "She looked happy in the photo.", "spanish": "Ella se veía feliz en la foto.", "level": "A2" },
-      { "english": "They were happy with the result.", "spanish": "Estaban felices con el resultado.", "level": "B1" }
-    ],
-    "tags": ["emotion", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "sad",
-    "translation": "triste",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/sæd/", "audio": null },
-    "category": ["emotion"],
-    "synonyms": ["unhappy", "sorrowful"],
-    "antonyms": ["happy", "cheerful"],
-    "examples": [
-      { "english": "Why are you sad?", "spanish": "¿Por qué estás triste?", "level": "A1" },
-      { "english": "She felt sad after the movie.", "spanish": "Ella se sintió triste después de la película.", "level": "A2" },
-      { "english": "It was a sad moment for everyone.", "spanish": "Fue un momento triste para todos.", "level": "B1" }
-    ],
-    "tags": ["emotion"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "big",
-    "translation": "grande",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/bɪɡ/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["large", "huge"],
-    "antonyms": ["small", "tiny"],
-    "examples": [
-      { "english": "That is a big dog.", "spanish": "Ese es un perro grande.", "level": "A1" },
-      { "english": "They live in a big house.", "spanish": "Ellos viven en una casa grande.", "level": "A1" },
-      { "english": "It was a big decision to make.", "spanish": "Fue una gran decisión que tomar.", "level": "B1" }
-    ],
-    "tags": ["description", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "small",
-    "translation": "pequeño",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/smɔːl/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["little", "tiny"],
-    "antonyms": ["big", "large"],
-    "examples": [
-      { "english": "I have a small car.", "spanish": "Tengo un coche pequeño.", "level": "A1" },
-      { "english": "She lives in a small town.", "spanish": "Ella vive en un pueblo pequeño.", "level": "A2" },
-      { "english": "It was a small mistake with big consequences.", "spanish": "Fue un pequeño error con grandes consecuencias.", "level": "B2" }
-    ],
-    "tags": ["description", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "fast",
-    "translation": "rápido",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/fæst/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["quick", "rapid"],
-    "antonyms": ["slow"],
-    "examples": [
-      { "english": "That car is very fast.", "spanish": "Ese coche es muy rápido.", "level": "A1" },
-      { "english": "He is a fast runner.", "spanish": "Él es un corredor rápido.", "level": "A2" },
-      { "english": "She learns fast.", "spanish": "Ella aprende rápido.", "level": "B1" }
-    ],
-    "tags": ["description", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "slow",
-    "translation": "lento",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/sloʊ/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["sluggish"],
-    "antonyms": ["fast", "quick"],
-    "examples": [
-      { "english": "The turtle is slow.", "spanish": "La tortuga es lenta.", "level": "A1" },
-      { "english": "Traffic is slow today.", "spanish": "El tráfico está lento hoy.", "level": "A2" },
-      { "english": "His progress has been slow but steady.", "spanish": "Su progreso ha sido lento pero constante.", "level": "B2" }
-    ],
-    "tags": ["description"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "good",
-    "translation": "bueno",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ɡʊd/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["great", "fine"],
-    "antonyms": ["bad", "poor"],
-    "examples": [
-      { "english": "This food is good.", "spanish": "Esta comida es buena.", "level": "A1" },
-      { "english": "She is a good person.", "spanish": "Ella es una buena persona.", "level": "A1" },
-      { "english": "That was a good decision.", "spanish": "Fue una buena decisión.", "level": "A2" }
-    ],
-    "tags": ["description", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "bad",
-    "translation": "malo",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/bæd/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["poor", "awful"],
-    "antonyms": ["good", "excellent"],
-    "examples": [
-      { "english": "That was a bad idea.", "spanish": "Esa fue una mala idea.", "level": "A1" },
-      { "english": "I had a bad day yesterday.", "spanish": "Tuve un mal día ayer.", "level": "A2" },
-      { "english": "The weather has been bad all week.", "spanish": "El clima ha estado malo toda la semana.", "level": "B1" }
-    ],
-    "tags": ["description"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "hot",
-    "translation": "caliente",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/hɒt/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["warm"],
-    "antonyms": ["cold", "cool"],
-    "examples": [
-      { "english": "The soup is hot.", "spanish": "La sopa está caliente.", "level": "A1" },
-      { "english": "It is hot today.", "spanish": "Hace calor hoy.", "level": "A1" },
-      { "english": "The coffee was too hot to drink.", "spanish": "El café estaba demasiado caliente para beber.", "level": "B1" }
-    ],
-    "tags": ["description", "weather"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "cold",
-    "translation": "frío",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/koʊld/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["chilly", "freezing"],
-    "antonyms": ["hot", "warm"],
-    "examples": [
-      { "english": "The water is cold.", "spanish": "El agua está fría.", "level": "A1" },
-      { "english": "It is cold today.", "spanish": "Hace frío hoy.", "level": "A1" },
-      { "english": "My hands are cold.", "spanish": "Tengo las manos frías.", "level": "A2" }
-    ],
-    "tags": ["description", "weather"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "beautiful",
-    "translation": "hermoso",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈbjuːtɪfəl/", "audio": null },
-    "category": ["description"],
-    "synonyms": ["pretty", "lovely"],
-    "antonyms": ["ugly"],
-    "examples": [
-      { "english": "What a beautiful day!", "spanish": "¡Qué día tan hermoso!", "level": "A1" },
-      { "english": "She is a beautiful woman.", "spanish": "Ella es una mujer hermosa.", "level": "A2" },
-      { "english": "The sunset was beautiful.", "spanish": "La puesta de sol fue hermosa.", "level": "B1" }
-    ],
-    "tags": ["description"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "important",
-    "translation": "importante",
-    "type": "adjective",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ɪmˈpɔːrtənt/", "audio": null },
-    "category": ["abstract"],
-    "synonyms": ["significant", "crucial"],
-    "antonyms": ["trivial", "unimportant"],
-    "examples": [
-      { "english": "This is an important meeting.", "spanish": "Esta es una reunión importante.", "level": "A2" },
-      { "english": "Family is important to me.", "spanish": "La familia es importante para mí.", "level": "A2" },
-      { "english": "It is important to stay hydrated.", "spanish": "Es importante mantenerse hidratado.", "level": "B1" }
-    ],
-    "tags": ["abstract", "important"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "always",
-    "translation": "siempre",
-    "type": "adverb",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈɔːlweɪz/", "audio": null },
-    "category": ["frequency"],
-    "synonyms": ["forever", "constantly"],
-    "antonyms": ["never"],
-    "examples": [
-      { "english": "I always drink coffee in the morning.", "spanish": "Siempre tomo café por la mañana.", "level": "A1" },
-      { "english": "She is always happy.", "spanish": "Ella siempre está feliz.", "level": "A2" },
-      { "english": "He has always been kind to me.", "spanish": "Él siempre ha sido amable conmigo.", "level": "B1" }
-    ],
-    "tags": ["frequency", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "never",
-    "translation": "nunca",
-    "type": "adverb",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈnɛvər/", "audio": null },
-    "category": ["frequency"],
-    "synonyms": [],
-    "antonyms": ["always"],
-    "examples": [
-      { "english": "I never eat meat.", "spanish": "Nunca como carne.", "level": "A1" },
-      { "english": "She never gives up.", "spanish": "Ella nunca se rinde.", "level": "A2" },
-      { "english": "He has never been to Japan.", "spanish": "Él nunca ha estado en Japón.", "level": "B1" }
-    ],
-    "tags": ["frequency"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "quickly",
-    "translation": "rápidamente",
-    "type": "adverb",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ˈkwɪkli/", "audio": null },
-    "category": ["manner"],
-    "synonyms": ["fast", "rapidly"],
-    "antonyms": ["slowly"],
-    "examples": [
-      { "english": "He ran quickly.", "spanish": "Él corrió rápidamente.", "level": "A2" },
-      { "english": "She quickly finished her homework.", "spanish": "Ella terminó rápidamente su tarea.", "level": "A2" },
-      { "english": "They responded quickly to the email.", "spanish": "Respondieron rápidamente al correo.", "level": "B1" }
-    ],
-    "tags": ["manner"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "with",
-    "translation": "con",
-    "type": "preposition",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/wɪð/", "audio": null },
-    "category": ["grammar"],
-    "synonyms": ["alongside"],
-    "antonyms": ["without"],
-    "examples": [
-      { "english": "I go to the park with my dog.", "spanish": "Voy al parque con mi perro.", "level": "A1" },
-      { "english": "She lives with her parents.", "spanish": "Ella vive con sus padres.", "level": "A1" },
-      { "english": "Coffee with milk, please.", "spanish": "Café con leche, por favor.", "level": "A2" }
-    ],
-    "tags": ["grammar", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "from",
-    "translation": "de",
-    "type": "preposition",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/frʌm/", "audio": null },
-    "category": ["grammar"],
-    "synonyms": [],
-    "antonyms": ["to"],
-    "examples": [
-      { "english": "I am from Mexico.", "spanish": "Soy de México.", "level": "A1" },
-      { "english": "She received a letter from her sister.", "spanish": "Ella recibió una carta de su hermana.", "level": "A2" },
-      { "english": "He works from home.", "spanish": "Él trabaja desde casa.", "level": "B1" }
-    ],
-    "tags": ["grammar", "common"],
-    "difficulty": "EASY"
-  },
-  {
-    "word": "because",
-    "translation": "porque",
-    "type": "conjunction",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/bɪˈkɒz/", "audio": null },
-    "category": ["grammar"],
-    "synonyms": ["since", "as"],
-    "antonyms": [],
-    "examples": [
-      { "english": "I am tired because I worked a lot.", "spanish": "Estoy cansado porque trabajé mucho.", "level": "A2" },
-      { "english": "She stayed home because it was raining.", "spanish": "Ella se quedó en casa porque estaba lloviendo.", "level": "A2" },
-      { "english": "He succeeded because of his hard work.", "spanish": "Tuvo éxito debido a su duro trabajo.", "level": "B1" }
-    ],
-    "tags": ["grammar", "common"],
-    "difficulty": "MEDIUM"
-  },
-  {
-    "word": "although",
-    "translation": "aunque",
-    "type": "conjunction",
-    "regular": null,
-    "forms": null,
-    "pronunciation": { "ipa": "/ɔːlˈðoʊ/", "audio": null },
-    "category": ["grammar"],
-    "synonyms": ["though", "even though"],
-    "antonyms": ["because"],
-    "examples": [
-      { "english": "Although it was cold, we went outside.", "spanish": "Aunque hacía frío, salimos.", "level": "B1" },
-      { "english": "She went to work although she was sick.", "spanish": "Ella fue a trabajar aunque estaba enferma.", "level": "B1" },
-      { "english": "Although tired, he kept studying.", "spanish": "Aunque estaba cansado, siguió estudiando.", "level": "B2" }
-    ],
-    "tags": ["grammar"],
-    "difficulty": "HARD"
-  }
+    {
+        "word":  "hello",
+        "translation":  "hola",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/həˈloʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "greetings"
+                     ],
+        "synonyms":  [
+                         "hi",
+                         "hey"
+                     ],
+        "antonyms":  [
+                         "goodbye"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Hello, how are you?",
+                             "spanish":  "Hola, ¿cómo estás?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said hello to her neighbour.",
+                             "spanish":  "Ella dijo hola a su vecina.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Hello everyone, welcome to the show!",
+                             "spanish":  "¡Hola a todos, bienvenidos al show!",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "greeting",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "goodbye",
+        "translation":  "adiós",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɡʊdˈbaɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "greetings"
+                     ],
+        "synonyms":  [
+                         "bye",
+                         "farewell"
+                     ],
+        "antonyms":  [
+                         "hello"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Goodbye, see you tomorrow.",
+                             "spanish":  "Adiós, nos vemos mañana.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She waved goodbye to her friends.",
+                             "spanish":  "Ella se despidió con la mano de sus amigos.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It was hard to say goodbye.",
+                             "spanish":  "Fue difícil decir adiós.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "greeting",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "please",
+        "translation":  "por favor",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/pliːz/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "polite"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Could you help me, please?",
+                             "spanish":  "¿Puedes ayudarme, por favor?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She asked politely, please.",
+                             "spanish":  "Ella pidió amablemente, por favor.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Please sit down and make yourself comfortable.",
+                             "spanish":  "Por favor, siéntate y ponte cómodo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "thank you",
+        "translation":  "gracias",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/θæŋk juː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "polite"
+                     ],
+        "synonyms":  [
+                         "thanks"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Thank you for your help.",
+                             "spanish":  "Gracias por tu ayuda.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said thank you with a smile.",
+                             "spanish":  "Ella dijo gracias con una sonrisa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Thank you all for coming tonight.",
+                             "spanish":  "Gracias a todos por venir esta noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "daily",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "sorry",
+        "translation":  "lo siento",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈsɒri/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion",
+                         "polite"
+                     ],
+        "synonyms":  [
+                         "apologetic",
+                         "regretful"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Sorry, I am late.",
+                             "spanish":  "Lo siento, llego tarde.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She felt sorry for what she said.",
+                             "spanish":  "Ella se sintió mal por lo que dijo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "I\u0027m sorry to hear that.",
+                             "spanish":  "Siento escuchar eso.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "emotion"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "yes",
+        "translation":  "sí",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/jɛs/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "sure",
+                         "okay"
+                     ],
+        "antonyms":  [
+                         "no"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Yes, I agree.",
+                             "spanish":  "Sí, estoy de acuerdo.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said yes to the proposal.",
+                             "spanish":  "Ella dijo sí a la propuesta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Yes, that is exactly what I meant.",
+                             "spanish":  "Sí, eso es exactamente lo que quise decir.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "no",
+        "translation":  "no",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/noʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "nope"
+                     ],
+        "antonyms":  [
+                         "yes"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "No, thank you.",
+                             "spanish":  "No, gracias.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said no to the offer.",
+                             "spanish":  "Ella dijo no a la oferta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "No, I don\u0027t think that\u0027s right.",
+                             "spanish":  "No, no creo que eso sea correcto.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "knowledge",
+        "translation":  "conocimiento",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈnɒlɪdʒ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "abstract"
+                     ],
+        "synonyms":  [
+                         "wisdom",
+                         "understanding"
+                     ],
+        "antonyms":  [
+                         "ignorance"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Knowledge is power.",
+                             "spanish":  "El conocimiento es poder.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She has deep knowledge of history.",
+                             "spanish":  "Ella tiene un profundo conocimiento de la historia.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He shared his knowledge freely with the team.",
+                             "spanish":  "Compartió su conocimiento libremente con el equipo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "abstract",
+                     "important"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "time",
+        "translation":  "tiempo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/taɪm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "moment",
+                         "period"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "What time is it?",
+                             "spanish":  "¿Qué hora es?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We had a great time at the party.",
+                             "spanish":  "Nos divertimos mucho en la fiesta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Time flies when you are having fun.",
+                             "spanish":  "El tiempo vuela cuando te estás divirtiendo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "day",
+        "translation":  "día",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/deɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "time"
+                     ],
+        "synonyms":  [
+                         "date",
+                         "period"
+                     ],
+        "antonyms":  [
+                         "night"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Have a nice day!",
+                             "spanish":  "¡Que tengas un buen día!",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She works out every day.",
+                             "spanish":  "Ella hace ejercicio cada día.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "It was a long day at the office.",
+                             "spanish":  "Fue un largo día en la oficina.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "night",
+        "translation":  "noche",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/naɪt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "time"
+                     ],
+        "synonyms":  [
+                         "evening"
+                     ],
+        "antonyms":  [
+                         "day"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Good night!",
+                             "spanish":  "¡Buenas noches!",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We went out last night.",
+                             "spanish":  "Salimos anoche.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She studied through the night.",
+                             "spanish":  "Ella estudió durante toda la noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "water",
+        "translation":  "agua",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈwɔːtər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "food",
+                         "nature"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Can I have some water?",
+                             "spanish":  "¿Puedo tener un poco de agua?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She drinks eight glasses of water a day.",
+                             "spanish":  "Ella bebe ocho vasos de agua al día.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Water covers most of the planet.",
+                             "spanish":  "El agua cubre la mayor parte del planeta.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "food",
+                     "nature",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "house",
+        "translation":  "casa",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/haʊs/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "home"
+                     ],
+        "synonyms":  [
+                         "home",
+                         "residence"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "My house is small.",
+                             "spanish":  "Mi casa es pequeña.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "They bought a new house last year.",
+                             "spanish":  "Ellos compraron una casa nueva el año pasado.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Their house overlooks the ocean.",
+                             "spanish":  "Su casa tiene vista al océano.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "home",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "friend",
+        "translation":  "amigo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/frɛnd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "social"
+                     ],
+        "synonyms":  [
+                         "companion",
+                         "buddy"
+                     ],
+        "antonyms":  [
+                         "enemy",
+                         "stranger"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is my best friend.",
+                             "spanish":  "Ella es mi mejor amiga.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I made many friends at school.",
+                             "spanish":  "Hice muchos amigos en la escuela.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "True friends are hard to find.",
+                             "spanish":  "Los verdaderos amigos son difíciles de encontrar.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "social",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "family",
+        "translation":  "familia",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈfæmɪli/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "social"
+                     ],
+        "synonyms":  [
+                         "relatives",
+                         "kin"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I love my family.",
+                             "spanish":  "Amo a mi familia.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We have a big family.",
+                             "spanish":  "Tenemos una familia grande.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Family comes first in her life.",
+                             "spanish":  "La familia es lo primero en su vida.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "social",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "world",
+        "translation":  "mundo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɜːrld/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "abstract"
+                     ],
+        "synonyms":  [
+                         "planet",
+                         "globe"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The world is big.",
+                             "spanish":  "El mundo es grande.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She has travelled the world.",
+                             "spanish":  "Ella ha viajado por el mundo.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "It is a small world after all.",
+                             "spanish":  "Es un mundo pequeño después de todo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "abstract",
+                     "geography"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "happy",
+        "translation":  "feliz",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈhæpi/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion"
+                     ],
+        "synonyms":  [
+                         "joyful",
+                         "glad"
+                     ],
+        "antonyms":  [
+                         "sad",
+                         "unhappy"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am so happy today.",
+                             "spanish":  "Estoy muy feliz hoy.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She looked happy in the photo.",
+                             "spanish":  "Ella se veía feliz en la foto.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They were happy with the result.",
+                             "spanish":  "Estaban felices con el resultado.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "emotion",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "sad",
+        "translation":  "triste",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/sæd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion"
+                     ],
+        "synonyms":  [
+                         "unhappy",
+                         "sorrowful"
+                     ],
+        "antonyms":  [
+                         "happy",
+                         "cheerful"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Why are you sad?",
+                             "spanish":  "¿Por qué estás triste?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She felt sad after the movie.",
+                             "spanish":  "Ella se sintió triste después de la película.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It was a sad moment for everyone.",
+                             "spanish":  "Fue un momento triste para todos.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "emotion"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "big",
+        "translation":  "grande",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪɡ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "large",
+                         "huge"
+                     ],
+        "antonyms":  [
+                         "small",
+                         "tiny"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "That is a big dog.",
+                             "spanish":  "Ese es un perro grande.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "They live in a big house.",
+                             "spanish":  "Ellos viven en una casa grande.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "It was a big decision to make.",
+                             "spanish":  "Fue una gran decisión que tomar.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "small",
+        "translation":  "pequeño",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/smɔːl/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "little",
+                         "tiny"
+                     ],
+        "antonyms":  [
+                         "big",
+                         "large"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I have a small car.",
+                             "spanish":  "Tengo un coche pequeño.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She lives in a small town.",
+                             "spanish":  "Ella vive en un pueblo pequeño.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It was a small mistake with big consequences.",
+                             "spanish":  "Fue un pequeño error con grandes consecuencias.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "fast",
+        "translation":  "rápido",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/fæst/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "quick",
+                         "rapid"
+                     ],
+        "antonyms":  [
+                         "slow"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "That car is very fast.",
+                             "spanish":  "Ese coche es muy rápido.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "He is a fast runner.",
+                             "spanish":  "Él es un corredor rápido.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She learns fast.",
+                             "spanish":  "Ella aprende rápido.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "slow",
+        "translation":  "lento",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/sloʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "sluggish"
+                     ],
+        "antonyms":  [
+                         "fast",
+                         "quick"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The turtle is slow.",
+                             "spanish":  "La tortuga es lenta.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Traffic is slow today.",
+                             "spanish":  "El tráfico está lento hoy.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "His progress has been slow but steady.",
+                             "spanish":  "Su progreso ha sido lento pero constante.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "description"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "good",
+        "translation":  "bueno",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɡʊd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "great",
+                         "fine"
+                     ],
+        "antonyms":  [
+                         "bad",
+                         "poor"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "This food is good.",
+                             "spanish":  "Esta comida es buena.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She is a good person.",
+                             "spanish":  "Ella es una buena persona.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "That was a good decision.",
+                             "spanish":  "Fue una buena decisión.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "bad",
+        "translation":  "malo",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bæd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "poor",
+                         "awful"
+                     ],
+        "antonyms":  [
+                         "good",
+                         "excellent"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "That was a bad idea.",
+                             "spanish":  "Esa fue una mala idea.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I had a bad day yesterday.",
+                             "spanish":  "Tuve un mal día ayer.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The weather has been bad all week.",
+                             "spanish":  "El clima ha estado malo toda la semana.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "description"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "hot",
+        "translation":  "caliente",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/hɒt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "warm"
+                     ],
+        "antonyms":  [
+                         "cold",
+                         "cool"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The soup is hot.",
+                             "spanish":  "La sopa está caliente.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "It is hot today.",
+                             "spanish":  "Hace calor hoy.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "The coffee was too hot to drink.",
+                             "spanish":  "El café estaba demasiado caliente para beber.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "weather"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "cold",
+        "translation":  "frío",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/koʊld/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "chilly",
+                         "freezing"
+                     ],
+        "antonyms":  [
+                         "hot",
+                         "warm"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The water is cold.",
+                             "spanish":  "El agua está fría.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "It is cold today.",
+                             "spanish":  "Hace frío hoy.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "My hands are cold.",
+                             "spanish":  "Tengo las manos frías.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "description",
+                     "weather"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "beautiful",
+        "translation":  "hermoso",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈbjuːtɪfəl/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "description"
+                     ],
+        "synonyms":  [
+                         "pretty",
+                         "lovely"
+                     ],
+        "antonyms":  [
+                         "ugly"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "What a beautiful day!",
+                             "spanish":  "¡Qué día tan hermoso!",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She is a beautiful woman.",
+                             "spanish":  "Ella es una mujer hermosa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The sunset was beautiful.",
+                             "spanish":  "La puesta de sol fue hermosa.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "description"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "important",
+        "translation":  "importante",
+        "type":  "adjective",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪmˈpɔːrtənt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "abstract"
+                     ],
+        "synonyms":  [
+                         "significant",
+                         "crucial"
+                     ],
+        "antonyms":  [
+                         "trivial",
+                         "unimportant"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "This is an important meeting.",
+                             "spanish":  "Esta es una reunión importante.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Family is important to me.",
+                             "spanish":  "La familia es importante para mí.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It is important to stay hydrated.",
+                             "spanish":  "Es importante mantenerse hidratado.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "abstract",
+                     "important"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "always",
+        "translation":  "siempre",
+        "type":  "adverb",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈɔːlweɪz/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "frequency"
+                     ],
+        "synonyms":  [
+                         "forever",
+                         "constantly"
+                     ],
+        "antonyms":  [
+                         "never"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I always drink coffee in the morning.",
+                             "spanish":  "Siempre tomo café por la mañana.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She is always happy.",
+                             "spanish":  "Ella siempre está feliz.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has always been kind to me.",
+                             "spanish":  "Él siempre ha sido amable conmigo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "frequency",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "never",
+        "translation":  "nunca",
+        "type":  "adverb",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈnɛvər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "frequency"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+                         "always"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I never eat meat.",
+                             "spanish":  "Nunca como carne.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She never gives up.",
+                             "spanish":  "Ella nunca se rinde.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He has never been to Japan.",
+                             "spanish":  "Él nunca ha estado en Japón.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "frequency"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "quickly",
+        "translation":  "rápidamente",
+        "type":  "adverb",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈkwɪkli/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "manner"
+                     ],
+        "synonyms":  [
+                         "fast",
+                         "rapidly"
+                     ],
+        "antonyms":  [
+                         "slowly"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "He ran quickly.",
+                             "spanish":  "Él corrió rápidamente.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She quickly finished her homework.",
+                             "spanish":  "Ella terminó rápidamente su tarea.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They responded quickly to the email.",
+                             "spanish":  "Respondieron rápidamente al correo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "manner"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "with",
+        "translation":  "con",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɪð/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "alongside"
+                     ],
+        "antonyms":  [
+                         "without"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I go to the park with my dog.",
+                             "spanish":  "Voy al parque con mi perro.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She lives with her parents.",
+                             "spanish":  "Ella vive con sus padres.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Coffee with milk, please.",
+                             "spanish":  "Café con leche, por favor.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "from",
+        "translation":  "de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/frʌm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+                         "to"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am from Mexico.",
+                             "spanish":  "Soy de México.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She received a letter from her sister.",
+                             "spanish":  "Ella recibió una carta de su hermana.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He works from home.",
+                             "spanish":  "Él trabaja desde casa.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "because",
+        "translation":  "porque",
+        "type":  "conjunction",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈkɒz/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "since",
+                         "as"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am tired because I worked a lot.",
+                             "spanish":  "Estoy cansado porque trabajé mucho.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She stayed home because it was raining.",
+                             "spanish":  "Ella se quedó en casa porque estaba lloviendo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He succeeded because of his hard work.",
+                             "spanish":  "Tuvo éxito debido a su duro trabajo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "although",
+        "translation":  "aunque",
+        "type":  "conjunction",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɔːlˈðoʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "though",
+                         "even though"
+                     ],
+        "antonyms":  [
+                         "because"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Although it was cold, we went outside.",
+                             "spanish":  "Aunque hacía frío, salimos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She went to work although she was sick.",
+                             "spanish":  "Ella fue a trabajar aunque estaba enferma.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Although tired, he kept studying.",
+                             "spanish":  "Aunque estaba cansado, siguió estudiando.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    }
 ]

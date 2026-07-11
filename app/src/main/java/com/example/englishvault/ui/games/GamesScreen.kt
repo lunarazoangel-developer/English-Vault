@@ -1,6 +1,7 @@
 package com.example.englishvault.ui.games
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -49,11 +50,18 @@ import com.example.englishvault.R
  * Phase 2 mockup. Tapping a card does nothing; Phase 3 will route each
  * entry to its corresponding game screen.
  *
+ * Phase 6: the "Word Match" card is wired to the new
+ * Word Match Verbs mini-game via [onOpenWordMatch]. The other five
+ * entries remain non-interactive placeholders.
+ *
  * Each card shows a colored icon, the game name, a short description
  * and a difficulty chip.
  */
 @Composable
-fun GamesScreen(modifier: Modifier = Modifier) {
+fun GamesScreen(
+    onOpenWordMatch: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     // region: Mock games catalogue — wire to real sources in Phase 3
     val games = listOf(
         GameItem(
@@ -61,42 +69,48 @@ fun GamesScreen(modifier: Modifier = Modifier) {
             description = "Match English words with their translations.",
             icon = Icons.Filled.Psychology,
             color = MaterialTheme.colorScheme.primary,
-            difficulty = DifficultyLevel.EASY
+            difficulty = DifficultyLevel.EASY,
+            isInteractive = true
         ),
         GameItem(
             name = "Speed Quiz",
             description = "How fast can you pick the correct option?",
             icon = Icons.Filled.Speed,
             color = MaterialTheme.colorScheme.secondary,
-            difficulty = DifficultyLevel.MEDIUM
+            difficulty = DifficultyLevel.MEDIUM,
+            isInteractive = false
         ),
         GameItem(
             name = "Memory Cards",
             description = "Flip and pair the matching cards.",
             icon = Icons.Filled.Memory,
             color = MaterialTheme.colorScheme.tertiary,
-            difficulty = DifficultyLevel.EASY
+            difficulty = DifficultyLevel.EASY,
+            isInteractive = false
         ),
         GameItem(
             name = "Listening",
             description = "Hear a word and type what you understood.",
             icon = Icons.Filled.Headphones,
             color = MaterialTheme.colorScheme.primary,
-            difficulty = DifficultyLevel.MEDIUM
+            difficulty = DifficultyLevel.MEDIUM,
+            isInteractive = false
         ),
         GameItem(
             name = "Fill the Blank",
             description = "Complete sentences with the right word.",
             icon = Icons.Filled.Bolt,
             color = MaterialTheme.colorScheme.secondary,
-            difficulty = DifficultyLevel.HARD
+            difficulty = DifficultyLevel.HARD,
+            isInteractive = false
         ),
         GameItem(
             name = "Translation Race",
             description = "Translate as many words as you can in 60s.",
             icon = Icons.Filled.Translate,
             color = MaterialTheme.colorScheme.tertiary,
-            difficulty = DifficultyLevel.HARD
+            difficulty = DifficultyLevel.HARD,
+            isInteractive = false
         )
     )
     // endregion
@@ -128,18 +142,26 @@ fun GamesScreen(modifier: Modifier = Modifier) {
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(games, key = { it.name }) { game ->
-                GameCard(game = game)
+                GameCard(
+                    game = game,
+                    onClick = {
+                        if (game.isInteractive && game.name == "Word Match") {
+                            onOpenWordMatch()
+                        }
+                    }
+                )
             }
         }
     }
 }
 
 @Composable
-private fun GameCard(game: GameItem) {
+private fun GameCard(game: GameItem, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .aspectRatio(1f),
+            .aspectRatio(1f)
+            .clickable(enabled = game.isInteractive, onClick = onClick),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surface
@@ -212,7 +234,13 @@ private data class GameItem(
     val description: String,
     val icon: ImageVector,
     val color: Color,
-    val difficulty: DifficultyLevel
+    val difficulty: DifficultyLevel,
+    /**
+     * `true` when tapping the card navigates somewhere; `false`
+     * when it is still a non-interactive placeholder (Phase 6 leaves
+     * all but Word Match as placeholders).
+     */
+    val isInteractive: Boolean = false
 )
 
 private enum class DifficultyLevel { EASY, MEDIUM, HARD }

@@ -72,9 +72,12 @@ class WordMapper @Inject constructor() {
         // Difficulty is free-form in JSON; promote it to the enum and
         // fall back to MEDIUM for unknown values.
         difficulty = Difficulty.fromStringOrDefault(dto.difficulty),
+        // Level flows through from JSON; defaults to 1 if the asset
+        // ever ships an entry without the field.
+        level = dto.level.coerceAtLeast(1),
         // region: Default user-state — Phase 3 will let users edit these fields
+        status = data.database.entities.LearningStatus.NOT_LEARNED,
         favorite = false,
-        learned = false,
         notes = "",
         reviewCount = 0,
         lastReview = null,
@@ -126,8 +129,9 @@ class WordMapper @Inject constructor() {
         },
         tags = dto.tags,
         difficulty = Difficulty.fromStringOrDefault(dto.difficulty),
+        level = dto.level.coerceAtLeast(1),
+        status = data.database.entities.LearningStatus.NOT_LEARNED,
         favorite = false,
-        learned = false,
         notes = "",
         reviewCount = 0,
         lastReview = null,
