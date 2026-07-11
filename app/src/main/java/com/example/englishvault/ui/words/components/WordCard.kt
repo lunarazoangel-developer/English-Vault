@@ -1,6 +1,12 @@
 package com.example.englishvault.ui.words.components
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +19,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.MenuBook
+import androidx.compose.material.icons.filled.ChevronRight
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Person
@@ -28,8 +36,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
@@ -40,33 +50,54 @@ import data.database.entities.isUserAdded
 /**
  * Single card representing a vocabulary word in the Words screen.
  *
- * Phase 2.5: receives a fully formed [WordEntity] from the parent
- * screen so callers do not have to map fields manually.
+ * Phase 4: receives a fully formed [WordEntity] from the parent
+ * screen and renders the full dictionary payload:
+ *  - Compact header (avatar, word, translation, action buttons)
+ *  - Source badge (`Dictionary` for core, `Mine` for user-added)
+ *  - Type and difficulty chips
+ *  - Expandable detail section with pronunciation, verb forms,
+ *    examples, synonyms, antonyms, tags and category.
  *
- * Delete is gated by the entity's [isUserAdded] flag: default / seeded
- * entries are completely read-only. Only entries the user added through
- * the form expose destructive actions, identified by a "Mine" badge.
+ * Expand / collapse is controlled by the parent so the surrounding
+ * screen can persist the state across configuration changes via
+ * `rememberSaveable`.
+ *
+ * Delete and edit are exposed only for user-owned rows
+ * (see [isUserAdded]).
  *
  * @param entity Word backing this card.
- * @param onEdit Called when the pencil icon is tapped. Ignored when the
- *   row is not user-owned.
+ * @param expanded Whether the detail section is currently visible.
+ * @param onToggle Called when the user taps the card body to expand
+ *   or collapse the detail section.
+ * @param onEdit Called when the pencil icon is tapped. Ignored when
+ *   the row is not user-owned.
  * @param onDelete Called when the trash icon is tapped. Ignored when
  *   the row is not user-owned.
  */
 @Composable
 fun WordCard(
     entity: WordEntity,
+    expanded: Boolean,
+    onToggle: () -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val isUserAdded = entity.isUserAdded()
     WordCard(
         word = entity.word,
         translation = entity.translation,
         type = entity.type,
         difficulty = entity.difficulty.toCardDifficulty(),
-        isUserAdded = isUserAdded,
+        isUserAdded = entity.isUserAdded(),
+        pronunciation = entity.pronunciation?.ipa,
+        forms = entity.forms,
+        examples = entity.examples,
+        synonyms = entity.synonyms,
+        antonyms = entity.antonyms,
+        tags = entity.tags,
+        category = entity.category,
+        expanded = expanded,
+        onToggle = onToggle,
         onEdit = onEdit,
         onDelete = onDelete,
         modifier = modifier
@@ -74,8 +105,8 @@ fun WordCard(
 }
 
 /**
- * Lower-level overload kept for callers that already have the card
- * fields on hand (tests, future preview tooling, …).
+ * Lower-level overload kept for previews and tests that already have
+ * every field on hand.
  */
 @Composable
 fun WordCard(
@@ -84,19 +115,46 @@ fun WordCard(
     type: String,
     difficulty: WordCardDifficulty,
     isUserAdded: Boolean,
+    pronunciation: String?,
+    forms: data.database.entities.Forms?,
+    examples: List<data.database.entities.Example>?,
+    synonyms: List<String>?,
+    antonyms: List<String>?,
+    tags: List<String>?,
+    category: List<String>?,
+    expanded: Boolean,
+    onToggle: () -> Unit,
     onEdit: () -> Unit,
     onDelete: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val containerColor = if (isUserAdded) {
+        MaterialTheme.colorScheme.surface
+    } else {
+        MaterialTheme.colorScheme.surface
+    }
+
+    val toggleDescription = stringResource(
+        if (expanded) R.string.words_card_collapse else R.string.words_card_expand
+    )
+
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
+        colors = CardDefaults.cardColors(containerColor = containerColor)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
+                // Chevron rotates to communicate expand / collapse.
+                Icon(
+                    imageVector = Icons.Filled.ChevronRight,
+                    contentDescription = toggleDescription,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .size(20.dp)
+                        .rotate(if (expanded) 90f else 0f)
+                )
+                Spacer(modifier = Modifier.size(8.dp))
                 Box(
                     modifier = Modifier
                         .size(40.dp)
@@ -112,7 +170,15 @@ fun WordCard(
                     )
                 }
                 Spacer(modifier = Modifier.size(12.dp))
-                Column(modifier = Modifier.weight(1f)) {
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable(
+                            role = Role.Button,
+                            onClickLabel = toggleDescription,
+                            onClick = onToggle
+                        )
+                ) {
                     Text(
                         text = word,
                         style = MaterialTheme.typography.titleMedium,
@@ -141,61 +207,277 @@ fun WordCard(
                         )
                     }
                 }
-                // Default / seeded words render no action buttons; the
-                // absence of controls visually communicates that the row
-                // is read-only.
             }
             Spacer(modifier = Modifier.height(12.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 if (isUserAdded) {
-                    AssistChip(
-                        onClick = {},
-                        label = {
-                            Text(
-                                text = stringResource(id = R.string.words_badge_mine),
-                                style = MaterialTheme.typography.labelSmall
-                            )
-                        },
-                        leadingIcon = {
-                            Icon(
-                                imageVector = Icons.Filled.Person,
-                                contentDescription = null,
-                                modifier = Modifier.size(16.dp)
-                            )
-                        },
-                        colors = AssistChipDefaults.assistChipColors(
-                            containerColor = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.15f),
-                            labelColor = MaterialTheme.colorScheme.tertiary
-                        )
+                    SourceBadge(
+                        label = stringResource(id = R.string.words_badge_mine),
+                        icon = Icons.Filled.Person,
+                        containerColor = MaterialTheme.colorScheme.tertiary,
+                        contentColor = MaterialTheme.colorScheme.onTertiary
+                    )
+                } else {
+                    SourceBadge(
+                        label = stringResource(id = R.string.words_badge_dictionary),
+                        icon = Icons.AutoMirrored.Filled.MenuBook,
+                        containerColor = MaterialTheme.colorScheme.secondary,
+                        contentColor = MaterialTheme.colorScheme.onSecondary
                     )
                 }
-                AssistChip(
-                    onClick = {},
-                    label = {
-                        Text(text = type, style = MaterialTheme.typography.labelSmall)
-                    },
-                    colors = AssistChipDefaults.assistChipColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                        labelColor = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
+                MetaChip(text = type)
+                DifficultyChip(difficulty = difficulty)
+            }
+
+            // region: Expanded detail section
+            AnimatedVisibility(
+                visible = expanded,
+                enter = expandVertically() + fadeIn(),
+                exit = shrinkVertically() + fadeOut()
+            ) {
+                Column(
+                    modifier = Modifier.padding(top = 12.dp),
+                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    pronunciation?.takeIf { it.isNotBlank() }?.let { ipa ->
+                        DetailSection(title = stringResource(id = R.string.words_section_pronunciation)) {
+                            Text(
+                                text = ipa,
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                    }
+                    forms?.let { f ->
+                        DetailSection(title = stringResource(id = R.string.words_section_forms)) {
+                            FormsTable(forms = f)
+                        }
+                    }
+                    examples?.takeIf { it.isNotEmpty() }?.let { list ->
+                        DetailSection(title = stringResource(id = R.string.words_section_examples)) {
+                            ExamplesList(examples = list)
+                        }
+                    }
+                    synonyms?.takeIf { it.isNotEmpty() }?.let { list ->
+                        DetailSection(title = stringResource(id = R.string.words_section_synonyms)) {
+                            ChipStrip(items = list)
+                        }
+                    }
+                    antonyms?.takeIf { it.isNotEmpty() }?.let { list ->
+                        DetailSection(title = stringResource(id = R.string.words_section_antonyms)) {
+                            ChipStrip(items = list)
+                        }
+                    }
+                    category?.takeIf { it.isNotEmpty() }?.let { list ->
+                        DetailSection(title = stringResource(id = R.string.words_section_category)) {
+                            ChipStrip(items = list)
+                        }
+                    }
+                    tags?.takeIf { it.isNotEmpty() }?.let { list ->
+                        DetailSection(title = stringResource(id = R.string.words_section_tags)) {
+                            ChipStrip(items = list)
+                        }
+                    }
+                }
+            }
+            // endregion
+        }
+    }
+}
+
+// region: Helpers
+
+/**
+ * Rounded source badge used to communicate whether a row comes from
+ * the bundled dictionary (`Dictionary`) or was added by the learner
+ * (`Mine`).
+ */
+@Composable
+private fun SourceBadge(
+    label: String,
+    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    containerColor: Color,
+    contentColor: Color
+) {
+    AssistChip(
+        onClick = {},
+        label = {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                fontWeight = FontWeight.SemiBold
+            )
+        },
+        leadingIcon = {
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                modifier = Modifier.size(16.dp),
+                tint = contentColor
+            )
+        },
+        colors = AssistChipDefaults.assistChipColors(
+            containerColor = containerColor.copy(alpha = 0.18f),
+            labelColor = contentColor
+        )
+    )
+}
+
+/** Generic pill for non-source metadata (type, etc.). */
+@Composable
+private fun MetaChip(text: String) {
+    AssistChip(
+        onClick = {},
+        label = {
+            Text(text = text, style = MaterialTheme.typography.labelSmall)
+        },
+        colors = AssistChipDefaults.assistChipColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            labelColor = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    )
+}
+
+/** Difficulty chip reused by the card header. */
+@Composable
+private fun DifficultyChip(difficulty: WordCardDifficulty) {
+    AssistChip(
+        onClick = {},
+        label = {
+            Text(
+                text = stringResource(id = difficulty.labelRes),
+                style = MaterialTheme.typography.labelSmall
+            )
+        },
+        colors = AssistChipDefaults.assistChipColors(
+            containerColor = difficulty.color().copy(alpha = 0.15f),
+            labelColor = difficulty.color()
+        )
+    )
+}
+
+/** Section wrapper used by every detail block. */
+@Composable
+private fun DetailSection(title: String, content: @Composable () -> Unit) {
+    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        content()
+    }
+}
+
+/** Two-column key/value table that renders every verb form. */
+@Composable
+private fun FormsTable(forms: data.database.entities.Forms) {
+    val rows = listOf(
+        stringResource(id = R.string.words_forms_base) to forms.base,
+        stringResource(id = R.string.words_forms_third) to forms.thirdPerson,
+        stringResource(id = R.string.words_forms_participle) to forms.presentParticiple,
+        stringResource(id = R.string.words_forms_past) to forms.pastSimple,
+        stringResource(id = R.string.words_forms_past_participle) to forms.pastParticiple
+    )
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        rows.forEach { (label, value) ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.weight(0.45f)
                 )
-                AssistChip(
-                    onClick = {},
-                    label = {
-                        Text(
-                            text = stringResource(id = difficulty.labelRes),
-                            style = MaterialTheme.typography.labelSmall
-                        )
-                    },
-                    colors = AssistChipDefaults.assistChipColors(
-                        containerColor = difficulty.color().copy(alpha = 0.15f),
-                        labelColor = difficulty.color()
-                    )
+                Text(
+                    text = value?.takeIf { it.isNotBlank() } ?: "—",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    fontWeight = FontWeight.Medium,
+                    modifier = Modifier.weight(0.55f)
                 )
             }
         }
     }
 }
+
+/** Bilingual example list with CEFR badges. */
+@Composable
+private fun ExamplesList(examples: List<data.database.entities.Example>) {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        examples.forEach { ex ->
+            Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    LevelBadge(level = ex.level)
+                    Text(
+                        text = ex.english,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+                Text(
+                    text = ex.spanish,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 40.dp)
+                )
+            }
+        }
+    }
+}
+
+/** Small colored badge that surfaces the CEFR level of an example. */
+@Composable
+private fun LevelBadge(level: String) {
+    val containerColor = when (level.uppercase()) {
+        "A1", "A2" -> MaterialTheme.colorScheme.primary
+        "B1", "B2" -> MaterialTheme.colorScheme.secondary
+        else -> MaterialTheme.colorScheme.tertiary
+    }
+    Box(
+        modifier = Modifier
+            .size(width = 32.dp, height = 20.dp)
+            .clip(RoundedCornerShape(6.dp))
+            .background(containerColor.copy(alpha = 0.18f)),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = level,
+            style = MaterialTheme.typography.labelSmall,
+            fontWeight = FontWeight.Bold,
+            color = containerColor
+        )
+    }
+}
+
+/** Wrapping row of pills for string lists. */
+@Composable
+private fun ChipStrip(items: List<String>) {
+    // The screen uses regular FlowRow via Row + spacedBy because FlowRow
+    // is part of compose.foundation and is API-stable in the BOM we use.
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        items.forEach { item ->
+            AssistChip(
+                onClick = {},
+                label = {
+                    Text(text = item, style = MaterialTheme.typography.labelSmall)
+                },
+                colors = AssistChipDefaults.assistChipColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    labelColor = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            )
+        }
+    }
+}
+// endregion
 
 /** Difficulty levels surfaced by [WordCard]. */
 enum class WordCardDifficulty(val labelRes: Int) {

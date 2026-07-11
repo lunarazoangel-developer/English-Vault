@@ -2,6 +2,7 @@ package data.database
 
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import data.database.entities.WORDS_VIEW_BODY
 
 /**
  * Room migrations for the English Vault database.
@@ -74,7 +75,7 @@ object Migrations {
             db.execSQL(
                 """
                 CREATE TABLE IF NOT EXISTS `words` (
-                    `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+                    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                     `word` TEXT NOT NULL,
                     `translation` TEXT NOT NULL,
                     `type` TEXT NOT NULL,
@@ -88,15 +89,171 @@ object Migrations {
                     `tags` TEXT,
                     `difficulty` TEXT NOT NULL,
                     `source` TEXT,
-                    `favorite` INTEGER NOT NULL DEFAULT 0,
-                    `learned` INTEGER NOT NULL DEFAULT 0,
-                    `notes` TEXT NOT NULL DEFAULT '',
-                    `reviewCount` INTEGER NOT NULL DEFAULT 0,
+                    `favorite` INTEGER NOT NULL,
+                    `learned` INTEGER NOT NULL,
+                    `notes` TEXT NOT NULL,
+                    `reviewCount` INTEGER NOT NULL,
                     `lastReview` INTEGER,
                     `nextReview` INTEGER,
                     `customDifficulty` TEXT
                 )
                 """.trimIndent()
+            )
+        }
+    }
+
+    /**
+     * Phase 4 — splits the monolithic `words` table into two siblings
+     * (`core_words` and `user_words`) and adds a `words_view` UNION so
+     * the rest of the app keeps reading a single combined model.
+     *
+     * Background: with a single table, the JSON seed id range (1..N)
+     * and the AUTOINCREMENT ids assigned to user-added rows shared
+     * the same numeric space. A JSON update adding a new word with an
+     * id that happened to match an existing user-added row would
+     * silently overwrite it via `OnConflictStrategy.REPLACE`. Splitting
+     * the table isolates the two id sequences: even if a future seed
+     * picks id=11, the user-added row at id=11 lives in `user_words`
+     * and never collides.
+     *
+     * Steps performed by this migration (all idempotent-friendly):
+     *  1. Create both new tables with identical schemas (no `source`
+     *     column; the discriminator is computed by the view).
+     *  2. Copy rows where `source = 'core'` into `core_words`.
+     *  3. Copy rows where `source = 'user'` into `user_words`.
+     *  4. Drop the legacy `words` table.
+     *  5. Create the `words_view` UNION ALL view.
+     */
+    val MIGRATION_3_4: Migration = object : Migration(3, 4) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            // 1. Create both tables with the unified column layout.
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `core_words` (
+                    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    `word` TEXT NOT NULL,
+                    `translation` TEXT NOT NULL,
+                    `type` TEXT NOT NULL,
+                    `regular` INTEGER,
+                    `forms` TEXT,
+                    `pronunciation` TEXT,
+                    `category` TEXT,
+                    `synonyms` TEXT,
+                    `antonyms` TEXT,
+                    `examples` TEXT,
+                    `tags` TEXT,
+                    `difficulty` TEXT NOT NULL,
+                    `favorite` INTEGER NOT NULL,
+                    `learned` INTEGER NOT NULL,
+                    `notes` TEXT NOT NULL,
+                    `reviewCount` INTEGER NOT NULL,
+                    `lastReview` INTEGER,
+                    `nextReview` INTEGER,
+                    `customDifficulty` TEXT
+                )
+                """.trimIndent()
+            )
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `user_words` (
+                    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    `word` TEXT NOT NULL,
+                    `translation` TEXT NOT NULL,
+                    `type` TEXT NOT NULL,
+                    `regular` INTEGER,
+                    `forms` TEXT,
+                    `pronunciation` TEXT,
+                    `category` TEXT,
+                    `synonyms` TEXT,
+                    `antonyms` TEXT,
+                    `examples` TEXT,
+                    `tags` TEXT,
+                    `difficulty` TEXT NOT NULL,
+                    `favorite` INTEGER NOT NULL,
+                    `learned` INTEGER NOT NULL,
+                    `notes` TEXT NOT NULL,
+                    `reviewCount` INTEGER NOT NULL,
+                    `lastReview` INTEGER,
+                    `nextReview` INTEGER,
+                    `customDifficulty` TEXT
+                )
+                """.trimIndent()
+            )
+
+            // 2. Copy rows that were marked as core in the old table.
+            db.execSQL(
+                """
+                INSERT INTO `core_words` (
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`, `favorite`, `learned`,
+                    `notes`, `reviewCount`, `lastReview`, `nextReview`,
+                    `customDifficulty`
+                )
+                SELECT
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`, `favorite`, `learned`,
+                    `notes`, `reviewCount`, `lastReview`, `nextReview`,
+                    `customDifficulty`
+                FROM `words`
+                WHERE `source` = 'core'
+                """.trimIndent()
+            )
+
+            // 3. Copy rows that were marked as user in the old table.
+            db.execSQL(
+                """
+                INSERT INTO `user_words` (
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`, `favorite`, `learned`,
+                    `notes`, `reviewCount`, `lastReview`, `nextReview`,
+                    `customDifficulty`
+                )
+                SELECT
+                    `id`, `word`, `translation`, `type`, `regular`, `forms`,
+                    `pronunciation`, `category`, `synonyms`, `antonyms`,
+                    `examples`, `tags`, `difficulty`, `favorite`, `learned`,
+                    `notes`, `reviewCount`, `lastReview`, `nextReview`,
+                    `customDifficulty`
+                FROM `words`
+                WHERE `source` = 'user'
+                """.trimIndent()
+            )
+
+            // 4. Drop the legacy table now that both halves are split.
+            db.execSQL("DROP TABLE IF EXISTS `words`")
+
+            // 5. Recreate the unified read view. The SELECT body must be
+            //    byte-for-byte identical to what the `@DatabaseView`
+            //    annotation on `WordEntity` declares, otherwise Room's
+            //    schema validation rejects the migration with
+            //    "Migration didn't properly handle words_view". The body
+            //    is shared through [data.database.entities.WORDS_VIEW_BODY].
+            db.execSQL("CREATE VIEW `words_view` AS $WORDS_VIEW_BODY")
+        }
+    }
+
+    /**
+     * Phase 4.5 — seeds the `coreDictionaryVersion` column on
+     * `user_profile` so [data.seed.DictionarySeeder] can detect when
+     * the bundled dictionary has been updated.
+     *
+     * The column is added with a `DEFAULT 0`, which fills any
+     * pre-existing profile row. Combined with the seeder's rule
+     * "stored < bundled → re-seed", this guarantees that any
+     * existing install triggers a one-time re-seed when the app is
+     * first launched after the upgrade, regardless of which version
+     * of `core_words` they were sitting on.
+     *
+     * User-added words in `user_words` are untouched by this
+     * migration; only the `user_profile` schema changes.
+     */
+    val MIGRATION_4_5: Migration = object : Migration(4, 5) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `coreDictionaryVersion` INTEGER NOT NULL DEFAULT 0"
             )
         }
     }

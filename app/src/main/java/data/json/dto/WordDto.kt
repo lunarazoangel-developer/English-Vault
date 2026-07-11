@@ -19,12 +19,17 @@ import com.google.gson.annotations.SerializedName
 /**
  * Top-level dictionary entry read from `words.json`.
  *
- * `difficulty` and `source` are kept as `String` here because the JSON
- * contract is free-form; the mapper promotes `difficulty` into the
- * strongly typed `Difficulty` enum with a safe default.
+ * `difficulty` is kept as `String` here because the JSON contract is
+ * free-form; the mapper promotes it into the strongly typed
+ * `Difficulty` enum with a safe default.
+ *
+ * The `source` field that previously lived here has been removed:
+ * every JSON entry is by definition a core / dictionary entry, and
+ * the user-vs-core distinction is now carried by which table the row
+ * lives in (`core_words` vs `user_words`) rather than by a column on
+ * the entity.
  */
 data class WordDto(
-    @SerializedName("id") val id: Int,
     @SerializedName("word") val word: String,
     @SerializedName("translation") val translation: String,
     @SerializedName("type") val type: String,
@@ -36,8 +41,7 @@ data class WordDto(
     @SerializedName("antonyms") val antonyms: List<String>?,
     @SerializedName("examples") val examples: List<ExampleDto>?,
     @SerializedName("tags") val tags: List<String>?,
-    @SerializedName("difficulty") val difficulty: String?,
-    @SerializedName("source") val source: String?
+    @SerializedName("difficulty") val difficulty: String?
 )
 // endregion
 

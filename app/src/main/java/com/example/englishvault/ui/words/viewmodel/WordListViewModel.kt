@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import data.database.dao.WordDao
 import data.database.entities.WordEntity
 import data.database.entities.isUserAdded
+import data.database.entities.toUserEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
@@ -58,23 +59,21 @@ class WordListViewModel @Inject constructor(
      */
     fun deleteWord(word: WordEntity): Boolean {
         if (!word.isUserAdded()) return false
-        viewModelScope.launch { wordDao.deleteWord(word.id) }
+        viewModelScope.launch { wordDao.deleteUserWord(word.id) }
         return true
     }
 
     /**
-     * Persists a brand-new user-owned word. The [WordEntity.id] passed
-     * by the caller is overridden (or kept as the default 0) — Room
-     * assigns the next free id thanks to the AUTOINCREMENT primary key.
+     * Persists a brand-new user-owned word. The [WordEntity] coming from
+     * the form (or from any other UI source) is converted into a
+     * [data.database.entities.UserWordEntity] via [toUserEntity], which
+     * drops the view-projected `source` column and resets `id` to `0`
+     * so SQLite's AUTOINCREMENT assigns the next free value in the
+     * `user_words` sequence.
      */
     fun addUserWord(word: WordEntity) {
         viewModelScope.launch {
-            wordDao.insertWord(
-                word.copy(
-                    id = 0,
-                    source = WordEntity.SOURCE_USER
-                )
-            )
+            wordDao.insertUserWord(word.toUserEntity())
         }
     }
     // endregion

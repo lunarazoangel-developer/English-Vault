@@ -4,53 +4,72 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import data.database.entities.CoreWordEntity
 import data.database.entities.Difficulty
 import data.database.entities.ProgressStats
+import data.database.entities.UserWordEntity
 import data.database.entities.WordEntity
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Data access object for the `words` table.
+ * Data access object for the dictionary tables.
+ *
+ * Read paths target the `words_view` UNION, which is why every query
+ * below returns [WordEntity]. Write paths target either `core_words`
+ * or `user_words` explicitly so the two id sequences stay isolated.
  *
  * Reactive queries return [Flow] so screens can observe the database
  * without manual refresh, while one-shot mutations are `suspend` so they
  * integrate cleanly with coroutines and structured cancellation.
  *
  * Provided to the rest of the app via `DatabaseModule.provideWordDao`.
+ *
+ * ## Dual-table update pattern
+ *
+ * State-mutating queries like `setLearned`, `setFavorite`, … cannot be
+ * expressed as a single `UPDATE words` statement anymore because there
+ * is no unified `words` table. They are implemented as a default method
+ * that fans out into two `@Query` calls — one against each underlying
+ * table. Because the two `AUTOINCREMENT` sequences are independent,
+ * the same id cannot exist in both tables, so exactly one of the two
+ * calls touches a row; the other updates zero rows and is a no-op.
  */
 @Dao
 interface WordDao {
 
     // region: Inserts
     /**
-     * Bulk-inserts a list of words. Used during the first-launch seed and
-     * when importing larger batches from external sources.
+     * Bulk-inserts core dictionary words. Used during the first-launch
+     * seed and when re-importing a newer version of
+     * `assets/words.json`.
      *
      * Conflicts (matching primary key) are resolved by replacing the
      * existing row, which keeps the table idempotent across re-imports.
      *
-     * @param words Entries to persist.
+     * @param words Entries to persist into `core_words`.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWords(words: List<WordEntity>)
+    suspend fun insertCoreWords(words: List<CoreWordEntity>)
 
     /**
-     * Inserts or replaces a single word.
+     * Inserts or replaces a single user-added word.
      *
-     * @param word Entry to persist.
+     * @param word Entry to persist into `user_words`. The id is
+     *   typically `0` so SQLite's AUTOINCREMENT picks the next free
+     *   value.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWord(word: WordEntity)
+    suspend fun insertUserWord(word: UserWordEntity)
     // endregion
 
     // region: Queries
     /**
-     * Returns every word ordered alphabetically.
+     * Returns every word (core + user) ordered alphabetically.
      *
-     * Backed by a Room invalidation tracker: the [Flow] re-emits whenever
-     * the table is mutated by any DAO call.
+     * Backed by a Room invalidation tracker: the [Flow] re-emits
+     * whenever either underlying table is mutated by any DAO call.
      */
-    @Query("SELECT * FROM words ORDER BY word ASC")
+    @Query("SELECT * FROM words_view ORDER BY word ASC")
     fun getAllWords(): Flow<List<WordEntity>>
 
     /**
@@ -63,7 +82,7 @@ interface WordDao {
      */
     @Query(
         """
-        SELECT * FROM words
+        SELECT * FROM words_view
         WHERE word LIKE '%' || :query || '%'
            OR translation LIKE '%' || :query || '%'
            OR category LIKE '%' || :query || '%'
@@ -75,48 +94,88 @@ interface WordDao {
     // endregion
 
     // region: Updates (user-owned fields)
+    // The dual-table pattern below is documented in the class-level KDoc.
+    @Query("UPDATE core_words SET learned = :learned WHERE id = :id")
+    suspend fun setLearnedCore(id: Int, learned: Boolean): Int
+
+    @Query("UPDATE user_words SET learned = :learned WHERE id = :id")
+    suspend fun setLearnedUser(id: Int, learned: Boolean): Int
+
     /**
-     * Marks a word as learned or not.
+     * Marks a word as learned or not. The id is unique to whichever
+     * table holds the row, so the fan-out updates exactly one row.
      *
-     * @return Number of rows updated (0 if the id does not exist).
+     * @return Number of rows updated (0 if the id does not exist, 1
+     *   otherwise).
      */
-    @Query("UPDATE words SET learned = :learned WHERE id = :id")
-    suspend fun setLearned(id: Int, learned: Boolean): Int
+    suspend fun setLearned(id: Int, learned: Boolean): Int =
+        setLearnedCore(id, learned) + setLearnedUser(id, learned)
+
+    @Query("UPDATE core_words SET favorite = :favorite WHERE id = :id")
+    suspend fun setFavoriteCore(id: Int, favorite: Boolean): Int
+
+    @Query("UPDATE user_words SET favorite = :favorite WHERE id = :id")
+    suspend fun setFavoriteUser(id: Int, favorite: Boolean): Int
 
     /** Toggles the favorite flag on a word. */
-    @Query("UPDATE words SET favorite = :favorite WHERE id = :id")
-    suspend fun setFavorite(id: Int, favorite: Boolean): Int
+    suspend fun setFavorite(id: Int, favorite: Boolean): Int =
+        setFavoriteCore(id, favorite) + setFavoriteUser(id, favorite)
+
+    @Query("UPDATE core_words SET reviewCount = reviewCount + 1, lastReview = :timestamp WHERE id = :id")
+    suspend fun recordReviewCore(id: Int, timestamp: Long): Int
+
+    @Query("UPDATE user_words SET reviewCount = reviewCount + 1, lastReview = :timestamp WHERE id = :id")
+    suspend fun recordReviewUser(id: Int, timestamp: Long): Int
 
     /**
      * Records that the user reviewed a word right now: bumps
      * [WordEntity.reviewCount] and sets [WordEntity.lastReview].
      */
-    @Query("UPDATE words SET reviewCount = reviewCount + 1, lastReview = :timestamp WHERE id = :id")
-    suspend fun recordReview(id: Int, timestamp: Long): Int
+    suspend fun recordReview(id: Int, timestamp: Long): Int =
+        recordReviewCore(id, timestamp) + recordReviewUser(id, timestamp)
+
+    @Query("UPDATE core_words SET nextReview = :nextReview WHERE id = :id")
+    suspend fun setNextReviewCore(id: Int, nextReview: Long?): Int
+
+    @Query("UPDATE user_words SET nextReview = :nextReview WHERE id = :id")
+    suspend fun setNextReviewUser(id: Int, nextReview: Long?): Int
 
     /**
      * Schedules the next review for a word. Pass `null` to clear the
      * schedule (e.g. when a word is marked as learned).
      */
-    @Query("UPDATE words SET nextReview = :nextReview WHERE id = :id")
-    suspend fun setNextReview(id: Int, nextReview: Long?): Int
+    suspend fun setNextReview(id: Int, nextReview: Long?): Int =
+        setNextReviewCore(id, nextReview) + setNextReviewUser(id, nextReview)
+
+    @Query("UPDATE core_words SET notes = :notes WHERE id = :id")
+    suspend fun setNotesCore(id: Int, notes: String): Int
+
+    @Query("UPDATE user_words SET notes = :notes WHERE id = :id")
+    suspend fun setNotesUser(id: Int, notes: String): Int
 
     /** Updates the personal note attached to a word. */
-    @Query("UPDATE words SET notes = :notes WHERE id = :id")
-    suspend fun setNotes(id: Int, notes: String): Int
+    suspend fun setNotes(id: Int, notes: String): Int =
+        setNotesCore(id, notes) + setNotesUser(id, notes)
+
+    @Query("UPDATE core_words SET customDifficulty = :difficulty WHERE id = :id")
+    suspend fun setCustomDifficultyCore(id: Int, difficulty: Difficulty?): Int
+
+    @Query("UPDATE user_words SET customDifficulty = :difficulty WHERE id = :id")
+    suspend fun setCustomDifficultyUser(id: Int, difficulty: Difficulty?): Int
 
     /** Overrides the difficulty for a single word. Pass `null` to reset. */
-    @Query("UPDATE words SET customDifficulty = :difficulty WHERE id = :id")
-    suspend fun setCustomDifficulty(id: Int, difficulty: Difficulty?): Int
+    suspend fun setCustomDifficulty(id: Int, difficulty: Difficulty?): Int =
+        setCustomDifficultyCore(id, difficulty) +
+            setCustomDifficultyUser(id, difficulty)
     // endregion
 
     // region: Filtered reactive queries
     /** Reactive list of words the user has marked as learned. */
-    @Query("SELECT * FROM words WHERE learned = 1 ORDER BY word ASC")
+    @Query("SELECT * FROM words_view WHERE learned = 1 ORDER BY word ASC")
     fun getLearnedWords(): Flow<List<WordEntity>>
 
     /** Reactive list of words the user has favorited. */
-    @Query("SELECT * FROM words WHERE favorite = 1 ORDER BY word ASC")
+    @Query("SELECT * FROM words_view WHERE favorite = 1 ORDER BY word ASC")
     fun getFavoriteWords(): Flow<List<WordEntity>>
 
     /**
@@ -125,7 +184,7 @@ interface WordDao {
      */
     @Query(
         """
-        SELECT * FROM words
+        SELECT * FROM words_view
         WHERE learned = 0
           AND nextReview IS NOT NULL
           AND nextReview <= :now
@@ -135,27 +194,27 @@ interface WordDao {
     fun getDueForReview(now: Long): Flow<List<WordEntity>>
 
     /** Words that have been reviewed at least once but are not yet learned. */
-    @Query("SELECT * FROM words WHERE learned = 0 AND reviewCount > 0 ORDER BY word ASC")
+    @Query("SELECT * FROM words_view WHERE learned = 0 AND reviewCount > 0 ORDER BY word ASC")
     fun getInProgressWords(): Flow<List<WordEntity>>
     // endregion
 
     // region: Aggregate counts (Flow)
     /** Reactive count of every word in the dictionary. */
-    @Query("SELECT COUNT(*) FROM words")
+    @Query("SELECT COUNT(*) FROM words_view")
     fun countAllFlow(): Flow<Int>
 
     /** Reactive count of words marked as learned. */
-    @Query("SELECT COUNT(*) FROM words WHERE learned = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 1")
     fun countLearnedFlow(): Flow<Int>
 
     /** Reactive count of words marked as favorite. */
-    @Query("SELECT COUNT(*) FROM words WHERE favorite = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE favorite = 1")
     fun countFavoritesFlow(): Flow<Int>
 
     /** Reactive count of words due for review right now. */
     @Query(
         """
-        SELECT COUNT(*) FROM words
+        SELECT COUNT(*) FROM words_view
         WHERE learned = 0
           AND nextReview IS NOT NULL
           AND nextReview <= :now
@@ -164,32 +223,33 @@ interface WordDao {
     fun countDueForReviewFlow(now: Long): Flow<Int>
 
     /** Reactive count of words in progress (reviewed but not learned). */
-    @Query("SELECT COUNT(*) FROM words WHERE learned = 0 AND reviewCount > 0")
+    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 0 AND reviewCount > 0")
     fun countInProgressFlow(): Flow<Int>
     // endregion
 
     // region: Aggregate counts (one-shot)
     /**
-     * Returns the number of rows currently stored in the `words` table.
+     * Returns the number of rows currently stored across the two
+     * underlying tables.
      *
      * Used by `MainActivity` to decide whether the JSON seed should run
-     * (only when the database is empty).
+     * (only when the view is empty).
      */
-    @Query("SELECT COUNT(*) FROM words")
+    @Query("SELECT COUNT(*) FROM words_view")
     suspend fun countWords(): Int
 
     /** One-shot count of learned words. */
-    @Query("SELECT COUNT(*) FROM words WHERE learned = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE learned = 1")
     suspend fun countLearned(): Int
 
     /** One-shot count of favorite words. */
-    @Query("SELECT COUNT(*) FROM words WHERE favorite = 1")
+    @Query("SELECT COUNT(*) FROM words_view WHERE favorite = 1")
     suspend fun countFavorites(): Int
 
     /** One-shot count of words due for review at [now]. */
     @Query(
         """
-        SELECT COUNT(*) FROM words
+        SELECT COUNT(*) FROM words_view
         WHERE learned = 0
           AND nextReview IS NOT NULL
           AND nextReview <= :now
@@ -210,14 +270,14 @@ interface WordDao {
     @Query(
         """
         SELECT
-            (SELECT COUNT(*) FROM words) AS totalWords,
-            (SELECT COUNT(*) FROM words WHERE learned = 1) AS learnedWords,
-            (SELECT COUNT(*) FROM words WHERE favorite = 1) AS favoriteWords,
-            (SELECT COUNT(*) FROM words
+            (SELECT COUNT(*) FROM words_view) AS totalWords,
+            (SELECT COUNT(*) FROM words_view WHERE learned = 1) AS learnedWords,
+            (SELECT COUNT(*) FROM words_view WHERE favorite = 1) AS favoriteWords,
+            (SELECT COUNT(*) FROM words_view
                 WHERE learned = 0
                   AND nextReview IS NOT NULL
                   AND nextReview <= :now) AS dueForReview,
-            (SELECT COUNT(*) FROM words
+            (SELECT COUNT(*) FROM words_view
                 WHERE learned = 0
                   AND reviewCount > 0) AS inProgress
         """
@@ -227,20 +287,26 @@ interface WordDao {
 
     // region: Maintenance
     /**
-     * Removes a single word by id.
+     * Removes a single user-added word by id.
      *
      * The caller is responsible for validating that the row is
      * user-owned (see [data.database.entities.isUserAdded]); the DAO
      * intentionally does not gate deletes so that future tooling
-     * (e.g. an admin reset) can still wipe seeded rows if needed.
+     * can still remove user rows if needed.
      *
      * @return Number of rows deleted (0 if the id does not exist).
      */
-    @Query("DELETE FROM words WHERE id = :id")
-    suspend fun deleteWord(id: Int): Int
+    @Query("DELETE FROM user_words WHERE id = :id")
+    suspend fun deleteUserWord(id: Int): Int
 
-    /** Removes every word from the table. Intended for debug / reset flows. */
-    @Query("DELETE FROM words")
-    suspend fun deleteAll()
+    /**
+     * Removes every row from `core_words`. Intended for re-seed flows
+     * that replace the bundled dictionary with a newer version while
+     * preserving the contents of `user_words`.
+     *
+     * @return Number of rows deleted.
+     */
+    @Query("DELETE FROM core_words")
+    suspend fun deleteAllCoreWords(): Int
     // endregion
 }

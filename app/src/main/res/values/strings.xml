@@ -67,6 +67,30 @@
 
     <!-- region: Word badges -->
     <string name="words_badge_mine">Mine</string>
+    <string name="words_badge_dictionary">Dictionary</string>
+    <!-- endregion -->
+
+    <!-- region: Word detail sections -->
+    <string name="words_section_pronunciation">Pronunciation</string>
+    <string name="words_section_forms">Forms</string>
+    <string name="words_section_examples">Examples</string>
+    <string name="words_section_synonyms">Synonyms</string>
+    <string name="words_section_antonyms">Antonyms</string>
+    <string name="words_section_tags">Tags</string>
+    <string name="words_section_category">Category</string>
+    <!-- endregion -->
+
+    <!-- region: Verb forms labels -->
+    <string name="words_forms_base">Base</string>
+    <string name="words_forms_third">3rd person</string>
+    <string name="words_forms_participle">Present participle</string>
+    <string name="words_forms_past">Past simple</string>
+    <string name="words_forms_past_participle">Past participle</string>
+    <!-- endregion -->
+
+    <!-- region: Word card accessibility -->
+    <string name="words_card_expand">Show details</string>
+    <string name="words_card_collapse">Hide details</string>
     <!-- endregion -->
 
     <!-- region: Word form (add/edit) -->

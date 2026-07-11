@@ -30,7 +30,17 @@ data class UserProfileEntity(
     val lastStreakDate: Long? = null,
     val dailyGoalXp: Int = DEFAULT_DAILY_GOAL,
     /** Epoch millis when this row was first created. */
-    val createdAt: Long = System.currentTimeMillis()
+    val createdAt: Long = System.currentTimeMillis(),
+    /**
+     * Version of the bundled core dictionary that this device has
+     * applied. Compared against [data.seed.DictionarySeeder.CORE_DICTIONARY_VERSION]
+     * on every launch; when the bundled version is greater, the seeder
+     * wipes `core_words` and re-imports `assets/words.json`.
+     *
+     * Starts at `0` so any existing install (whose profile predates
+     * this field) immediately re-seeds when the app upgrades.
+     */
+    val coreDictionaryVersion: Int = 0
 ) {
     companion object {
         /** Fixed primary key — single-user schema. */

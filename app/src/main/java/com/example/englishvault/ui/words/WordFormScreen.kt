@@ -199,8 +199,10 @@ fun WordFormScreen(
                 onClick = {
                     onSave(
                         WordEntity(
-                            // id defaults to 0 so Room AUTOINCREMENT
-                            // assigns the next free value.
+                            // id = 0 so the ViewModel's `toUserEntity`
+                            // conversion hands a fresh AUTOINCREMENT slot
+                            // to SQLite when persisting the row.
+                            id = 0,
                             word = word,
                             translation = translation,
                             type = type,
