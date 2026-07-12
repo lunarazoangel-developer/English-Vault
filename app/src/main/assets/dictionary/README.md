@@ -19,13 +19,13 @@ loader constant — the two must stay aligned.
 |----|-------------------------|---------|------------------|--------------------------------------------------------|
 | 1  | `verbs_irregular.json`  | 16      | verb             | V1–V16 alphabetised: be, buy, come, eat, give, …       |
 | 2  | `verbs_regular.json`    | 17      | verb             | V17–V33 alphabetised: drive, learn, like, …            |
-| 3  | `interjections.json`    | 7       | interjection     | Greetings + basic discourse markers.                   |
-| 4  | `nouns.json`            | 9       | noun             | High-frequency everyday nouns.                         |
-| 5  | `adjectives.json`       | 12      | adjective        | Description + emotion adjectives.                      |
-| 6  | `adverbs.json`          | 3       | adverb           | Frequency + manner.                                    |
-| 7  | `prepositions.json`     | 2       | preposition      | Core grammar words.                                    |
-| 8  | `conjunctions.json`     | 2       | conjunction      | Core grammar words.                                    |
-| **Total**                   | **68**  |                  |                                                        |
+| 3  | `interjections.json`    | 67      | interjection     | Greetings, polite markers, affirmation / negation, surprise, joy, frustration, pain, attention getters, hesitation fillers. |
+| 4  | `nouns.json`            | 69      | noun             | People / family, body parts, time, food, animals, home / furniture, places, common objects, abstract / communication, nature, education, work. |
+| 5  | `adjectives.json`       | 147     | adjective        | Quality, size, emotion, personality, color, taste, weather, time / state, abstract and physical descriptors. |
+| 6  | `adverbs.json`          | 165     | adverb           | Frequency, time, place, direction, manner, degree, certainty, affirmation, addition / linking. |
+| 7  | `prepositions.json`     | 62      | preposition      | Place, time, direction, manner, possession, and common multi-word prepositions (`because of`, `in spite of`, `according to`, `due to`, `instead of`, `next to`, etc.). |
+| 8  | `conjunctions.json`     | 62      | conjunction      | Coordinating, subordinating (time / condition / concession / cause / purpose / result / comparison / manner / place), correlative and conjunctive adverbs. |
+| **Total**                   | **624** |                  |                                                        |
 
 Verbs come first because they cover the most mini-game content today;
 everything else is grouped by grammatical type, alphabetised inside the
@@ -103,3 +103,27 @@ re-seeding. Bump it whenever the bundled dictionary changes:
 - **4** — same 68 entries, split across these 8 section files plus this
   index. Per-entry content unchanged except `go` (4 → 3 examples for
   cross-entry consistency).
+- **5, 6, 7** — schema / migration bumps; total stays at 68 entries.
+- **8** — `conjunctions.json` extended from 2 to 62 entries
+  (coordinating, subordinating, correlative, conjunctive adverbs).
+  Total dictionary now **128 entries**.
+- **9** — `interjections.json` extended from 7 to 67 entries
+  (greetings, polite markers, affirmation / negation, surprise,
+  joy, frustration, pain, attention getters, hesitation fillers).
+  Total dictionary now **193 entries**.
+- **10** — `nouns.json` extended from 9 to 69 entries (people /
+  family, body parts, time, food, animals, home / furniture,
+  places, common objects, abstract / communication, nature,
+  education, work). Total dictionary now **262 entries**.
+- **11** — `prepositions.json` extended from 2 to 62 entries
+  (place, time, direction, manner, possession, and common
+  multi-word prepositions). Total dictionary now
+  **324 entries**.
+- **12** — `adjectives.json` extended from 87 to 147 entries
+  (colors, taste, more emotions, personality, weather,
+  time / state, abstract qualities, and physical descriptors).
+  Total dictionary now **459 entries**.
+- **13** — `adverbs.json` extended from 105 to 165 entries
+  (linking, frequency / period, direction, place, degree,
+  certainty, and more manner descriptors). Total dictionary
+  now **624 entries**.

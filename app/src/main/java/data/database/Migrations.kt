@@ -436,4 +436,23 @@ object Migrations {
             )
         }
     }
+
+    /**
+     * Phase 7.1 — adds the music and effects volume sliders to
+     * `user_profile` so the Settings screen can persist preferences
+     * before the audio engine itself ships.
+     *
+     * Both columns use `REAL` (SQLite's floating-point type) and
+     * default to `1.0` so freshly migrated installs keep full volume.
+     */
+    val MIGRATION_8_9: Migration = object : Migration(8, 9) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `musicVolume` REAL NOT NULL DEFAULT 1.0"
+            )
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `effectsVolume` REAL NOT NULL DEFAULT 1.0"
+            )
+        }
+    }
 }

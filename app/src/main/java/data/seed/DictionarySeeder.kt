@@ -93,7 +93,41 @@ class DictionarySeeder @Inject constructor(
          *    section files under `assets/dictionary/` with a
          *    `README.md` index. Per-entry content unchanged except
          *    `go` (4 → 3 examples for cross-entry consistency).
+         *  - 5, 6, 7 — additional schema / migration bumps; total
+         *    stays at 68 entries.
+         *  - 8 — `conjunctions.json` extended from 2 to 62 entries
+         *    (coordinating, subordinating time / condition /
+         *    concession / cause / purpose / result / comparison /
+         *    manner / place, correlative pairs, conjunctive
+         *    adverbs). Total dictionary now 128 entries across the
+         *    eight per-type section files.
+         *  - 9 — `interjections.json` extended from 7 to 67 entries
+         *    (greetings, polite markers, affirmation / negation,
+         *    surprise, joy, frustration, pain, attention getters,
+         *    hesitation fillers, discourse markers). Total
+         *    dictionary now 193 entries across the eight per-type
+         *    section files.
+         *  - 10 — `nouns.json` extended from 9 to 69 entries
+         *    (people / family, body parts, time, food, animals,
+         *    home / furniture, places, common objects, abstract /
+         *    communication, nature, education, work). Total
+         *    dictionary now 262 entries across the eight per-type
+         *    section files.
+         *  - 11 — `prepositions.json` extended from 2 to 62 entries
+         *    (place, time, direction, manner, possession, and
+         *    common multi-word prepositions). Total dictionary now
+         *    324 entries across the eight per-type section files.
+         *  - 12 — `adjectives.json` extended from 87 to 147 entries
+         *    (colors, taste, more emotions, personality, weather,
+         *    time / state, abstract qualities, and physical
+         *    descriptors). Total dictionary now 459 entries across
+         *    the eight per-type section files.
+         *  - 13 — `adverbs.json` extended from 105 to 165 entries
+         *    (linking, frequency / period, direction, place,
+         *    degree, certainty, and more manner descriptors).
+         *    Total dictionary now 624 entries across the eight
+         *    per-type section files.
          */
-        const val CORE_DICTIONARY_VERSION: Int = 7
+        const val CORE_DICTIONARY_VERSION: Int = 13
     }
 }

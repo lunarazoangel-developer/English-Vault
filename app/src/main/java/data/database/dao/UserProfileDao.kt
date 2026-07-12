@@ -110,6 +110,28 @@ interface UserProfileDao {
         amount: Int,
         id: Int = UserProfileEntity.SINGLE_USER_ID
     ): Int
+
+    /**
+     * Updates the music volume slider value in `[0.0, 1.0]`. Callers
+     * are expected to clamp the input; the slider on the Settings
+     * screen already constrains it.
+     */
+    @Query("UPDATE user_profile SET musicVolume = :volume WHERE id = :id")
+    suspend fun updateMusicVolume(
+        volume: Float,
+        id: Int = UserProfileEntity.SINGLE_USER_ID
+    ): Int
+
+    /**
+     * Updates the effects volume slider value in `[0.0, 1.0]`. Callers
+     * are expected to clamp the input; the slider on the Settings
+     * screen already constrains it.
+     */
+    @Query("UPDATE user_profile SET effectsVolume = :volume WHERE id = :id")
+    suspend fun updateEffectsVolume(
+        volume: Float,
+        id: Int = UserProfileEntity.SINGLE_USER_ID
+    ): Int
     // endregion
 
     // region: Maintenance

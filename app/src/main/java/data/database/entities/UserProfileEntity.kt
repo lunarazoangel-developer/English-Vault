@@ -54,7 +54,20 @@ data class UserProfileEntity(
      * the in-world shop. The world map HUD surfaces this counter; the
      * actual shop is a placeholder for a future phase.
      */
-    val coins: Int = 0
+    val coins: Int = 0,
+    /**
+     * Background music level in `[0.0, 1.0]`. The audio engine (not
+     * yet wired) will read this every time it starts a track; the
+     * Settings screen exposes a slider so the value can be tuned
+     * before playback exists. Defaults to full volume.
+     */
+    val musicVolume: Float = DEFAULT_VOLUME,
+    /**
+     * Sound effects level in `[0.0, 1.0]`. Mini-game feedback sounds
+     * will multiply their base gain by this factor. Defaults to full
+     * volume.
+     */
+    val effectsVolume: Float = DEFAULT_VOLUME
 ) {
     companion object {
         /** Fixed primary key — single-user schema. */
@@ -68,5 +81,8 @@ data class UserProfileEntity(
 
         /** Starting hearts for a fresh profile. */
         const val DEFAULT_HEARTS: Int = 5
+
+        /** Default volume for both music and effects. */
+        const val DEFAULT_VOLUME: Float = 1.0f
     }
 }

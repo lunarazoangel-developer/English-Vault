@@ -11,6 +11,7 @@
     <!-- region: Progress screen -->
     <string name="progress_title">Your progress</string>
     <string name="progress_greeting">Hello, %1$s</string>
+    <string name="progress_greeting_settings_cd">Open settings</string>
     <string name="progress_default_name">Player</string>
     <string name="progress_streak_days">%1$d day streak</string>
     <string name="progress_xp_label">Level %1$d</string>
@@ -30,6 +31,22 @@
     <string name="progress_category_need_pct">Need %1$d%% learned at this level</string>
     <string name="progress_category_need_both">Need %1$d more XP and %2$d%% learned</string>
     <string name="progress_category_maxed">Max level reached</string>
+    <!-- endregion -->
+
+    <!-- region: Settings (Phase 7.1) -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_back">Back</string>
+    <string name="settings_section_profile">Profile</string>
+    <string name="settings_change_name">Change name</string>
+    <string name="settings_section_sound">Sound</string>
+    <string name="settings_sound_music">Music</string>
+    <string name="settings_sound_music_hint">Coming soon — background music will be added in a future update</string>
+    <string name="settings_sound_effects">Effects</string>
+    <string name="settings_sound_volume_format">%1$d%%</string>
+    <string name="settings_edit_name_title">Change your name</string>
+    <string name="settings_edit_name_hint">Enter your name</string>
+    <string name="settings_edit_name_save">Save</string>
+    <string name="settings_edit_name_empty_error">Name cannot be empty</string>
     <!-- endregion -->
 
     <!-- region: Word Match Verbs level lock (Phase 4.6) -->

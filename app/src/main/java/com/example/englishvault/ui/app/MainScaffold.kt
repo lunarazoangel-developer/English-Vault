@@ -18,6 +18,8 @@ import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsGameScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsLevelScreen
 import com.example.englishvault.ui.navigation.Destination
 import com.example.englishvault.ui.progress.ProgressScreen
+import com.example.englishvault.ui.settings.SettingsEditNameScreen
+import com.example.englishvault.ui.settings.SettingsScreen
 import com.example.englishvault.ui.world.WorldScreen
 import com.example.englishvault.ui.words.WordFormScreen
 import com.example.englishvault.ui.words.WordListScreen
@@ -64,7 +66,11 @@ fun MainScaffold(modifier: Modifier = Modifier) {
         ) {
             // region: Bottom-bar destinations
             composable(Destination.Progress.route) {
-                ProgressScreen()
+                ProgressScreen(
+                    onOpenSettings = {
+                        navController.navigate(Destination.Settings.route)
+                    }
+                )
             }
             composable(Destination.Games.route) {
                 GamesScreen(
@@ -84,6 +90,22 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                     onEditWord = { id ->
                         navController.navigate(Destination.WordForm.buildRoute(id))
                     }
+                )
+            }
+            // endregion
+
+            // region: Settings (Phase 7.1)
+            composable(Destination.Settings.route) {
+                SettingsScreen(
+                    onBack = { navController.popBackStack() },
+                    onEditName = {
+                        navController.navigate(Destination.SettingsEditName.route)
+                    }
+                )
+            }
+            composable(Destination.SettingsEditName.route) {
+                SettingsEditNameScreen(
+                    onBack = { navController.popBackStack() }
                 )
             }
             // endregion

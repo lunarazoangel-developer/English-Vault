@@ -39,6 +39,15 @@ sealed class Destination(val route: String) {
     }
     // endregion
 
+    // region: Settings (Phase 7.1)
+    /** Settings hub — profile + sound. Reachable from the Progress
+     *  screen via the greeting button. */
+    data object Settings : Destination("settings")
+
+    /** Sub-screen that lets the user rename their profile. */
+    data object SettingsEditName : Destination("settings/edit-name")
+    // endregion
+
     companion object {
         /** Top-level routes rendered as tabs in the bottom bar. */
         val bottomBarDestinations: List<Destination> = listOf(

@@ -1,419 +1,115 @@
 [
     {
-        "word": "always",
-        "translation": "siempre",
+        "word": "above",
+        "translation": "arriba",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈɔːlweɪz/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["forever", "constantly"],
-        "antonyms": ["never"],
+        "pronunciation": {"ipa": "/əˈbʌv/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["overhead"],
+        "antonyms": ["below", "underneath"],
         "examples": [
-            {"english": "I always drink coffee in the morning.", "spanish": "Siempre tomo café por la mañana.", "level": "A1"},
-            {"english": "She is always happy.", "spanish": "Ella siempre está feliz.", "level": "A2"},
-            {"english": "He has always been kind to me.", "spanish": "Él siempre ha sido amable conmigo.", "level": "B1"}
+            {"english": "The birds flew above.", "spanish": "Los pájaros volaron arriba.", "level": "A2"},
+            {"english": "Look at the stars above.", "spanish": "Mira las estrellas arriba.", "level": "A2"},
+            {"english": "His apartment is above the store.", "spanish": "Su apartamento está arriba de la tienda.", "level": "B1"}
         ],
-        "tags": ["frequency", "common"],
+        "tags": ["place"],
         "difficulty": "EASY",
-        "level": 1
+        "level": 3
     },
     {
-        "word": "never",
-        "translation": "nunca",
+        "word": "absolutely",
+        "translation": "absolutamente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈnɛvər/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": [],
-        "antonyms": ["always"],
+        "pronunciation": {"ipa": "/ˈæbsəluːtli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["completely", "totally"],
+        "antonyms": ["partially"],
         "examples": [
-            {"english": "I never eat meat.", "spanish": "Nunca como carne.", "level": "A1"},
-            {"english": "She never gives up.", "spanish": "Ella nunca se rinde.", "level": "A2"},
-            {"english": "He has never been to Japan.", "spanish": "Él nunca ha estado en Japón.", "level": "B1"}
+            {"english": "I absolutely agree.", "spanish": "Estoy absolutamente de acuerdo.", "level": "A2"},
+            {"english": "She is absolutely right.", "spanish": "Ella está absolutamente en lo correcto.", "level": "A2"},
+            {"english": "He absolutely loves music.", "spanish": "Él absolutamente ama la música.", "level": "B1"}
         ],
-        "tags": ["frequency", "common"],
+        "tags": ["degree", "common"],
         "difficulty": "EASY",
-        "level": 1
+        "level": 4
     },
     {
-        "word": "often",
-        "translation": "a menudo",
+        "word": "accordingly",
+        "translation": "en consecuencia",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈɒfən/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["frequently", "regularly"],
-        "antonyms": ["rarely", "seldom"],
-        "examples": [
-            {"english": "I often go to the park.", "spanish": "A menudo voy al parque.", "level": "A1"},
-            {"english": "She often reads before bed.", "spanish": "A menudo lee antes de dormir.", "level": "A1"},
-            {"english": "He often travels for work.", "spanish": "A menudo viaja por trabajo.", "level": "A2"}
-        ],
-        "tags": ["frequency", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "sometimes",
-        "translation": "a veces",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈsʌmtaɪmz/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["occasionally"],
-        "antonyms": ["always", "never"],
-        "examples": [
-            {"english": "I sometimes drink tea.", "spanish": "A veces tomo té.", "level": "A1"},
-            {"english": "She sometimes cooks on Sundays.", "spanish": "A veces cocina los domingos.", "level": "A1"},
-            {"english": "He is sometimes late for class.", "spanish": "A veces llega tarde a clase.", "level": "A2"}
-        ],
-        "tags": ["frequency", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "today",
-        "translation": "hoy",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/təˈdeɪ/", "audio": null},
-        "category": ["time"],
-        "synonyms": [],
+        "pronunciation": {"ipa": "/əˈkɔːrdɪŋli/", "audio": null},
+        "category": ["connection"],
+        "synonyms": ["therefore", "consequently"],
         "antonyms": [],
         "examples": [
-            {"english": "I am busy today.", "spanish": "Estoy ocupado hoy.", "level": "A1"},
-            {"english": "She is arriving today.", "spanish": "Ella llega hoy.", "level": "A1"},
-            {"english": "Today is a good day.", "spanish": "Hoy es un buen día.", "level": "A1"}
+            {"english": "He was late; accordingly, he missed the start.", "spanish": "Él llegó tarde; en consecuencia, se perdió el inicio.", "level": "B1"},
+            {"english": "She prepared well; accordingly, she succeeded.", "spanish": "Ella se preparó bien; en consecuencia, tuvo éxito.", "level": "B1"},
+            {"english": "Accordingly, we will proceed.", "spanish": "En consecuencia, procederemos.", "level": "B1"}
         ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 1
+        "tags": ["connection"],
+        "difficulty": "MEDIUM",
+        "level": 5
     },
     {
-        "word": "yesterday",
-        "translation": "ayer",
+        "word": "ago",
+        "translation": "hace",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈjɛstərdeɪ/", "audio": null},
+        "pronunciation": {"ipa": "/əˈɡoʊ/", "audio": null},
         "category": ["time"],
-        "synonyms": [],
-        "antonyms": ["tomorrow"],
+        "synonyms": ["back"],
+        "antonyms": ["from now"],
         "examples": [
-            {"english": "I saw her yesterday.", "spanish": "La vi ayer.", "level": "A1"},
-            {"english": "Yesterday was a great day.", "spanish": "Ayer fue un gran día.", "level": "A1"},
-            {"english": "He called me yesterday morning.", "spanish": "Me llamó ayer por la mañana.", "level": "A2"}
+            {"english": "I saw him two days ago.", "spanish": "Lo vi hace dos días.", "level": "A1"},
+            {"english": "She left an hour ago.", "spanish": "Ella se fue hace una hora.", "level": "A1"},
+            {"english": "He moved here a year ago.", "spanish": "Él se mudó aquí hace un año.", "level": "A2"}
         ],
         "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "tomorrow",
-        "translation": "mañana",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/təˈmɒroʊ/", "audio": null},
-        "category": ["time"],
-        "synonyms": [],
-        "antonyms": ["yesterday"],
-        "examples": [
-            {"english": "I will see you tomorrow.", "spanish": "Te veré mañana.", "level": "A1"},
-            {"english": "Tomorrow is Saturday.", "spanish": "Mañana es sábado.", "level": "A1"},
-            {"english": "She is leaving tomorrow morning.", "spanish": "Ella se va mañana por la mañana.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "now",
-        "translation": "ahora",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/naʊ/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["currently", "presently"],
-        "antonyms": ["then", "later"],
-        "examples": [
-            {"english": "I am busy now.", "spanish": "Estoy ocupado ahora.", "level": "A1"},
-            {"english": "She is here now.", "spanish": "Ella está aquí ahora.", "level": "A1"},
-            {"english": "Now is the time to act.", "spanish": "Ahora es el momento de actuar.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "here",
-        "translation": "aquí",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/hɪər/", "audio": null},
-        "category": ["place"],
-        "synonyms": [],
-        "antonyms": ["there"],
-        "examples": [
-            {"english": "Come here.", "spanish": "Ven aquí.", "level": "A1"},
-            {"english": "She lives here.", "spanish": "Ella vive aquí.", "level": "A1"},
-            {"english": "The book is right here.", "spanish": "El libro está justo aquí.", "level": "A1"}
-        ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "there",
-        "translation": "allí",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ðeər/", "audio": null},
-        "category": ["place"],
-        "synonyms": [],
-        "antonyms": ["here"],
-        "examples": [
-            {"english": "She is there.", "spanish": "Ella está allí.", "level": "A1"},
-            {"english": "Go over there.", "spanish": "Ve allí.", "level": "A1"},
-            {"english": "There are many people.", "spanish": "Hay mucha gente.", "level": "A1"}
-        ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "well",
-        "translation": "bien",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/wɛl/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["properly", "correctly"],
-        "antonyms": ["badly", "poorly"],
-        "examples": [
-            {"english": "She sings well.", "spanish": "Ella canta bien.", "level": "A1"},
-            {"english": "He did well on the test.", "spanish": "Le fue bien en el examen.", "level": "A1"},
-            {"english": "They speak English well.", "spanish": "Hablan inglés bien.", "level": "A2"}
-        ],
-        "tags": ["manner", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "fast",
-        "translation": "rápido",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/fæst/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["quickly", "rapidly"],
-        "antonyms": ["slowly"],
-        "examples": [
-            {"english": "He runs fast.", "spanish": "Él corre rápido.", "level": "A1"},
-            {"english": "She drives fast.", "spanish": "Ella conduce rápido.", "level": "A1"},
-            {"english": "Time goes by so fast.", "spanish": "El tiempo pasa tan rápido.", "level": "A2"}
-        ],
-        "tags": ["manner", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "very",
-        "translation": "muy",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈvɛri/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["extremely", "really"],
-        "antonyms": ["slightly"],
-        "examples": [
-            {"english": "She is very happy.", "spanish": "Ella está muy feliz.", "level": "A1"},
-            {"english": "It is very cold today.", "spanish": "Hace muy frío hoy.", "level": "A1"},
-            {"english": "He is a very good person.", "spanish": "Él es una persona muy buena.", "level": "A1"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "too",
-        "translation": "demasiado",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/tuː/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["excessively"],
-        "antonyms": ["not enough"],
-        "examples": [
-            {"english": "It is too hot.", "spanish": "Hace demasiado calor.", "level": "A1"},
-            {"english": "You work too much.", "spanish": "Trabajas demasiado.", "level": "A1"},
-            {"english": "This bag is too heavy.", "spanish": "Esta bolsa es demasiado pesada.", "level": "A2"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "no",
-        "translation": "no",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/noʊ/", "audio": null},
-        "category": ["affirmation"],
-        "synonyms": [],
-        "antonyms": ["yes"],
-        "examples": [
-            {"english": "No, thank you.", "spanish": "No, gracias.", "level": "A1"},
-            {"english": "I have no money.", "spanish": "No tengo dinero.", "level": "A1"},
-            {"english": "She is no longer here.", "spanish": "Ella ya no está aquí.", "level": "A2"}
-        ],
-        "tags": ["affirmation", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "yes",
-        "translation": "sí",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/jɛs/", "audio": null},
-        "category": ["affirmation"],
-        "synonyms": [],
-        "antonyms": ["no"],
-        "examples": [
-            {"english": "Yes, please.", "spanish": "Sí, por favor.", "level": "A1"},
-            {"english": "Yes, I understand.", "spanish": "Sí, entiendo.", "level": "A1"},
-            {"english": "She said yes to the invitation.", "spanish": "Ella dijo sí a la invitación.", "level": "A2"}
-        ],
-        "tags": ["affirmation", "common"],
-        "difficulty": "EASY",
-        "level": 1
-    },
-    {
-        "word": "quickly",
-        "translation": "rápidamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈkwɪkli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["fast", "rapidly"],
-        "antonyms": ["slowly"],
-        "examples": [
-            {"english": "He ran quickly.", "spanish": "Él corrió rápidamente.", "level": "A2"},
-            {"english": "She quickly finished her homework.", "spanish": "Ella terminó rápidamente su tarea.", "level": "A2"},
-            {"english": "They responded quickly to the email.", "spanish": "Respondieron rápidamente al correo.", "level": "B1"}
-        ],
-        "tags": ["manner", "common"],
         "difficulty": "EASY",
         "level": 2
     },
     {
-        "word": "usually",
-        "translation": "usualmente",
+        "word": "ahead",
+        "translation": "adelante",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈjuːʒuəli/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["normally", "generally"],
-        "antonyms": ["rarely", "never"],
+        "pronunciation": {"ipa": "/əˈhɛd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["forward"],
+        "antonyms": ["behind"],
         "examples": [
-            {"english": "I usually wake up at seven.", "spanish": "Usualmente me despierto a las siete.", "level": "A1"},
-            {"english": "She usually walks to school.", "spanish": "Usualmente camina a la escuela.", "level": "A2"},
-            {"english": "He usually drinks coffee in the morning.", "spanish": "Usualmente toma café por la mañana.", "level": "A2"}
+            {"english": "Go straight ahead.", "spanish": "Sigue derecho adelante.", "level": "A2"},
+            {"english": "He looked ahead.", "spanish": "Él miró adelante.", "level": "A2"},
+            {"english": "Plan your trip ahead of time.", "spanish": "Planifica tu viaje con anticipación.", "level": "B1"}
         ],
-        "tags": ["frequency", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "rarely",
-        "translation": "rara vez",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈreərli/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["seldom", "hardly ever"],
-        "antonyms": ["often", "frequently"],
-        "examples": [
-            {"english": "I rarely eat fast food.", "spanish": "Rara vez como comida rápida.", "level": "A2"},
-            {"english": "She rarely complains.", "spanish": "Rara vez se queja.", "level": "A2"},
-            {"english": "He is rarely home on weekends.", "spanish": "Rara vez está en casa los fines de semana.", "level": "B1"}
-        ],
-        "tags": ["frequency"],
+        "tags": ["place"],
         "difficulty": "MEDIUM",
         "level": 2
     },
     {
-        "word": "slowly",
-        "translation": "lentamente",
+        "word": "almost",
+        "translation": "casi",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈsloʊli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["gradually"],
-        "antonyms": ["quickly", "fast"],
+        "pronunciation": {"ipa": "/ˈɔːlmoʊst/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["nearly", "practically"],
+        "antonyms": ["completely"],
         "examples": [
-            {"english": "He walks slowly.", "spanish": "Él camina lentamente.", "level": "A1"},
-            {"english": "She speaks slowly.", "spanish": "Ella habla lentamente.", "level": "A1"},
-            {"english": "Time passes slowly when you are bored.", "spanish": "El tiempo pasa lentamente cuando estás aburrido.", "level": "A2"}
+            {"english": "I am almost ready.", "spanish": "Casi estoy listo.", "level": "A1"},
+            {"english": "She almost missed the bus.", "spanish": "Casi pierde el autobús.", "level": "A2"},
+            {"english": "He almost won the race.", "spanish": "Casi ganó la carrera.", "level": "A2"}
         ],
-        "tags": ["manner", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "soon",
-        "translation": "pronto",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/suːn/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["shortly", "quickly"],
-        "antonyms": ["late", "eventually"],
-        "examples": [
-            {"english": "I will be back soon.", "spanish": "Volveré pronto.", "level": "A1"},
-            {"english": "Dinner will be ready soon.", "spanish": "La cena estará lista pronto.", "level": "A2"},
-            {"english": "She will arrive soon.", "spanish": "Ella llegará pronto.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "later",
-        "translation": "más tarde",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈleɪtər/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["afterwards"],
-        "antonyms": ["earlier", "before"],
-        "examples": [
-            {"english": "I will call you later.", "spanish": "Te llamaré más tarde.", "level": "A1"},
-            {"english": "See you later.", "spanish": "Hasta luego.", "level": "A1"},
-            {"english": "She arrived later than expected.", "spanish": "Ella llegó más tarde de lo esperado.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
+        "tags": ["degree", "common"],
         "difficulty": "EASY",
         "level": 2
     },
@@ -437,118 +133,42 @@
         "level": 2
     },
     {
-        "word": "still",
-        "translation": "todavía",
+        "word": "also",
+        "translation": "también",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/stɪl/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["yet"],
-        "antonyms": ["no longer"],
+        "pronunciation": {"ipa": "/ˈɔːlsoʊ/", "audio": null},
+        "category": ["addition"],
+        "synonyms": ["too", "as well"],
+        "antonyms": [],
         "examples": [
-            {"english": "I am still waiting.", "spanish": "Todavía estoy esperando.", "level": "A1"},
-            {"english": "She is still at home.", "spanish": "Ella todavía está en casa.", "level": "A2"},
-            {"english": "He still works here.", "spanish": "Él todavía trabaja aquí.", "level": "A2"}
+            {"english": "I am also tired.", "spanish": "Yo también estoy cansado.", "level": "A1"},
+            {"english": "She is also coming to the party.", "spanish": "Ella también viene a la fiesta.", "level": "A1"},
+            {"english": "He also speaks French.", "spanish": "Él también habla francés.", "level": "A2"}
         ],
-        "tags": ["time", "common"],
+        "tags": ["common"],
         "difficulty": "EASY",
-        "level": 2
+        "level": 1
     },
     {
-        "word": "then",
-        "translation": "entonces",
+        "word": "always",
+        "translation": "siempre",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ðɛn/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["after that"],
-        "antonyms": ["now"],
+        "pronunciation": {"ipa": "/ˈɔːlweɪz/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["forever", "constantly"],
+        "antonyms": ["never"],
         "examples": [
-            {"english": "I will see you then.", "spanish": "Te veré entonces.", "level": "A1"},
-            {"english": "First coffee, then work.", "spanish": "Primero café, entonces trabajo.", "level": "A2"},
-            {"english": "She was young then.", "spanish": "Ella era joven entonces.", "level": "A2"}
+            {"english": "I always drink coffee in the morning.", "spanish": "Siempre tomo café por la mañana.", "level": "A1"},
+            {"english": "She is always happy.", "spanish": "Ella siempre está feliz.", "level": "A2"},
+            {"english": "He has always been kind to me.", "spanish": "Él siempre ha sido amable conmigo.", "level": "B1"}
         ],
-        "tags": ["time", "common"],
+        "tags": ["frequency", "common"],
         "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "ago",
-        "translation": "hace",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/əˈɡoʊ/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["back"],
-        "antonyms": ["from now"],
-        "examples": [
-            {"english": "I saw him two days ago.", "spanish": "Lo vi hace dos días.", "level": "A1"},
-            {"english": "She left an hour ago.", "spanish": "Ella se fue hace una hora.", "level": "A1"},
-            {"english": "He moved here a year ago.", "spanish": "Él se mudó aquí hace un año.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "everywhere",
-        "translation": "en todas partes",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈɛvriweər/", "audio": null},
-        "category": ["place"],
-        "synonyms": ["all over"],
-        "antonyms": ["nowhere"],
-        "examples": [
-            {"english": "I looked everywhere.", "spanish": "Busqué en todas partes.", "level": "A2"},
-            {"english": "There are flowers everywhere.", "spanish": "Hay flores en todas partes.", "level": "A2"},
-            {"english": "People from everywhere came to the event.", "spanish": "Vino gente de todas partes al evento.", "level": "B1"}
-        ],
-        "tags": ["place"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "nowhere",
-        "translation": "en ninguna parte",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈnoʊweər/", "audio": null},
-        "category": ["place"],
-        "synonyms": [],
-        "antonyms": ["everywhere"],
-        "examples": [
-            {"english": "I have nowhere to go.", "spanish": "No tengo a dónde ir.", "level": "A2"},
-            {"english": "The keys are nowhere to be found.", "spanish": "Las llaves no se encuentran en ninguna parte.", "level": "A2"},
-            {"english": "He appeared out of nowhere.", "spanish": "Apareció de la nada.", "level": "B1"}
-        ],
-        "tags": ["place"],
-        "difficulty": "MEDIUM",
-        "level": 2
-    },
-    {
-        "word": "somewhere",
-        "translation": "en alguna parte",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈsʌmweər/", "audio": null},
-        "category": ["place"],
-        "synonyms": [],
-        "antonyms": ["nowhere"],
-        "examples": [
-            {"english": "I left my keys somewhere.", "spanish": "Dejé mis llaves en alguna parte.", "level": "A2"},
-            {"english": "She lives somewhere in Europe.", "spanish": "Ella vive en alguna parte de Europa.", "level": "A2"},
-            {"english": "We need somewhere to stay.", "spanish": "Necesitamos algún lugar para quedarnos.", "level": "B1"}
-        ],
-        "tags": ["place"],
-        "difficulty": "EASY",
-        "level": 2
+        "level": 1
     },
     {
         "word": "anywhere",
@@ -570,228 +190,38 @@
         "level": 2
     },
     {
-        "word": "outside",
-        "translation": "afuera",
+        "word": "apparently",
+        "translation": "aparentemente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˌaʊtˈsaɪd/", "audio": null},
-        "category": ["place"],
-        "synonyms": ["outdoors"],
-        "antonyms": ["inside", "indoors"],
+        "pronunciation": {"ipa": "/əˈpærəntli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["seemingly", "evidently"],
+        "antonyms": ["definitely"],
         "examples": [
-            {"english": "The children are playing outside.", "spanish": "Los niños están jugando afuera.", "level": "A1"},
-            {"english": "It is cold outside.", "spanish": "Hace frío afuera.", "level": "A1"},
-            {"english": "Let's eat outside today.", "spanish": "Comamos afuera hoy.", "level": "A2"}
+            {"english": "Apparently, he is moving.", "spanish": "Aparentemente, él se está mudando.", "level": "B1"},
+            {"english": "She is apparently very busy.", "spanish": "Aparentemente, ella está muy ocupada.", "level": "B1"},
+            {"english": "Apparently, they won the game.", "spanish": "Aparentemente, ellos ganaron el juego.", "level": "B1"}
         ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "inside",
-        "translation": "adentro",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ɪnˈsaɪd/", "audio": null},
-        "category": ["place"],
-        "synonyms": ["indoors", "within"],
-        "antonyms": ["outside", "outdoors"],
-        "examples": [
-            {"english": "Stay inside the house.", "spanish": "Quédate adentro de la casa.", "level": "A1"},
-            {"english": "It is warm inside.", "spanish": "Hace calor adentro.", "level": "A1"},
-            {"english": "She went inside to rest.", "spanish": "Ella entró adentro para descansar.", "level": "A2"}
-        ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "home",
-        "translation": "a casa",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/hoʊm/", "audio": null},
-        "category": ["place"],
-        "synonyms": [],
-        "antonyms": ["away"],
-        "examples": [
-            {"english": "I am going home.", "spanish": "Voy a casa.", "level": "A1"},
-            {"english": "She is staying home today.", "spanish": "Ella se queda en casa hoy.", "level": "A1"},
-            {"english": "He will be home by six.", "spanish": "Él estará en casa a las seis.", "level": "A2"}
-        ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "carefully",
-        "translation": "cuidadosamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈkeərfəli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["cautiously", "gently"],
-        "antonyms": ["carelessly"],
-        "examples": [
-            {"english": "Drive carefully.", "spanish": "Conduce cuidadosamente.", "level": "A2"},
-            {"english": "She carefully opened the box.", "spanish": "Ella abrió la caja cuidadosamente.", "level": "A2"},
-            {"english": "He carefully chose his words.", "spanish": "Él eligió cuidadosamente sus palabras.", "level": "B1"}
-        ],
-        "tags": ["manner"],
+        "tags": ["certainty"],
         "difficulty": "MEDIUM",
-        "level": 2
+        "level": 5
     },
     {
-        "word": "badly",
-        "translation": "mal",
+        "word": "away",
+        "translation": "lejos",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈbædli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["poorly"],
-        "antonyms": ["well"],
-        "examples": [
-            {"english": "He sings badly.", "spanish": "Él canta mal.", "level": "A1"},
-            {"english": "She did badly on the test.", "spanish": "Le fue mal en el examen.", "level": "A2"},
-            {"english": "He is badly hurt.", "spanish": "Él está malherido.", "level": "B1"}
-        ],
-        "tags": ["manner", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "hard",
-        "translation": "mucho",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/hɑːrd/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["intensely", "heavily"],
-        "antonyms": ["lightly", "softly"],
-        "examples": [
-            {"english": "She works hard.", "spanish": "Ella trabaja mucho.", "level": "A1"},
-            {"english": "He studies hard.", "spanish": "Él estudia mucho.", "level": "A1"},
-            {"english": "It is raining hard.", "spanish": "Está lloviendo mucho.", "level": "A2"}
-        ],
-        "tags": ["manner", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "really",
-        "translation": "realmente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈriːəli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["truly", "very"],
-        "antonyms": ["barely"],
-        "examples": [
-            {"english": "I am really happy.", "spanish": "Estoy realmente feliz.", "level": "A1"},
-            {"english": "She is really nice.", "spanish": "Ella es realmente agradable.", "level": "A1"},
-            {"english": "He really wants to go.", "spanish": "Él realmente quiere ir.", "level": "A2"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "quite",
-        "translation": "bastante",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/kwaɪt/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["fairly", "rather"],
-        "antonyms": ["slightly"],
-        "examples": [
-            {"english": "It is quite cold.", "spanish": "Hace bastante frío.", "level": "A2"},
-            {"english": "She is quite tall.", "spanish": "Ella es bastante alta.", "level": "A2"},
-            {"english": "He is quite a good player.", "spanish": "Él es bastante buen jugador.", "level": "B1"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "almost",
-        "translation": "casi",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈɔːlmoʊst/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["nearly", "practically"],
-        "antonyms": ["completely"],
-        "examples": [
-            {"english": "I am almost ready.", "spanish": "Casi estoy listo.", "level": "A1"},
-            {"english": "She almost missed the bus.", "spanish": "Casi pierde el autobús.", "level": "A2"},
-            {"english": "He almost won the race.", "spanish": "Casi ganó la carrera.", "level": "A2"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "enough",
-        "translation": "suficiente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ɪˈnʌf/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["sufficiently"],
-        "antonyms": ["insufficiently"],
-        "examples": [
-            {"english": "Is it good enough?", "spanish": "¿Es suficientemente bueno?", "level": "A2"},
-            {"english": "He is old enough to drive.", "spanish": "Él es suficientemente mayor para conducir.", "level": "A2"},
-            {"english": "We have enough food.", "spanish": "Tenemos suficiente comida.", "level": "B1"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "up",
-        "translation": "arriba",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ʌp/", "audio": null},
+        "pronunciation": {"ipa": "/əˈweɪ/", "audio": null},
         "category": ["place"],
-        "synonyms": ["upward"],
-        "antonyms": ["down"],
+        "synonyms": ["far"],
+        "antonyms": ["near", "close"],
         "examples": [
-            {"english": "Look up.", "spanish": "Mira arriba.", "level": "A1"},
-            {"english": "Stand up, please.", "spanish": "Levántate, por favor.", "level": "A1"},
-            {"english": "Prices went up last year.", "spanish": "Los precios subieron el año pasado.", "level": "A2"}
-        ],
-        "tags": ["place", "common"],
-        "difficulty": "EASY",
-        "level": 2
-    },
-    {
-        "word": "down",
-        "translation": "abajo",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/daʊn/", "audio": null},
-        "category": ["place"],
-        "synonyms": ["downward"],
-        "antonyms": ["up"],
-        "examples": [
-            {"english": "Sit down.", "spanish": "Siéntate.", "level": "A1"},
-            {"english": "He fell down.", "spanish": "Él se cayó.", "level": "A1"},
-            {"english": "The sun went down.", "spanish": "El sol se puso.", "level": "A2"}
+            {"english": "Go away.", "spanish": "Vete.", "level": "A1"},
+            {"english": "She lives far away.", "spanish": "Ella vive lejos.", "level": "A2"},
+            {"english": "He ran away from home.", "spanish": "Él huyó de casa.", "level": "A2"}
         ],
         "tags": ["place", "common"],
         "difficulty": "EASY",
@@ -817,232 +247,61 @@
         "level": 2
     },
     {
-        "word": "away",
-        "translation": "lejos",
+        "word": "backward",
+        "translation": "hacia atrás",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/əˈweɪ/", "audio": null},
+        "pronunciation": {"ipa": "/ˈbækwərd/", "audio": null},
         "category": ["place"],
-        "synonyms": ["far"],
-        "antonyms": ["near", "close"],
+        "synonyms": ["backwards"],
+        "antonyms": ["forward"],
         "examples": [
-            {"english": "Go away.", "spanish": "Vete.", "level": "A1"},
-            {"english": "She lives far away.", "spanish": "Ella vive lejos.", "level": "A2"},
-            {"english": "He ran away from home.", "spanish": "Él huyó de casa.", "level": "A2"}
+            {"english": "He stepped backward.", "spanish": "Él dio un paso hacia atrás.", "level": "A2"},
+            {"english": "She walked backward to the door.", "spanish": "Ella caminó hacia atrás hasta la puerta.", "level": "A2"},
+            {"english": "The car rolled backward.", "spanish": "El coche rodó hacia atrás.", "level": "B1"}
         ],
-        "tags": ["place", "common"],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "badly",
+        "translation": "mal",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈbædli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["poorly"],
+        "antonyms": ["well"],
+        "examples": [
+            {"english": "He sings badly.", "spanish": "Él canta mal.", "level": "A1"},
+            {"english": "She did badly on the test.", "spanish": "Le fue mal en el examen.", "level": "A2"},
+            {"english": "He is badly hurt.", "spanish": "Él está malherido.", "level": "B1"}
+        ],
+        "tags": ["manner", "common"],
         "difficulty": "EASY",
         "level": 2
     },
     {
-        "word": "seldom",
-        "translation": "rara vez",
+        "word": "basically",
+        "translation": "básicamente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈsɛldəm/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["rarely"],
-        "antonyms": ["often", "frequently"],
-        "examples": [
-            {"english": "I seldom go to the movies.", "spanish": "Rara vez voy al cine.", "level": "A2"},
-            {"english": "She seldom complains about work.", "spanish": "Rara vez se queja del trabajo.", "level": "A2"},
-            {"english": "He seldom visits his old friends.", "spanish": "Rara vez visita a sus viejos amigos.", "level": "B1"}
-        ],
-        "tags": ["frequency"],
-        "difficulty": "MEDIUM",
-        "level": 3
-    },
-    {
-        "word": "frequently",
-        "translation": "frecuentemente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈfriːkwəntli/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["often", "regularly"],
-        "antonyms": ["rarely", "seldom"],
-        "examples": [
-            {"english": "He frequently travels for work.", "spanish": "Él viaja frecuentemente por trabajo.", "level": "A2"},
-            {"english": "She frequently visits her grandmother.", "spanish": "Ella visita frecuentemente a su abuela.", "level": "A2"},
-            {"english": "We frequently eat out on weekends.", "spanish": "Comemos fuera frecuentemente los fines de semana.", "level": "B1"}
-        ],
-        "tags": ["frequency"],
-        "difficulty": "MEDIUM",
-        "level": 3
-    },
-    {
-        "word": "occasionally",
-        "translation": "ocasionalmente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/əˈkeɪʒənəli/", "audio": null},
-        "category": ["frequency"],
-        "synonyms": ["sometimes", "now and then"],
-        "antonyms": ["always", "frequently"],
-        "examples": [
-            {"english": "I occasionally drink wine.", "spanish": "Ocasionalmente tomo vino.", "level": "A2"},
-            {"english": "She occasionally eats sushi.", "spanish": "Ocasionalmente come sushi.", "level": "A2"},
-            {"english": "He occasionally plays tennis.", "spanish": "Ocasionalmente juega tenis.", "level": "B1"}
-        ],
-        "tags": ["frequency"],
-        "difficulty": "MEDIUM",
-        "level": 3
-    },
-    {
-        "word": "recently",
-        "translation": "recientemente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈriːsəntli/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["lately"],
-        "antonyms": ["long ago"],
-        "examples": [
-            {"english": "I saw her recently.", "spanish": "La vi recientemente.", "level": "A2"},
-            {"english": "He recently moved to Spain.", "spanish": "Él se mudó recientemente a España.", "level": "A2"},
-            {"english": "She recently got a new job.", "spanish": "Ella recientemente consiguió un nuevo trabajo.", "level": "B1"}
-        ],
-        "tags": ["time"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "lately",
-        "translation": "últimamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈleɪtli/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["recently"],
-        "antonyms": ["long ago"],
-        "examples": [
-            {"english": "I have been busy lately.", "spanish": "He estado ocupado últimamente.", "level": "A2"},
-            {"english": "Lately, she has been feeling tired.", "spanish": "Últimamente, ella se ha sentido cansada.", "level": "A2"},
-            {"english": "What have you been doing lately?", "spanish": "¿Qué has estado haciendo últimamente?", "level": "B1"}
-        ],
-        "tags": ["time"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "finally",
-        "translation": "finalmente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈfaɪnəli/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["eventually", "at last"],
-        "antonyms": ["initially"],
-        "examples": [
-            {"english": "I finally finished the book.", "spanish": "Finalmente terminé el libro.", "level": "A2"},
-            {"english": "She finally got the job.", "spanish": "Ella finalmente consiguió el trabajo.", "level": "A2"},
-            {"english": "He finally arrived home.", "spanish": "Finalmente llegó a casa.", "level": "B1"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "just",
-        "translation": "acabo de",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/dʒʌst/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["recently"],
+        "pronunciation": {"ipa": "/ˈbeɪsɪkli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["essentially", "fundamentally"],
         "antonyms": [],
         "examples": [
-            {"english": "I just ate.", "spanish": "Acabo de comer.", "level": "A1"},
-            {"english": "She just arrived.", "spanish": "Ella acaba de llegar.", "level": "A2"},
-            {"english": "He just left the office.", "spanish": "Él acaba de salir de la oficina.", "level": "A2"}
+            {"english": "Basically, I agree with you.", "spanish": "Básicamente, estoy de acuerdo contigo.", "level": "A2"},
+            {"english": "She is basically right.", "spanish": "Básicamente tiene razón.", "level": "A2"},
+            {"english": "Basically, we need more time.", "spanish": "Básicamente, necesitamos más tiempo.", "level": "B1"}
         ],
-        "tags": ["time", "common"],
+        "tags": ["common", "manner"],
         "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "yet",
-        "translation": "todavía",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/jɛt/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["still"],
-        "antonyms": ["already"],
-        "examples": [
-            {"english": "Have you eaten yet?", "spanish": "¿Ya has comido?", "level": "A2"},
-            {"english": "She has not arrived yet.", "spanish": "Ella todavía no ha llegado.", "level": "A2"},
-            {"english": "He is not ready yet.", "spanish": "Él todavía no está listo.", "level": "B1"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "early",
-        "translation": "temprano",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈɜːrli/", "audio": null},
-        "category": ["time"],
-        "synonyms": [],
-        "antonyms": ["late"],
-        "examples": [
-            {"english": "I wake up early.", "spanish": "Me despierto temprano.", "level": "A1"},
-            {"english": "She arrived early.", "spanish": "Ella llegó temprano.", "level": "A2"},
-            {"english": "He left early for the meeting.", "spanish": "Él salió temprano para la reunión.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "late",
-        "translation": "tarde",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/leɪt/", "audio": null},
-        "category": ["time"],
-        "synonyms": [],
-        "antonyms": ["early"],
-        "examples": [
-            {"english": "I went to bed late.", "spanish": "Me fui a dormir tarde.", "level": "A1"},
-            {"english": "She arrived late.", "spanish": "Ella llegó tarde.", "level": "A2"},
-            {"english": "He is often late for work.", "spanish": "Él a menudo llega tarde al trabajo.", "level": "A2"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 3
-    },
-    {
-        "word": "above",
-        "translation": "arriba",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/əˈbʌv/", "audio": null},
-        "category": ["place"],
-        "synonyms": ["overhead"],
-        "antonyms": ["below", "underneath"],
-        "examples": [
-            {"english": "The birds flew above.", "spanish": "Los pájaros volaron arriba.", "level": "A2"},
-            {"english": "Look at the stars above.", "spanish": "Mira las estrellas arriba.", "level": "A2"},
-            {"english": "His apartment is above the store.", "spanish": "Su apartamento está arriba de la tienda.", "level": "B1"}
-        ],
-        "tags": ["place"],
-        "difficulty": "EASY",
-        "level": 3
+        "level": 2
     },
     {
         "word": "below",
@@ -1064,42 +323,650 @@
         "level": 3
     },
     {
-        "word": "quietly",
-        "translation": "silenciosamente",
+        "word": "besides",
+        "translation": "además",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈkwaɪətli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["silently", "softly"],
-        "antonyms": ["loudly", "noisily"],
+        "pronunciation": {"ipa": "/bɪˈsaɪdz/", "audio": null},
+        "category": ["addition"],
+        "synonyms": ["moreover", "furthermore"],
+        "antonyms": [],
         "examples": [
-            {"english": "She spoke quietly.", "spanish": "Ella habló silenciosamente.", "level": "A2"},
-            {"english": "Please close the door quietly.", "spanish": "Por favor cierra la puerta silenciosamente.", "level": "A2"},
-            {"english": "He quietly left the room.", "spanish": "Él salió silenciosamente del cuarto.", "level": "B1"}
+            {"english": "Besides English, she speaks Spanish.", "spanish": "Además de inglés, habla español.", "level": "B1"},
+            {"english": "I don't want to go; besides, I'm tired.", "spanish": "No quiero ir; además, estoy cansado.", "level": "B1"},
+            {"english": "Besides being smart, she is kind.", "spanish": "Además de ser lista, es amable.", "level": "B1"}
+        ],
+        "tags": ["common"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "briefly",
+        "translation": "brevemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈbriːfli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["quickly", "shortly"],
+        "antonyms": ["at length"],
+        "examples": [
+            {"english": "She spoke briefly.", "spanish": "Ella habló brevemente.", "level": "A2"},
+            {"english": "He briefly explained the plan.", "spanish": "Él explicó brevemente el plan.", "level": "B1"},
+            {"english": "Let me briefly summarize the issue.", "spanish": "Déjame resumir brevemente el problema.", "level": "B1"}
         ],
         "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "calmly",
+        "translation": "calmadamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkɑːmli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["peacefully", "serenely"],
+        "antonyms": ["nervously", "anxiously"],
+        "examples": [
+            {"english": "She calmly explained the problem.", "spanish": "Ella explicó calmadamente el problema.", "level": "A2"},
+            {"english": "He calmly answered the question.", "spanish": "Él respondió calmadamente la pregunta.", "level": "A2"},
+            {"english": "They calmly waited for the result.", "spanish": "Esperaron calmadamente el resultado.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "carefully",
+        "translation": "cuidadosamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkeərfəli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["cautiously", "gently"],
+        "antonyms": ["carelessly"],
+        "examples": [
+            {"english": "Drive carefully.", "spanish": "Conduce cuidadosamente.", "level": "A2"},
+            {"english": "She carefully opened the box.", "spanish": "Ella abrió la caja cuidadosamente.", "level": "A2"},
+            {"english": "He carefully chose his words.", "spanish": "Él eligió cuidadosamente sus palabras.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "certainly",
+        "translation": "ciertamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsɜːrtənli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["surely", "definitely"],
+        "antonyms": ["perhaps", "maybe"],
+        "examples": [
+            {"english": "I will certainly be there.", "spanish": "Ciertamente estaré allí.", "level": "A2"},
+            {"english": "She is certainly talented.", "spanish": "Ella es ciertamente talentosa.", "level": "A2"},
+            {"english": "He will certainly help.", "spanish": "Ciertamente él ayudará.", "level": "B1"}
+        ],
+        "tags": ["certainty"],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "clearly",
+        "translation": "claramente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈklɪərli/", "audio": null},
+        "category": ["certainty", "manner"],
+        "synonyms": ["obviously", "evidently"],
+        "antonyms": ["unclearly", "vaguely"],
+        "examples": [
+            {"english": "She clearly explained the rules.", "spanish": "Ella explicó claramente las reglas.", "level": "A2"},
+            {"english": "He clearly understood the problem.", "spanish": "Él entendió claramente el problema.", "level": "A2"},
+            {"english": "It was clearly the best option.", "spanish": "Claramente era la mejor opción.", "level": "B1"}
+        ],
+        "tags": ["manner", "certainty"],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "closely",
+        "translation": "de cerca",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkloʊsli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["intently"],
+        "antonyms": ["loosely", "distantly"],
+        "examples": [
+            {"english": "She looked at him closely.", "spanish": "Ella lo miró de cerca.", "level": "A2"},
+            {"english": "The twins are closely related.", "spanish": "Los gemelos están estrechamente relacionados.", "level": "B1"},
+            {"english": "Follow the recipe closely.", "spanish": "Sigue la receta de cerca.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "completely",
+        "translation": "completamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/kəmˈpliːtli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["totally", "entirely"],
+        "antonyms": ["partially", "partly"],
+        "examples": [
+            {"english": "I completely agree.", "spanish": "Estoy completamente de acuerdo.", "level": "A2"},
+            {"english": "She completely forgot the meeting.", "spanish": "Ella olvidó completamente la reunión.", "level": "A2"},
+            {"english": "He completely changed his mind.", "spanish": "Él cambió completamente de opinión.", "level": "B1"}
+        ],
+        "tags": ["degree", "common"],
         "difficulty": "EASY",
         "level": 3
     },
     {
-        "word": "loudly",
-        "translation": "ruidosamente",
+        "word": "consequently",
+        "translation": "en consecuencia",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈlaʊdli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["noisily"],
-        "antonyms": ["quietly", "softly"],
+        "pronunciation": {"ipa": "/ˈkɒnsɪkwəntli/", "audio": null},
+        "category": ["connection"],
+        "synonyms": ["therefore", "thus"],
+        "antonyms": [],
         "examples": [
-            {"english": "Don't speak so loudly.", "spanish": "No hables tan ruidosamente.", "level": "A2"},
-            {"english": "She laughed loudly.", "spanish": "Ella se rió ruidosamente.", "level": "A2"},
-            {"english": "He knocked loudly on the door.", "spanish": "Él tocó ruidosamente la puerta.", "level": "B1"}
+            {"english": "He didn't study; consequently, he failed.", "spanish": "Él no estudió; en consecuencia, reprobó.", "level": "B1"},
+            {"english": "It rained; consequently, the game was canceled.", "spanish": "Llovió; en consecuencia, el juego fue cancelado.", "level": "B1"},
+            {"english": "Consequently, we need to find another way.", "spanish": "En consecuencia, necesitamos encontrar otra forma.", "level": "B1"}
+        ],
+        "tags": ["connection"],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "daily",
+        "translation": "diariamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdeɪli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["every day"],
+        "antonyms": ["never"],
+        "examples": [
+            {"english": "I exercise daily.", "spanish": "Hago ejercicio diariamente.", "level": "A1"},
+            {"english": "She reads the news daily.", "spanish": "Ella lee las noticias diariamente.", "level": "A2"},
+            {"english": "Take this medicine twice daily.", "spanish": "Toma este medicamento dos veces al día.", "level": "B1"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "deeply",
+        "translation": "profundamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdiːpli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["profoundly"],
+        "antonyms": ["shallowly"],
+        "examples": [
+            {"english": "She is deeply in love.", "spanish": "Ella está profundamente enamorada.", "level": "B1"},
+            {"english": "He deeply regrets his decision.", "spanish": "Él profundamente se arrepiente de su decisión.", "level": "B1"},
+            {"english": "They were deeply affected.", "spanish": "Ellos fueron profundamente afectados.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "definitely",
+        "translation": "definitivamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdɛfɪnətli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["certainly", "surely"],
+        "antonyms": ["maybe", "perhaps"],
+        "examples": [
+            {"english": "I will definitely come.", "spanish": "Definitivamente vendré.", "level": "A2"},
+            {"english": "She is definitely the best.", "spanish": "Ella es definitivamente la mejor.", "level": "A2"},
+            {"english": "He definitely knows the answer.", "spanish": "Él definitivamente sabe la respuesta.", "level": "B1"}
+        ],
+        "tags": ["certainty", "common"],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "diligently",
+        "translation": "diligentemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdɪlɪdʒəntli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["hard", "carefully"],
+        "antonyms": ["lazily"],
+        "examples": [
+            {"english": "She diligently studied every day.", "spanish": "Ella estudió diligentemente cada día.", "level": "B2"},
+            {"english": "He diligently worked on the project.", "spanish": "Él trabajó diligentemente en el proyecto.", "level": "B2"},
+            {"english": "They diligently followed the instructions.", "spanish": "Siguieron diligentemente las instrucciones.", "level": "B2"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "directly",
+        "translation": "directamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/dəˈrɛktli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["straight", "immediately"],
+        "antonyms": ["indirectly"],
+        "examples": [
+            {"english": "Go directly home.", "spanish": "Ve directamente a casa.", "level": "A2"},
+            {"english": "She looked directly at me.", "spanish": "Me miró directamente.", "level": "A2"},
+            {"english": "He is directly responsible.", "spanish": "Él es directamente responsable.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "down",
+        "translation": "abajo",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/daʊn/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["downward"],
+        "antonyms": ["up"],
+        "examples": [
+            {"english": "Sit down.", "spanish": "Siéntate.", "level": "A1"},
+            {"english": "He fell down.", "spanish": "Él se cayó.", "level": "A1"},
+            {"english": "The sun went down.", "spanish": "El sol se puso.", "level": "A2"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "early",
+        "translation": "temprano",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɜːrli/", "audio": null},
+        "category": ["time"],
+        "synonyms": [],
+        "antonyms": ["late"],
+        "examples": [
+            {"english": "I wake up early.", "spanish": "Me despierto temprano.", "level": "A1"},
+            {"english": "She arrived early.", "spanish": "Ella llegó temprano.", "level": "A2"},
+            {"english": "He left early for the meeting.", "spanish": "Él salió temprano para la reunión.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "easily",
+        "translation": "fácilmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈiːzɪli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["effortlessly"],
+        "antonyms": ["hardly", "difficultly"],
+        "examples": [
+            {"english": "She easily solved the puzzle.", "spanish": "Ella resolvió el rompecabezas fácilmente.", "level": "A2"},
+            {"english": "He can easily carry that bag.", "spanish": "Él puede cargar fácilmente esa bolsa.", "level": "A2"},
+            {"english": "They won easily.", "spanish": "Ganaron fácilmente.", "level": "B1"}
         ],
         "tags": ["manner"],
         "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "elsewhere",
+        "translation": "en otro lugar",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɛlsweər/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["somewhere else"],
+        "antonyms": ["here"],
+        "examples": [
+            {"english": "Look elsewhere.", "spanish": "Busca en otro lugar.", "level": "A2"},
+            {"english": "The book is available elsewhere.", "spanish": "El libro está disponible en otro lugar.", "level": "B1"},
+            {"english": "She decided to live elsewhere.", "spanish": "Decidió vivir en otro lugar.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "enough",
+        "translation": "suficiente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪˈnʌf/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["sufficiently"],
+        "antonyms": ["insufficiently"],
+        "examples": [
+            {"english": "Is it good enough?", "spanish": "¿Es suficientemente bueno?", "level": "A2"},
+            {"english": "He is old enough to drive.", "spanish": "Él es suficientemente mayor para conducir.", "level": "A2"},
+            {"english": "We have enough food.", "spanish": "Tenemos suficiente comida.", "level": "B1"}
+        ],
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "eventually",
+        "translation": "finalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪˈvɛntʃuəli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["finally", "ultimately"],
+        "antonyms": ["never"],
+        "examples": [
+            {"english": "He eventually arrived.", "spanish": "Él finalmente llegó.", "level": "A2"},
+            {"english": "She eventually found her keys.", "spanish": "Ella finalmente encontró sus llaves.", "level": "A2"},
+            {"english": "They eventually decided to move.", "spanish": "Finalmente decidieron mudarse.", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "ever",
+        "translation": "alguna vez / siempre",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɛvər/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["always"],
+        "antonyms": ["never"],
+        "examples": [
+            {"english": "Have you ever been to Paris?", "spanish": "¿Alguna vez has estado en París?", "level": "A1"},
+            {"english": "She is the best friend I have ever had.", "spanish": "Es la mejor amiga que he tenido jamás.", "level": "A2"},
+            {"english": "Nothing ever changes.", "spanish": "Nada cambia jamás.", "level": "B1"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "everywhere",
+        "translation": "en todas partes",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɛvriweər/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["all over"],
+        "antonyms": ["nowhere"],
+        "examples": [
+            {"english": "I looked everywhere.", "spanish": "Busqué en todas partes.", "level": "A2"},
+            {"english": "There are flowers everywhere.", "spanish": "Hay flores en todas partes.", "level": "A2"},
+            {"english": "People from everywhere came to the event.", "spanish": "Vino gente de todas partes al evento.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "evidently",
+        "translation": "evidentemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɛvɪdəntli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["clearly", "obviously"],
+        "antonyms": ["unclearly"],
+        "examples": [
+            {"english": "Evidently, he forgot.", "spanish": "Evidentemente, él olvidó.", "level": "B2"},
+            {"english": "She was evidently surprised.", "spanish": "Ella estaba evidentemente sorprendida.", "level": "B2"},
+            {"english": "Evidently, there is a problem.", "spanish": "Evidentemente, hay un problema.", "level": "B2"}
+        ],
+        "tags": ["certainty"],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "extremely",
+        "translation": "extremadamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪkˈstriːmli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["very", "highly"],
+        "antonyms": ["slightly"],
+        "examples": [
+            {"english": "It is extremely cold.", "spanish": "Hace extremadamente frío.", "level": "A2"},
+            {"english": "She is extremely talented.", "spanish": "Ella es extremadamente talentosa.", "level": "A2"},
+            {"english": "He is extremely careful.", "spanish": "Él es extremadamente cuidadoso.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "EASY",
         "level": 3
+    },
+    {
+        "word": "fairly",
+        "translation": "bastante / justamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfeərli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["quite", "rather"],
+        "antonyms": ["unfairly"],
+        "examples": [
+            {"english": "It is fairly cold today.", "spanish": "Hace bastante frío hoy.", "level": "A2"},
+            {"english": "She is fairly tall.", "spanish": "Ella es bastante alta.", "level": "A2"},
+            {"english": "He was treated fairly.", "spanish": "Fue tratado justamente.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "fast",
+        "translation": "rápido",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/fæst/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["quickly", "rapidly"],
+        "antonyms": ["slowly"],
+        "examples": [
+            {"english": "He runs fast.", "spanish": "Él corre rápido.", "level": "A1"},
+            {"english": "She drives fast.", "spanish": "Ella conduce rápido.", "level": "A1"},
+            {"english": "Time goes by so fast.", "spanish": "El tiempo pasa tan rápido.", "level": "A2"}
+        ],
+        "tags": ["manner", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "finally",
+        "translation": "finalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfaɪnəli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["eventually", "at last"],
+        "antonyms": ["initially"],
+        "examples": [
+            {"english": "I finally finished the book.", "spanish": "Finalmente terminé el libro.", "level": "A2"},
+            {"english": "She finally got the job.", "spanish": "Ella finalmente consiguió el trabajo.", "level": "A2"},
+            {"english": "He finally arrived home.", "spanish": "Finalmente llegó a casa.", "level": "B1"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "firmly",
+        "translation": "firmemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfɜːrmli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["tightly", "strongly"],
+        "antonyms": ["loosely"],
+        "examples": [
+            {"english": "Hold on firmly.", "spanish": "Sujétate firmemente.", "level": "A2"},
+            {"english": "He firmly closed the door.", "spanish": "Él cerró la puerta firmemente.", "level": "A2"},
+            {"english": "She firmly believes in herself.", "spanish": "Ella cree firmemente en sí misma.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "forth",
+        "translation": "adelante / en adelante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/fɔːrθ/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["forward", "onward"],
+        "antonyms": ["back"],
+        "examples": [
+            {"english": "They went forth into the forest.", "spanish": "Fueron adelante hacia el bosque.", "level": "B1"},
+            {"english": "From that day forth, things changed.", "spanish": "De ese día en adelante, las cosas cambiaron.", "level": "B1"},
+            {"english": "Bring forth your ideas.", "spanish": "Presenta tus ideas.", "level": "B2"}
+        ],
+        "tags": ["formal", "place"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "forward",
+        "translation": "hacia adelante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfɔːrwərd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["ahead", "onward"],
+        "antonyms": ["backward"],
+        "examples": [
+            {"english": "Step forward.", "spanish": "Da un paso hacia adelante.", "level": "A2"},
+            {"english": "Move forward with confidence.", "spanish": "Avanza con confianza.", "level": "B1"},
+            {"english": "We are looking forward to the trip.", "spanish": "Esperamos con ganas el viaje.", "level": "B1"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "freely",
+        "translation": "libremente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfriːli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["openly", "freely"],
+        "antonyms": ["restrictedly"],
+        "examples": [
+            {"english": "She speaks freely about her feelings.", "spanish": "Ella habla libremente sobre sus sentimientos.", "level": "B1"},
+            {"english": "You can move freely here.", "spanish": "Puedes moverte libremente aquí.", "level": "A2"},
+            {"english": "He gives freely to charity.", "spanish": "Él da libremente a la caridad.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "frequently",
+        "translation": "frecuentemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfriːkwəntli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["often", "regularly"],
+        "antonyms": ["rarely", "seldom"],
+        "examples": [
+            {"english": "He frequently travels for work.", "spanish": "Él viaja frecuentemente por trabajo.", "level": "A2"},
+            {"english": "She frequently visits her grandmother.", "spanish": "Ella visita frecuentemente a su abuela.", "level": "A2"},
+            {"english": "We frequently eat out on weekends.", "spanish": "Comemos fuera frecuentemente los fines de semana.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "fully",
+        "translation": "completamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfʊli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["completely", "entirely"],
+        "antonyms": ["partially"],
+        "examples": [
+            {"english": "I am fully awake.", "spanish": "Estoy completamente despierto.", "level": "A2"},
+            {"english": "She is fully prepared.", "spanish": "Ella está completamente preparada.", "level": "B1"},
+            {"english": "The book is fully translated.", "spanish": "El libro está completamente traducido.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "furthermore",
+        "translation": "además",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfɜːrðərmɔːr/", "audio": null},
+        "category": ["connection"],
+        "synonyms": ["moreover", "additionally"],
+        "antonyms": [],
+        "examples": [
+            {"english": "He is smart; furthermore, he is hardworking.", "spanish": "Él es inteligente; además, es trabajador.", "level": "B1"},
+            {"english": "The food was good. Furthermore, it was cheap.", "spanish": "La comida estaba buena. Además, era barata.", "level": "B1"},
+            {"english": "Furthermore, we need more time.", "spanish": "Además, necesitamos más tiempo.", "level": "B1"}
+        ],
+        "tags": ["connection"],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
         "word": "gently",
@@ -1140,116 +1007,420 @@
         "level": 3
     },
     {
-        "word": "sadly",
-        "translation": "tristemente",
+        "word": "hard",
+        "translation": "mucho",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈsædli/", "audio": null},
+        "pronunciation": {"ipa": "/hɑːrd/", "audio": null},
         "category": ["manner"],
-        "synonyms": ["unhappily"],
-        "antonyms": ["happily"],
+        "synonyms": ["intensely", "heavily"],
+        "antonyms": ["lightly", "softly"],
         "examples": [
-            {"english": "She smiled sadly.", "spanish": "Ella sonrió tristemente.", "level": "A2"},
-            {"english": "He sadly said goodbye.", "spanish": "Él tristemente se despidió.", "level": "A2"},
-            {"english": "Sadly, he lost the game.", "spanish": "Tristemente, él perdió el juego.", "level": "B1"}
+            {"english": "She works hard.", "spanish": "Ella trabaja mucho.", "level": "A1"},
+            {"english": "He studies hard.", "spanish": "Él estudia mucho.", "level": "A1"},
+            {"english": "It is raining hard.", "spanish": "Está lloviendo mucho.", "level": "A2"}
         ],
-        "tags": ["manner", "emotion"],
+        "tags": ["manner", "common"],
         "difficulty": "EASY",
-        "level": 3
+        "level": 2
     },
     {
-        "word": "politely",
-        "translation": "cortésmente",
+        "word": "hardly",
+        "translation": "apenas / casi no",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/pəˈlaɪtli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["courteously", "respectfully"],
-        "antonyms": ["rudely", "impolitely"],
+        "pronunciation": {"ipa": "/ˈhɑːrdli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["barely", "scarcely"],
+        "antonyms": ["easily", "fully"],
         "examples": [
-            {"english": "He asked politely.", "spanish": "Él preguntó cortésmente.", "level": "A2"},
-            {"english": "She politely declined the invitation.", "spanish": "Ella rechazó cortésmente la invitación.", "level": "A2"},
-            {"english": "They politely waited their turn.", "spanish": "Esperaron cortésmente su turno.", "level": "B1"}
+            {"english": "I hardly know him.", "spanish": "Casi no lo conozco.", "level": "A2"},
+            {"english": "She could hardly wait.", "spanish": "Ella apenas podía esperar.", "level": "B1"},
+            {"english": "He hardly ever cooks.", "spanish": "Casi nunca cocina.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "heavily",
+        "translation": "fuertemente / mucho",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈhɛvɪli/", "audio": null},
+        "category": ["manner", "degree"],
+        "synonyms": ["intensely", "strongly"],
+        "antonyms": ["lightly"],
+        "examples": [
+            {"english": "It was raining heavily.", "spanish": "Estaba lloviendo fuertemente.", "level": "A2"},
+            {"english": "She was breathing heavily.", "spanish": "Ella respiraba con dificultad.", "level": "A2"},
+            {"english": "Heavily armed soldiers marched in.", "spanish": "Soldados fuertemente armados marcharon.", "level": "B1"}
         ],
         "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "henceforth",
+        "translation": "de aquí en adelante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌhɛnsˈfɔːrθ/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["from now on", "henceforward"],
+        "antonyms": [],
+        "examples": [
+            {"english": "Henceforth, I will study harder.", "spanish": "De aquí en adelante, estudiaré más.", "level": "B2"},
+            {"english": "Henceforth, all employees must wear badges.", "spanish": "De aquí en adelante, todos los empleados deben usar gafetes.", "level": "B2"},
+            {"english": "Henceforth, no smoking is allowed.", "spanish": "De aquí en adelante, no se permite fumar.", "level": "B2"}
+        ],
+        "tags": ["time", "formal"],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "here",
+        "translation": "aquí",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/hɪər/", "audio": null},
+        "category": ["place"],
+        "synonyms": [],
+        "antonyms": ["there"],
+        "examples": [
+            {"english": "Come here.", "spanish": "Ven aquí.", "level": "A1"},
+            {"english": "She lives here.", "spanish": "Ella vive aquí.", "level": "A1"},
+            {"english": "The book is right here.", "spanish": "El libro está justo aquí.", "level": "A1"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "highly",
+        "translation": "altamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈhaɪli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["extremely", "very"],
+        "antonyms": ["slightly"],
+        "examples": [
+            {"english": "He is highly skilled.", "spanish": "Él es altamente habilidoso.", "level": "B1"},
+            {"english": "She is highly recommended.", "spanish": "Ella es altamente recomendada.", "level": "B1"},
+            {"english": "It is highly unlikely.", "spanish": "Es altamente improbable.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "home",
+        "translation": "a casa",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/hoʊm/", "audio": null},
+        "category": ["place"],
+        "synonyms": [],
+        "antonyms": ["away"],
+        "examples": [
+            {"english": "I am going home.", "spanish": "Voy a casa.", "level": "A1"},
+            {"english": "She is staying home today.", "spanish": "Ella se queda en casa hoy.", "level": "A1"},
+            {"english": "He will be home by six.", "spanish": "Él estará en casa a las seis.", "level": "A2"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "hourly",
+        "translation": "cada hora / por hora",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈaʊərli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["every hour"],
+        "antonyms": [],
+        "examples": [
+            {"english": "The bus runs hourly.", "spanish": "El autobús pasa cada hora.", "level": "B1"},
+            {"english": "Check the temperature hourly.", "spanish": "Revisa la temperatura cada hora.", "level": "B1"},
+            {"english": "News updates are posted hourly.", "spanish": "Las actualizaciones de noticias se publican cada hora.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
         "difficulty": "MEDIUM",
         "level": 3
     },
     {
-        "word": "completely",
-        "translation": "completamente",
+        "word": "however",
+        "translation": "sin embargo",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/kəmˈpliːtli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["totally", "entirely"],
-        "antonyms": ["partially", "partly"],
+        "pronunciation": {"ipa": "/haʊˈɛvər/", "audio": null},
+        "category": ["connection"],
+        "synonyms": ["nevertheless", "yet"],
+        "antonyms": [],
         "examples": [
-            {"english": "I completely agree.", "spanish": "Estoy completamente de acuerdo.", "level": "A2"},
-            {"english": "She completely forgot the meeting.", "spanish": "Ella olvidó completamente la reunión.", "level": "A2"},
-            {"english": "He completely changed his mind.", "spanish": "Él cambió completamente de opinión.", "level": "B1"}
+            {"english": "I was tired; however, I kept working.", "spanish": "Estaba cansado; sin embargo, seguí trabajando.", "level": "B1"},
+            {"english": "She is smart; however, she is lazy.", "spanish": "Ella es inteligente; sin embargo, es perezosa.", "level": "B1"},
+            {"english": "However, there is a solution.", "spanish": "Sin embargo, hay una solución.", "level": "B1"}
         ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 3
+        "tags": ["connection", "common"],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word": "totally",
-        "translation": "totalmente",
+        "word": "immediately",
+        "translation": "inmediatamente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈtoʊtəli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["completely", "absolutely"],
-        "antonyms": ["partially"],
+        "pronunciation": {"ipa": "/ɪˈmiːdiətli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["right away", "instantly"],
+        "antonyms": ["later", "eventually"],
         "examples": [
-            {"english": "I totally understand.", "spanish": "Te entiendo totalmente.", "level": "A2"},
-            {"english": "She totally disagrees.", "spanish": "Ella está totalmente en desacuerdo.", "level": "A2"},
-            {"english": "He totally changed his appearance.", "spanish": "Él cambió totalmente su apariencia.", "level": "B1"}
+            {"english": "I will be there immediately.", "spanish": "Estaré allí inmediatamente.", "level": "A2"},
+            {"english": "She immediately understood the problem.", "spanish": "Ella entendió inmediatamente el problema.", "level": "A2"},
+            {"english": "He responded immediately to the email.", "spanish": "Él respondió inmediatamente al correo.", "level": "B1"}
         ],
-        "tags": ["degree", "common"],
+        "tags": ["time", "common"],
         "difficulty": "EASY",
-        "level": 3
+        "level": 4
     },
     {
-        "word": "extremely",
-        "translation": "extremadamente",
+        "word": "immensely",
+        "translation": "inmensamente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ɪkˈstriːmli/", "audio": null},
+        "pronunciation": {"ipa": "/ɪˈmɛnsli/", "audio": null},
         "category": ["degree"],
-        "synonyms": ["very", "highly"],
+        "synonyms": ["extremely", "greatly"],
         "antonyms": ["slightly"],
         "examples": [
-            {"english": "It is extremely cold.", "spanish": "Hace extremadamente frío.", "level": "A2"},
-            {"english": "She is extremely talented.", "spanish": "Ella es extremadamente talentosa.", "level": "A2"},
-            {"english": "He is extremely careful.", "spanish": "Él es extremadamente cuidadoso.", "level": "B1"}
+            {"english": "I enjoyed the trip immensely.", "spanish": "Disfruté el viaje inmensamente.", "level": "B2"},
+            {"english": "She is immensely talented.", "spanish": "Ella es inmensamente talentosa.", "level": "B2"},
+            {"english": "He helped immensely.", "spanish": "Él ayudó inmensamente.", "level": "B2"}
         ],
         "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "increasingly",
+        "translation": "cada vez más",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪnˈkriːsɪŋli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["more and more"],
+        "antonyms": ["decreasingly"],
+        "examples": [
+            {"english": "It is increasingly hot.", "spanish": "Hace cada vez más calor.", "level": "B1"},
+            {"english": "She is increasingly worried.", "spanish": "Está cada vez más preocupada.", "level": "B1"},
+            {"english": "Technology is increasingly important.", "spanish": "La tecnología es cada vez más importante.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "indoors",
+        "translation": "adentro / bajo techo",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪnˈdɔːrz/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["inside"],
+        "antonyms": ["outdoors", "outside"],
+        "examples": [
+            {"english": "Stay indoors today.", "spanish": "Quédate adentro hoy.", "level": "A2"},
+            {"english": "We played indoors because of the rain.", "spanish": "Jugamos adentro por la lluvia.", "level": "A2"},
+            {"english": "The cat sleeps indoors.", "spanish": "El gato duerme adentro.", "level": "A2"}
+        ],
+        "tags": ["place"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "inside",
+        "translation": "adentro",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪnˈsaɪd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["indoors", "within"],
+        "antonyms": ["outside", "outdoors"],
+        "examples": [
+            {"english": "Stay inside the house.", "spanish": "Quédate adentro de la casa.", "level": "A1"},
+            {"english": "It is warm inside.", "spanish": "Hace calor adentro.", "level": "A1"},
+            {"english": "She went inside to rest.", "spanish": "Ella entró adentro para descansar.", "level": "A2"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "instantly",
+        "translation": "instantáneamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɪnstəntli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["immediately", "right away"],
+        "antonyms": ["eventually"],
+        "examples": [
+            {"english": "I knew instantly it was her.", "spanish": "Supe al instante que era ella.", "level": "B1"},
+            {"english": "He reacted instantly.", "spanish": "Reaccionó instantáneamente.", "level": "B1"},
+            {"english": "The medicine works instantly.", "spanish": "El medicamento funciona al instante.", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "just",
+        "translation": "acabo de",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/dʒʌst/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["recently"],
+        "antonyms": [],
+        "examples": [
+            {"english": "I just ate.", "spanish": "Acabo de comer.", "level": "A1"},
+            {"english": "She just arrived.", "spanish": "Ella acaba de llegar.", "level": "A2"},
+            {"english": "He just left the office.", "spanish": "Él acaba de salir de la oficina.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
         "difficulty": "EASY",
         "level": 3
     },
     {
-        "word": "probably",
-        "translation": "probablemente",
+        "word": "late",
+        "translation": "tarde",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈprɒbəbli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["likely", "presumably"],
-        "antonyms": ["unlikely"],
+        "pronunciation": {"ipa": "/leɪt/", "audio": null},
+        "category": ["time"],
+        "synonyms": [],
+        "antonyms": ["early"],
         "examples": [
-            {"english": "I will probably go.", "spanish": "Probablemente iré.", "level": "A2"},
-            {"english": "She is probably right.", "spanish": "Ella probablemente tiene razón.", "level": "A2"},
-            {"english": "He is probably at home.", "spanish": "Él probablemente está en casa.", "level": "B1"}
+            {"english": "I went to bed late.", "spanish": "Me fui a dormir tarde.", "level": "A1"},
+            {"english": "She arrived late.", "spanish": "Ella llegó tarde.", "level": "A2"},
+            {"english": "He is often late for work.", "spanish": "Él a menudo llega tarde al trabajo.", "level": "A2"}
         ],
-        "tags": ["certainty", "common"],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "lately",
+        "translation": "últimamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈleɪtli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["recently"],
+        "antonyms": ["long ago"],
+        "examples": [
+            {"english": "I have been busy lately.", "spanish": "He estado ocupado últimamente.", "level": "A2"},
+            {"english": "Lately, she has been feeling tired.", "spanish": "Últimamente, ella se ha sentido cansada.", "level": "A2"},
+            {"english": "What have you been doing lately?", "spanish": "¿Qué has estado haciendo últimamente?", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "later",
+        "translation": "más tarde",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈleɪtər/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["afterwards"],
+        "antonyms": ["earlier", "before"],
+        "examples": [
+            {"english": "I will call you later.", "spanish": "Te llamaré más tarde.", "level": "A1"},
+            {"english": "See you later.", "spanish": "Hasta luego.", "level": "A1"},
+            {"english": "She arrived later than expected.", "spanish": "Ella llegó más tarde de lo esperado.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "likewise",
+        "translation": "igualmente / también",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈlaɪkwaɪz/", "audio": null},
+        "category": ["addition"],
+        "synonyms": ["similarly", "also"],
+        "antonyms": [],
+        "examples": [
+            {"english": "Likewise, I disagree.", "spanish": "Igualmente, estoy en desacuerdo.", "level": "B2"},
+            {"english": "She speaks Spanish; likewise, she speaks French.", "spanish": "Ella habla español; igualmente, habla francés.", "level": "B2"},
+            {"english": "He apologized; likewise, she felt sorry.", "spanish": "Él se disculpó; igualmente, ella lo sentía.", "level": "B2"}
+        ],
+        "tags": ["formal", "addition"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "loosely",
+        "translation": "sueltamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈluːsli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["loosely"],
+        "antonyms": ["tightly", "firmly"],
+        "examples": [
+            {"english": "The rope hung loosely.", "spanish": "La cuerda colgaba suelta.", "level": "A2"},
+            {"english": "Wear the scarf loosely.", "spanish": "Lleva la bufanda suelta.", "level": "A2"},
+            {"english": "He interpreted the rules loosely.", "spanish": "Interpretó las reglas de manera flexible.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "loudly",
+        "translation": "ruidosamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈlaʊdli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["noisily"],
+        "antonyms": ["quietly", "softly"],
+        "examples": [
+            {"english": "Don't speak so loudly.", "spanish": "No hables tan ruidosamente.", "level": "A2"},
+            {"english": "She laughed loudly.", "spanish": "Ella se rió ruidosamente.", "level": "A2"},
+            {"english": "He knocked loudly on the door.", "spanish": "Él tocó ruidosamente la puerta.", "level": "B1"}
+        ],
+        "tags": ["manner"],
         "difficulty": "EASY",
         "level": 3
     },
@@ -1273,253 +1444,6 @@
         "level": 3
     },
     {
-        "word": "perhaps",
-        "translation": "quizás",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/pərˈhæps/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["maybe", "possibly"],
-        "antonyms": ["definitely"],
-        "examples": [
-            {"english": "Perhaps he will come.", "spanish": "Quizás él venga.", "level": "A2"},
-            {"english": "Perhaps she forgot.", "spanish": "Quizás ella olvidó.", "level": "A2"},
-            {"english": "Perhaps we should wait.", "spanish": "Quizás deberíamos esperar.", "level": "B1"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "MEDIUM",
-        "level": 3
-    },
-    {
-        "word": "immediately",
-        "translation": "inmediatamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ɪˈmiːdiətli/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["right away", "instantly"],
-        "antonyms": ["later", "eventually"],
-        "examples": [
-            {"english": "I will be there immediately.", "spanish": "Estaré allí inmediatamente.", "level": "A2"},
-            {"english": "She immediately understood the problem.", "spanish": "Ella entendió inmediatamente el problema.", "level": "A2"},
-            {"english": "He responded immediately to the email.", "spanish": "Él respondió inmediatamente al correo.", "level": "B1"}
-        ],
-        "tags": ["time", "common"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "eventually",
-        "translation": "finalmente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ɪˈvɛntʃuəli/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["finally", "ultimately"],
-        "antonyms": ["never"],
-        "examples": [
-            {"english": "He eventually arrived.", "spanish": "Él finalmente llegó.", "level": "A2"},
-            {"english": "She eventually found her keys.", "spanish": "Ella finalmente encontró sus llaves.", "level": "A2"},
-            {"english": "They eventually decided to move.", "spanish": "Finalmente decidieron mudarse.", "level": "B1"}
-        ],
-        "tags": ["time"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "rapidly",
-        "translation": "rápidamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈræpɪdli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["quickly", "swiftly"],
-        "antonyms": ["slowly"],
-        "examples": [
-            {"english": "The city is growing rapidly.", "spanish": "La ciudad está creciendo rápidamente.", "level": "A2"},
-            {"english": "He rapidly typed the email.", "spanish": "Él escribió rápidamente el correo.", "level": "A2"},
-            {"english": "Technology is changing rapidly.", "spanish": "La tecnología está cambiando rápidamente.", "level": "B1"}
-        ],
-        "tags": ["manner"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "calmly",
-        "translation": "calmadamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈkɑːmli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["peacefully", "serenely"],
-        "antonyms": ["nervously", "anxiously"],
-        "examples": [
-            {"english": "She calmly explained the problem.", "spanish": "Ella explicó calmadamente el problema.", "level": "A2"},
-            {"english": "He calmly answered the question.", "spanish": "Él respondió calmadamente la pregunta.", "level": "A2"},
-            {"english": "They calmly waited for the result.", "spanish": "Esperaron calmadamente el resultado.", "level": "B1"}
-        ],
-        "tags": ["manner"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "nervously",
-        "translation": "nerviosamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈnɜːrvəsli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["anxiously", "uneasily"],
-        "antonyms": ["calmly", "confidently"],
-        "examples": [
-            {"english": "She smiled nervously.", "spanish": "Ella sonrió nerviosamente.", "level": "A2"},
-            {"english": "He nervously waited for the result.", "spanish": "Él esperó nerviosamente el resultado.", "level": "A2"},
-            {"english": "They nervously prepared for the interview.", "spanish": "Se prepararon nerviosamente para la entrevista.", "level": "B1"}
-        ],
-        "tags": ["manner"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "absolutely",
-        "translation": "absolutamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈæbsəluːtli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["completely", "totally"],
-        "antonyms": ["partially"],
-        "examples": [
-            {"english": "I absolutely agree.", "spanish": "Estoy absolutamente de acuerdo.", "level": "A2"},
-            {"english": "She is absolutely right.", "spanish": "Ella está absolutamente en lo correcto.", "level": "A2"},
-            {"english": "He absolutely loves music.", "spanish": "Él absolutamente ama la música.", "level": "B1"}
-        ],
-        "tags": ["degree", "common"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "certainly",
-        "translation": "ciertamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈsɜːrtənli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["surely", "definitely"],
-        "antonyms": ["perhaps", "maybe"],
-        "examples": [
-            {"english": "I will certainly be there.", "spanish": "Ciertamente estaré allí.", "level": "A2"},
-            {"english": "She is certainly talented.", "spanish": "Ella es ciertamente talentosa.", "level": "A2"},
-            {"english": "He will certainly help.", "spanish": "Ciertamente él ayudará.", "level": "B1"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "definitely",
-        "translation": "definitivamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈdɛfɪnətli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["certainly", "surely"],
-        "antonyms": ["maybe", "perhaps"],
-        "examples": [
-            {"english": "I will definitely come.", "spanish": "Definitivamente vendré.", "level": "A2"},
-            {"english": "She is definitely the best.", "spanish": "Ella es definitivamente la mejor.", "level": "A2"},
-            {"english": "He definitely knows the answer.", "spanish": "Él definitivamente sabe la respuesta.", "level": "B1"}
-        ],
-        "tags": ["certainty", "common"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "clearly",
-        "translation": "claramente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈklɪərli/", "audio": null},
-        "category": ["certainty", "manner"],
-        "synonyms": ["obviously", "evidently"],
-        "antonyms": ["unclearly", "vaguely"],
-        "examples": [
-            {"english": "She clearly explained the rules.", "spanish": "Ella explicó claramente las reglas.", "level": "A2"},
-            {"english": "He clearly understood the problem.", "spanish": "Él entendió claramente el problema.", "level": "A2"},
-            {"english": "It was clearly the best option.", "spanish": "Claramente era la mejor opción.", "level": "B1"}
-        ],
-        "tags": ["manner", "certainty"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "obviously",
-        "translation": "obviamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈɒbviəsli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["clearly", "evidently"],
-        "antonyms": ["unclearly"],
-        "examples": [
-            {"english": "Obviously, he is wrong.", "spanish": "Obviamente, él está equivocado.", "level": "A2"},
-            {"english": "She was obviously tired.", "spanish": "Ella estaba obviamente cansada.", "level": "A2"},
-            {"english": "Obviously, you need to study more.", "spanish": "Obviamente, necesitas estudiar más.", "level": "B1"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "however",
-        "translation": "sin embargo",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/haʊˈɛvər/", "audio": null},
-        "category": ["connection"],
-        "synonyms": ["nevertheless", "yet"],
-        "antonyms": [],
-        "examples": [
-            {"english": "I was tired; however, I kept working.", "spanish": "Estaba cansado; sin embargo, seguí trabajando.", "level": "B1"},
-            {"english": "She is smart; however, she is lazy.", "spanish": "Ella es inteligente; sin embargo, es perezosa.", "level": "B1"},
-            {"english": "However, there is a solution.", "spanish": "Sin embargo, hay una solución.", "level": "B1"}
-        ],
-        "tags": ["connection", "common"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "therefore",
-        "translation": "por lo tanto",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈðɛərfɔːr/", "audio": null},
-        "category": ["connection"],
-        "synonyms": ["thus", "consequently"],
-        "antonyms": [],
-        "examples": [
-            {"english": "He studied hard; therefore, he passed.", "spanish": "Él estudió mucho; por lo tanto, aprobó.", "level": "B1"},
-            {"english": "It rained; therefore, we stayed inside.", "spanish": "Llovió; por lo tanto, nos quedamos adentro.", "level": "B1"},
-            {"english": "Therefore, we need a plan.", "spanish": "Por lo tanto, necesitamos un plan.", "level": "B1"}
-        ],
-        "tags": ["connection"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
         "word": "meanwhile",
         "translation": "mientras tanto",
         "type": "adverb",
@@ -1539,42 +1463,23 @@
         "level": 4
     },
     {
-        "word": "otherwise",
-        "translation": "de lo contrario",
+        "word": "monthly",
+        "translation": "mensualmente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈʌðərwaɪz/", "audio": null},
-        "category": ["connection"],
-        "synonyms": ["or else"],
+        "pronunciation": {"ipa": "/ˈmʌnθli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["every month"],
         "antonyms": [],
         "examples": [
-            {"english": "Hurry up, otherwise we will be late.", "spanish": "Apúrate, de lo contrario llegaremos tarde.", "level": "B1"},
-            {"english": "Study hard; otherwise, you will fail.", "spanish": "Estudia mucho; de lo contrario, reprobarás.", "level": "B1"},
-            {"english": "He was sick, otherwise he would have come.", "spanish": "Él estaba enfermo, de lo contrario habría venido.", "level": "B1"}
+            {"english": "We meet monthly.", "spanish": "Nos reunimos mensualmente.", "level": "A2"},
+            {"english": "The rent is paid monthly.", "spanish": "El alquiler se paga mensualmente.", "level": "A2"},
+            {"english": "I get a monthly newsletter.", "spanish": "Recibo un boletín mensual.", "level": "B1"}
         ],
-        "tags": ["connection"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "furthermore",
-        "translation": "además",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈfɜːrðərmɔːr/", "audio": null},
-        "category": ["connection"],
-        "synonyms": ["moreover", "additionally"],
-        "antonyms": [],
-        "examples": [
-            {"english": "He is smart; furthermore, he is hardworking.", "spanish": "Él es inteligente; además, es trabajador.", "level": "B1"},
-            {"english": "The food was good. Furthermore, it was cheap.", "spanish": "La comida estaba buena. Además, era barata.", "level": "B1"},
-            {"english": "Furthermore, we need more time.", "spanish": "Además, necesitamos más tiempo.", "level": "B1"}
-        ],
-        "tags": ["connection"],
-        "difficulty": "MEDIUM",
-        "level": 4
+        "tags": ["frequency"],
+        "difficulty": "EASY",
+        "level": 2
     },
     {
         "word": "moreover",
@@ -1596,156 +1501,99 @@
         "level": 4
     },
     {
-        "word": "highly",
-        "translation": "altamente",
+        "word": "mostly",
+        "translation": "en su mayoría / principalmente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈhaɪli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["extremely", "very"],
-        "antonyms": ["slightly"],
+        "pronunciation": {"ipa": "/ˈmoʊstli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["mainly", "largely"],
+        "antonyms": ["rarely"],
         "examples": [
-            {"english": "He is highly skilled.", "spanish": "Él es altamente habilidoso.", "level": "B1"},
-            {"english": "She is highly recommended.", "spanish": "Ella es altamente recomendada.", "level": "B1"},
-            {"english": "It is highly unlikely.", "spanish": "Es altamente improbable.", "level": "B1"}
+            {"english": "The class is mostly girls.", "spanish": "La clase es en su mayoría niñas.", "level": "A2"},
+            {"english": "I mostly work from home.", "spanish": "Principalmente trabajo desde casa.", "level": "B1"},
+            {"english": "He mostly eats vegetables.", "spanish": "Come principalmente verduras.", "level": "B1"}
         ],
-        "tags": ["degree"],
+        "tags": ["frequency"],
         "difficulty": "MEDIUM",
-        "level": 4
+        "level": 2
     },
     {
-        "word": "rather",
-        "translation": "bastante",
+        "word": "naturally",
+        "translation": "naturalmente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈræðər/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["quite", "somewhat"],
-        "antonyms": ["slightly"],
-        "examples": [
-            {"english": "It is rather cold today.", "spanish": "Hace bastante frío hoy.", "level": "B1"},
-            {"english": "She is rather shy.", "spanish": "Ella es bastante tímida.", "level": "B1"},
-            {"english": "He is rather good at math.", "spanish": "Él es bastante bueno en matemáticas.", "level": "B1"}
-        ],
-        "tags": ["degree"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "pretty",
-        "translation": "bastante",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈprɪti/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["fairly", "quite"],
-        "antonyms": ["slightly"],
-        "examples": [
-            {"english": "She is pretty smart.", "spanish": "Ella es bastante inteligente.", "level": "B1"},
-            {"english": "It is pretty cold outside.", "spanish": "Hace bastante frío afuera.", "level": "B1"},
-            {"english": "He is pretty tall for his age.", "spanish": "Él es bastante alto para su edad.", "level": "B1"}
-        ],
-        "tags": ["degree"],
-        "difficulty": "EASY",
-        "level": 4
-    },
-    {
-        "word": "deeply",
-        "translation": "profundamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈdiːpli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["profoundly"],
-        "antonyms": ["shallowly"],
-        "examples": [
-            {"english": "She is deeply in love.", "spanish": "Ella está profundamente enamorada.", "level": "B1"},
-            {"english": "He deeply regrets his decision.", "spanish": "Él profundamente se arrepiente de su decisión.", "level": "B1"},
-            {"english": "They were deeply affected.", "spanish": "Ellos fueron profundamente afectados.", "level": "B1"}
-        ],
-        "tags": ["degree"],
-        "difficulty": "MEDIUM",
-        "level": 4
-    },
-    {
-        "word": "swiftly",
-        "translation": "rápidamente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˈswɪftli/", "audio": null},
+        "pronunciation": {"ipa": "/ˈnætʃərəli/", "audio": null},
         "category": ["manner"],
-        "synonyms": ["quickly", "rapidly"],
-        "antonyms": ["slowly"],
+        "synonyms": ["of course", "normally"],
+        "antonyms": ["unnaturally", "forcedly"],
         "examples": [
-            {"english": "The bird flew swiftly.", "spanish": "El pájaro voló rápidamente.", "level": "B1"},
-            {"english": "She swiftly answered the question.", "spanish": "Ella respondió rápidamente la pregunta.", "level": "B1"},
-            {"english": "He swiftly solved the problem.", "spanish": "Él resolvió rápidamente el problema.", "level": "B1"}
+            {"english": "Naturally, I said yes.", "spanish": "Naturalmente, dije que sí.", "level": "A2"},
+            {"english": "She speaks naturally in public.", "spanish": "Ella habla naturalmente en público.", "level": "A2"},
+            {"english": "Naturally curly hair needs special care.", "spanish": "El pelo naturalmente rizado necesita cuidado especial.", "level": "B1"}
+        ],
+        "tags": ["manner", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "nearby",
+        "translation": "cerca",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌnɪərˈbaɪ/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["close", "near"],
+        "antonyms": ["far", "distant"],
+        "examples": [
+            {"english": "He lives nearby.", "spanish": "Vive cerca.", "level": "A2"},
+            {"english": "There is a park nearby.", "spanish": "Hay un parque cerca.", "level": "A2"},
+            {"english": "We stopped at a nearby restaurant.", "spanish": "Paramos en un restaurante cercano.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "nervously",
+        "translation": "nerviosamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnɜːrvəsli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["anxiously", "uneasily"],
+        "antonyms": ["calmly", "confidently"],
+        "examples": [
+            {"english": "She smiled nervously.", "spanish": "Ella sonrió nerviosamente.", "level": "A2"},
+            {"english": "He nervously waited for the result.", "spanish": "Él esperó nerviosamente el resultado.", "level": "A2"},
+            {"english": "They nervously prepared for the interview.", "spanish": "Se prepararon nerviosamente para la entrevista.", "level": "B1"}
         ],
         "tags": ["manner"],
         "difficulty": "MEDIUM",
         "level": 4
     },
     {
-        "word": "apparently",
-        "translation": "aparentemente",
+        "word": "never",
+        "translation": "nunca",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/əˈpærəntli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["seemingly", "evidently"],
-        "antonyms": ["definitely"],
+        "pronunciation": {"ipa": "/ˈnɛvər/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": [],
+        "antonyms": ["always"],
         "examples": [
-            {"english": "Apparently, he is moving.", "spanish": "Aparentemente, él se está mudando.", "level": "B1"},
-            {"english": "She is apparently very busy.", "spanish": "Aparentemente, ella está muy ocupada.", "level": "B1"},
-            {"english": "Apparently, they won the game.", "spanish": "Aparentemente, ellos ganaron el juego.", "level": "B1"}
+            {"english": "I never eat meat.", "spanish": "Nunca como carne.", "level": "A1"},
+            {"english": "She never gives up.", "spanish": "Ella nunca se rinde.", "level": "A2"},
+            {"english": "He has never been to Japan.", "spanish": "Él nunca ha estado en Japón.", "level": "B1"}
         ],
-        "tags": ["certainty"],
-        "difficulty": "MEDIUM",
-        "level": 5
-    },
-    {
-        "word": "presumably",
-        "translation": "presumiblemente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/prɪˈzuːməbli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["probably", "supposedly"],
-        "antonyms": ["definitely"],
-        "examples": [
-            {"english": "Presumably, he will arrive soon.", "spanish": "Presumiblemente, él llegará pronto.", "level": "B1"},
-            {"english": "She is presumably at work.", "spanish": "Presumiblemente, ella está en el trabajo.", "level": "B1"},
-            {"english": "They are presumably coming.", "spanish": "Presumiblemente, ellos vendrán.", "level": "B1"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "MEDIUM",
-        "level": 5
-    },
-    {
-        "word": "undoubtedly",
-        "translation": "indudablemente",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ʌnˈdaʊtɪdli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["certainly", "without doubt"],
-        "antonyms": ["doubtfully"],
-        "examples": [
-            {"english": "She is undoubtedly the best.", "spanish": "Ella es indudablemente la mejor.", "level": "B1"},
-            {"english": "He will undoubtedly succeed.", "spanish": "Él indudablemente triunfará.", "level": "B1"},
-            {"english": "It is undoubtedly true.", "spanish": "Es indudablemente verdad.", "level": "B1"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "MEDIUM",
-        "level": 5
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
         "word": "nevertheless",
@@ -1767,6 +1615,44 @@
         "level": 5
     },
     {
+        "word": "nightly",
+        "translation": "cada noche",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnaɪtli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["every night"],
+        "antonyms": [],
+        "examples": [
+            {"english": "She reads nightly before bed.", "spanish": "Ella lee cada noche antes de dormir.", "level": "A2"},
+            {"english": "The news airs nightly.", "spanish": "Las noticias se emiten cada noche.", "level": "B1"},
+            {"english": "He takes a nightly walk.", "spanish": "Da un paseo cada noche.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "no",
+        "translation": "no",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/noʊ/", "audio": null},
+        "category": ["affirmation"],
+        "synonyms": [],
+        "antonyms": ["yes"],
+        "examples": [
+            {"english": "No, thank you.", "spanish": "No, gracias.", "level": "A1"},
+            {"english": "I have no money.", "spanish": "No tengo dinero.", "level": "A1"},
+            {"english": "She is no longer here.", "spanish": "Ella ya no está aquí.", "level": "A2"}
+        ],
+        "tags": ["affirmation", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
         "word": "nonetheless",
         "translation": "sin embargo",
         "type": "adverb",
@@ -1786,42 +1672,441 @@
         "level": 5
     },
     {
-        "word": "consequently",
-        "translation": "en consecuencia",
+        "word": "normally",
+        "translation": "normalmente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈkɒnsɪkwəntli/", "audio": null},
+        "pronunciation": {"ipa": "/ˈnɔːrməli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["usually", "typically"],
+        "antonyms": ["abnormally"],
+        "examples": [
+            {"english": "I normally wake up at seven.", "spanish": "Normalmente me despierto a las siete.", "level": "A2"},
+            {"english": "She normally works from home.", "spanish": "Normalmente trabaja desde casa.", "level": "A2"},
+            {"english": "Normally the train is on time.", "spanish": "Normalmente el tren llega puntual.", "level": "B1"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "now",
+        "translation": "ahora",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/naʊ/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["currently", "presently"],
+        "antonyms": ["then", "later"],
+        "examples": [
+            {"english": "I am busy now.", "spanish": "Estoy ocupado ahora.", "level": "A1"},
+            {"english": "She is here now.", "spanish": "Ella está aquí ahora.", "level": "A1"},
+            {"english": "Now is the time to act.", "spanish": "Ahora es el momento de actuar.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "nowadays",
+        "translation": "hoy en día / actualmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnaʊədeɪz/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["today", "currently"],
+        "antonyms": ["in the past"],
+        "examples": [
+            {"english": "Nowadays, everyone has a phone.", "spanish": "Hoy en día, todos tienen un teléfono.", "level": "A2"},
+            {"english": "She works from home nowadays.", "spanish": "Actualmente trabaja desde casa.", "level": "B1"},
+            {"english": "Life is easier nowadays.", "spanish": "La vida es más fácil hoy en día.", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "nowhere",
+        "translation": "en ninguna parte",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnoʊweər/", "audio": null},
+        "category": ["place"],
+        "synonyms": [],
+        "antonyms": ["everywhere"],
+        "examples": [
+            {"english": "I have nowhere to go.", "spanish": "No tengo a dónde ir.", "level": "A2"},
+            {"english": "The keys are nowhere to be found.", "spanish": "Las llaves no se encuentran en ninguna parte.", "level": "A2"},
+            {"english": "He appeared out of nowhere.", "spanish": "Apareció de la nada.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "obviously",
+        "translation": "obviamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɒbviəsli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["clearly", "evidently"],
+        "antonyms": ["unclearly"],
+        "examples": [
+            {"english": "Obviously, he is wrong.", "spanish": "Obviamente, él está equivocado.", "level": "A2"},
+            {"english": "She was obviously tired.", "spanish": "Ella estaba obviamente cansada.", "level": "A2"},
+            {"english": "Obviously, you need to study more.", "spanish": "Obviamente, necesitas estudiar más.", "level": "B1"}
+        ],
+        "tags": ["certainty"],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "occasionally",
+        "translation": "ocasionalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/əˈkeɪʒənəli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["sometimes", "now and then"],
+        "antonyms": ["always", "frequently"],
+        "examples": [
+            {"english": "I occasionally drink wine.", "spanish": "Ocasionalmente tomo vino.", "level": "A2"},
+            {"english": "She occasionally eats sushi.", "spanish": "Ocasionalmente come sushi.", "level": "A2"},
+            {"english": "He occasionally plays tennis.", "spanish": "Ocasionalmente juega tenis.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "often",
+        "translation": "a menudo",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɒfən/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["frequently", "regularly"],
+        "antonyms": ["rarely", "seldom"],
+        "examples": [
+            {"english": "I often go to the park.", "spanish": "A menudo voy al parque.", "level": "A1"},
+            {"english": "She often reads before bed.", "spanish": "A menudo lee antes de dormir.", "level": "A1"},
+            {"english": "He often travels for work.", "spanish": "A menudo viaja por trabajo.", "level": "A2"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "onward",
+        "translation": "en adelante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɒnwərd/", "audio": null},
+        "category": ["place", "time"],
+        "synonyms": ["forward", "ahead"],
+        "antonyms": ["backward"],
+        "examples": [
+            {"english": "From today onward, things will change.", "spanish": "De hoy en adelante, las cosas cambiarán.", "level": "B1"},
+            {"english": "She moved onward to the next stage.", "spanish": "Ella avanzó a la siguiente etapa.", "level": "B1"},
+            {"english": "From this point onward, be careful.", "spanish": "De aquí en adelante, ten cuidado.", "level": "B1"}
+        ],
+        "tags": ["formal", "place"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "otherwise",
+        "translation": "de lo contrario",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈʌðərwaɪz/", "audio": null},
         "category": ["connection"],
-        "synonyms": ["therefore", "thus"],
+        "synonyms": ["or else"],
         "antonyms": [],
         "examples": [
-            {"english": "He didn't study; consequently, he failed.", "spanish": "Él no estudió; en consecuencia, reprobó.", "level": "B1"},
-            {"english": "It rained; consequently, the game was canceled.", "spanish": "Llovió; en consecuencia, el juego fue cancelado.", "level": "B1"},
-            {"english": "Consequently, we need to find another way.", "spanish": "En consecuencia, necesitamos encontrar otra forma.", "level": "B1"}
+            {"english": "Hurry up, otherwise we will be late.", "spanish": "Apúrate, de lo contrario llegaremos tarde.", "level": "B1"},
+            {"english": "Study hard; otherwise, you will fail.", "spanish": "Estudia mucho; de lo contrario, reprobarás.", "level": "B1"},
+            {"english": "He was sick, otherwise he would have come.", "spanish": "Él estaba enfermo, de lo contrario habría venido.", "level": "B1"}
         ],
         "tags": ["connection"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "outdoors",
+        "translation": "al aire libre",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌaʊtˈdɔːrz/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["outside"],
+        "antonyms": ["indoors", "inside"],
+        "examples": [
+            {"english": "Let's eat outdoors.", "spanish": "Comamos al aire libre.", "level": "A2"},
+            {"english": "The kids love playing outdoors.", "spanish": "A los niños les encanta jugar al aire libre.", "level": "A2"},
+            {"english": "We slept outdoors under the stars.", "spanish": "Dormimos al aire libre bajo las estrellas.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "outside",
+        "translation": "afuera",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌaʊtˈsaɪd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["outdoors"],
+        "antonyms": ["inside", "indoors"],
+        "examples": [
+            {"english": "The children are playing outside.", "spanish": "Los niños están jugando afuera.", "level": "A1"},
+            {"english": "It is cold outside.", "spanish": "Hace frío afuera.", "level": "A1"},
+            {"english": "Let's eat outside today.", "spanish": "Comamos afuera hoy.", "level": "A2"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "overnight",
+        "translation": "durante la noche / de un día para otro",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌoʊvərˈnaɪt/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["all night"],
+        "antonyms": [],
+        "examples": [
+            {"english": "The trip takes overnight.", "spanish": "El viaje dura una noche.", "level": "A2"},
+            {"english": "She stayed overnight at a hotel.", "spanish": "Pasó la noche en un hotel.", "level": "A2"},
+            {"english": "He became famous overnight.", "spanish": "Se hizo famoso de la noche a la mañana.", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "overseas",
+        "translation": "en el extranjero",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌoʊvərˈsiːz/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["abroad"],
+        "antonyms": ["domestically"],
+        "examples": [
+            {"english": "She lives overseas.", "spanish": "Ella vive en el extranjero.", "level": "A2"},
+            {"english": "He traveled overseas last year.", "spanish": "Viajó al extranjero el año pasado.", "level": "A2"},
+            {"english": "The company operates overseas.", "spanish": "La empresa opera en el extranjero.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "perhaps",
+        "translation": "quizás",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/pərˈhæps/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["maybe", "possibly"],
+        "antonyms": ["definitely"],
+        "examples": [
+            {"english": "Perhaps he will come.", "spanish": "Quizás él venga.", "level": "A2"},
+            {"english": "Perhaps she forgot.", "spanish": "Quizás ella olvidó.", "level": "A2"},
+            {"english": "Perhaps we should wait.", "spanish": "Quizás deberíamos esperar.", "level": "B1"}
+        ],
+        "tags": ["certainty"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "personally",
+        "translation": "personalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈpɜːrsənəli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["in person", "for my part"],
+        "antonyms": ["impersonally"],
+        "examples": [
+            {"english": "Personally, I prefer tea.", "spanish": "Personalmente, prefiero el té.", "level": "B1"},
+            {"english": "I will deliver it personally.", "spanish": "Lo entregaré personalmente.", "level": "B1"},
+            {"english": "She thanked him personally.", "spanish": "Ella le agradeció personalmente.", "level": "B1"}
+        ],
+        "tags": ["manner", "formal"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "plus",
+        "translation": "más / además",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/plʌs/", "audio": null},
+        "category": ["addition"],
+        "synonyms": ["and", "also"],
+        "antonyms": ["minus"],
+        "examples": [
+            {"english": "Five plus two is seven.", "spanish": "Cinco más dos son siete.", "level": "A2"},
+            {"english": "She speaks English plus Spanish.", "spanish": "Habla inglés más español.", "level": "A2"},
+            {"english": "It's cold, plus it's raining.", "spanish": "Hace frío, además está lloviendo.", "level": "B1"}
+        ],
+        "tags": ["addition", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "politely",
+        "translation": "cortésmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/pəˈlaɪtli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["courteously", "respectfully"],
+        "antonyms": ["rudely", "impolitely"],
+        "examples": [
+            {"english": "He asked politely.", "spanish": "Él preguntó cortésmente.", "level": "A2"},
+            {"english": "She politely declined the invitation.", "spanish": "Ella rechazó cortésmente la invitación.", "level": "A2"},
+            {"english": "They politely waited their turn.", "spanish": "Esperaron cortésmente su turno.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "presently",
+        "translation": "actualmente / pronto",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈprɛzəntli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["currently", "soon"],
+        "antonyms": ["later"],
+        "examples": [
+            {"english": "She is presently in Paris.", "spanish": "Ella está actualmente en París.", "level": "B1"},
+            {"english": "I will be there presently.", "spanish": "Estaré allí pronto.", "level": "B1"},
+            {"english": "Presently, more options will appear.", "spanish": "Pronto aparecerán más opciones.", "level": "B1"}
+        ],
+        "tags": ["formal", "time"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "presumably",
+        "translation": "presumiblemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/prɪˈzuːməbli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["probably", "supposedly"],
+        "antonyms": ["definitely"],
+        "examples": [
+            {"english": "Presumably, he will arrive soon.", "spanish": "Presumiblemente, él llegará pronto.", "level": "B1"},
+            {"english": "She is presumably at work.", "spanish": "Presumiblemente, ella está en el trabajo.", "level": "B1"},
+            {"english": "They are presumably coming.", "spanish": "Presumiblemente, ellos vendrán.", "level": "B1"}
+        ],
+        "tags": ["certainty"],
         "difficulty": "MEDIUM",
         "level": 5
     },
     {
-        "word": "accordingly",
-        "translation": "en consecuencia",
+        "word": "pretty",
+        "translation": "bastante",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/əˈkɔːrdɪŋli/", "audio": null},
-        "category": ["connection"],
-        "synonyms": ["therefore", "consequently"],
-        "antonyms": [],
+        "pronunciation": {"ipa": "/ˈprɪti/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["fairly", "quite"],
+        "antonyms": ["slightly"],
         "examples": [
-            {"english": "He was late; accordingly, he missed the start.", "spanish": "Él llegó tarde; en consecuencia, se perdió el inicio.", "level": "B1"},
-            {"english": "She prepared well; accordingly, she succeeded.", "spanish": "Ella se preparó bien; en consecuencia, tuvo éxito.", "level": "B1"},
-            {"english": "Accordingly, we will proceed.", "spanish": "En consecuencia, procederemos.", "level": "B1"}
+            {"english": "She is pretty smart.", "spanish": "Ella es bastante inteligente.", "level": "B1"},
+            {"english": "It is pretty cold outside.", "spanish": "Hace bastante frío afuera.", "level": "B1"},
+            {"english": "He is pretty tall for his age.", "spanish": "Él es bastante alto para su edad.", "level": "B1"}
         ],
-        "tags": ["connection"],
+        "tags": ["degree"],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "primarily",
+        "translation": "principalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/praɪˈmɛrəli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["mainly", "chiefly"],
+        "antonyms": ["secondarily"],
+        "examples": [
+            {"english": "I work primarily from home.", "spanish": "Trabajo principalmente desde casa.", "level": "B1"},
+            {"english": "The book is primarily about history.", "spanish": "El libro es principalmente sobre historia.", "level": "B1"},
+            {"english": "It is primarily a Spanish course.", "spanish": "Es principalmente un curso de español.", "level": "B1"}
+        ],
+        "tags": ["formal", "degree"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "privately",
+        "translation": "en privado",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈpraɪvətli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["confidentially"],
+        "antonyms": ["publicly"],
+        "examples": [
+            {"english": "Can I speak to you privately?", "spanish": "¿Puedo hablar contigo en privado?", "level": "B1"},
+            {"english": "They met privately to discuss it.", "spanish": "Se reunieron en privado para discutirlo.", "level": "B1"},
+            {"english": "She privately disagreed.", "spanish": "Ella no estuvo de acuerdo en privado.", "level": "B1"}
+        ],
+        "tags": ["manner"],
         "difficulty": "MEDIUM",
-        "level": 5
+        "level": 2
+    },
+    {
+        "word": "probably",
+        "translation": "probablemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈprɒbəbli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["likely", "presumably"],
+        "antonyms": ["unlikely"],
+        "examples": [
+            {"english": "I will probably go.", "spanish": "Probablemente iré.", "level": "A2"},
+            {"english": "She is probably right.", "spanish": "Ella probablemente tiene razón.", "level": "A2"},
+            {"english": "He is probably at home.", "spanish": "Él probablemente está en casa.", "level": "B1"}
+        ],
+        "tags": ["certainty", "common"],
+        "difficulty": "EASY",
+        "level": 3
     },
     {
         "word": "profoundly",
@@ -1843,23 +2128,536 @@
         "level": 5
     },
     {
-        "word": "utterly",
-        "translation": "totalmente",
+        "word": "publicly",
+        "translation": "públicamente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈʌtərli/", "audio": null},
-        "category": ["degree"],
-        "synonyms": ["completely", "totally"],
-        "antonyms": ["partially"],
+        "pronunciation": {"ipa": "/ˈpʌblɪkli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["openly"],
+        "antonyms": ["privately"],
         "examples": [
-            {"english": "She was utterly exhausted.", "spanish": "Ella estaba totalmente agotada.", "level": "B2"},
-            {"english": "He is utterly convinced.", "spanish": "Él está totalmente convencido.", "level": "B2"},
-            {"english": "It was utterly impossible.", "spanish": "Era totalmente imposible.", "level": "B2"}
+            {"english": "He apologized publicly.", "spanish": "Se disculpó públicamente.", "level": "B1"},
+            {"english": "She publicly announced her resignation.", "spanish": "Anunció públicamente su renuncia.", "level": "B1"},
+            {"english": "The report was published publicly.", "spanish": "El informe se publicó públicamente.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "quickly",
+        "translation": "rápidamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkwɪkli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["fast", "rapidly"],
+        "antonyms": ["slowly"],
+        "examples": [
+            {"english": "He ran quickly.", "spanish": "Él corrió rápidamente.", "level": "A2"},
+            {"english": "She quickly finished her homework.", "spanish": "Ella terminó rápidamente su tarea.", "level": "A2"},
+            {"english": "They responded quickly to the email.", "spanish": "Respondieron rápidamente al correo.", "level": "B1"}
+        ],
+        "tags": ["manner", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "quietly",
+        "translation": "silenciosamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkwaɪətli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["silently", "softly"],
+        "antonyms": ["loudly", "noisily"],
+        "examples": [
+            {"english": "She spoke quietly.", "spanish": "Ella habló silenciosamente.", "level": "A2"},
+            {"english": "Please close the door quietly.", "spanish": "Por favor cierra la puerta silenciosamente.", "level": "A2"},
+            {"english": "He quietly left the room.", "spanish": "Él salió silenciosamente del cuarto.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "quite",
+        "translation": "bastante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/kwaɪt/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["fairly", "rather"],
+        "antonyms": ["slightly"],
+        "examples": [
+            {"english": "It is quite cold.", "spanish": "Hace bastante frío.", "level": "A2"},
+            {"english": "She is quite tall.", "spanish": "Ella es bastante alta.", "level": "A2"},
+            {"english": "He is quite a good player.", "spanish": "Él es bastante buen jugador.", "level": "B1"}
+        ],
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "rapidly",
+        "translation": "rápidamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈræpɪdli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["quickly", "swiftly"],
+        "antonyms": ["slowly"],
+        "examples": [
+            {"english": "The city is growing rapidly.", "spanish": "La ciudad está creciendo rápidamente.", "level": "A2"},
+            {"english": "He rapidly typed the email.", "spanish": "Él escribió rápidamente el correo.", "level": "A2"},
+            {"english": "Technology is changing rapidly.", "spanish": "La tecnología está cambiando rápidamente.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "rarely",
+        "translation": "rara vez",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈreərli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["seldom", "hardly ever"],
+        "antonyms": ["often", "frequently"],
+        "examples": [
+            {"english": "I rarely eat fast food.", "spanish": "Rara vez como comida rápida.", "level": "A2"},
+            {"english": "She rarely complains.", "spanish": "Rara vez se queja.", "level": "A2"},
+            {"english": "He is rarely home on weekends.", "spanish": "Rara vez está en casa los fines de semana.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "rather",
+        "translation": "bastante",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈræðər/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["quite", "somewhat"],
+        "antonyms": ["slightly"],
+        "examples": [
+            {"english": "It is rather cold today.", "spanish": "Hace bastante frío hoy.", "level": "B1"},
+            {"english": "She is rather shy.", "spanish": "Ella es bastante tímida.", "level": "B1"},
+            {"english": "He is rather good at math.", "spanish": "Él es bastante bueno en matemáticas.", "level": "B1"}
         ],
         "tags": ["degree"],
         "difficulty": "MEDIUM",
-        "level": 5
+        "level": 4
+    },
+    {
+        "word": "really",
+        "translation": "realmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈriːəli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["truly", "very"],
+        "antonyms": ["barely"],
+        "examples": [
+            {"english": "I am really happy.", "spanish": "Estoy realmente feliz.", "level": "A1"},
+            {"english": "She is really nice.", "spanish": "Ella es realmente agradable.", "level": "A1"},
+            {"english": "He really wants to go.", "spanish": "Él realmente quiere ir.", "level": "A2"}
+        ],
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "reasonably",
+        "translation": "razonablemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈriːzənəbli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["fairly", "moderately"],
+        "antonyms": ["unreasonably"],
+        "examples": [
+            {"english": "She is reasonably happy.", "spanish": "Ella está razonablemente feliz.", "level": "A2"},
+            {"english": "The price is reasonably low.", "spanish": "El precio es razonablemente bajo.", "level": "A2"},
+            {"english": "He acted reasonably.", "spanish": "Actuó razonablemente.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "recently",
+        "translation": "recientemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈriːsəntli/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["lately"],
+        "antonyms": ["long ago"],
+        "examples": [
+            {"english": "I saw her recently.", "spanish": "La vi recientemente.", "level": "A2"},
+            {"english": "He recently moved to Spain.", "spanish": "Él se mudó recientemente a España.", "level": "A2"},
+            {"english": "She recently got a new job.", "spanish": "Ella recientemente consiguió un nuevo trabajo.", "level": "B1"}
+        ],
+        "tags": ["time"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "sadly",
+        "translation": "tristemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsædli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["unhappily"],
+        "antonyms": ["happily"],
+        "examples": [
+            {"english": "She smiled sadly.", "spanish": "Ella sonrió tristemente.", "level": "A2"},
+            {"english": "He sadly said goodbye.", "spanish": "Él tristemente se despidió.", "level": "A2"},
+            {"english": "Sadly, he lost the game.", "spanish": "Tristemente, él perdió el juego.", "level": "B1"}
+        ],
+        "tags": ["manner", "emotion"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "seldom",
+        "translation": "rara vez",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsɛldəm/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["rarely"],
+        "antonyms": ["often", "frequently"],
+        "examples": [
+            {"english": "I seldom go to the movies.", "spanish": "Rara vez voy al cine.", "level": "A2"},
+            {"english": "She seldom complains about work.", "spanish": "Rara vez se queja del trabajo.", "level": "A2"},
+            {"english": "He seldom visits his old friends.", "spanish": "Rara vez visita a sus viejos amigos.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "sideways",
+        "translation": "de lado / lateralmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsaɪdweɪz/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["laterally"],
+        "antonyms": ["forward", "backward"],
+        "examples": [
+            {"english": "He stepped sideways.", "spanish": "Dio un paso al lado.", "level": "A2"},
+            {"english": "The car slid sideways.", "spanish": "El coche se deslizó de lado.", "level": "A2"},
+            {"english": "She looked at him sideways.", "spanish": "Lo miró de reojo.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "slightly",
+        "translation": "ligeramente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈslaɪtli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["a little", "somewhat"],
+        "antonyms": ["completely", "totally"],
+        "examples": [
+            {"english": "It is slightly cold.", "spanish": "Hace ligeramente frío.", "level": "A2"},
+            {"english": "She is slightly taller than him.", "spanish": "Ella es ligeramente más alta que él.", "level": "A2"},
+            {"english": "He smiled slightly.", "spanish": "Él sonrió ligeramente.", "level": "B1"}
+        ],
+        "tags": ["degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "slowly",
+        "translation": "lentamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsloʊli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["gradually"],
+        "antonyms": ["quickly", "fast"],
+        "examples": [
+            {"english": "He walks slowly.", "spanish": "Él camina lentamente.", "level": "A1"},
+            {"english": "She speaks slowly.", "spanish": "Ella habla lentamente.", "level": "A1"},
+            {"english": "Time passes slowly when you are bored.", "spanish": "El tiempo pasa lentamente cuando estás aburrido.", "level": "A2"}
+        ],
+        "tags": ["manner", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "smoothly",
+        "translation": "sin problemas / suavemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsmuːðli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["smoothly"],
+        "antonyms": ["roughly", "poorly"],
+        "examples": [
+            {"english": "Everything went smoothly.", "spanish": "Todo fue sin problemas.", "level": "B1"},
+            {"english": "She spoke smoothly.", "spanish": "Ella habló suavemente.", "level": "B1"},
+            {"english": "The car runs smoothly.", "spanish": "El coche funciona sin problemas.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "softly",
+        "translation": "suavemente / en voz baja",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsɒftli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["gently", "quietly"],
+        "antonyms": ["loudly", "harshly"],
+        "examples": [
+            {"english": "She spoke softly.", "spanish": "Ella habló en voz baja.", "level": "A2"},
+            {"english": "He closed the door softly.", "spanish": "Cerró la puerta suavemente.", "level": "A2"},
+            {"english": "The music played softly.", "spanish": "La música sonaba suavemente.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "sometimes",
+        "translation": "a veces",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsʌmtaɪmz/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["occasionally"],
+        "antonyms": ["always", "never"],
+        "examples": [
+            {"english": "I sometimes drink tea.", "spanish": "A veces tomo té.", "level": "A1"},
+            {"english": "She sometimes cooks on Sundays.", "spanish": "A veces cocina los domingos.", "level": "A1"},
+            {"english": "He is sometimes late for class.", "spanish": "A veces llega tarde a clase.", "level": "A2"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "somewhat",
+        "translation": "algo / un poco",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsʌmwʌt/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["a bit", "rather"],
+        "antonyms": ["completely"],
+        "examples": [
+            {"english": "I am somewhat tired.", "spanish": "Estoy algo cansado.", "level": "B1"},
+            {"english": "She is somewhat shy.", "spanish": "Ella es algo tímida.", "level": "B1"},
+            {"english": "The task is somewhat difficult.", "spanish": "La tarea es algo difícil.", "level": "B1"}
+        ],
+        "tags": ["formal", "degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "somewhere",
+        "translation": "en alguna parte",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsʌmweər/", "audio": null},
+        "category": ["place"],
+        "synonyms": [],
+        "antonyms": ["nowhere"],
+        "examples": [
+            {"english": "I left my keys somewhere.", "spanish": "Dejé mis llaves en alguna parte.", "level": "A2"},
+            {"english": "She lives somewhere in Europe.", "spanish": "Ella vive en alguna parte de Europa.", "level": "A2"},
+            {"english": "We need somewhere to stay.", "spanish": "Necesitamos algún lugar para quedarnos.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "soon",
+        "translation": "pronto",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/suːn/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["shortly", "quickly"],
+        "antonyms": ["late", "eventually"],
+        "examples": [
+            {"english": "I will be back soon.", "spanish": "Volveré pronto.", "level": "A1"},
+            {"english": "Dinner will be ready soon.", "spanish": "La cena estará lista pronto.", "level": "A2"},
+            {"english": "She will arrive soon.", "spanish": "Ella llegará pronto.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "still",
+        "translation": "todavía",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/stɪl/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["yet"],
+        "antonyms": ["no longer"],
+        "examples": [
+            {"english": "I am still waiting.", "spanish": "Todavía estoy esperando.", "level": "A1"},
+            {"english": "She is still at home.", "spanish": "Ella todavía está en casa.", "level": "A2"},
+            {"english": "He still works here.", "spanish": "Él todavía trabaja aquí.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "strongly",
+        "translation": "fuertemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈstrɒŋli/", "audio": null},
+        "category": ["manner", "degree"],
+        "synonyms": ["intensely", "firmly"],
+        "antonyms": ["weakly"],
+        "examples": [
+            {"english": "I strongly disagree.", "spanish": "Estoy firmemente en desacuerdo.", "level": "B1"},
+            {"english": "She strongly recommended the book.", "spanish": "Ella recomendó mucho el libro.", "level": "B1"},
+            {"english": "It rained strongly all night.", "spanish": "Llovió fuertemente toda la noche.", "level": "B1"}
+        ],
+        "tags": ["manner", "degree"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "supposedly",
+        "translation": "supuestamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/səˈpoʊzɪdli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["allegedly", "reportedly"],
+        "antonyms": ["definitely"],
+        "examples": [
+            {"english": "He is supposedly rich.", "spanish": "Supuestamente es rico.", "level": "B1"},
+            {"english": "Supposedly, it will rain tomorrow.", "spanish": "Supuestamente, lloverá mañana.", "level": "B1"},
+            {"english": "The book is supposedly the best of the year.", "spanish": "El libro es supuestamente el mejor del año.", "level": "B1"}
+        ],
+        "tags": ["formal", "certainty"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "swiftly",
+        "translation": "rápidamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈswɪftli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["quickly", "rapidly"],
+        "antonyms": ["slowly"],
+        "examples": [
+            {"english": "The bird flew swiftly.", "spanish": "El pájaro voló rápidamente.", "level": "B1"},
+            {"english": "She swiftly answered the question.", "spanish": "Ella respondió rápidamente la pregunta.", "level": "B1"},
+            {"english": "He swiftly solved the problem.", "spanish": "Él resolvió rápidamente el problema.", "level": "B1"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "then",
+        "translation": "entonces",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ðɛn/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["after that"],
+        "antonyms": ["now"],
+        "examples": [
+            {"english": "I will see you then.", "spanish": "Te veré entonces.", "level": "A1"},
+            {"english": "First coffee, then work.", "spanish": "Primero café, entonces trabajo.", "level": "A2"},
+            {"english": "She was young then.", "spanish": "Ella era joven entonces.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "there",
+        "translation": "allí",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ðeər/", "audio": null},
+        "category": ["place"],
+        "synonyms": [],
+        "antonyms": ["here"],
+        "examples": [
+            {"english": "She is there.", "spanish": "Ella está allí.", "level": "A1"},
+            {"english": "Go over there.", "spanish": "Ve allí.", "level": "A1"},
+            {"english": "There are many people.", "spanish": "Hay mucha gente.", "level": "A1"}
+        ],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "therefore",
+        "translation": "por lo tanto",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈðɛərfɔːr/", "audio": null},
+        "category": ["connection"],
+        "synonyms": ["thus", "consequently"],
+        "antonyms": [],
+        "examples": [
+            {"english": "He studied hard; therefore, he passed.", "spanish": "Él estudió mucho; por lo tanto, aprobó.", "level": "B1"},
+            {"english": "It rained; therefore, we stayed inside.", "spanish": "Llovió; por lo tanto, nos quedamos adentro.", "level": "B1"},
+            {"english": "Therefore, we need a plan.", "spanish": "Por lo tanto, necesitamos un plan.", "level": "B1"}
+        ],
+        "tags": ["connection"],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
         "word": "thoroughly",
@@ -1881,40 +2679,249 @@
         "level": 5
     },
     {
-        "word": "diligently",
-        "translation": "diligentemente",
+        "word": "thus",
+        "translation": "así / por lo tanto",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈdɪlɪdʒəntli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["hard", "carefully"],
-        "antonyms": ["lazily"],
+        "pronunciation": {"ipa": "/ðʌs/", "audio": null},
+        "category": ["addition"],
+        "synonyms": ["therefore", "so"],
+        "antonyms": [],
         "examples": [
-            {"english": "She diligently studied every day.", "spanish": "Ella estudió diligentemente cada día.", "level": "B2"},
-            {"english": "He diligently worked on the project.", "spanish": "Él trabajó diligentemente en el proyecto.", "level": "B2"},
-            {"english": "They diligently followed the instructions.", "spanish": "Siguieron diligentemente las instrucciones.", "level": "B2"}
+            {"english": "He studied hard; thus, he passed.", "spanish": "Estudió mucho; así, aprobó.", "level": "B1"},
+            {"english": "Thus, we should leave now.", "spanish": "Por lo tanto, deberíamos irnos ya.", "level": "B1"},
+            {"english": "Thus ended the long journey.", "spanish": "Así terminó el largo viaje.", "level": "B2"}
         ],
-        "tags": ["manner"],
+        "tags": ["formal", "addition"],
+        "difficulty": "HARD",
+        "level": 3
+    },
+    {
+        "word": "today",
+        "translation": "hoy",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/təˈdeɪ/", "audio": null},
+        "category": ["time"],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {"english": "I am busy today.", "spanish": "Estoy ocupado hoy.", "level": "A1"},
+            {"english": "She is arriving today.", "spanish": "Ella llega hoy.", "level": "A1"},
+            {"english": "Today is a good day.", "spanish": "Hoy es un buen día.", "level": "A1"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "tomorrow",
+        "translation": "mañana",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/təˈmɒroʊ/", "audio": null},
+        "category": ["time"],
+        "synonyms": [],
+        "antonyms": ["yesterday"],
+        "examples": [
+            {"english": "I will see you tomorrow.", "spanish": "Te veré mañana.", "level": "A1"},
+            {"english": "Tomorrow is Saturday.", "spanish": "Mañana es sábado.", "level": "A1"},
+            {"english": "She is leaving tomorrow morning.", "spanish": "Ella se va mañana por la mañana.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "tonight",
+        "translation": "esta noche",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/təˈnaɪt/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["this evening"],
+        "antonyms": [],
+        "examples": [
+            {"english": "I will stay home tonight.", "spanish": "Me quedaré en casa esta noche.", "level": "A1"},
+            {"english": "Are you free tonight?", "spanish": "¿Estás libre esta noche?", "level": "A1"},
+            {"english": "Tonight is the final game.", "spanish": "Esta noche es el partido final.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "too",
+        "translation": "demasiado",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/tuː/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["excessively"],
+        "antonyms": ["not enough"],
+        "examples": [
+            {"english": "It is too hot.", "spanish": "Hace demasiado calor.", "level": "A1"},
+            {"english": "You work too much.", "spanish": "Trabajas demasiado.", "level": "A1"},
+            {"english": "This bag is too heavy.", "spanish": "Esta bolsa es demasiado pesada.", "level": "A2"}
+        ],
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "totally",
+        "translation": "totalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈtoʊtəli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["completely", "absolutely"],
+        "antonyms": ["partially"],
+        "examples": [
+            {"english": "I totally understand.", "spanish": "Te entiendo totalmente.", "level": "A2"},
+            {"english": "She totally disagrees.", "spanish": "Ella está totalmente en desacuerdo.", "level": "A2"},
+            {"english": "He totally changed his appearance.", "spanish": "Él cambió totalmente su apariencia.", "level": "B1"}
+        ],
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "twice",
+        "translation": "dos veces",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/twaɪs/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["two times"],
+        "antonyms": ["once"],
+        "examples": [
+            {"english": "I eat twice a day.", "spanish": "Como dos veces al día.", "level": "A1"},
+            {"english": "She called twice.", "spanish": "Ella llamó dos veces.", "level": "A2"},
+            {"english": "He tried twice and succeeded.", "spanish": "Él lo intentó dos veces y lo logró.", "level": "B1"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "underground",
+        "translation": "bajo tierra / subterráneamente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈʌndərɡraʊnd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["below ground", "beneath"],
+        "antonyms": ["aboveground"],
+        "examples": [
+            {"english": "They went underground to hide.", "spanish": "Fueron bajo tierra para esconderse.", "level": "B1"},
+            {"english": "The subway runs underground.", "spanish": "El metro corre bajo tierra.", "level": "A2"},
+            {"english": "Water flows underground.", "spanish": "El agua fluye bajo tierra.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "undoubtedly",
+        "translation": "indudablemente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ʌnˈdaʊtɪdli/", "audio": null},
+        "category": ["certainty"],
+        "synonyms": ["certainly", "without doubt"],
+        "antonyms": ["doubtfully"],
+        "examples": [
+            {"english": "She is undoubtedly the best.", "spanish": "Ella es indudablemente la mejor.", "level": "B1"},
+            {"english": "He will undoubtedly succeed.", "spanish": "Él indudablemente triunfará.", "level": "B1"},
+            {"english": "It is undoubtedly true.", "spanish": "Es indudablemente verdad.", "level": "B1"}
+        ],
+        "tags": ["certainty"],
         "difficulty": "MEDIUM",
         "level": 5
     },
     {
-        "word": "wholeheartedly",
-        "translation": "con todo el corazón",
+        "word": "up",
+        "translation": "arriba",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˌhoʊlˈhɑːrtɪdli/", "audio": null},
-        "category": ["manner"],
-        "synonyms": ["completely", "sincerely"],
-        "antonyms": ["halfheartedly"],
+        "pronunciation": {"ipa": "/ʌp/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["upward"],
+        "antonyms": ["down"],
         "examples": [
-            {"english": "I wholeheartedly agree.", "spanish": "Estoy completamente de acuerdo con todo el corazón.", "level": "B2"},
-            {"english": "She wholeheartedly supported the idea.", "spanish": "Ella apoyó la idea con todo el corazón.", "level": "B2"},
-            {"english": "He wholeheartedly apologized.", "spanish": "Él se disculpó con todo el corazón.", "level": "B2"}
+            {"english": "Look up.", "spanish": "Mira arriba.", "level": "A1"},
+            {"english": "Stand up, please.", "spanish": "Levántate, por favor.", "level": "A1"},
+            {"english": "Prices went up last year.", "spanish": "Los precios subieron el año pasado.", "level": "A2"}
         ],
-        "tags": ["manner"],
+        "tags": ["place", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "upward",
+        "translation": "hacia arriba",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈʌpwərd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["up"],
+        "antonyms": ["downward"],
+        "examples": [
+            {"english": "Look upward.", "spanish": "Mira hacia arriba.", "level": "A2"},
+            {"english": "Prices moved upward.", "spanish": "Los precios subieron.", "level": "B1"},
+            {"english": "The plane flew upward.", "spanish": "El avión voló hacia arriba.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "usually",
+        "translation": "usualmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈjuːʒuəli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["normally", "generally"],
+        "antonyms": ["rarely", "never"],
+        "examples": [
+            {"english": "I usually wake up at seven.", "spanish": "Usualmente me despierto a las siete.", "level": "A1"},
+            {"english": "She usually walks to school.", "spanish": "Usualmente camina a la escuela.", "level": "A2"},
+            {"english": "He usually drinks coffee in the morning.", "spanish": "Usualmente toma café por la mañana.", "level": "A2"}
+        ],
+        "tags": ["frequency", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "utterly",
+        "translation": "totalmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈʌtərli/", "audio": null},
+        "category": ["degree"],
+        "synonyms": ["completely", "totally"],
+        "antonyms": ["partially"],
+        "examples": [
+            {"english": "She was utterly exhausted.", "spanish": "Ella estaba totalmente agotada.", "level": "B2"},
+            {"english": "He is utterly convinced.", "spanish": "Él está totalmente convencido.", "level": "B2"},
+            {"english": "It was utterly impossible.", "spanish": "Era totalmente imposible.", "level": "B2"}
+        ],
+        "tags": ["degree"],
         "difficulty": "MEDIUM",
         "level": 5
     },
@@ -1938,60 +2945,193 @@
         "level": 5
     },
     {
-        "word": "immensely",
-        "translation": "inmensamente",
+        "word": "very",
+        "translation": "muy",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ɪˈmɛnsli/", "audio": null},
+        "pronunciation": {"ipa": "/ˈvɛri/", "audio": null},
         "category": ["degree"],
-        "synonyms": ["extremely", "greatly"],
+        "synonyms": ["extremely", "really"],
         "antonyms": ["slightly"],
         "examples": [
-            {"english": "I enjoyed the trip immensely.", "spanish": "Disfruté el viaje inmensamente.", "level": "B2"},
-            {"english": "She is immensely talented.", "spanish": "Ella es inmensamente talentosa.", "level": "B2"},
-            {"english": "He helped immensely.", "spanish": "Él ayudó inmensamente.", "level": "B2"}
+            {"english": "She is very happy.", "spanish": "Ella está muy feliz.", "level": "A1"},
+            {"english": "It is very cold today.", "spanish": "Hace muy frío hoy.", "level": "A1"},
+            {"english": "He is a very good person.", "spanish": "Él es una persona muy buena.", "level": "A1"}
         ],
-        "tags": ["degree"],
-        "difficulty": "MEDIUM",
-        "level": 5
+        "tags": ["degree", "common"],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word": "evidently",
-        "translation": "evidentemente",
+        "word": "weekly",
+        "translation": "semanalmente",
         "type": "adverb",
         "regular": null,
         "forms": null,
-        "pronunciation": {"ipa": "/ˈɛvɪdəntli/", "audio": null},
-        "category": ["certainty"],
-        "synonyms": ["clearly", "obviously"],
-        "antonyms": ["unclearly"],
-        "examples": [
-            {"english": "Evidently, he forgot.", "spanish": "Evidentemente, él olvidó.", "level": "B2"},
-            {"english": "She was evidently surprised.", "spanish": "Ella estaba evidentemente sorprendida.", "level": "B2"},
-            {"english": "Evidently, there is a problem.", "spanish": "Evidentemente, hay un problema.", "level": "B2"}
-        ],
-        "tags": ["certainty"],
-        "difficulty": "MEDIUM",
-        "level": 5
-    },
-    {
-        "word": "henceforth",
-        "translation": "de aquí en adelante",
-        "type": "adverb",
-        "regular": null,
-        "forms": null,
-        "pronunciation": {"ipa": "/ˌhɛnsˈfɔːrθ/", "audio": null},
-        "category": ["time"],
-        "synonyms": ["from now on", "henceforward"],
+        "pronunciation": {"ipa": "/ˈwiːkli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["every week"],
         "antonyms": [],
         "examples": [
-            {"english": "Henceforth, I will study harder.", "spanish": "De aquí en adelante, estudiaré más.", "level": "B2"},
-            {"english": "Henceforth, all employees must wear badges.", "spanish": "De aquí en adelante, todos los empleados deben usar gafetes.", "level": "B2"},
-            {"english": "Henceforth, no smoking is allowed.", "spanish": "De aquí en adelante, no se permite fumar.", "level": "B2"}
+            {"english": "We meet weekly.", "spanish": "Nos reunimos semanalmente.", "level": "A2"},
+            {"english": "The newspaper is published weekly.", "spanish": "El periódico se publica semanalmente.", "level": "A2"},
+            {"english": "I do a weekly shop on Sundays.", "spanish": "Hago la compra semanal los domingos.", "level": "B1"}
         ],
-        "tags": ["time", "formal"],
-        "difficulty": "HARD",
+        "tags": ["frequency"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "well",
+        "translation": "bien",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/wɛl/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["properly", "correctly"],
+        "antonyms": ["badly", "poorly"],
+        "examples": [
+            {"english": "She sings well.", "spanish": "Ella canta bien.", "level": "A1"},
+            {"english": "He did well on the test.", "spanish": "Le fue bien en el examen.", "level": "A1"},
+            {"english": "They speak English well.", "spanish": "Hablan inglés bien.", "level": "A2"}
+        ],
+        "tags": ["manner", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "wherever",
+        "translation": "dondequiera que / donde sea",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/weərˈɛvər/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["anywhere"],
+        "antonyms": [],
+        "examples": [
+            {"english": "Sit wherever you like.", "spanish": "Siéntate donde quieras.", "level": "A2"},
+            {"english": "Wherever she goes, she makes friends.", "spanish": "Dondequiera que va, hace amigos.", "level": "B1"},
+            {"english": "He will follow her wherever she goes.", "spanish": "Él la seguirá dondequiera que vaya.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "wholeheartedly",
+        "translation": "con todo el corazón",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌhoʊlˈhɑːrtɪdli/", "audio": null},
+        "category": ["manner"],
+        "synonyms": ["completely", "sincerely"],
+        "antonyms": ["halfheartedly"],
+        "examples": [
+            {"english": "I wholeheartedly agree.", "spanish": "Estoy completamente de acuerdo con todo el corazón.", "level": "B2"},
+            {"english": "She wholeheartedly supported the idea.", "spanish": "Ella apoyó la idea con todo el corazón.", "level": "B2"},
+            {"english": "He wholeheartedly apologized.", "spanish": "Él se disculpó con todo el corazón.", "level": "B2"}
+        ],
+        "tags": ["manner"],
+        "difficulty": "MEDIUM",
         "level": 5
+    },
+    {
+        "word": "worldwide",
+        "translation": "mundialmente / en todo el mundo",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈwɜːrldwaɪd/", "audio": null},
+        "category": ["place"],
+        "synonyms": ["globally"],
+        "antonyms": ["locally"],
+        "examples": [
+            {"english": "The product is sold worldwide.", "spanish": "El producto se vende en todo el mundo.", "level": "B1"},
+            {"english": "The company is known worldwide.", "spanish": "La empresa es conocida mundialmente.", "level": "B1"},
+            {"english": "She has fans worldwide.", "spanish": "Tiene fans en todo el mundo.", "level": "B1"}
+        ],
+        "tags": ["place"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "yearly",
+        "translation": "anualmente",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈjɪərli/", "audio": null},
+        "category": ["frequency"],
+        "synonyms": ["annually", "every year"],
+        "antonyms": [],
+        "examples": [
+            {"english": "We take a yearly trip.", "spanish": "Hacemos un viaje anual.", "level": "A2"},
+            {"english": "The fee is paid yearly.", "spanish": "La cuota se paga anualmente.", "level": "B1"},
+            {"english": "The report is published yearly.", "spanish": "El informe se publica anualmente.", "level": "B1"}
+        ],
+        "tags": ["frequency"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "yes",
+        "translation": "sí",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/jɛs/", "audio": null},
+        "category": ["affirmation"],
+        "synonyms": [],
+        "antonyms": ["no"],
+        "examples": [
+            {"english": "Yes, please.", "spanish": "Sí, por favor.", "level": "A1"},
+            {"english": "Yes, I understand.", "spanish": "Sí, entiendo.", "level": "A1"},
+            {"english": "She said yes to the invitation.", "spanish": "Ella dijo sí a la invitación.", "level": "A2"}
+        ],
+        "tags": ["affirmation", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "yesterday",
+        "translation": "ayer",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈjɛstərdeɪ/", "audio": null},
+        "category": ["time"],
+        "synonyms": [],
+        "antonyms": ["tomorrow"],
+        "examples": [
+            {"english": "I saw her yesterday.", "spanish": "La vi ayer.", "level": "A1"},
+            {"english": "Yesterday was a great day.", "spanish": "Ayer fue un gran día.", "level": "A1"},
+            {"english": "He called me yesterday morning.", "spanish": "Me llamó ayer por la mañana.", "level": "A2"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "yet",
+        "translation": "todavía",
+        "type": "adverb",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/jɛt/", "audio": null},
+        "category": ["time"],
+        "synonyms": ["still"],
+        "antonyms": ["already"],
+        "examples": [
+            {"english": "Have you eaten yet?", "spanish": "¿Ya has comido?", "level": "A2"},
+            {"english": "She has not arrived yet.", "spanish": "Ella todavía no ha llegado.", "level": "A2"},
+            {"english": "He is not ready yet.", "spanish": "Él todavía no está listo.", "level": "B1"}
+        ],
+        "tags": ["time", "common"],
+        "difficulty": "EASY",
+        "level": 3
     }
 ]

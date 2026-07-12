@@ -1,6 +1,7 @@
 package com.example.englishvault.ui.progress
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocalFireDepartment
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
@@ -34,6 +36,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -61,9 +64,14 @@ import data.database.entities.UserProfileEntity
  *    canonical [com.example.englishvault.ui.words.WordTypeFilter.TRACKED]
  *    order, each showing the per-category level, XP bar, learned bar
  *    and the hybrid-gate status.
+ *
+ * Phase 7.1: the greeting row is now tappable and surfaces a
+ * `Settings` icon on the right. Tapping it navigates to the Settings
+ * hub via [onOpenSettings] (wired by `MainScaffold`).
  */
 @Composable
 fun ProgressScreen(
+    onOpenSettings: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: ProgressViewModel = hiltViewModel()
 ) {
@@ -84,11 +92,30 @@ fun ProgressScreen(
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text(
-            text = stringResource(id = R.string.progress_greeting, greetingName),
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(
+                    onClick = onOpenSettings,
+                    role = Role.Button
+                )
+                .padding(vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = stringResource(id = R.string.progress_greeting, greetingName),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.weight(1f)
+            )
+            Icon(
+                imageVector = Icons.Filled.Settings,
+                contentDescription = stringResource(
+                    id = R.string.progress_greeting_settings_cd
+                ),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        }
         Text(
             text = stringResource(id = R.string.progress_title),
             style = MaterialTheme.typography.headlineSmall,

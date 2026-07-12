@@ -59,12 +59,13 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Progress screen** — `ProgressViewModel` exposes the global profile, level / xp slice, daily-goal estimate, streak and one `CategoryProgressUi` per tracked grammatical category. Each per-category card carries its own level (1..N), an XP bar, a learned-percentage bar and a hybrid-gate status message.
 - **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple, 3rd person or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`.
 - **World map (Phase 7, beta)** — Super Mario Bros-inspired level selector rendered as a single Canvas. The map is 2200 dp wide so the user must scroll horizontally to discover all 10 nodes, which trace an almost-straight path across a grass-and-sky scene. A branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. A HUD in the header shows the player's persistent hearts and coins (read live from `UserProfileEntity` through `WorldViewModel`). Tapping the next waypoint advances the protagonist with a smooth `Animatable` interpolation.
+- **Settings hub (Phase 7.1)** — reachable from the Progress screen via the greeting button (tap "Hello, Name" to open). Two sections: **Profile** (rename the user in a dedicated sub-screen with form validation) and **Sound** (music and effects volume sliders in `[0.0, 1.0]`, both persisted via Room; music is wired as a placeholder until the audio engine lands). The schema bump v8 → v9 brings `musicVolume` and `effectsVolume` columns to `user_profile` via `MIGRATION_8_9` without data loss.
 
 ### Planned
 
 - **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7.1).
 - **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7.1).
-- **User settings** — theme mode, daily goal editor, reminder time, profile name (Phase 7.1).
+- **More user settings** — theme mode, daily goal editor, reminder time (Phase 7.1).
 - **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7.1).
 - **Shop economy wiring** — connect the World shop to `addCoins` / `addHearts` so spending coins actually buys lives (Phase 7.1).
 - **Cloud sync / backup** (Phase 8).
@@ -365,12 +366,31 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 6.5    |   Done     | Per-category progression: `category_progress` table, XP grant + hybrid gate      |
 | 6.6    |   Done     | Words screen: 8 type chips + sort row, in-place feedback colours on the game    |
 | 7      |  Beta      | World map (replaces Test tab), persistent hearts and coins on `user_profile`   |
-| 7.1    |  Planned   | SRS review scheduling, settings UI, search + filters, other mini-games           |
+| 7.1    |  In progress | SRS review scheduling, settings UI, search + filters, other mini-games        |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7.1 - Settings hub + dictionary expansions
+
+- New `ui/settings/SettingsScreen.kt` - two-section settings hub reachable from the Progress screen. The greeting row is now tappable (text + `Icons.Filled.Settings`) and surfaces a `Role.Button` semantics. Profile section shows the current display name and navigates to a dedicated sub-screen for renaming; Sound section hosts two `Slider`s (music + effects) with a `format("%d%%")` value label. Music carries a "Coming soon — background music will be added in a future update" hint under the slider so the placeholder is explicit.
+- New `ui/settings/SettingsEditNameScreen.kt` - dedicated sub-screen with a pre-filled `OutlinedTextField` and `PrimaryButton`. Validation rejects empty / whitespace-only input through `SettingsEditNameViewModel`, which surfaces a stable error key and triggers `popBackStack` once the save flag flips.
+- New `ui/settings/viewmodel/SettingsViewModel.kt` - `@HiltViewModel` exposing `profile: StateFlow<UserProfileEntity?>` plus `updateName`, `updateMusicVolume`, `updateEffectsVolume` setters. Each setter delegates to a dedicated atomic DAO method and clamps slider input to `[0.0, 1.0]`.
+- New `ui/settings/viewmodel/SettingsEditNameViewModel.kt` - holds the form draft in a `MutableStateFlow<UiState>` (name / error / saved) and pre-fills from the current persisted profile on construction so the form opens populated.
+- New `Destination.Settings` and `Destination.SettingsEditName` routes wired through `MainScaffold`; the Progress screen now accepts an `onOpenSettings` callback passed from the scaffold.
+- `UserProfileEntity` gained two `Float` columns: `musicVolume` and `effectsVolume` (default `1.0f`). New companion constant `DEFAULT_VOLUME`.
+- `UserProfileDao` gained `updateMusicVolume(Float)` and `updateEffectsVolume(Float)` (mirroring the existing `updateName` / `updateDailyGoal` pattern). Each one writes a single column on the single-row `user_profile` table.
+- `Migrations.MIGRATION_8_9` - two `ALTER TABLE ADD COLUMN` statements (REAL NOT NULL DEFAULT 1.0). `AppDatabase` bumped to v9; registered in `DatabaseModule` next to the previous migrations.
+- `DictionarySeeder.CORE_DICTIONARY_VERSION` bumped from 7 to 13 across the eight section files. Per-type entries:
+  - `conjunctions.json`: 2 → 62 (coordinating + 6 subordinating sub-types + correlative + conjunctive adverbs).
+  - `interjections.json`: 7 → 67 (greetings, polite markers, affirmation / negation, surprise, joy, frustration, pain, attention getters, hesitation fillers).
+  - `nouns.json`: 9 → 69 (people / family, body parts, time, food, animals, home / furniture, places, common objects, abstract, nature, education, work).
+  - `prepositions.json`: 2 → 62 (place, time, direction, manner, possession, plus common multi-word prepositions like `because of`, `in spite of`, `according to`, `due to`, `instead of`, `next to`).
+  - `adjectives.json`: 87 → 147 (colors, taste, more emotions, personality, weather, time / state, abstract qualities, physical descriptors — the previous "12" in the README table was stale).
+  - `adverbs.json`: 105 → 165 (linking, frequency / period, direction, place, degree, certainty, manner descriptors — the previous "3" in the README table was stale).
+- Total dictionary now **624 entries** across the eight per-type section files (was 68 at the Phase 4.6 baseline). `dictionary/README.md` table totals and version history updated to match.
 
 ### Phase 7 - World map beta + persistent player state
 

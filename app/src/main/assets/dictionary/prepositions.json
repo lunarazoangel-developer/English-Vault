@@ -1,5 +1,1119 @@
 [
     {
+        "word":  "about",
+        "translation":  "acerca de / sobre",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈbaʊt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "around",
+                         "regarding"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Tell me about your trip.",
+                             "spanish":  "Cuéntame sobre tu viaje.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "There are about twenty people here.",
+                             "spanish":  "Hay como veinte personas aquí.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She walked about the city all day.",
+                             "spanish":  "Caminó por la ciudad todo el día.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "above",
+        "translation":  "encima de / sobre",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈbʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "over"
+                     ],
+        "antonyms":  [
+                         "below",
+                         "under"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The picture is above the sofa.",
+                             "spanish":  "El cuadro está encima del sofá.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The plane flew above the clouds.",
+                             "spanish":  "El avión voló sobre las nubes.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Temperatures are above average today.",
+                             "spanish":  "Las temperaturas están por encima del promedio hoy.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "according to",
+        "translation":  "según",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈkɔːr.dɪŋ tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "According to him, the meeting is at 5.",
+                             "spanish":  "Según él, la reunión es a las 5.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "According to the news, it will rain.",
+                             "spanish":  "Según las noticias, lloverá.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "According to the report, sales increased.",
+                             "spanish":  "Según el informe, las ventas aumentaron.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "across",
+        "translation":  "a través de / al otro lado de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈkrɒs/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "through"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She walked across the street.",
+                             "spanish":  "Ella cruzó la calle.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "There is a bridge across the river.",
+                             "spanish":  "Hay un puente a través del río.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He swam across the lake.",
+                             "spanish":  "Nadó al otro lado del lago.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "against",
+        "translation":  "contra",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈɡɛnst/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "for"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "He leaned against the wall.",
+                             "spanish":  "Él se apoyó contra la pared.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "They are playing against Brazil.",
+                             "spanish":  "Juegan contra Brasil.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She voted against the new law.",
+                             "spanish":  "Votó en contra de la nueva ley.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "along",
+        "translation":  "a lo largo de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈlɒŋ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "We walked along the beach.",
+                             "spanish":  "Caminamos a lo largo de la playa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "There are trees along the road.",
+                             "spanish":  "Hay árboles a lo largo de la carretera.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He drove along the coast.",
+                             "spanish":  "Condujo a lo largo de la costa.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "among",
+        "translation":  "entre (varios)",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈmʌŋ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "amongst"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is among the best students.",
+                             "spanish":  "Ella está entre las mejores estudiantes.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He was sitting among friends.",
+                             "spanish":  "Estaba sentado entre amigos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "The disease spread among the population.",
+                             "spanish":  "La enfermedad se extendió entre la población.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "apart from",
+        "translation":  "aparte de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈpɑːrt frʌm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "besides",
+                         "except for"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Apart from that, everything is fine.",
+                             "spanish":  "Aparte de eso, todo está bien.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Apart from Tom, no one came.",
+                             "spanish":  "Aparte de Tom, nadie vino.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Apart from English, she speaks French.",
+                             "spanish":  "Aparte del inglés, habla francés.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "around",
+        "translation":  "alrededor de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/əˈraʊnd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "about"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "We sat around the table.",
+                             "spanish":  "Nos sentamos alrededor de la mesa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The cat ran around the house.",
+                             "spanish":  "El gato corrió alrededor de la casa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He travels around the world.",
+                             "spanish":  "Viaja alrededor del mundo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "at",
+        "translation":  "en / a",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/æt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "in",
+                         "on"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is at home.",
+                             "spanish":  "Ella está en casa.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I will see you at the station.",
+                             "spanish":  "Te veré en la estación.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "He arrived at midnight.",
+                             "spanish":  "Llegó a medianoche.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "because of",
+        "translation":  "a causa de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈkɒz ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "due to",
+                         "owing to"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "We stayed home because of the rain.",
+                             "spanish":  "Nos quedamos en casa a causa de la lluvia.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is late because of the traffic.",
+                             "spanish":  "Llega tarde por el tráfico.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The game was cancelled because of the storm.",
+                             "spanish":  "El partido fue cancelado a causa de la tormenta.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "before",
+        "translation":  "antes de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈfɔːr/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "time"
+                     ],
+        "synonyms":  [
+                         "prior to"
+                     ],
+        "antonyms":  [
+                         "after"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Wash your hands before eating.",
+                             "spanish":  "Lávate las manos antes de comer.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She arrived before me.",
+                             "spanish":  "Ella llegó antes que yo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Think before you speak.",
+                             "spanish":  "Piensa antes de hablar.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "behind",
+        "translation":  "detrás de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈhaɪnd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "in front of"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The cat is behind the door.",
+                             "spanish":  "El gato está detrás de la puerta.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She hid behind the curtain.",
+                             "spanish":  "Se escondió detrás de la cortina.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is behind schedule.",
+                             "spanish":  "Está atrasado con el horario.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "below",
+        "translation":  "debajo de / bajo",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈloʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "under",
+                         "beneath"
+                     ],
+        "antonyms":  [
+                         "above",
+                         "over"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The fish are below the surface.",
+                             "spanish":  "Los peces están bajo la superficie.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Temperatures fell below zero.",
+                             "spanish":  "Las temperaturas cayeron bajo cero.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "See the note below the picture.",
+                             "spanish":  "Mira la nota debajo del cuadro.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "beneath",
+        "translation":  "debajo de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈniːθ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "under",
+                         "below"
+                     ],
+        "antonyms":  [
+                         "above"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The cat hid beneath the bed.",
+                             "spanish":  "El gato se escondió debajo de la cama.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He buried it beneath the tree.",
+                             "spanish":  "Lo enterró debajo del árbol.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She felt it was beneath her to apologize.",
+                             "spanish":  "Ella sentía que era indigno de ella disculparse.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "beside",
+        "translation":  "al lado de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈsaɪd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "next to"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Sit beside me.",
+                             "spanish":  "Siéntate a mi lado.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "There is a lamp beside the bed.",
+                             "spanish":  "Hay una lámpara al lado de la cama.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She walked beside him in silence.",
+                             "spanish":  "Caminó a su lado en silencio.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "between",
+        "translation":  "entre (dos)",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈtwiːn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is between her parents.",
+                             "spanish":  "Está entre sus padres.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The cafe is between the bank and the library.",
+                             "spanish":  "El café está entre el banco y la biblioteca.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Choose between these two options.",
+                             "spanish":  "Elige entre estas dos opciones.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "beyond",
+        "translation":  "más allá de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈjɒnd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The mountains are beyond the valley.",
+                             "spanish":  "Las montañas están más allá del valle.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "It is beyond my understanding.",
+                             "spanish":  "Está más allá de mi comprensión.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "The price is beyond what I can pay.",
+                             "spanish":  "El precio es más allá de lo que puedo pagar.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "by",
+        "translation":  "por / junto a",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/baɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "near",
+                         "next to"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is sitting by the window.",
+                             "spanish":  "Está sentada junto a la ventana.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "The book was written by my friend.",
+                             "spanish":  "El libro fue escrito por mi amigo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "I go to work by bus.",
+                             "spanish":  "Voy al trabajo en autobús.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "by means of",
+        "translation":  "por medio de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/baɪ miːnz ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "through"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "He communicated by means of gestures.",
+                             "spanish":  "Se comunicó por medio de gestos.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "They escaped by means of a secret tunnel.",
+                             "spanish":  "Escaparon por medio de un túnel secreto.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "She succeeded by means of hard work.",
+                             "spanish":  "Tuvo éxito por medio del trabajo duro.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "despite",
+        "translation":  "a pesar de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/dɪˈspaɪt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "in spite of"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Despite the rain, we went out.",
+                             "spanish":  "A pesar de la lluvia, salimos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She succeeded despite the difficulties.",
+                             "spanish":  "Ella tuvo éxito a pesar de las dificultades.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Despite being tired, he kept working.",
+                             "spanish":  "A pesar de estar cansado, siguió trabajando.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "down",
+        "translation":  "abajo / hacia abajo",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/daʊn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "up"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "He walked down the stairs.",
+                             "spanish":  "Bajó las escaleras.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She ran down the hill.",
+                             "spanish":  "Corrió colina abajo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Sit down, please.",
+                             "spanish":  "Siéntate, por favor.",
+                             "level":  "A1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "due to",
+        "translation":  "debido a",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/djuː tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "because of",
+                         "owing to"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The flight was cancelled due to bad weather.",
+                             "spanish":  "El vuelo fue cancelado debido al mal tiempo.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "His success is due to hard work.",
+                             "spanish":  "Su éxito se debe al trabajo duro.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "The delay is due to traffic.",
+                             "spanish":  "El retraso se debe al tráfico.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "during",
+        "translation":  "durante",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈdjʊə.rɪŋ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "time"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She slept during the movie.",
+                             "spanish":  "Durmió durante la película.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He works during the day.",
+                             "spanish":  "Trabaja durante el día.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It rained during the night.",
+                             "spanish":  "Llovió durante la noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "except",
+        "translation":  "excepto / salvo",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪkˈsɛpt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "apart from",
+                         "but"
+                     ],
+        "antonyms":  [
+                         "including"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Everyone came except Tom.",
+                             "spanish":  "Todos vinieron excepto Tom.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "I have no money except for a few coins.",
+                             "spanish":  "No tengo dinero salvo por unas monedas.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She likes all fruits except pineapple.",
+                             "spanish":  "Le gustan todas las frutas excepto la piña.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "for",
+        "translation":  "para / por",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/fɔːr/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "against"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "This gift is for you.",
+                             "spanish":  "Este regalo es para ti.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I have been waiting for an hour.",
+                             "spanish":  "He estado esperando una hora.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She works for a big company.",
+                             "spanish":  "Trabaja para una gran empresa.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
         "word":  "from",
         "translation":  "de",
         "type":  "preposition",
@@ -13,7 +1127,6 @@
                          "grammar"
                      ],
         "synonyms":  [
-
                      ],
         "antonyms":  [
                          "to"
@@ -41,6 +1154,1339 @@
                  ],
         "difficulty":  "EASY",
         "level":  2
+    },
+    {
+        "word":  "in",
+        "translation":  "en / dentro de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "inside"
+                     ],
+        "antonyms":  [
+                         "out",
+                         "outside"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is in the kitchen.",
+                             "spanish":  "Ella está en la cocina.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I live in Madrid.",
+                             "spanish":  "Vivo en Madrid.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "He came back in the afternoon.",
+                             "spanish":  "Volvió por la tarde.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "in addition to",
+        "translation":  "además de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪn əˈdɪʃ.ən tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "besides"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "In addition to Spanish, she speaks French.",
+                             "spanish":  "Además de español, habla francés.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "In addition to his salary, he gets bonuses.",
+                             "spanish":  "Además de su salario, recibe bonificaciones.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "In addition to teaching, she writes books.",
+                             "spanish":  "Además de enseñar, escribe libros.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "in case of",
+        "translation":  "en caso de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪn keɪs ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "In case of fire, use the stairs.",
+                             "spanish":  "En caso de incendio, usa las escaleras.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "In case of emergency, call 911.",
+                             "spanish":  "En caso de emergencia, llama al 911.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Take an umbrella in case of rain.",
+                             "spanish":  "Lleva un paraguas en caso de lluvia.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "in front of",
+        "translation":  "delante de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪn frʌnt ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "before",
+                         "opposite"
+                     ],
+        "antonyms":  [
+                         "behind"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She stood in front of the mirror.",
+                             "spanish":  "Se quedó delante del espejo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "There is a garden in front of the house.",
+                             "spanish":  "Hay un jardín delante de la casa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He parked in front of the school.",
+                             "spanish":  "Aparcó delante de la escuela.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "in spite of",
+        "translation":  "a pesar de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪn spaɪt ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "despite"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "In spite of the rain, we went out.",
+                             "spanish":  "A pesar de la lluvia, salimos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "In spite of being tired, she kept going.",
+                             "spanish":  "A pesar de estar cansada, siguió adelante.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He succeeded in spite of the difficulties.",
+                             "spanish":  "Tuvo éxito a pesar de las dificultades.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "inside",
+        "translation":  "dentro de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪnˈsaɪd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "in"
+                     ],
+        "antonyms":  [
+                         "outside"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The keys are inside the drawer.",
+                             "spanish":  "Las llaves están dentro del cajón.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Wait for me inside the house.",
+                             "spanish":  "Espérame dentro de la casa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She felt safe inside the car.",
+                             "spanish":  "Se sentía segura dentro del coche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "instead of",
+        "translation":  "en lugar de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɪnˈstɛd ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "in place of"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I'll have tea instead of coffee.",
+                             "spanish":  "Tomaré té en lugar de café.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She walked instead of taking the bus.",
+                             "spanish":  "Caminó en lugar de tomar el autobús.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He read a book instead of watching TV.",
+                             "spanish":  "Leyó un libro en lugar de ver la tele.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "into",
+        "translation":  "en / dentro de (movimiento)",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈɪn.tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "out of"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She walked into the room.",
+                             "spanish":  "Entró en la habitación.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He jumped into the pool.",
+                             "spanish":  "Saltó a la piscina.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Translate the text into Spanish.",
+                             "spanish":  "Traduce el texto al español.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "like",
+        "translation":  "como",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/laɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "such as"
+                     ],
+        "antonyms":  [
+                         "unlike"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She sings like an angel.",
+                             "spanish":  "Canta como un ángel.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "I want something like this.",
+                             "spanish":  "Quiero algo como esto.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It looks like rain.",
+                             "spanish":  "Parece lluvia.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "near",
+        "translation":  "cerca de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/nɪər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "close to"
+                     ],
+        "antonyms":  [
+                         "far from"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She lives near the school.",
+                             "spanish":  "Vive cerca de la escuela.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The hotel is near the beach.",
+                             "spanish":  "El hotel está cerca de la playa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He sat near the window.",
+                             "spanish":  "Se sentó cerca de la ventana.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "next to",
+        "translation":  "al lado de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈnɛkst tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "beside"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She sat next to me.",
+                             "spanish":  "Se sentó a mi lado.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "The bank is next to the supermarket.",
+                             "spanish":  "El banco está al lado del supermercado.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He parked next to the entrance.",
+                             "spanish":  "Aparcó al lado de la entrada.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "of",
+        "translation":  "de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The color of the sky is blue.",
+                             "spanish":  "El color del cielo es azul.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "A cup of coffee, please.",
+                             "spanish":  "Una taza de café, por favor.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She is a friend of mine.",
+                             "spanish":  "Es una amiga mía.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "off",
+        "translation":  "fuera de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɒf/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "on"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Take your shoes off.",
+                             "spanish":  "Quítate los zapatos.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The cat jumped off the table.",
+                             "spanish":  "El gato saltó de la mesa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She lives just off the main road.",
+                             "spanish":  "Vive justo al lado de la carretera principal.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "on",
+        "translation":  "en / sobre",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɒn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "upon"
+                     ],
+        "antonyms":  [
+                         "off"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The book is on the table.",
+                             "spanish":  "El libro está sobre la mesa.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She works on Mondays.",
+                             "spanish":  "Trabaja los lunes.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He arrived on time.",
+                             "spanish":  "Llegó a tiempo.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "on behalf of",
+        "translation":  "en nombre de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɒn bɪˈhɑːf ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "representing"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She spoke on behalf of the team.",
+                             "spanish":  "Habló en nombre del equipo.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "I am calling on behalf of my boss.",
+                             "spanish":  "Llamo en nombre de mi jefe.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "He accepted the award on behalf of his father.",
+                             "spanish":  "Aceptó el premio en nombre de su padre.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "on top of",
+        "translation":  "encima de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɒn tɒp ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "above",
+                         "over"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Put the book on top of the shelf.",
+                             "spanish":  "Pon el libro encima del estante.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The cat is sleeping on top of the car.",
+                             "spanish":  "El gato está durmiendo encima del coche.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "On top of working, she studies at night.",
+                             "spanish":  "Encima de trabajar, estudia por la noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "onto",
+        "translation":  "sobre (movimiento)",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈɒn.tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "on to"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The cat jumped onto the bed.",
+                             "spanish":  "El gato saltó a la cama.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She climbed onto the roof.",
+                             "spanish":  "Subió al techo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He stepped onto the train.",
+                             "spanish":  "Subió al tren.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "out",
+        "translation":  "fuera",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/aʊt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "in"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She went out of the room.",
+                             "spanish":  "Salió de la habitación.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is out at the moment.",
+                             "spanish":  "Está fuera en este momento.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Let's eat out tonight.",
+                             "spanish":  "Cenemos fuera esta noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "out of",
+        "translation":  "fuera de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/aʊt ʌv/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "into"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She went out of the room.",
+                             "spanish":  "Salió de la habitación.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is out of money.",
+                             "spanish":  "Se quedó sin dinero.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The car is out of gas.",
+                             "spanish":  "El coche se quedó sin gasolina.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "outside",
+        "translation":  "fuera de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/aʊtˈsaɪd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "inside"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The kids are playing outside.",
+                             "spanish":  "Los niños están jugando fuera.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She waited outside the door.",
+                             "spanish":  "Esperó fuera de la puerta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It is cold outside.",
+                             "spanish":  "Hace frío afuera.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "over",
+        "translation":  "sobre / por encima de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈoʊ.vər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "above"
+                     ],
+        "antonyms":  [
+                         "under",
+                         "below"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The lamp is over the table.",
+                             "spanish":  "La lámpara está sobre la mesa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "The plane flew over the city.",
+                             "spanish":  "El avión voló sobre la ciudad.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She is over forty.",
+                             "spanish":  "Tiene más de cuarenta años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "past",
+        "translation":  "más allá de / pasando",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/pɑːst/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "beyond"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She walked past the shop.",
+                             "spanish":  "Pasó por delante de la tienda.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It is half past three.",
+                             "spanish":  "Son las tres y media.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is past forty.",
+                             "spanish":  "Tiene más de cuarenta años.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "since",
+        "translation":  "desde",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/sɪns/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "time"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I have lived here since 2010.",
+                             "spanish":  "He vivido aquí desde 2010.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She has been working since morning.",
+                             "spanish":  "Ha estado trabajando desde la mañana.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Since you are here, help me.",
+                             "spanish":  "Ya que estás aquí, ayúdame.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "through",
+        "translation":  "a través de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/θruː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "across"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "We drove through the tunnel.",
+                             "spanish":  "Conducimos a través del túnel.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She walked through the park.",
+                             "spanish":  "Caminó por el parque.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He worked through the night.",
+                             "spanish":  "Trabajó durante toda la noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "throughout",
+        "translation":  "a lo largo de / durante todo",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/θruːˈaʊt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "time"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "It rained throughout the day.",
+                             "spanish":  "Llovió durante todo el día.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She travelled throughout Europe.",
+                             "spanish":  "Viajó por toda Europa.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Throughout his life, he was kind.",
+                             "spanish":  "Durante toda su vida, fue amable.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "to",
+        "translation":  "a / hacia",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "toward"
+                     ],
+        "antonyms":  [
+                         "from"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I go to school every day.",
+                             "spanish":  "Voy a la escuela cada día.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She gave the book to me.",
+                             "spanish":  "Me dio el libro.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "He wants to become a doctor.",
+                             "spanish":  "Quiere ser médico.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "toward",
+        "translation":  "hacia",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/təˈwɔːrd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "towards"
+                     ],
+        "antonyms":  [
+                         "away from"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She walked toward the door.",
+                             "spanish":  "Caminó hacia la puerta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He is friendly toward everyone.",
+                             "spanish":  "Es amable con todos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "We are moving toward a solution.",
+                             "spanish":  "Nos movemos hacia una solución.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "under",
+        "translation":  "debajo de / bajo",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈʌn.dər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "below",
+                         "beneath"
+                     ],
+        "antonyms":  [
+                         "over",
+                         "above"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The cat is under the table.",
+                             "spanish":  "El gato está debajo de la mesa.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Children under 12 are free.",
+                             "spanish":  "Los niños menores de 12 entran gratis.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She hid the letter under the mat.",
+                             "spanish":  "Escondió la carta bajo el felpudo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "unlike",
+        "translation":  "a diferencia de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ʌnˈlaɪk/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "like"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Unlike her sister, she is shy.",
+                             "spanish":  "A diferencia de su hermana, ella es tímida.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Unlike most birds, penguins cannot fly.",
+                             "spanish":  "A diferencia de la mayoría de las aves, los pingüinos no pueden volar.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "It is unlike him to be late.",
+                             "spanish":  "No es propio de él llegar tarde.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "until",
+        "translation":  "hasta",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ənˈtɪl/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "time"
+                     ],
+        "synonyms":  [
+                         "till"
+                     ],
+        "antonyms":  [
+                         "since"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Wait until I come back.",
+                             "spanish":  "Espera hasta que vuelva.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Open from Monday until Friday.",
+                             "spanish":  "Abierto de lunes a viernes.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She worked until midnight.",
+                             "spanish":  "Trabajó hasta medianoche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  1
+    },
+    {
+        "word":  "up",
+        "translation":  "arriba / hacia arriba",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ʌp/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "down"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Stand up, please.",
+                             "spanish":  "Levántate, por favor.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She walked up the stairs.",
+                             "spanish":  "Subió las escaleras.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He climbed up the ladder.",
+                             "spanish":  "Subió por la escalera.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "place",
+                     "grammar"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     },
     {
         "word":  "with",
@@ -84,5 +2530,133 @@
                  ],
         "difficulty":  "EASY",
         "level":  2
+    },
+    {
+        "word":  "with regard to",
+        "translation":  "con respecto a",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɪð rɪˈɡɑːrd tuː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "regarding",
+                         "concerning"
+                     ],
+        "antonyms":  [
+                     ],
+        "examples":  [
+                         {
+                             "english":  "With regard to your question, yes.",
+                             "spanish":  "Con respecto a tu pregunta, sí.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "I have nothing to say with regard to that.",
+                             "spanish":  "No tengo nada que decir con respecto a eso.",
+                             "level":  "B2"
+                         },
+                         {
+                             "english":  "With regard to the project, we need more time.",
+                             "spanish":  "Con respecto al proyecto, necesitamos más tiempo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "formal"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "within",
+        "translation":  "dentro de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɪˈðɪn/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar",
+                         "place"
+                     ],
+        "synonyms":  [
+                         "inside"
+                     ],
+        "antonyms":  [
+                         "outside"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Answer within 24 hours.",
+                             "spanish":  "Responde dentro de 24 horas.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "It is within walking distance.",
+                             "spanish":  "Está a distancia para caminar.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "The answer is within the text.",
+                             "spanish":  "La respuesta está dentro del texto.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    },
+    {
+        "word":  "without",
+        "translation":  "sin",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɪˈðaʊt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                     ],
+        "antonyms":  [
+                         "with"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I drink coffee without sugar.",
+                             "spanish":  "Tomo café sin azúcar.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She left without saying goodbye.",
+                             "spanish":  "Se fue sin decir adiós.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He cannot live without music.",
+                             "spanish":  "No puede vivir sin música.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
     }
 ]
