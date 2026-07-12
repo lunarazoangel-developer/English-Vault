@@ -60,9 +60,12 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple, 3rd person or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`.
 - **World map (Phase 7, beta)** — Super Mario Bros-inspired level selector rendered as a single Canvas. The map is 2200 dp wide so the user must scroll horizontally to discover all 10 nodes, which trace an almost-straight path across a grass-and-sky scene. A branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. A HUD in the header shows the player's persistent hearts and coins (read live from `UserProfileEntity` through `WorldViewModel`). Tapping the next waypoint advances the protagonist with a smooth `Animatable` interpolation.
 - **Settings hub (Phase 7.1)** — reachable from the Progress screen via the greeting button (tap "Hello, Name" to open). Two sections: **Profile** (rename the user in a dedicated sub-screen with form validation) and **Sound** (music and effects volume sliders in `[0.0, 1.0]`, both persisted via Room; music is wired as a placeholder until the audio engine lands). The schema bump v8 → v9 brings `musicVolume` and `effectsVolume` columns to `user_profile` via `MIGRATION_8_9` without data loss.
+- **Audio foundation (Phase 7.2)** — `audio/SoundEffectPlayer` plays short SFX on game events, currently backed by `ToneGenerator` so the app ships zero audio assets. WordMatchVerbs plays a positive beep (`TONE_PROP_ACK`, 300 ms) when the user picks the correct answer, and the volume reacts live to the **Effects** slider in Settings because the VM observes `user_profile.effectsVolume` through a `StateFlow`. `SoundKey` already declares `Wrong` and `Victory` placeholders so the wrong-answer / end-of-run sounds are a one-line addition when the team is ready.
 
 ### Planned
 
+- **Custom audio assets** — drop `sfx_correct.ogg` / `sfx_wrong.ogg` / `sfx_victory.ogg` / `bgm_world.ogg` / `bgm_game.ogg` into `res/raw/` and swap `ToneGenerator` for `SoundPool` (`SoundEffectPlayer`'s public API stays the same).
+- **Background music** — `MediaPlayer` reading the music slider live, looped per-screen (World map + mini-games only).
 - **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7.1).
 - **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7.1).
 - **More user settings** — theme mode, daily goal editor, reminder time (Phase 7.1).
@@ -367,11 +370,19 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 6.6    |   Done     | Words screen: 8 type chips + sort row, in-place feedback colours on the game    |
 | 7      |  Beta      | World map (replaces Test tab), persistent hearts and coins on `user_profile`   |
 | 7.1    |  In progress | SRS review scheduling, settings UI, search + filters, other mini-games        |
+| 7.2    |  In progress | Audio foundation: SFX on mini-game events, settings volume hooked in live    |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7.2 - Audio foundation (correct-answer SFX)
+
+- New `audio/SoundKey.kt` — enum carrying every short SFX the app can play. Phase 7.2 ships only `Correct` (active) plus `Wrong` and `Victory` as documented placeholders so future call sites compile against a stable shape. Each entry pairs a placeholder `ToneGenerator` constant with a relative `gain` so individual effects stay tunable from one place.
+- New `audio/SoundEffectPlayer.kt` — `@Singleton @Inject constructor()` wrapper around `ToneGenerator`. Phase 7.2 ships zero audio assets so the player produces system DTMF-style beeps that work out of the box. Volume is recomputed and the generator is reallocated on every `play(key, effectsVolume)` call because `ToneGenerator.startTone` does not expose a per-call volume — recreating is the cleanest way to react to slider changes in real time. A volume of 0 short-circuits to a no-op before any allocation happens.
+- `WordMatchVerbsViewModel` now reads `user_profile.effectsVolume` through a `StateFlow<Float>` and calls `soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)` from `submitAnswer(...)` whenever the user picks the right answer. The wrong-answer branch is intentionally silent for now; `Wrong` is declared but not fired so the call sites compile cleanly when the next iteration wires it up.
+- The Effects slider in Settings has an immediate effect on playback: moving it during a mini-game re-evaluates on the next correct answer because the VM reads the current value straight from Room each time.
 
 ### Phase 7.1 - Settings hub + dictionary expansions
 

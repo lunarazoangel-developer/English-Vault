@@ -2,6 +2,8 @@
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.englishvault.audio.SoundEffectPlayer
+import com.example.englishvault.audio.SoundKey
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchAnswer
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchAskType
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchError
@@ -10,16 +12,21 @@ import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchQuestion
 import com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.game.CategoryGating
 import data.database.UserLevel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 /**
@@ -49,8 +56,23 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class WordMatchVerbsViewModel @Inject constructor(
     private val wordDao: WordDao,
-    private val categoryProgressDao: CategoryProgressDao
+    private val categoryProgressDao: CategoryProgressDao,
+    private val userProfileDao: UserProfileDao,
+    private val soundEffectPlayer: SoundEffectPlayer
 ) : ViewModel() {
+
+    /**
+     * Live effects volume in `[0.0, 1.0]` read from the user profile.
+     * Used by [submitAnswer] to scale the correct-answer SFX so the
+     * Settings slider has an immediate effect on playback.
+     */
+    private val effectsVolume: StateFlow<Float> = userProfileDao.observeProfile()
+        .map { profile -> profile?.effectsVolume ?: UserProfileEntity.DEFAULT_VOLUME }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+            initialValue = UserProfileEntity.DEFAULT_VOLUME
+        )
 
     private companion object {
         /**
@@ -62,6 +84,9 @@ class WordMatchVerbsViewModel @Inject constructor(
          * them.
          */
         const val MAX_QUESTIONS_PER_GAME: Int = 20
+
+        /** Subscription grace period before the upstream Flow is cancelled. */
+        private const val STOP_TIMEOUT_MILLIS: Long = 5_000
     }
 
     private val _gameState = MutableStateFlow<WordMatchGameState>(WordMatchGameState.Loading)
@@ -162,6 +187,13 @@ class WordMatchVerbsViewModel @Inject constructor(
             lastAnswer = WordMatchAnswer(picked = picked, isCorrect = isCorrect),
             correctXpByCategory = newXpByCategory
         )
+
+        // Audio feedback. Phase 7.2 only ships the positive beep
+        // so the player gets a small reward for correct answers; the
+        // wrong-answer SFX is reserved for a future iteration.
+        if (isCorrect) {
+            soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+        }
     }
 
     /**
