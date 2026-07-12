@@ -1,0 +1,400 @@
+[
+    {
+        "word":  "day",
+        "translation":  "día",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/deɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "time"
+                     ],
+        "synonyms":  [
+                         "date",
+                         "period"
+                     ],
+        "antonyms":  [
+                         "night"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Have a nice day!",
+                             "spanish":  "¡Que tengas un buen día!",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She works out every day.",
+                             "spanish":  "Ella hace ejercicio cada día.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "It was a long day at the office.",
+                             "spanish":  "Fue un largo día en la oficina.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "family",
+        "translation":  "familia",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈfæmɪli/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "social"
+                     ],
+        "synonyms":  [
+                         "relatives",
+                         "kin"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I love my family.",
+                             "spanish":  "Amo a mi familia.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We have a big family.",
+                             "spanish":  "Tenemos una familia grande.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Family comes first in her life.",
+                             "spanish":  "La familia es lo primero en su vida.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "social",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "friend",
+        "translation":  "amigo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/frɛnd/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "social"
+                     ],
+        "synonyms":  [
+                         "companion",
+                         "buddy"
+                     ],
+        "antonyms":  [
+                         "enemy",
+                         "stranger"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "She is my best friend.",
+                             "spanish":  "Ella es mi mejor amiga.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "I made many friends at school.",
+                             "spanish":  "Hice muchos amigos en la escuela.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "True friends are hard to find.",
+                             "spanish":  "Los verdaderos amigos son difíciles de encontrar.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "social",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "house",
+        "translation":  "casa",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/haʊs/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "home"
+                     ],
+        "synonyms":  [
+                         "home",
+                         "residence"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "My house is small.",
+                             "spanish":  "Mi casa es pequeña.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "They bought a new house last year.",
+                             "spanish":  "Ellos compraron una casa nueva el año pasado.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Their house overlooks the ocean.",
+                             "spanish":  "Su casa tiene vista al océano.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "home",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "knowledge",
+        "translation":  "conocimiento",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈnɒlɪdʒ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "abstract"
+                     ],
+        "synonyms":  [
+                         "wisdom",
+                         "understanding"
+                     ],
+        "antonyms":  [
+                         "ignorance"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Knowledge is power.",
+                             "spanish":  "El conocimiento es poder.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She has deep knowledge of history.",
+                             "spanish":  "Ella tiene un profundo conocimiento de la historia.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "He shared his knowledge freely with the team.",
+                             "spanish":  "Compartió su conocimiento libremente con el equipo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "abstract",
+                     "important"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "night",
+        "translation":  "noche",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/naɪt/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "time"
+                     ],
+        "synonyms":  [
+                         "evening"
+                     ],
+        "antonyms":  [
+                         "day"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Good night!",
+                             "spanish":  "¡Buenas noches!",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We went out last night.",
+                             "spanish":  "Salimos anoche.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She studied through the night.",
+                             "spanish":  "Ella estudió durante toda la noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "time",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "time",
+        "translation":  "tiempo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/taɪm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "moment",
+                         "period"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "What time is it?",
+                             "spanish":  "¿Qué hora es?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "We had a great time at the party.",
+                             "spanish":  "Nos divertimos mucho en la fiesta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Time flies when you are having fun.",
+                             "spanish":  "El tiempo vuela cuando te estás divirtiendo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "water",
+        "translation":  "agua",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈwɔːtər/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "food",
+                         "nature"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Can I have some water?",
+                             "spanish":  "¿Puedo tener un poco de agua?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She drinks eight glasses of water a day.",
+                             "spanish":  "Ella bebe ocho vasos de agua al día.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Water covers most of the planet.",
+                             "spanish":  "El agua cubre la mayor parte del planeta.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "food",
+                     "nature",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "world",
+        "translation":  "mundo",
+        "type":  "noun",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɜːrld/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "abstract"
+                     ],
+        "synonyms":  [
+                         "planet",
+                         "globe"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "The world is big.",
+                             "spanish":  "El mundo es grande.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She has travelled the world.",
+                             "spanish":  "Ella ha viajado por el mundo.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "It is a small world after all.",
+                             "spanish":  "Es un mundo pequeño después de todo.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "abstract",
+                     "geography"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    }
+]

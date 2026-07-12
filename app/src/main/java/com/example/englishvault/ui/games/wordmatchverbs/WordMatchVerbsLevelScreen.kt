@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.games.wordmatch
+﻿package com.example.englishvault.ui.games.wordmatchverbs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,17 +16,17 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,31 +35,39 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
-import com.example.englishvault.ui.games.wordmatch.viewmodel.WordMatchVerbsViewModel
+import com.example.englishvault.ui.games.wordmatchverbs.viewmodel.WordMatchVerbsViewModel
 
 /**
  * Level selector for the Word Match Verbs mini-game.
  *
- * Shows one card per dictionary level (1..maxLevel) with the count
- * of verbs still eligible for practice (status != LEARNED). Tapping
- * a card calls [WordMatchVerbsViewModel.chooseLevel] which seeds the
- * game state and the parent navigation takes over.
+ * Shows one card per dictionary level (1..maxLevel). Each card carries
+ * the count of verbs still eligible for practice (status != LEARNED)
+ * and is **disabled** when either:
+ *  - there are no verbs to play at that level, OR
+ *  - the player has not yet unlocked that level in either verb
+ *    category (Phase 4.6 gating).
+ *
+ * Locked cards display a padlock icon and a short hint so the user
+ * knows how to unlock them.
  */
 @Composable
-fun WordMatchLevelScreen(
+fun WordMatchVerbsLevelScreen(
     onBack: () -> Unit,
     onLevelChosen: (Int) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: WordMatchVerbsViewModel = hiltViewModel()
 ) {
     var maxLevel by remember { mutableStateOf(1) }
+    var unlockedLevel by remember { mutableStateOf(1) }
     val verbsPerLevel = remember { mutableStateOf<Map<Int, Int>>(emptyMap()) }
 
     LaunchedEffect(Unit) {
         maxLevel = viewModel.maxLevel()
+        unlockedLevel = viewModel.maxUnlockedVerbLevel()
         val counts = (1..maxLevel).associateWith { level ->
             viewModel.verbsToPlayAt(level)
         }
@@ -107,10 +115,12 @@ fun WordMatchLevelScreen(
         ) {
             items(levels) { level ->
                 val toPlay = counts[level] ?: 0
+                val locked = level > unlockedLevel
                 LevelCard(
                     level = level,
                     toPlay = toPlay,
-                    onClick = { onLevelChosen(level) }
+                    locked = locked,
+                    onClick = { if (!locked) onLevelChosen(level) }
                 )
             }
         }
@@ -118,29 +128,37 @@ fun WordMatchLevelScreen(
 }
 
 /**
- * Single level card rendered in the grid. Disabled visually when
- * there are no verbs to play at that level.
+ * Single level card rendered in the grid. Three visual states:
+ *  - **enabled**: at least one playable verb AND level unlocked.
+ *  - **empty**: no eligible verbs (status == LEARNED everywhere).
+ *  - **locked**: level beyond the player's highest unlocked level.
  */
 @Composable
 private fun LevelCard(
     level: Int,
     toPlay: Int,
+    locked: Boolean,
     onClick: () -> Unit
 ) {
-    val enabled = toPlay > 0
+    val enabled = !locked && toPlay > 0
+    val containerColor = when {
+        locked -> MaterialTheme.colorScheme.surfaceVariant
+        enabled -> MaterialTheme.colorScheme.primaryContainer
+        else -> MaterialTheme.colorScheme.surfaceVariant
+    }
+    val contentColor = when {
+        locked -> MaterialTheme.colorScheme.onSurfaceVariant
+        enabled -> MaterialTheme.colorScheme.onPrimaryContainer
+        else -> MaterialTheme.colorScheme.onSurfaceVariant
+    }
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(120.dp)
+            .height(140.dp)
             .clickable(enabled = enabled, onClick = onClick),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = if (enabled) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surfaceVariant
-            }
-        )
+        colors = CardDefaults.cardColors(containerColor = containerColor)
     ) {
         Box(
             modifier = Modifier
@@ -149,28 +167,34 @@ private fun LevelCard(
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(id = R.string.game_wordmatch_level_format, level),
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = if (enabled) {
-                        MaterialTheme.colorScheme.onPrimaryContainer
-                    } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    if (locked) {
+                        Icon(
+                            imageVector = Icons.Filled.Lock,
+                            contentDescription = stringResource(
+                                id = R.string.game_wordmatch_level_locked
+                            ),
+                            tint = contentColor,
+                            modifier = Modifier.padding(end = 6.dp)
+                        )
                     }
-                )
+                    Text(
+                        text = stringResource(id = R.string.game_wordmatch_level_format, level),
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.ExtraBold,
+                        color = contentColor
+                    )
+                }
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = stringResource(
-                        id = R.string.game_wordmatch_to_play_format,
-                        toPlay
-                    ),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = if (enabled) {
-                        MaterialTheme.colorScheme.onPrimaryContainer
+                    text = if (locked) {
+                        stringResource(id = R.string.game_wordmatch_level_locked_hint)
                     } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    }
+                        stringResource(id = R.string.game_wordmatch_to_play_format, toPlay)
+                    },
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = contentColor,
+                    textAlign = TextAlign.Center
                 )
             }
         }

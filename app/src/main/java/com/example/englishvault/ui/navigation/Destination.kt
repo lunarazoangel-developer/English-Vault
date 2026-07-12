@@ -27,14 +27,14 @@ sealed class Destination(val route: String) {
 
     // region: Word Match Verbs mini-game
     /** Level selector. */
-    data object WordMatchLevel : Destination("games/wordmatch/level")
+    data object WordMatchVerbsLevel : Destination("games/wordmatchverbs/level")
 
     /** Active game. Carries the chosen level in the route. The
      *  finished state is rendered in place inside this same
      *  destination, so there is no separate "end" route. */
-    data object WordMatchPlay : Destination("games/wordmatch/play?level={level}") {
+    data object WordMatchVerbsPlay : Destination("games/wordmatchverbs/play?level={level}") {
         const val ARG_LEVEL: String = "level"
-        fun buildRoute(level: Int): String = "games/wordmatch/play?level=$level"
+        fun buildRoute(level: Int): String = "games/wordmatchverbs/play?level=$level"
     }
     // endregion
 

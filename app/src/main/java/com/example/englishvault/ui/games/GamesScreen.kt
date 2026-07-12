@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.games
+﻿package com.example.englishvault.ui.games
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -45,13 +45,13 @@ import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
 
 /**
- * Games zone — a 2-column grid of mini-game cards.
+ * Games zone â€” a 2-column grid of mini-game cards.
  *
  * Phase 2 mockup. Tapping a card does nothing; Phase 3 will route each
  * entry to its corresponding game screen.
  *
- * Phase 6: the "Word Match" card is wired to the new
- * Word Match Verbs mini-game via [onOpenWordMatch]. The other five
+ * Phase 6: the "Word Match Verbs" card is wired to the new
+ * Word Match Verbs mini-game via [onOpenWordMatchVerbs]. The other five
  * entries remain non-interactive placeholders.
  *
  * Each card shows a colored icon, the game name, a short description
@@ -59,13 +59,13 @@ import com.example.englishvault.R
  */
 @Composable
 fun GamesScreen(
-    onOpenWordMatch: () -> Unit,
+    onOpenWordMatchVerbs: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // region: Mock games catalogue — wire to real sources in Phase 3
+    // region: Mock games catalogue â€” wire to real sources in Phase 3
     val games = listOf(
         GameItem(
-            name = "Word Match",
+            name = "Word Match Verbs",
             description = "Match English words with their translations.",
             icon = Icons.Filled.Psychology,
             color = MaterialTheme.colorScheme.primary,
@@ -145,8 +145,8 @@ fun GamesScreen(
                 GameCard(
                     game = game,
                     onClick = {
-                        if (game.isInteractive && game.name == "Word Match") {
-                            onOpenWordMatch()
+                        if (game.isInteractive && game.name == "Word Match Verbs") {
+                            onOpenWordMatchVerbs()
                         }
                     }
                 )
@@ -238,7 +238,7 @@ private data class GameItem(
     /**
      * `true` when tapping the card navigates somewhere; `false`
      * when it is still a non-interactive placeholder (Phase 6 leaves
-     * all but Word Match as placeholders).
+     * all but Word Match Verbs as placeholders).
      */
     val isInteractive: Boolean = false
 )

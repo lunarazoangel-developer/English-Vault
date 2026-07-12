@@ -1,5 +1,6 @@
-package com.example.englishvault.ui.words
+﻿package com.example.englishvault.ui.words
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,19 +11,21 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
@@ -31,7 +34,6 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateMap
-import androidx.compose.runtime.toMutableStateMap
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -42,9 +44,10 @@ import com.example.englishvault.R
 import com.example.englishvault.ui.words.components.WordCard
 import com.example.englishvault.ui.words.viewmodel.WordListViewModel
 import data.database.entities.WordEntity
+import data.database.entities.isUserAdded
 
 /**
- * Words screen — list of vocabulary entries with add / edit / delete
+ * Words screen â€” list of vocabulary entries with add / edit / delete
  * actions and rich detail on tap.
  *
  * Phase 4: data flows from Room through [WordListViewModel] and the
@@ -53,6 +56,17 @@ import data.database.entities.WordEntity
  * pronunciation, verb forms, examples, synonyms, antonyms, tags and
  * category. The source badge (`Dictionary` vs `Mine`) communicates
  * which rows the user can edit.
+ *
+ * Phase 4.6: the top of the screen exposes two filter rows.
+ *  - The first row is a horizontally-scrollable list of [FilterChip]s
+ *    that group words by grammatical type (or origin for "Mine").
+ *  - The second row chooses the sort order for the visible list
+ *    (alphabetical Aâ†’Z / Zâ†’A or by progression level ascending /
+ *    descending).
+ *  - Both selections are screen-local state persisted across
+ *    configuration changes via `rememberSaveable` using their ordinal
+ *    (enum entries are stable as long as the file is not refactored
+ *    mid-session).
  *
  * Default / seeded entries (`source == "core"`) are read-only:
  *  - The screen never displays edit or delete controls for them.
@@ -72,7 +86,8 @@ fun WordListScreen(
 ) {
     val words by viewModel.allWords.collectAsState()
 
-    var selectedTab by remember { mutableStateOf(WordsTab.REGULAR) }
+    var selectedType by rememberSaveable { mutableStateOf(WordsTabFilter.ALL) }
+    var sortOrder by rememberSaveable { mutableStateOf(SortOrder.ALPHABETICAL_ASC) }
     var wordPendingDelete by remember { mutableStateOf<WordEntity?>(null) }
 
     // Per-card expansion state. Keyed by `WordEntity.id` so core and
@@ -85,11 +100,19 @@ fun WordListScreen(
         mutableStateMapOf<Int, Boolean>()
     }
 
-    val filteredWords = remember(words, selectedTab) {
-        WordsTab.filter(selectedTab, words)
+    // Filter + sort in a single derivedStateOf so the UI only
+    // recomposes when either the source data, the type filter or the
+    // sort order changes.
+    val displayedWords by remember(words, selectedType, sortOrder) {
+        derivedStateOf {
+            val filtered = words.filter { selectedType.type.matches(it) }
+            sortOrder.apply(filtered)
+        }
     }
-    val tabCounts: Map<WordsTab, Int> = remember(words) {
-        WordsTab.counts(words)
+    val typeCounts: Map<WordsTabFilter, Int> by remember(words) {
+        derivedStateOf {
+            WordsTabFilter.entries.associateWith { f -> words.count { f.type.matches(it) } }
+        }
     }
 
     Box(
@@ -123,20 +146,27 @@ fun WordListScreen(
             }
 
             item {
-                WordsTabBar(
-                    selected = selectedTab,
-                    counts = tabCounts,
-                    onSelected = { selectedTab = it }
+                TypeFilterRow(
+                    selected = selectedType,
+                    counts = typeCounts,
+                    onSelect = { selectedType = it }
                 )
-                Spacer(modifier = Modifier.height(8.dp))
             }
 
-            if (filteredWords.isEmpty()) {
+            item {
+                SortRow(
+                    selected = sortOrder,
+                    onSelect = { sortOrder = it }
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+            }
+
+            if (displayedWords.isEmpty()) {
                 item {
-                    EmptyState(message = stringResource(id = selectedTab.emptyMessageRes))
+                    EmptyState(message = stringResource(id = selectedType.emptyMessageRes))
                 }
             } else {
-                items(filteredWords, key = { it.id }) { word ->
+                items(displayedWords, key = { it.id }) { word ->
                     WordCard(
                         entity = word,
                         expanded = expandedIds[word.id] == true,
@@ -202,101 +232,74 @@ fun WordListScreen(
     }
 }
 
-// region: Tabs
+// region: Type filter
 /**
- * Available filters for the Words screen. Each tab maps to a logical
- * subset of the dictionary that the user can browse.
- *
- *  - [REGULAR] / [IRREGULAR] — verbs split by their conjugation behaviour.
- *  - [VOCABULARY] — non-verb entries (nouns, adjectives, interjections, …).
- *  - [MINE] — words added by the user through the form, regardless of
- *    grammatical type.
+ * Filter state used by the Words screen. Mirrors the canonical
+ * [WordTypeFilter] enum but carries an extra [emptyMessageRes] per
+ * entry so each bucket can have its own copy when the list is empty.
  */
-private enum class WordsTab(val labelRes: Int, val emptyMessageRes: Int) {
-    REGULAR(R.string.words_tab_regular, R.string.words_empty_regular),
-    IRREGULAR(R.string.words_tab_irregular, R.string.words_empty_irregular),
-    VOCABULARY(R.string.words_tab_vocabulary, R.string.words_empty_vocabulary),
-    MINE(R.string.words_tab_mine, R.string.words_empty_mine);
-
-    companion object {
-        /**
-         * Applies the given [tab] filter against the supplied [words].
-         *
-         * @param tab Active tab.
-         * @param words Source list to filter (typically the Room-backed
-         *   collection surfaced by [WordListViewModel]).
-         * @return Filtered list preserving the original order.
-         */
-        fun filter(tab: WordsTab, words: List<WordEntity>): List<WordEntity> = when (tab) {
-            REGULAR -> words.filter { it.type == "verb" && it.regular == true }
-            IRREGULAR -> words.filter { it.type == "verb" && it.regular == false }
-            VOCABULARY -> words.filter { it.type != "verb" }
-            MINE -> words.filter { it.source == WordEntity.SOURCE_USER }
-        }
-
-        /**
-         * Returns the number of words that match each tab. Computed in
-         * a single pass over [words] so the tab labels can render
-         * counts without triggering extra recompositions.
-         */
-        fun counts(words: List<WordEntity>): Map<WordsTab, Int> {
-            var regular = 0
-            var irregular = 0
-            var vocabulary = 0
-            var mine = 0
-            for (w in words) {
-                if (w.type == "verb") {
-                    if (w.regular == true) regular++ else if (w.regular == false) irregular++
-                } else {
-                    vocabulary++
-                }
-                if (w.source == WordEntity.SOURCE_USER) mine++
-            }
-            return mapOf(
-                REGULAR to regular,
-                IRREGULAR to irregular,
-                VOCABULARY to vocabulary,
-                MINE to mine
-            )
-        }
-    }
+private enum class WordsTabFilter(
+    val type: WordTypeFilter,
+    @StringRes val labelRes: Int,
+    @StringRes val emptyMessageRes: Int
+) {
+    ALL(WordTypeFilter.ALL, R.string.words_tab_all, R.string.words_empty_all),
+    VERBS_REGULAR(WordTypeFilter.VERBS_REGULAR, R.string.words_tab_regular, R.string.words_empty_regular),
+    VERBS_IRREGULAR(WordTypeFilter.VERBS_IRREGULAR, R.string.words_tab_irregular, R.string.words_empty_irregular),
+    ADJECTIVES(WordTypeFilter.ADJECTIVES, R.string.words_tab_adjectives, R.string.words_empty_adjectives),
+    ADVERBS(WordTypeFilter.ADVERBS, R.string.words_tab_adverbs, R.string.words_empty_adverbs),
+    NOUNS(WordTypeFilter.NOUNS, R.string.words_tab_nouns, R.string.words_empty_nouns),
+    CONJUNCTIONS(WordTypeFilter.CONJUNCTIONS, R.string.words_tab_conjunctions, R.string.words_empty_conjunctions),
+    PREPOSITIONS(WordTypeFilter.PREPOSITIONS, R.string.words_tab_prepositions, R.string.words_empty_prepositions),
+    INTERJECTIONS(WordTypeFilter.INTERJECTIONS, R.string.words_tab_interjections, R.string.words_empty_interjections),
+    MINE(WordTypeFilter.MINE, R.string.words_tab_mine, R.string.words_empty_mine);
 }
 
 /**
- * Tab bar used at the top of the Words screen. Each tab label carries
- * the count of words that match the filter so the user can see the
- * split between core and user-added entries at a glance.
+ * Horizontally-scrollable row of [FilterChip]s, one per
+ * [WordTypeFilter]. The chip label carries the live count of words
+ * that match its filter so the user can see the dictionary split at a
+ * glance.
  *
- * @param selected Currently active tab.
- * @param counts Number of words per tab. Computed by
- *   [WordsTab.counts].
- * @param onSelected Invoked when the user taps a tab.
+ * @param selected Currently active filter.
+ * @param counts Per-filter entry totals, computed in a single pass
+ *   over the source list.
+ * @param onSelect Invoked when the user taps a chip.
  */
 @Composable
-private fun WordsTabBar(
-    selected: WordsTab,
-    counts: Map<WordsTab, Int>,
-    onSelected: (WordsTab) -> Unit
+private fun TypeFilterRow(
+    selected: WordsTabFilter,
+    counts: Map<WordsTabFilter, Int>,
+    onSelect: (WordsTabFilter) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    TabRow(selectedTabIndex = selected.ordinal) {
-        WordsTab.entries.forEach { tab ->
-            val count = counts[tab] ?: 0
-            Tab(
-                selected = tab == selected,
-                onClick = { onSelected(tab) },
-                text = {
+    LazyRow(
+        modifier = modifier.fillMaxWidth(),
+        contentPadding = PaddingValues(horizontal = 0.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(WordsTabFilter.entries, key = { it.name }) { filter ->
+            val count = counts[filter] ?: 0
+            // Disable empty buckets (except ALL) so the user is not
+            // tempted to tap into a guaranteed-empty list.
+            val enabled = count > 0 || filter == WordsTabFilter.ALL
+            FilterChip(
+                selected = filter == selected,
+                onClick = { if (enabled) onSelect(filter) },
+                enabled = enabled,
+                label = {
                     Text(
-                        text = "${stringResource(id = tab.labelRes)} ($count)",
-                        fontWeight = if (tab == selected) FontWeight.Bold else FontWeight.Normal,
+                        text = "${stringResource(id = filter.labelRes)} ($count)",
                         maxLines = 1
                     )
-                }
+                },
+                colors = FilterChipDefaults.filterChipColors()
             )
         }
     }
 }
 
-/** Renders the empty state shown when a tab has no matching entries. */
+/** Renders the empty state shown when the current filter has no matches. */
 @Composable
 private fun EmptyState(message: String) {
     Box(
@@ -314,11 +317,78 @@ private fun EmptyState(message: String) {
 }
 // endregion
 
-// region: Lifecycle helper
-// Removed: lifecycle-aware collector wrapper. Phase 2.5 uses the simpler
-// `androidx.compose.runtime.collectAsState` directly because we do not
-// yet need the lifecycle-aware variant — the StateFlow is always kept
-// warm by the ViewModel scope.
+// region: Sort
+/**
+ * Order in which the filtered list is rendered. Ties (same level, or
+ * equal words when sorted by level) are always broken alphabetically
+ * so the visible list is stable across taps.
+ */
+private enum class SortOrder(val labelRes: Int) {
+    ALPHABETICAL_ASC(R.string.words_sort_alpha_asc),
+    ALPHABETICAL_DESC(R.string.words_sort_alpha_desc),
+    LEVEL_ASC(R.string.words_sort_level_asc),
+    LEVEL_DESC(R.string.words_sort_level_desc);
+
+    /**
+     * Returns a new list sorted according to this order. Does not
+     * mutate [words].
+     */
+    fun apply(words: List<WordEntity>): List<WordEntity> = when (this) {
+        ALPHABETICAL_ASC -> words.sortedBy { it.word.lowercase() }
+        ALPHABETICAL_DESC -> words.sortedByDescending { it.word.lowercase() }
+        LEVEL_ASC -> words.sortedWith(
+            compareBy<WordEntity> { it.level }.thenBy { it.word.lowercase() }
+        )
+        LEVEL_DESC -> words.sortedWith(
+            compareByDescending<WordEntity> { it.level }.thenBy { it.word.lowercase() }
+        )
+    }
+}
+
+/**
+ * Row of [FilterChip]s that selects the [SortOrder]. Placed
+ * immediately under the type-filter row so it is always reachable
+ * without an extra tap.
+ *
+ * @param selected Currently active sort order.
+ * @param onSelect Invoked when the user taps a sort chip.
+ */
+@Composable
+private fun SortRow(
+    selected: SortOrder,
+    onSelect: (SortOrder) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    androidx.compose.foundation.layout.Row(
+        modifier = modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(id = R.string.words_sort_label),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            fontWeight = FontWeight.SemiBold
+        )
+        Spacer(modifier = Modifier.padding(horizontal = 4.dp))
+        LazyRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(end = 8.dp)
+        ) {
+            items(SortOrder.entries, key = { it.name }) { order ->
+                FilterChip(
+                    selected = order == selected,
+                    onClick = { onSelect(order) },
+                    label = {
+                        Text(
+                            text = stringResource(id = order.labelRes),
+                            maxLines = 1
+                        )
+                    }
+                )
+            }
+        }
+    }
+}
 // endregion
 
 // region: ExpansionSaver
@@ -326,12 +396,12 @@ private fun EmptyState(message: String) {
  * Custom Saver that flattens a `SnapshotStateMap<Int, Boolean>` into
  * a `List<Int>` so it can survive configuration changes via
  * `rememberSaveable`. The list alternates `[id, value(0|1), id, value,
- * …]` so we can reconstruct the map without an extra delimiter.
+ * â€¦]` so we can reconstruct the map without an extra delimiter.
  */
 private val ExpansionSaver: Saver<SnapshotStateMap<Int, Boolean>, Any> =
     Saver(
         save = { stateMap ->
-            // Bundle-friendly flat list: [id1, value1, id2, value2, …]
+            // Bundle-friendly flat list: [id1, value1, id2, value2, â€¦]
             stateMap.flatMap { (id, value) -> listOf(id, if (value) 1 else 0) }
         },
         restore = { saved ->

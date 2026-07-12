@@ -16,8 +16,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.LocalFireDepartment
+import androidx.compose.material3.AssistChip
+import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ProgressIndicatorDefaults
@@ -34,8 +39,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.components.SectionHeader
+import com.example.englishvault.ui.progress.viewmodel.CategoryProgressUi
 import com.example.englishvault.ui.progress.viewmodel.ProgressViewModel
-import com.example.englishvault.ui.progress.viewmodel.UnitProgress
 import com.example.englishvault.ui.progress.viewmodel.XpProgress
 import data.database.entities.UserProfileEntity
 
@@ -43,19 +48,19 @@ import data.database.entities.UserProfileEntity
  * Progress dashboard.
  *
  * Wires the screen to Room through [ProgressViewModel]. Every counter
- * and derived value (level, XP slice, daily goal, streak, units by
- * difficulty) is a [kotlinx.coroutines.flow.StateFlow] so the UI
+ * and derived value (level, XP slice, daily goal, streak, per-category
+ * progression) is a [kotlinx.coroutines.flow.StateFlow] so the UI
  * updates reactively when the underlying tables change.
  *
- * Layout:
+ * Phase 4.6 layout:
  *  - Greeting + header (`Your progress`)
- *  - Streak banner (amber accent)
- *  - XP card with the current level number and a progress bar to the
- *    next level (visual only — the actual XP-reward mechanic is not
- *    wired yet).
- *  - Daily goal card with circular progress
- *  - "Your path" list of three buckets (EASY / MEDIUM / HARD) with
- *    learned / total counts and linear progress bars.
+ *  - Streak banner
+ *  - Global XP card (legacy `user_profile.totalXp`)
+ *  - Daily goal card
+ *  - "Progress by category" — eight [CategoryProgressCard]s in the
+ *    canonical [com.example.englishvault.ui.words.WordTypeFilter.TRACKED]
+ *    order, each showing the per-category level, XP bar, learned bar
+ *    and the hybrid-gate status.
  */
 @Composable
 fun ProgressScreen(
@@ -66,7 +71,7 @@ fun ProgressScreen(
     val stats by viewModel.stats.collectAsState()
     val xp by viewModel.xp.collectAsState()
     val dailyXp by viewModel.dailyXp.collectAsState()
-    val units by viewModel.units.collectAsState()
+    val categories by viewModel.categoryProgress.collectAsState()
 
     val greetingName = profile?.name
         ?: stringResource(id = R.string.progress_default_name)
@@ -105,12 +110,8 @@ fun ProgressScreen(
 
         SectionHeader(title = stringResource(id = R.string.progress_your_path))
 
-        if (units.isEmpty()) {
-            EmptyPathPlaceholder()
-        } else {
-            units.forEach { unit ->
-                UnitProgressRow(unit = unit)
-            }
+        categories.forEach { ui ->
+            CategoryProgressCard(ui = ui)
         }
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -138,7 +139,12 @@ private fun StreakBanner(days: Int) {
                     .background(MaterialTheme.colorScheme.onTertiary.copy(alpha = 0.2f)),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "\uD83D\uDD25", style = MaterialTheme.typography.headlineMedium)
+                Icon(
+                    imageVector = Icons.Filled.LocalFireDepartment,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onTertiary,
+                    modifier = Modifier.size(32.dp)
+                )
             }
             Spacer(modifier = Modifier.width(16.dp))
             Column {
@@ -158,8 +164,8 @@ private fun StreakBanner(days: Int) {
 
 /**
  * XP card with the level number as the headline and a linear bar that
- * shows progress into the next level. The numbers above the bar are
- * the absolute slice ("320 / 500 XP to Level 5").
+ * shows progress into the next level. Numbers above the bar are the
+ * absolute slice ("320 / 500 XP to Level 5").
  */
 @Composable
 private fun XpCard(
@@ -266,10 +272,18 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
     }
 }
 
+/**
+ * One row in the "Progress by category" list. Carries:
+ *  - The category name and a chip with the level (e.g. `Level 2 / 5`).
+ *  - An XP bar driven by [CategoryProgressUi.xpIntoLevel] /
+ *    [CategoryProgressUi.xpRequired].
+ *  - A learned bar showing `learned / total` and the percentage.
+ *  - A status line that switches between "Ready to level up!",
+ *    "Max level reached", or a "Need X XP / Y% learned" message
+ *    reflecting the hybrid gate.
+ */
 @Composable
-private fun UnitProgressRow(unit: UnitProgress) {
-    val progress = if (unit.total <= 0) 0f
-        else (unit.learned.toFloat() / unit.total).coerceIn(0f, 1f)
+private fun CategoryProgressCard(ui: CategoryProgressUi) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
@@ -278,53 +292,123 @@ private fun UnitProgressRow(unit: UnitProgress) {
         )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
+            // Header: category name + level chip
             Row(
                 modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = unit.name,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold
+                    text = stringResource(id = ui.filter.labelRes),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.weight(1f)
                 )
-                Text(
-                    text = stringResource(
-                        id = R.string.progress_unit_format,
-                        unit.learned,
-                        unit.total
-                    ),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                AssistChip(
+                    onClick = { /* read-only chip */ },
+                    enabled = false,
+                    label = {
+                        Text(
+                            text = stringResource(
+                                id = R.string.progress_category_level_format,
+                                ui.currentLevel,
+                                ui.maxLevel
+                            ),
+                            style = MaterialTheme.typography.labelMedium
+                        )
+                    },
+                    colors = AssistChipDefaults.assistChipColors(
+                        disabledContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                        disabledLabelColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
                 )
             }
+
             Spacer(modifier = Modifier.height(8.dp))
+
+            // XP bar
+            Text(
+                text = stringResource(
+                    id = R.string.progress_category_xp_format,
+                    ui.xpIntoLevel,
+                    ui.xpRequired
+                ),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(4.dp))
             LinearProgressIndicator(
-                progress = { progress },
+                progress = {
+                    if (ui.xpRequired <= 0) 0f
+                    else (ui.xpIntoLevel.toFloat() / ui.xpRequired).coerceIn(0f, 1f)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(10.dp)
-                    .clip(RoundedCornerShape(10.dp)),
+                    .height(8.dp)
+                    .clip(RoundedCornerShape(8.dp)),
                 color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
+                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
             )
-        }
-    }
-}
 
-@Composable
-private fun EmptyPathPlaceholder() {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
-    ) {
-        Text(
-            text = "Add words to start tracking your path.",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(16.dp)
-        )
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Learned bar
+            val learnedPctInt = (ui.learnedPct * 100).toInt()
+            Text(
+                text = stringResource(
+                    id = R.string.progress_category_learned_format,
+                    ui.learnedCount,
+                    ui.totalCount,
+                    learnedPctInt
+                ),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            LinearProgressIndicator(
+                progress = { ui.learnedPct.coerceIn(0f, 1f) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                color = MaterialTheme.colorScheme.tertiary,
+                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
+                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Gate status
+            val statusText: String? = when {
+                ui.locked -> stringResource(id = R.string.progress_category_maxed)
+                ui.canUnlockNext -> stringResource(id = R.string.progress_category_ready)
+                ui.meetsXp && !ui.meetsLearnedPct -> stringResource(
+                    id = R.string.progress_category_need_pct,
+                    80
+                )
+                !ui.meetsXp && ui.meetsLearnedPct -> stringResource(
+                    id = R.string.progress_category_need_xp,
+                    50 - ui.xpSinceLevelUp
+                )
+                else -> stringResource(
+                    id = R.string.progress_category_need_both,
+                    50 - ui.xpSinceLevelUp,
+                    80
+                )
+            }
+            if (statusText != null) {
+                Text(
+                    text = statusText,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = when {
+                        ui.locked -> MaterialTheme.colorScheme.primary
+                        ui.canUnlockNext -> MaterialTheme.colorScheme.primary
+                        else -> MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                    fontWeight = if (ui.canUnlockNext || ui.locked) FontWeight.Bold else FontWeight.Normal
+                )
+            }
+        }
     }
 }

@@ -3,7 +3,8 @@ package data.json.dto
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data Transfer Objects that mirror the structure of `assets/words.json`.
+ * Data Transfer Objects that mirror the structure of the section files
+ * under `assets/dictionary/`.
  *
  * DTOs are intentionally kept separate from Room entities so:
  *  - The on-disk JSON schema can evolve without touching Room types.
@@ -17,7 +18,8 @@ import com.google.gson.annotations.SerializedName
 
 // region: WordDto
 /**
- * Top-level dictionary entry read from `words.json`.
+ * Top-level dictionary entry read from a section file under
+ * `assets/dictionary/`.
  *
  * `difficulty` is kept as `String` here because the JSON contract is
  * free-form; the mapper promotes it into the strongly typed

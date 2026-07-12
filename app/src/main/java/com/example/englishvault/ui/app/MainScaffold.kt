@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.app
+﻿package com.example.englishvault.ui.app
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -14,8 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.englishvault.ui.components.AppBottomBar
 import com.example.englishvault.ui.games.GamesScreen
-import com.example.englishvault.ui.games.wordmatch.WordMatchGameScreen
-import com.example.englishvault.ui.games.wordmatch.WordMatchLevelScreen
+import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsGameScreen
+import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsLevelScreen
 import com.example.englishvault.ui.navigation.Destination
 import com.example.englishvault.ui.progress.ProgressScreen
 import com.example.englishvault.ui.test.TestScreen
@@ -35,7 +35,7 @@ import com.example.englishvault.ui.words.viewmodel.WordListViewModel
  *
  * Phase 6: the Word Match Verbs mini-game is reachable from
  * [GamesScreen] and walks the user through
- * `WordMatchLevel → WordMatchPlay → WordMatchEnd`. The play and end
+ * `WordMatchVerbsLevel â†’ WordMatchVerbsPlay â†’ WordMatchVerbsEnd`. The play and end
  * screens share the same VM scoped to that navigation entry so the
  * end screen can read the results without serialising them into the
  * route.
@@ -68,8 +68,8 @@ fun MainScaffold(modifier: Modifier = Modifier) {
             }
             composable(Destination.Games.route) {
                 GamesScreen(
-                    onOpenWordMatch = {
-                        navController.navigate(Destination.WordMatchLevel.route)
+                    onOpenWordMatchVerbs = {
+                        navController.navigate(Destination.WordMatchVerbsLevel.route)
                     }
                 )
             }
@@ -124,26 +124,26 @@ fun MainScaffold(modifier: Modifier = Modifier) {
             // endregion
 
             // region: Word Match Verbs mini-game
-            composable(Destination.WordMatchLevel.route) {
-                WordMatchLevelScreen(
+            composable(Destination.WordMatchVerbsLevel.route) {
+                WordMatchVerbsLevelScreen(
                     onBack = { navController.popBackStack() },
                     onLevelChosen = { level ->
-                        navController.navigate(Destination.WordMatchPlay.buildRoute(level))
+                        navController.navigate(Destination.WordMatchVerbsPlay.buildRoute(level))
                     }
                 )
             }
             composable(
-                route = Destination.WordMatchPlay.route,
+                route = Destination.WordMatchVerbsPlay.route,
                 arguments = listOf(
-                    navArgument(Destination.WordMatchPlay.ARG_LEVEL) {
+                    navArgument(Destination.WordMatchVerbsPlay.ARG_LEVEL) {
                         type = NavType.IntType
                         defaultValue = 1
                     }
                 )
             ) { backStackEntry ->
                 val level = backStackEntry.arguments
-                    ?.getInt(Destination.WordMatchPlay.ARG_LEVEL) ?: 1
-                WordMatchGameScreen(
+                    ?.getInt(Destination.WordMatchVerbsPlay.ARG_LEVEL) ?: 1
+                WordMatchVerbsGameScreen(
                     level = level,
                     onBack = { navController.popBackStack() },
                     onExitToGames = {

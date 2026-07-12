@@ -95,7 +95,8 @@ data class WordEntity(
     val customDifficulty: Difficulty? = null
 ) {
     companion object {
-        /** Source value used for entries seeded from `assets/words.json`. */
+        /** Source value used for entries seeded from the bundled
+         *  `assets/dictionary/` section files. */
         const val SOURCE_CORE: String = "core"
 
         /** Source value used for entries the user added through the app. */

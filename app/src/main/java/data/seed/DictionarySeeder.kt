@@ -17,7 +17,8 @@ import javax.inject.Singleton
  * [CORE_DICTIONARY_VERSION], so it is safe to call on every app
  * launch. When a bump is detected it wipes `core_words` (preserving
  * the contents of `user_words` and the user's learning state) and
- * re-imports `assets/words.json` through the existing mapper.
+ * re-imports every section file under `assets/dictionary/`
+ * (concatenated in load order by [JsonLoader]).
  *
  * Provided as a Hilt singleton so `MainActivity` can inject it and
  * the seeding logic stays out of the UI layer.
@@ -31,8 +32,9 @@ class DictionarySeeder @Inject constructor(
 ) {
 
     /**
-     * Re-seeds `core_words` from `assets/words.json` when the bundled
-     * version is newer than what the profile records.
+     * Re-seeds `core_words` from the bundled `assets/dictionary/`
+     * section files when the bundled version is newer than what the
+     * profile records.
      *
      * Caller is responsible for ensuring the profile row exists
      * before invoking this method; when the profile is missing the
@@ -75,10 +77,11 @@ class DictionarySeeder @Inject constructor(
         /**
          * Version of the bundled dictionary shipped with this APK.
          *
-         * Bump this whenever `assets/words.json` changes; the seeder
-         * compares it against the value persisted in
-         * [UserProfileEntity.coreDictionaryVersion] and re-imports
-         * the JSON when they differ.
+         * Bump this whenever anything under `assets/dictionary/`
+         * changes (entries added, removed, edited, or section files
+         * added/removed); the seeder compares it against the value
+         * persisted in [UserProfileEntity.coreDictionaryVersion] and
+         * re-imports the JSON when they differ.
          *
          * History:
          *  - 1 — implicit, 10 entries (never explicitly tracked).
@@ -86,7 +89,11 @@ class DictionarySeeder @Inject constructor(
          *  - 3 — same 68 entries, now distributed across two
          *    `level` buckets (34 in level 1, 34 in level 2) for the
          *    upcoming mini-games progression mechanic.
+         *  - 4 — same 68 entries, split across eight per-type
+         *    section files under `assets/dictionary/` with a
+         *    `README.md` index. Per-entry content unchanged except
+         *    `go` (4 → 3 examples for cross-entry consistency).
          */
-        const val CORE_DICTIONARY_VERSION: Int = 3
+        const val CORE_DICTIONARY_VERSION: Int = 7
     }
 }

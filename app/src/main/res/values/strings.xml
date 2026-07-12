@@ -18,8 +18,23 @@
     <string name="progress_xp_to_next">%1$d / %2$d XP to Level %3$d</string>
     <string name="progress_daily_goal">Daily goal</string>
     <string name="progress_daily_goal_value">%1$d / %2$d XP</string>
-    <string name="progress_your_path">Your path</string>
+    <string name="progress_your_path">Progress by category</string>
     <string name="progress_unit_format">%1$d / %2$d</string>
+
+    <!-- Per-category cards (Phase 4.6) -->
+    <string name="progress_category_level_format">Level %1$d / %2$d</string>
+    <string name="progress_category_xp_format">%1$d / %2$d XP</string>
+    <string name="progress_category_learned_format">Learned %1$d / %2$d (%3$d%%)</string>
+    <string name="progress_category_ready">Ready to level up!</string>
+    <string name="progress_category_need_xp">Need %1$d more XP at this level</string>
+    <string name="progress_category_need_pct">Need %1$d%% learned at this level</string>
+    <string name="progress_category_need_both">Need %1$d more XP and %2$d%% learned</string>
+    <string name="progress_category_maxed">Max level reached</string>
+    <!-- endregion -->
+
+    <!-- region: Word Match Verbs level lock (Phase 4.6) -->
+    <string name="game_wordmatch_level_locked">Bloqueado</string>
+    <string name="game_wordmatch_level_locked_hint">Aprende el nivel anterior</string>
     <!-- endregion -->
 
     <!-- region: Games screen -->
@@ -46,7 +61,6 @@
     <string name="words_title">My vocabulary</string>
     <string name="words_subtitle">All the words you have saved.</string>
     <string name="words_fab_add">Add word</string>
-    <string name="words_empty">No words yet. Tap + to add one.</string>
     <string name="words_action_edit">Edit</string>
     <string name="words_action_delete">Delete</string>
     <string name="words_delete_title">Delete word?</string>
@@ -55,18 +69,39 @@
     <string name="words_delete_cancel">Cancel</string>
     <!-- endregion -->
 
-    <!-- region: Words tabs -->
-    <string name="words_tab_regular">Regular</string>
-    <string name="words_tab_irregular">Irregular</string>
-    <string name="words_tab_vocabulary">Vocabulary</string>
+    <!-- region: Words type filters -->
+    <string name="words_tab_all">All</string>
+    <string name="words_tab_regular">Regular verbs</string>
+    <string name="words_tab_irregular">Irregular verbs</string>
+    <string name="words_tab_adjectives">Adjectives</string>
+    <string name="words_tab_adverbs">Adverbs</string>
+    <string name="words_tab_nouns">Nouns</string>
+    <string name="words_tab_conjunctions">Conjunctions</string>
+    <string name="words_tab_prepositions">Prepositions</string>
+    <string name="words_tab_interjections">Interjections</string>
     <string name="words_tab_mine">Mine</string>
     <!-- endregion -->
 
-    <!-- region: Words empty states per tab -->
+    <!-- region: Words empty states per filter -->
+    <string name="words_empty">No words to show.</string>
+    <string name="words_empty_all">No words yet. Tap + to add one.</string>
     <string name="words_empty_regular">No regular verbs to show.</string>
     <string name="words_empty_irregular">No irregular verbs to show.</string>
-    <string name="words_empty_vocabulary">No vocabulary words to show.</string>
+    <string name="words_empty_adjectives">No adjectives to show.</string>
+    <string name="words_empty_adverbs">No adverbs to show.</string>
+    <string name="words_empty_nouns">No nouns to show.</string>
+    <string name="words_empty_conjunctions">No conjunctions to show.</string>
+    <string name="words_empty_prepositions">No prepositions to show.</string>
+    <string name="words_empty_interjections">No interjections to show.</string>
     <string name="words_empty_mine">Tap + to add your first word.</string>
+    <!-- endregion -->
+
+    <!-- region: Words sort options -->
+    <string name="words_sort_label">Sort:</string>
+    <string name="words_sort_alpha_asc">A → Z</string>
+    <string name="words_sort_alpha_desc">Z → A</string>
+    <string name="words_sort_level_asc">Level 1 → 5</string>
+    <string name="words_sort_level_desc">Level 5 → 1</string>
     <!-- endregion -->
 
     <!-- region: Word badges -->

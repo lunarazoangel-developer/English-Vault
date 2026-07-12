@@ -362,4 +362,58 @@ object Migrations {
             db.execSQL("ALTER TABLE `$newTable` RENAME TO `$legacyTable`")
         }
     }
+
+    /**
+     * Phase 4.6 — adds the `category_progress` table that holds one
+     * row per tracked grammatical category with the cumulative XP
+     * earned, the highest unlocked level and the XP accumulated
+     * since the last promotion.
+     *
+     * The schema is created fresh (`CREATE TABLE IF NOT EXISTS`) so
+     * the migration is a no-op for installs that already have the
+     * table from a previous (development) install. Initial rows are
+     * inserted with `INSERT OR IGNORE` so re-running the migration
+     * never duplicates or overwrites data.
+     *
+     * The list of tracked categories must stay in sync with
+     * `com.example.englishvault.ui.words.WordTypeFilter.TRACKED`.
+     * Hardcoding the keys here keeps the migration file standalone
+     * and Room-friendly (it can only read SQL, not Kotlin constants).
+     */
+    val MIGRATION_6_7: Migration = object : Migration(6, 7) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `category_progress` (
+                    `categoryKey` TEXT NOT NULL PRIMARY KEY,
+                    `xpTotal` INTEGER NOT NULL DEFAULT 0,
+                    `unlockedLevel` INTEGER NOT NULL DEFAULT 1,
+                    `xpSinceLevelUp` INTEGER NOT NULL DEFAULT 0,
+                    `updatedAt` INTEGER NOT NULL DEFAULT 0
+                )
+                """.trimIndent()
+            )
+
+            // Seed one row per tracked category. The literal list
+            // mirrors `WordTypeFilter.TRACKED` so the gating logic
+            // never observes a missing key.
+            val trackedKeys = listOf(
+                "VERBS_REGULAR",
+                "VERBS_IRREGULAR",
+                "ADJECTIVES",
+                "ADVERBS",
+                "NOUNS",
+                "CONJUNCTIONS",
+                "PREPOSITIONS",
+                "INTERJECTIONS"
+            )
+            for (key in trackedKeys) {
+                db.execSQL(
+                    "INSERT OR IGNORE INTO `category_progress` " +
+                        "(`categoryKey`, `xpTotal`, `unlockedLevel`, `xpSinceLevelUp`, `updatedAt`) " +
+                        "VALUES ('$key', 0, 1, 0, ${System.currentTimeMillis()})"
+                )
+            }
+        }
+    }
 }

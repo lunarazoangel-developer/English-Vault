@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.games.wordmatch
+﻿package com.example.englishvault.ui.games.wordmatchverbs
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -44,8 +44,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
-import com.example.englishvault.ui.games.wordmatch.model.WordMatchGameState
-import com.example.englishvault.ui.games.wordmatch.viewmodel.WordMatchVerbsViewModel
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
+import com.example.englishvault.ui.games.wordmatchverbs.viewmodel.WordMatchVerbsViewModel
 import kotlinx.coroutines.delay
 
 /**
@@ -54,18 +54,18 @@ import kotlinx.coroutines.delay
  * Receives the chosen [level] as a navigation argument and seeds
  * the VM on first composition. Renders one of three bodies
  * depending on the [WordMatchGameState]:
- *  - [WordMatchGameState.Loading] / [WordMatchGameState.Empty] —
+ *  - [WordMatchGameState.Loading] / [WordMatchGameState.Empty] â€”
  *    a full-screen branded loading panel with the app's blue
- *    gradient so the user never sees a plain "Loading…" flash.
- *  - [WordMatchGameState.InProgress] — the verb + question prompt
- *    and three option cards, with a transient ✓ / ✗ overlay that
+ *    gradient so the user never sees a plain "Loadingâ€¦" flash.
+ *  - [WordMatchGameState.InProgress] â€” the verb + question prompt
+ *    and three option cards, with a transient âœ“ / âœ— overlay that
  *    auto-advances after a short delay.
- *  - [WordMatchGameState.Finished] — the results panel rendered in
- *    place (see [WordMatchEndContent]); "Play again" resets the VM
+ *  - [WordMatchGameState.Finished] â€” the results panel rendered in
+ *    place (see [WordMatchVerbsEndContent]); "Play again" resets the VM
  *    and "Back to games" hands control back to the parent.
  */
 @Composable
-fun WordMatchGameScreen(
+fun WordMatchVerbsGameScreen(
     level: Int,
     onBack: () -> Unit,
     onExitToGames: () -> Unit,
@@ -77,7 +77,7 @@ fun WordMatchGameScreen(
     // Seed the VM exactly once per level. Re-runs of the same level
     // (via "Play again") call `viewModel.startGame(level)` directly
     // from the end content, which transitions the state through
-    // Loading → InProgress on its own.
+    // Loading â†’ InProgress on its own.
     LaunchedEffect(level) {
         viewModel.startGame(level)
     }
@@ -126,7 +126,7 @@ fun WordMatchGameScreen(
                 state = s,
                 onPicked = viewModel::submitAnswer
             )
-            is WordMatchGameState.Finished -> WordMatchEndContent(
+            is WordMatchGameState.Finished -> WordMatchVerbsEndContent(
                 state = s,
                 onPlayAgain = { viewModel.startGame(level) },
                 onExit = onExitToGames
@@ -300,36 +300,55 @@ private fun InProgressState(
  * Visual feedback for a single option card. Returned as a sealed
  * type so the [OptionCard] composable can pick the right tint and
  * icon without doing the comparison itself.
+ *
+ * Four states keep the colour and icon unambiguous when the user
+ * answers wrong: a red X marks the option they picked; a blue check
+ * highlights the correct answer they missed so the learner can see
+ * at a glance which one was right. Distractors that were neither
+ * picked nor correct stay neutral.
  */
 private sealed class OptionFeedback {
+    /** No answer submitted yet (or transition between questions). */
     object Neutral : OptionFeedback()
-    data class Correct(val isPicked: Boolean) : OptionFeedback()
-    data class Wrong(val correctAnswer: String) : OptionFeedback()
-    object Missed : OptionFeedback()
+
+    /** This option is correct and the user picked it. Green check. */
+    object CorrectPicked : OptionFeedback()
+
+    /**
+     * This option is the right answer but the user picked a different
+     * one. Revealed in blue with a check so the learner can see what
+     * would have been correct without confusing it with the wrong
+     * pick (which carries a red X).
+     */
+    object RevealedCorrect : OptionFeedback()
+
+    /** This option is what the user picked and it is wrong. Red X. */
+    object WrongPicked : OptionFeedback()
 }
 
 @Composable
 private fun feedbackFor(option: String, state: WordMatchGameState.InProgress): OptionFeedback {
     val answer = state.lastAnswer ?: return OptionFeedback.Neutral
     val correctAnswer = state.currentQuestion?.correctAnswer ?: ""
-    if (option.equals(correctAnswer, ignoreCase = true)) {
-        return if (answer.isCorrect) {
-            OptionFeedback.Correct(isPicked = option.equals(answer.picked, ignoreCase = true))
-        } else {
-            OptionFeedback.Wrong(correctAnswer = correctAnswer)
-        }
-    }
-    return if (option.equals(answer.picked, ignoreCase = true)) {
-        OptionFeedback.Missed
-    } else {
-        OptionFeedback.Neutral
+    val isThisCorrect = option.equals(correctAnswer, ignoreCase = true)
+    val isThisPicked = option.equals(answer.picked, ignoreCase = true)
+
+    return when {
+        // User picked the right answer — celebrate in green.
+        isThisCorrect && isThisPicked -> OptionFeedback.CorrectPicked
+        // User missed the right answer — reveal it in blue.
+        isThisCorrect && !isThisPicked -> OptionFeedback.RevealedCorrect
+        // User picked a wrong distractor — mark it red.
+        !isThisCorrect && isThisPicked && !answer.isCorrect -> OptionFeedback.WrongPicked
+        // Distractor the user did not interact with — leave neutral.
+        else -> OptionFeedback.Neutral
     }
 }
 
 private fun OptionFeedback.tint(container: Color): Color = when (this) {
-    is OptionFeedback.Correct -> Color(0xFF34C759)        // green
-    is OptionFeedback.Wrong -> Color(0xFFFF3B30)          // red
-    OptionFeedback.Missed -> Color(0xFFFF3B30)
+    is OptionFeedback.CorrectPicked -> Color(0xFF34C759)    // green
+    is OptionFeedback.RevealedCorrect -> Color(0xFF1E88E5)  // blue
+    is OptionFeedback.WrongPicked -> Color(0xFFFF3B30)     // red
     OptionFeedback.Neutral -> container
 }
 
@@ -364,8 +383,9 @@ private fun OptionCard(
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f)
             )
+            // Green check — user got it right.
             AnimatedVisibility(
-                visible = feedback is OptionFeedback.Correct,
+                visible = feedback is OptionFeedback.CorrectPicked,
                 enter = fadeIn(),
                 exit = fadeOut()
             ) {
@@ -375,8 +395,22 @@ private fun OptionCard(
                     tint = Color(0xFF34C759)
                 )
             }
+            // Blue check — the option that was actually correct (revealed
+            // because the user picked something else).
             AnimatedVisibility(
-                visible = feedback is OptionFeedback.Wrong || feedback is OptionFeedback.Missed,
+                visible = feedback is OptionFeedback.RevealedCorrect,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.CheckCircle,
+                    contentDescription = stringResource(id = R.string.game_wordmatch_correct),
+                    tint = Color(0xFF1E88E5)
+                )
+            }
+            // Red X — what the user picked and that was wrong.
+            AnimatedVisibility(
+                visible = feedback is OptionFeedback.WrongPicked,
                 enter = fadeIn(),
                 exit = fadeOut()
             ) {

@@ -1,0 +1,89 @@
+[
+    {
+        "word":  "although",
+        "translation":  "aunque",
+        "type":  "conjunction",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɔːlˈðoʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "though",
+                         "even though"
+                     ],
+        "antonyms":  [
+                         "because"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Although it was cold, we went outside.",
+                             "spanish":  "Aunque hacía frío, salimos.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "She went to work although she was sick.",
+                             "spanish":  "Ella fue a trabajar aunque estaba enferma.",
+                             "level":  "B1"
+                         },
+                         {
+                             "english":  "Although tired, he kept studying.",
+                             "spanish":  "Aunque estaba cansado, siguió estudiando.",
+                             "level":  "B2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar"
+                 ],
+        "difficulty":  "HARD",
+        "level":  2
+    },
+    {
+        "word":  "because",
+        "translation":  "porque",
+        "type":  "conjunction",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/bɪˈkɒz/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "since",
+                         "as"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am tired because I worked a lot.",
+                             "spanish":  "Estoy cansado porque trabajé mucho.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "She stayed home because it was raining.",
+                             "spanish":  "Ella se quedó en casa porque estaba lloviendo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He succeeded because of his hard work.",
+                             "spanish":  "Tuvo éxito debido a su duro trabajo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "MEDIUM",
+        "level":  2
+    }
+]

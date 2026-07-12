@@ -1,0 +1,309 @@
+[
+    {
+        "word":  "goodbye",
+        "translation":  "adiós",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ɡʊdˈbaɪ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "greetings"
+                     ],
+        "synonyms":  [
+                         "bye",
+                         "farewell"
+                     ],
+        "antonyms":  [
+                         "hello"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Goodbye, see you tomorrow.",
+                             "spanish":  "Adiós, nos vemos mañana.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She waved goodbye to her friends.",
+                             "spanish":  "Ella se despidió con la mano de sus amigos.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "It was hard to say goodbye.",
+                             "spanish":  "Fue difícil decir adiós.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "greeting",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "hello",
+        "translation":  "hola",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/həˈloʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "greetings"
+                     ],
+        "synonyms":  [
+                         "hi",
+                         "hey"
+                     ],
+        "antonyms":  [
+                         "goodbye"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Hello, how are you?",
+                             "spanish":  "Hola, ¿cómo estás?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said hello to her neighbour.",
+                             "spanish":  "Ella dijo hola a su vecina.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Hello everyone, welcome to the show!",
+                             "spanish":  "¡Hola a todos, bienvenidos al show!",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "greeting",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  1
+    },
+    {
+        "word":  "no",
+        "translation":  "no",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/noʊ/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "nope"
+                     ],
+        "antonyms":  [
+                         "yes"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "No, thank you.",
+                             "spanish":  "No, gracias.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said no to the offer.",
+                             "spanish":  "Ella dijo no a la oferta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "No, I don\u0027t think that\u0027s right.",
+                             "spanish":  "No, no creo que eso sea correcto.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "please",
+        "translation":  "por favor",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/pliːz/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "polite"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Could you help me, please?",
+                             "spanish":  "¿Puedes ayudarme, por favor?",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She asked politely, please.",
+                             "spanish":  "Ella pidió amablemente, por favor.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Please sit down and make yourself comfortable.",
+                             "spanish":  "Por favor, siéntate y ponte cómodo.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "sorry",
+        "translation":  "lo siento",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/ˈsɒri/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "emotion",
+                         "polite"
+                     ],
+        "synonyms":  [
+                         "apologetic",
+                         "regretful"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Sorry, I am late.",
+                             "spanish":  "Lo siento, llego tarde.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She felt sorry for what she said.",
+                             "spanish":  "Ella se sintió mal por lo que dijo.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "I\u0027m sorry to hear that.",
+                             "spanish":  "Siento escuchar eso.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "emotion"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "thank you",
+        "translation":  "gracias",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/θæŋk juː/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "polite"
+                     ],
+        "synonyms":  [
+                         "thanks"
+                     ],
+        "antonyms":  [
+
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Thank you for your help.",
+                             "spanish":  "Gracias por tu ayuda.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said thank you with a smile.",
+                             "spanish":  "Ella dijo gracias con una sonrisa.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Thank you all for coming tonight.",
+                             "spanish":  "Gracias a todos por venir esta noche.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "polite",
+                     "daily",
+                     "important"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "yes",
+        "translation":  "sí",
+        "type":  "interjection",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/jɛs/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "common"
+                     ],
+        "synonyms":  [
+                         "sure",
+                         "okay"
+                     ],
+        "antonyms":  [
+                         "no"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "Yes, I agree.",
+                             "spanish":  "Sí, estoy de acuerdo.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She said yes to the proposal.",
+                             "spanish":  "Ella dijo sí a la propuesta.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "Yes, that is exactly what I meant.",
+                             "spanish":  "Sí, eso es exactamente lo que quise decir.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "common",
+                     "daily"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    }
+]

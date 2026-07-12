@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
  * Room entity backing the `core_words` table.
  *
  * This table holds every entry that originates from the bundled
- * dictionary (`assets/words.json`). Rows here are conceptually
+ * dictionary (`assets/dictionary/`). Rows here are conceptually
  * immutable from the user's perspective — the Words screen hides
  * edit/delete controls for them and the DAO never exposes a
  * `deleteCoreWord` operation. The user state columns
@@ -24,9 +24,9 @@ data class CoreWordEntity(
     /**
      * Auto-generated primary key. Always inserted with `id = 0` so
      * SQLite's AUTOINCREMENT picks the next free value, decoupling
-     * the dictionary identifier from any id field in the source
-     * JSON. This prevents collisions with user-added rows in
-     * `user_words`, which owns its own AUTOINCREMENT sequence.
+     * the dictionary identifier from any value in the source JSON.
+     * This prevents collisions with user-added rows in `user_words`,
+     * which owns its own AUTOINCREMENT sequence.
      */
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val word: String,

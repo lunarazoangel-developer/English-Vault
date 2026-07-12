@@ -1,0 +1,88 @@
+[
+    {
+        "word":  "from",
+        "translation":  "de",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/frʌm/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+
+                     ],
+        "antonyms":  [
+                         "to"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I am from Mexico.",
+                             "spanish":  "Soy de México.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She received a letter from her sister.",
+                             "spanish":  "Ella recibió una carta de su hermana.",
+                             "level":  "A2"
+                         },
+                         {
+                             "english":  "He works from home.",
+                             "spanish":  "Él trabaja desde casa.",
+                             "level":  "B1"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    },
+    {
+        "word":  "with",
+        "translation":  "con",
+        "type":  "preposition",
+        "regular":  null,
+        "forms":  null,
+        "pronunciation":  {
+                              "ipa":  "/wɪð/",
+                              "audio":  null
+                          },
+        "category":  [
+                         "grammar"
+                     ],
+        "synonyms":  [
+                         "alongside"
+                     ],
+        "antonyms":  [
+                         "without"
+                     ],
+        "examples":  [
+                         {
+                             "english":  "I go to the park with my dog.",
+                             "spanish":  "Voy al parque con mi perro.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "She lives with her parents.",
+                             "spanish":  "Ella vive con sus padres.",
+                             "level":  "A1"
+                         },
+                         {
+                             "english":  "Coffee with milk, please.",
+                             "spanish":  "Café con leche, por favor.",
+                             "level":  "A2"
+                         }
+                     ],
+        "tags":  [
+                     "grammar",
+                     "common"
+                 ],
+        "difficulty":  "EASY",
+        "level":  2
+    }
+]

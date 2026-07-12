@@ -1,0 +1,5767 @@
+[
+    {
+        "word": "be",
+        "translation": "ser/estar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "be",
+            "thirdPerson": "is",
+            "presentParticiple": "being",
+            "pastSimple": "was/were",
+            "pastParticiple": "been"
+        },
+        "pronunciation": {
+            "ipa": "/biː/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "exist"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I am a student.",
+                "spanish": "Soy estudiante.",
+                "level": "A1"
+            },
+            {
+                "english": "She was tired yesterday.",
+                "spanish": "Ella estaba cansada ayer.",
+                "level": "A2"
+            },
+            {
+                "english": "They have been friends for years.",
+                "spanish": "Han sido amigos durante años.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "essential",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "buy",
+        "translation": "comprar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "buy",
+            "thirdPerson": "buys",
+            "presentParticiple": "buying",
+            "pastSimple": "bought",
+            "pastParticiple": "bought"
+        },
+        "pronunciation": {
+            "ipa": "/baɪ/",
+            "audio": null
+        },
+        "category": [
+            "commerce"
+        ],
+        "synonyms": [
+            "purchase",
+            "acquire"
+        ],
+        "antonyms": [
+            "sell"
+        ],
+        "examples": [
+            {
+                "english": "I buy groceries every week.",
+                "spanish": "Compro víveres cada semana.",
+                "level": "A2"
+            },
+            {
+                "english": "She bought a new dress.",
+                "spanish": "Ella compró un vestido nuevo.",
+                "level": "A2"
+            },
+            {
+                "english": "They have bought a house.",
+                "spanish": "Han comprado una casa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "commerce",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "come",
+        "translation": "venir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "come",
+            "thirdPerson": "comes",
+            "presentParticiple": "coming",
+            "pastSimple": "came",
+            "pastParticiple": "come"
+        },
+        "pronunciation": {
+            "ipa": "/kʌm/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "arrive",
+            "approach"
+        ],
+        "antonyms": [
+            "leave",
+            "go"
+        ],
+        "examples": [
+            {
+                "english": "Come here, please.",
+                "spanish": "Ven aquí, por favor.",
+                "level": "A1"
+            },
+            {
+                "english": "She came to the party late.",
+                "spanish": "Ella vino a la fiesta tarde.",
+                "level": "A2"
+            },
+            {
+                "english": "They have come a long way.",
+                "spanish": "Han recorrido un largo camino.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "do",
+        "translation": "hacer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "do",
+            "thirdPerson": "dos",
+            "presentParticiple": "doing",
+            "pastSimple": "did",
+            "pastParticiple": "done"
+        },
+        "pronunciation": {
+            "ipa": "/duː/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "perform",
+            "execute"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I do my homework.",
+                "spanish": "Hago mi tarea.",
+                "level": "A1"
+            },
+            {
+                "english": "She did it quickly.",
+                "spanish": "Ella lo hizo rápidamente.",
+                "level": "A1"
+            },
+            {
+                "english": "They have done a great job.",
+                "spanish": "Han hecho un gran trabajo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "essential",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "drink",
+        "translation": "beber",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "drink",
+            "thirdPerson": "drinks",
+            "presentParticiple": "drinking",
+            "pastSimple": "drank",
+            "pastParticiple": "drunk"
+        },
+        "pronunciation": {
+            "ipa": "/drɪŋk/",
+            "audio": null
+        },
+        "category": [
+            "food",
+            "daily"
+        ],
+        "synonyms": [
+            "sip",
+            "consume"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I drink water every day.",
+                "spanish": "Bebo agua todos los días.",
+                "level": "A1"
+            },
+            {
+                "english": "She drank the juice.",
+                "spanish": "Ella bebió el jugo.",
+                "level": "A2"
+            },
+            {
+                "english": "He has drunk three cups of coffee.",
+                "spanish": "Él ha bebido tres tazas de café.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "daily",
+            "food"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "eat",
+        "translation": "comer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "eat",
+            "thirdPerson": "eats",
+            "presentParticiple": "eating",
+            "pastSimple": "ate",
+            "pastParticiple": "eaten"
+        },
+        "pronunciation": {
+            "ipa": "/iːt/",
+            "audio": null
+        },
+        "category": [
+            "food"
+        ],
+        "synonyms": [
+            "consume",
+            "devour"
+        ],
+        "antonyms": [
+            "fast"
+        ],
+        "examples": [
+            {
+                "english": "We ate pizza.",
+                "spanish": "Comimos pizza.",
+                "level": "A1"
+            },
+            {
+                "english": "He eats breakfast every day.",
+                "spanish": "Él desayuna todos los días.",
+                "level": "A1"
+            },
+            {
+                "english": "They have eaten all the cake.",
+                "spanish": "Se han comido todo el pastel.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "daily",
+            "food"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "feel",
+        "translation": "sentir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "feel",
+            "thirdPerson": "feels",
+            "presentParticiple": "feeling",
+            "pastSimple": "felt",
+            "pastParticiple": "felt"
+        },
+        "pronunciation": {
+            "ipa": "/fiːl/",
+            "audio": null
+        },
+        "category": [
+            "emotion",
+            "perception"
+        ],
+        "synonyms": [
+            "sense",
+            "experience"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I feel happy.",
+                "spanish": "Me siento feliz.",
+                "level": "A1"
+            },
+            {
+                "english": "She felt sad yesterday.",
+                "spanish": "Ella se sintió triste ayer.",
+                "level": "A2"
+            },
+            {
+                "english": "They have felt a lot of pressure.",
+                "spanish": "Han sentido mucha presión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "find",
+        "translation": "encontrar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "find",
+            "thirdPerson": "finds",
+            "presentParticiple": "finding",
+            "pastSimple": "found",
+            "pastParticiple": "found"
+        },
+        "pronunciation": {
+            "ipa": "/faɪnd/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "discover",
+            "locate"
+        ],
+        "antonyms": [
+            "lose",
+            "miss"
+        ],
+        "examples": [
+            {
+                "english": "I find my keys.",
+                "spanish": "Encuentro mis llaves.",
+                "level": "A1"
+            },
+            {
+                "english": "She found a coin.",
+                "spanish": "Ella encontró una moneda.",
+                "level": "A2"
+            },
+            {
+                "english": "They have found a solution.",
+                "spanish": "Han encontrado una solución.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "get",
+        "translation": "obtener",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "get",
+            "thirdPerson": "gets",
+            "presentParticiple": "geting",
+            "pastSimple": "got",
+            "pastParticiple": "got/gotten"
+        },
+        "pronunciation": {
+            "ipa": "/ɡɛt/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "obtain",
+            "receive"
+        ],
+        "antonyms": [
+            "lose",
+            "give"
+        ],
+        "examples": [
+            {
+                "english": "I get a gift.",
+                "spanish": "Recibo un regalo.",
+                "level": "A1"
+            },
+            {
+                "english": "She got a new job.",
+                "spanish": "Ella consiguió un nuevo trabajo.",
+                "level": "A2"
+            },
+            {
+                "english": "They have gotten better at English.",
+                "spanish": "Han mejorado en inglés.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "essential",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "give",
+        "translation": "dar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "give",
+            "thirdPerson": "gives",
+            "presentParticiple": "giving",
+            "pastSimple": "gave",
+            "pastParticiple": "given"
+        },
+        "pronunciation": {
+            "ipa": "/ɡɪv/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "donate",
+            "offer"
+        ],
+        "antonyms": [
+            "take",
+            "receive"
+        ],
+        "examples": [
+            {
+                "english": "Can you give me a hand?",
+                "spanish": "¿Me puedes dar una mano?",
+                "level": "A2"
+            },
+            {
+                "english": "She gave him a book for his birthday.",
+                "spanish": "Ella le dio un libro para su cumpleaños.",
+                "level": "A2"
+            },
+            {
+                "english": "They have given generously to the cause.",
+                "spanish": "Han dado generosamente a la causa.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "social"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "go",
+        "translation": "ir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "go",
+            "thirdPerson": "gos",
+            "presentParticiple": "going",
+            "pastSimple": "went",
+            "pastParticiple": "gone"
+        },
+        "pronunciation": {
+            "ipa": "/ɡoʊ/",
+            "audio": null
+        },
+        "category": [
+            "movement",
+            "common"
+        ],
+        "synonyms": [
+            "travel",
+            "move"
+        ],
+        "antonyms": [
+            "stay",
+            "stop"
+        ],
+        "examples": [
+            {
+                "english": "I go to school every day.",
+                "spanish": "Voy a la escuela todos los días.",
+                "level": "A1"
+            },
+            {
+                "english": "Let's go to the park.",
+                "spanish": "Vamos al parque.",
+                "level": "A1"
+            },
+            {
+                "english": "She has gone home.",
+                "spanish": "Ella se ha ido a casa.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "daily",
+            "important",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "have",
+        "translation": "tener",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "have",
+            "thirdPerson": "haves",
+            "presentParticiple": "having",
+            "pastSimple": "had",
+            "pastParticiple": "had"
+        },
+        "pronunciation": {
+            "ipa": "/hæv/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "possess",
+            "own"
+        ],
+        "antonyms": [
+            "lack"
+        ],
+        "examples": [
+            {
+                "english": "I have two cats.",
+                "spanish": "Tengo dos gatos.",
+                "level": "A1"
+            },
+            {
+                "english": "She had breakfast at 8.",
+                "spanish": "Ella desayunó a las 8.",
+                "level": "A2"
+            },
+            {
+                "english": "We have had this car for ten years.",
+                "spanish": "Hemos tenido este coche durante diez años.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "essential",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "know",
+        "translation": "saber",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "know",
+            "thirdPerson": "knows",
+            "presentParticiple": "knowing",
+            "pastSimple": "knew",
+            "pastParticiple": "known"
+        },
+        "pronunciation": {
+            "ipa": "/noʊ/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "understand",
+            "realize"
+        ],
+        "antonyms": [
+            "ignore"
+        ],
+        "examples": [
+            {
+                "english": "I know the answer.",
+                "spanish": "Yo sé la respuesta.",
+                "level": "A2"
+            },
+            {
+                "english": "She knew him very well.",
+                "spanish": "Ella lo conocía muy bien.",
+                "level": "A2"
+            },
+            {
+                "english": "They have known each other since childhood.",
+                "spanish": "Se conocen desde la infancia.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "leave",
+        "translation": "salir/dejar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "leave",
+            "thirdPerson": "leaves",
+            "presentParticiple": "leaving",
+            "pastSimple": "left",
+            "pastParticiple": "left"
+        },
+        "pronunciation": {
+            "ipa": "/liːv/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "depart",
+            "exit"
+        ],
+        "antonyms": [
+            "arrive",
+            "stay"
+        ],
+        "examples": [
+            {
+                "english": "I leave at six.",
+                "spanish": "Salgo a las seis.",
+                "level": "A1"
+            },
+            {
+                "english": "She left the house early.",
+                "spanish": "Ella salió de la casa temprano.",
+                "level": "A2"
+            },
+            {
+                "english": "They have left for the airport.",
+                "spanish": "Han salido hacia el aeropuerto.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "make",
+        "translation": "hacer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "make",
+            "thirdPerson": "makes",
+            "presentParticiple": "making",
+            "pastSimple": "made",
+            "pastParticiple": "made"
+        },
+        "pronunciation": {
+            "ipa": "/meɪk/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "create",
+            "produce"
+        ],
+        "antonyms": [
+            "destroy",
+            "break"
+        ],
+        "examples": [
+            {
+                "english": "I make breakfast every morning.",
+                "spanish": "Hago el desayuno cada mañana.",
+                "level": "A1"
+            },
+            {
+                "english": "She made a cake for his birthday.",
+                "spanish": "Ella hizo un pastel para su cumpleaños.",
+                "level": "A2"
+            },
+            {
+                "english": "They have made a great decision.",
+                "spanish": "Han tomado una gran decisión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "essential"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "put",
+        "translation": "poner",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "put",
+            "thirdPerson": "puts",
+            "presentParticiple": "puting",
+            "pastSimple": "put",
+            "pastParticiple": "put"
+        },
+        "pronunciation": {
+            "ipa": "/pʊt/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "place",
+            "set"
+        ],
+        "antonyms": [
+            "remove"
+        ],
+        "examples": [
+            {
+                "english": "Put the book on the table.",
+                "spanish": "Pon el libro en la mesa.",
+                "level": "A1"
+            },
+            {
+                "english": "She put the keys in her bag.",
+                "spanish": "Ella puso las llaves en su bolso.",
+                "level": "A2"
+            },
+            {
+                "english": "They have put a lot of effort into it.",
+                "spanish": "Han puesto mucho esfuerzo en ello.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "read",
+        "translation": "leer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "read",
+            "thirdPerson": "reads",
+            "presentParticiple": "reading",
+            "pastSimple": "read",
+            "pastParticiple": "read"
+        },
+        "pronunciation": {
+            "ipa": "/riːd/",
+            "audio": null
+        },
+        "category": [
+            "communication",
+            "education"
+        ],
+        "synonyms": [
+            "study",
+            "scan"
+        ],
+        "antonyms": [
+            "write"
+        ],
+        "examples": [
+            {
+                "english": "I read every night before bed.",
+                "spanish": "Leo cada noche antes de dormir.",
+                "level": "A2"
+            },
+            {
+                "english": "She read the entire book in one day.",
+                "spanish": "Leyó el libro entero en un día.",
+                "level": "B1"
+            },
+            {
+                "english": "He has read that article already.",
+                "spanish": "Ya ha leído ese artículo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "communication"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "run",
+        "translation": "correr",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "run",
+            "thirdPerson": "runs",
+            "presentParticiple": "runing",
+            "pastSimple": "ran",
+            "pastParticiple": "run"
+        },
+        "pronunciation": {
+            "ipa": "/rʌn/",
+            "audio": null
+        },
+        "category": [
+            "movement",
+            "sport"
+        ],
+        "synonyms": [
+            "jog",
+            "sprint"
+        ],
+        "antonyms": [
+            "walk",
+            "stop"
+        ],
+        "examples": [
+            {
+                "english": "He runs every morning.",
+                "spanish": "Él corre todas las mañanas.",
+                "level": "A1"
+            },
+            {
+                "english": "She ran a marathon last year.",
+                "spanish": "Ella corrió un maratón el año pasado.",
+                "level": "B1"
+            },
+            {
+                "english": "They have run out of milk.",
+                "spanish": "Se han quedado sin leche.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "sport",
+            "movement",
+            "exercise"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "say",
+        "translation": "decir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "say",
+            "thirdPerson": "says",
+            "presentParticiple": "saying",
+            "pastSimple": "said",
+            "pastParticiple": "said"
+        },
+        "pronunciation": {
+            "ipa": "/seɪ/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "tell",
+            "utter"
+        ],
+        "antonyms": [
+            "silence"
+        ],
+        "examples": [
+            {
+                "english": "What did you say?",
+                "spanish": "¿Qué dijiste?",
+                "level": "A1"
+            },
+            {
+                "english": "She said she was tired.",
+                "spanish": "Ella dijo que estaba cansada.",
+                "level": "A2"
+            },
+            {
+                "english": "He has said nothing all morning.",
+                "spanish": "No ha dicho nada en toda la mañana.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "see",
+        "translation": "ver",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "see",
+            "thirdPerson": "sees",
+            "presentParticiple": "seeing",
+            "pastSimple": "saw",
+            "pastParticiple": "seen"
+        },
+        "pronunciation": {
+            "ipa": "/siː/",
+            "audio": null
+        },
+        "category": [
+            "perception",
+            "common"
+        ],
+        "synonyms": [
+            "watch",
+            "spot"
+        ],
+        "antonyms": [
+            "miss"
+        ],
+        "examples": [
+            {
+                "english": "I see you.",
+                "spanish": "Te veo.",
+                "level": "A1"
+            },
+            {
+                "english": "She saw a beautiful bird.",
+                "spanish": "Ella vio un pájaro hermoso.",
+                "level": "A1"
+            },
+            {
+                "english": "We have seen that movie twice.",
+                "spanish": "Hemos visto esa película dos veces.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "perception",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "sit",
+        "translation": "sentarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sit",
+            "thirdPerson": "sits",
+            "presentParticiple": "siting",
+            "pastSimple": "sat",
+            "pastParticiple": "sat"
+        },
+        "pronunciation": {
+            "ipa": "/sɪt/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "be seated"
+        ],
+        "antonyms": [
+            "stand"
+        ],
+        "examples": [
+            {
+                "english": "I sit on the chair.",
+                "spanish": "Me siento en la silla.",
+                "level": "A1"
+            },
+            {
+                "english": "She sat by the window.",
+                "spanish": "Ella se sentó junto a la ventana.",
+                "level": "A2"
+            },
+            {
+                "english": "They have sat through the long meeting.",
+                "spanish": "Se han sentado en la larga reunión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "speak",
+        "translation": "hablar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "speak",
+            "thirdPerson": "speaks",
+            "presentParticiple": "speaking",
+            "pastSimple": "spoke",
+            "pastParticiple": "spoken"
+        },
+        "pronunciation": {
+            "ipa": "/spiːk/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "talk",
+            "converse"
+        ],
+        "antonyms": [
+            "listen",
+            "silence"
+        ],
+        "examples": [
+            {
+                "english": "She speaks three languages.",
+                "spanish": "Ella habla tres idiomas.",
+                "level": "A2"
+            },
+            {
+                "english": "He spoke to the manager yesterday.",
+                "spanish": "Habló con el gerente ayer.",
+                "level": "B1"
+            },
+            {
+                "english": "We have spoken about this before.",
+                "spanish": "Hemos hablado de esto antes.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "communication",
+            "language"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "stand",
+        "translation": "estar de pie",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "stand",
+            "thirdPerson": "stands",
+            "presentParticiple": "standing",
+            "pastSimple": "stood",
+            "pastParticiple": "stood"
+        },
+        "pronunciation": {
+            "ipa": "/stænd/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "be upright"
+        ],
+        "antonyms": [
+            "sit"
+        ],
+        "examples": [
+            {
+                "english": "I stand up.",
+                "spanish": "Me levanto.",
+                "level": "A1"
+            },
+            {
+                "english": "She stood near the door.",
+                "spanish": "Ella estuvo de pie cerca de la puerta.",
+                "level": "A2"
+            },
+            {
+                "english": "They have stood by their decision.",
+                "spanish": "Han mantenido su decisión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "take",
+        "translation": "tomar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "take",
+            "thirdPerson": "takes",
+            "presentParticiple": "taking",
+            "pastSimple": "took",
+            "pastParticiple": "taken"
+        },
+        "pronunciation": {
+            "ipa": "/teɪk/",
+            "audio": null
+        },
+        "category": [
+            "common",
+            "core"
+        ],
+        "synonyms": [
+            "grab",
+            "accept"
+        ],
+        "antonyms": [
+            "give",
+            "refuse"
+        ],
+        "examples": [
+            {
+                "english": "Take a seat, please.",
+                "spanish": "Toma asiento, por favor.",
+                "level": "A1"
+            },
+            {
+                "english": "She took the bus to work.",
+                "spanish": "Ella tomó el autobús al trabajo.",
+                "level": "A2"
+            },
+            {
+                "english": "He has taken many photos today.",
+                "spanish": "Ha tomado muchas fotos hoy.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "tell",
+        "translation": "contar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "tell",
+            "thirdPerson": "tells",
+            "presentParticiple": "telling",
+            "pastSimple": "told",
+            "pastParticiple": "told"
+        },
+        "pronunciation": {
+            "ipa": "/tɛl/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "inform",
+            "narrate"
+        ],
+        "antonyms": [
+            "conceal"
+        ],
+        "examples": [
+            {
+                "english": "Tell me the truth.",
+                "spanish": "Dime la verdad.",
+                "level": "A1"
+            },
+            {
+                "english": "She told me a story.",
+                "spanish": "Ella me contó una historia.",
+                "level": "A2"
+            },
+            {
+                "english": "He has told us everything.",
+                "spanish": "Nos ha contado todo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "think",
+        "translation": "pensar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "think",
+            "thirdPerson": "thinks",
+            "presentParticiple": "thinking",
+            "pastSimple": "thought",
+            "pastParticiple": "thought"
+        },
+        "pronunciation": {
+            "ipa": "/θɪŋk/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "believe",
+            "consider"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I think this is correct.",
+                "spanish": "Creo que esto es correcto.",
+                "level": "A2"
+            },
+            {
+                "english": "She thought about the problem all day.",
+                "spanish": "Pensó en el problema todo el día.",
+                "level": "B1"
+            },
+            {
+                "english": "We have thought of a better solution.",
+                "spanish": "Hemos pensado en una mejor solución.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "write",
+        "translation": "escribir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "write",
+            "thirdPerson": "writes",
+            "presentParticiple": "writing",
+            "pastSimple": "wrote",
+            "pastParticiple": "written"
+        },
+        "pronunciation": {
+            "ipa": "/raɪt/",
+            "audio": null
+        },
+        "category": [
+            "communication",
+            "education"
+        ],
+        "synonyms": [
+            "compose",
+            "pen"
+        ],
+        "antonyms": [
+            "read"
+        ],
+        "examples": [
+            {
+                "english": "I write a letter.",
+                "spanish": "Escribo una carta.",
+                "level": "A1"
+            },
+            {
+                "english": "She wrote a poem.",
+                "spanish": "Ella escribió un poema.",
+                "level": "A2"
+            },
+            {
+                "english": "He has written three books.",
+                "spanish": "Él ha escrito tres libros.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "education"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "begin",
+        "translation": "comenzar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "begin",
+            "thirdPerson": "begins",
+            "presentParticiple": "begining",
+            "pastSimple": "began",
+            "pastParticiple": "begun"
+        },
+        "pronunciation": {
+            "ipa": "/bɪˈɡɪn/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "start",
+            "commence"
+        ],
+        "antonyms": [
+            "end",
+            "finish"
+        ],
+        "examples": [
+            {
+                "english": "I begin my work at 9.",
+                "spanish": "Comienzo mi trabajo a las 9.",
+                "level": "A2"
+            },
+            {
+                "english": "She began to cry.",
+                "spanish": "Ella comenzó a llorar.",
+                "level": "A2"
+            },
+            {
+                "english": "They have begun a new project.",
+                "spanish": "Han comenzado un nuevo proyecto.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "start"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "break",
+        "translation": "romper",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "break",
+            "thirdPerson": "breaks",
+            "presentParticiple": "breaking",
+            "pastSimple": "broke",
+            "pastParticiple": "broken"
+        },
+        "pronunciation": {
+            "ipa": "/breɪk/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "shatter",
+            "fracture"
+        ],
+        "antonyms": [
+            "repair",
+            "fix"
+        ],
+        "examples": [
+            {
+                "english": "Be careful not to break it.",
+                "spanish": "Ten cuidado de no romperlo.",
+                "level": "A2"
+            },
+            {
+                "english": "She broke the glass.",
+                "spanish": "Ella rompió el vaso.",
+                "level": "A2"
+            },
+            {
+                "english": "He has broken his promise.",
+                "spanish": "Él ha roto su promesa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "damage"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "bring",
+        "translation": "traer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "bring",
+            "thirdPerson": "brings",
+            "presentParticiple": "bringing",
+            "pastSimple": "brought",
+            "pastParticiple": "brought"
+        },
+        "pronunciation": {
+            "ipa": "/brɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "carry",
+            "fetch"
+        ],
+        "antonyms": [
+            "take",
+            "remove"
+        ],
+        "examples": [
+            {
+                "english": "Bring me a glass of water.",
+                "spanish": "Tráeme un vaso de agua.",
+                "level": "A2"
+            },
+            {
+                "english": "She brought her sister.",
+                "spanish": "Ella trajo a su hermana.",
+                "level": "A2"
+            },
+            {
+                "english": "He has brought good news.",
+                "spanish": "Él ha traído buenas noticias.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "build",
+        "translation": "construir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "build",
+            "thirdPerson": "builds",
+            "presentParticiple": "building",
+            "pastSimple": "built",
+            "pastParticiple": "built"
+        },
+        "pronunciation": {
+            "ipa": "/bɪld/",
+            "audio": null
+        },
+        "category": [
+            "creation"
+        ],
+        "synonyms": [
+            "construct",
+            "erect"
+        ],
+        "antonyms": [
+            "demolish",
+            "destroy"
+        ],
+        "examples": [
+            {
+                "english": "They build houses.",
+                "spanish": "Construyen casas.",
+                "level": "A2"
+            },
+            {
+                "english": "She built a sandcastle.",
+                "spanish": "Ella construyó un castillo de arena.",
+                "level": "A2"
+            },
+            {
+                "english": "He has built a successful business.",
+                "spanish": "Ha construido un negocio exitoso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "creation",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "catch",
+        "translation": "atrapar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "catch",
+            "thirdPerson": "catches",
+            "presentParticiple": "catching",
+            "pastSimple": "caught",
+            "pastParticiple": "caught"
+        },
+        "pronunciation": {
+            "ipa": "/kætʃ/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "grab",
+            "capture"
+        ],
+        "antonyms": [
+            "release",
+            "drop"
+        ],
+        "examples": [
+            {
+                "english": "Catch the ball.",
+                "spanish": "Atrapa la pelota.",
+                "level": "A2"
+            },
+            {
+                "english": "She caught a cold.",
+                "spanish": "Ella agarró un resfriado.",
+                "level": "A2"
+            },
+            {
+                "english": "They have caught the thief.",
+                "spanish": "Han atrapado al ladrón.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "sport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "choose",
+        "translation": "elegir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "choose",
+            "thirdPerson": "chooses",
+            "presentParticiple": "choosing",
+            "pastSimple": "chose",
+            "pastParticiple": "chosen"
+        },
+        "pronunciation": {
+            "ipa": "/tʃuːz/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "select",
+            "pick"
+        ],
+        "antonyms": [
+            "reject"
+        ],
+        "examples": [
+            {
+                "english": "Choose your favorite.",
+                "spanish": "Elige tu favorito.",
+                "level": "A2"
+            },
+            {
+                "english": "She chose the red one.",
+                "spanish": "Ella eligió el rojo.",
+                "level": "A2"
+            },
+            {
+                "english": "He has chosen a new career.",
+                "spanish": "Ha elegido una nueva carrera.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "decision"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "cut",
+        "translation": "cortar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "cut",
+            "thirdPerson": "cuts",
+            "presentParticiple": "cuting",
+            "pastSimple": "cut",
+            "pastParticiple": "cut"
+        },
+        "pronunciation": {
+            "ipa": "/kʌt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "slice",
+            "trim"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Cut the paper.",
+                "spanish": "Corta el papel.",
+                "level": "A2"
+            },
+            {
+                "english": "She cut her finger.",
+                "spanish": "Ella se cortó el dedo.",
+                "level": "A2"
+            },
+            {
+                "english": "He has cut his hair short.",
+                "spanish": "Se ha cortado el pelo corto.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "draw",
+        "translation": "dibujar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "draw",
+            "thirdPerson": "draws",
+            "presentParticiple": "drawing",
+            "pastSimple": "drew",
+            "pastParticiple": "drawn"
+        },
+        "pronunciation": {
+            "ipa": "/drɔː/",
+            "audio": null
+        },
+        "category": [
+            "creation"
+        ],
+        "synonyms": [
+            "sketch",
+            "illustrate"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I draw pictures.",
+                "spanish": "Dibujo dibujos.",
+                "level": "A2"
+            },
+            {
+                "english": "She drew a portrait.",
+                "spanish": "Ella dibujó un retrato.",
+                "level": "A2"
+            },
+            {
+                "english": "He has drawn a map of the city.",
+                "spanish": "Ha dibujado un mapa de la ciudad.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "creation",
+            "art"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "drive",
+        "translation": "conducir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "drive",
+            "thirdPerson": "drives",
+            "presentParticiple": "driving",
+            "pastSimple": "drove",
+            "pastParticiple": "driven"
+        },
+        "pronunciation": {
+            "ipa": "/draɪv/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "operate",
+            "pilot"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I drive to work.",
+                "spanish": "Conduzco al trabajo.",
+                "level": "A2"
+            },
+            {
+                "english": "She drove all night.",
+                "spanish": "Ella condujo toda la noche.",
+                "level": "A2"
+            },
+            {
+                "english": "He has driven across the country.",
+                "spanish": "Ha conducido por todo el país.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "transport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "fall",
+        "translation": "caer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "fall",
+            "thirdPerson": "falls",
+            "presentParticiple": "falling",
+            "pastSimple": "fell",
+            "pastParticiple": "fallen"
+        },
+        "pronunciation": {
+            "ipa": "/fɔːl/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "drop",
+            "tumble"
+        ],
+        "antonyms": [
+            "rise"
+        ],
+        "examples": [
+            {
+                "english": "Be careful not to fall.",
+                "spanish": "Ten cuidado de no caer.",
+                "level": "A2"
+            },
+            {
+                "english": "She fell down the stairs.",
+                "spanish": "Ella se cayó por las escaleras.",
+                "level": "A2"
+            },
+            {
+                "english": "The temperature has fallen.",
+                "spanish": "La temperatura ha bajado.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "fly",
+        "translation": "volar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "fly",
+            "thirdPerson": "flies",
+            "presentParticiple": "flying",
+            "pastSimple": "flew",
+            "pastParticiple": "flown"
+        },
+        "pronunciation": {
+            "ipa": "/flaɪ/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "soar",
+            "glide"
+        ],
+        "antonyms": [
+            "land"
+        ],
+        "examples": [
+            {
+                "english": "Birds fly south.",
+                "spanish": "Los pájaros vuelan al sur.",
+                "level": "A2"
+            },
+            {
+                "english": "She flew to Paris last week.",
+                "spanish": "Ella voló a París la semana pasada.",
+                "level": "A2"
+            },
+            {
+                "english": "He has flown many times.",
+                "spanish": "Ha volado muchas veces.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "travel"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "forget",
+        "translation": "olvidar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "forget",
+            "thirdPerson": "forgets",
+            "presentParticiple": "forgeting",
+            "pastSimple": "forgot",
+            "pastParticiple": "forgotten"
+        },
+        "pronunciation": {
+            "ipa": "/fərˈɡɛt/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "overlook"
+        ],
+        "antonyms": [
+            "remember",
+            "recall"
+        ],
+        "examples": [
+            {
+                "english": "I forget his name.",
+                "spanish": "Olvido su nombre.",
+                "level": "A2"
+            },
+            {
+                "english": "She forgot to call me.",
+                "spanish": "Ella olvidó llamarme.",
+                "level": "A2"
+            },
+            {
+                "english": "He has forgotten the password.",
+                "spanish": "Ha olvidado la contraseña.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "hold",
+        "translation": "sostener",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hold",
+            "thirdPerson": "holds",
+            "presentParticiple": "holding",
+            "pastSimple": "held",
+            "pastParticiple": "held"
+        },
+        "pronunciation": {
+            "ipa": "/hoʊld/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "grasp",
+            "carry"
+        ],
+        "antonyms": [
+            "release",
+            "drop"
+        ],
+        "examples": [
+            {
+                "english": "Hold my hand.",
+                "spanish": "Sostén mi mano.",
+                "level": "A2"
+            },
+            {
+                "english": "She held the baby.",
+                "spanish": "Ella sostuvo al bebé.",
+                "level": "A2"
+            },
+            {
+                "english": "They have held a meeting.",
+                "spanish": "Han celebrado una reunión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "keep",
+        "translation": "mantener",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "keep",
+            "thirdPerson": "keeps",
+            "presentParticiple": "keeping",
+            "pastSimple": "kept",
+            "pastParticiple": "kept"
+        },
+        "pronunciation": {
+            "ipa": "/kiːp/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "retain",
+            "preserve"
+        ],
+        "antonyms": [
+            "lose",
+            "discard"
+        ],
+        "examples": [
+            {
+                "english": "Keep quiet, please.",
+                "spanish": "Mantén silencio, por favor.",
+                "level": "A2"
+            },
+            {
+                "english": "She kept the secret.",
+                "spanish": "Ella guardó el secreto.",
+                "level": "A2"
+            },
+            {
+                "english": "He has kept his promise.",
+                "spanish": "Ha mantenido su promesa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "important"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "lose",
+        "translation": "perder",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "lose",
+            "thirdPerson": "loses",
+            "presentParticiple": "losing",
+            "pastSimple": "lost",
+            "pastParticiple": "lost"
+        },
+        "pronunciation": {
+            "ipa": "/luːz/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "misplace"
+        ],
+        "antonyms": [
+            "find",
+            "win"
+        ],
+        "examples": [
+            {
+                "english": "Don't lose your keys.",
+                "spanish": "No pierdas tus llaves.",
+                "level": "A2"
+            },
+            {
+                "english": "She lost her wallet.",
+                "spanish": "Ella perdió su cartera.",
+                "level": "A2"
+            },
+            {
+                "english": "He has lost a lot of weight.",
+                "spanish": "Ha perdido mucho peso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "meet",
+        "translation": "conocer/reunirse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "meet",
+            "thirdPerson": "meets",
+            "presentParticiple": "meeting",
+            "pastSimple": "met",
+            "pastParticiple": "met"
+        },
+        "pronunciation": {
+            "ipa": "/miːt/",
+            "audio": null
+        },
+        "category": [
+            "social"
+        ],
+        "synonyms": [
+            "encounter",
+            "gather"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Nice to meet you.",
+                "spanish": "Mucho gusto.",
+                "level": "A2"
+            },
+            {
+                "english": "She met him at the party.",
+                "spanish": "Ella lo conoció en la fiesta.",
+                "level": "A2"
+            },
+            {
+                "english": "They have met before.",
+                "spanish": "Se han conocido antes.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "social",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "pay",
+        "translation": "pagar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "pay",
+            "thirdPerson": "pays",
+            "presentParticiple": "paying",
+            "pastSimple": "paid",
+            "pastParticiple": "paid"
+        },
+        "pronunciation": {
+            "ipa": "/peɪ/",
+            "audio": null
+        },
+        "category": [
+            "commerce"
+        ],
+        "synonyms": [
+            "compensate"
+        ],
+        "antonyms": [
+            "receive"
+        ],
+        "examples": [
+            {
+                "english": "I pay the bill.",
+                "spanish": "Pago la cuenta.",
+                "level": "A2"
+            },
+            {
+                "english": "She paid for the tickets.",
+                "spanish": "Ella pagó las entradas.",
+                "level": "A2"
+            },
+            {
+                "english": "He has paid off his debt.",
+                "spanish": "Ha pagado su deuda.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "commerce",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "ride",
+        "translation": "montar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "ride",
+            "thirdPerson": "rides",
+            "presentParticiple": "riding",
+            "pastSimple": "rode",
+            "pastParticiple": "ridden"
+        },
+        "pronunciation": {
+            "ipa": "/raɪd/",
+            "audio": null
+        },
+        "category": [
+            "movement"
+        ],
+        "synonyms": [
+            "travel",
+            "sit on"
+        ],
+        "antonyms": [
+            "dismount"
+        ],
+        "examples": [
+            {
+                "english": "I ride my bike to school.",
+                "spanish": "Voy en bici a la escuela.",
+                "level": "A2"
+            },
+            {
+                "english": "She rode the horse.",
+                "spanish": "Ella montó el caballo.",
+                "level": "A2"
+            },
+            {
+                "english": "He has ridden a camel.",
+                "spanish": "Ha montado un camello.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "transport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "sell",
+        "translation": "vender",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sell",
+            "thirdPerson": "sells",
+            "presentParticiple": "selling",
+            "pastSimple": "sold",
+            "pastParticiple": "sold"
+        },
+        "pronunciation": {
+            "ipa": "/sɛl/",
+            "audio": null
+        },
+        "category": [
+            "commerce"
+        ],
+        "synonyms": [
+            "trade",
+            "vend"
+        ],
+        "antonyms": [
+            "buy",
+            "purchase"
+        ],
+        "examples": [
+            {
+                "english": "They sell fruits.",
+                "spanish": "Venden frutas.",
+                "level": "A2"
+            },
+            {
+                "english": "She sold her car.",
+                "spanish": "Ella vendió su coche.",
+                "level": "A2"
+            },
+            {
+                "english": "He has sold his house.",
+                "spanish": "Ha vendido su casa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "commerce",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "send",
+        "translation": "enviar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "send",
+            "thirdPerson": "sends",
+            "presentParticiple": "sending",
+            "pastSimple": "sent",
+            "pastParticiple": "sent"
+        },
+        "pronunciation": {
+            "ipa": "/sɛnd/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "dispatch",
+            "transmit"
+        ],
+        "antonyms": [
+            "receive"
+        ],
+        "examples": [
+            {
+                "english": "I send emails.",
+                "spanish": "Envío correos.",
+                "level": "A2"
+            },
+            {
+                "english": "She sent a letter.",
+                "spanish": "Ella envió una carta.",
+                "level": "A2"
+            },
+            {
+                "english": "He has sent the package.",
+                "spanish": "Ha enviado el paquete.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "sing",
+        "translation": "cantar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sing",
+            "thirdPerson": "sings",
+            "presentParticiple": "singing",
+            "pastSimple": "sang",
+            "pastParticiple": "sung"
+        },
+        "pronunciation": {
+            "ipa": "/sɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "art"
+        ],
+        "synonyms": [
+            "vocalize",
+            "chant"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She sings beautifully.",
+                "spanish": "Ella canta hermosamente.",
+                "level": "A2"
+            },
+            {
+                "english": "She sang a song at the concert.",
+                "spanish": "Ella cantó una canción en el concierto.",
+                "level": "A2"
+            },
+            {
+                "english": "He has sung in a choir.",
+                "spanish": "Ha cantado en un coro.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "art",
+            "music"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "sleep",
+        "translation": "dormir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sleep",
+            "thirdPerson": "sleeps",
+            "presentParticiple": "sleeping",
+            "pastSimple": "slept",
+            "pastParticiple": "slept"
+        },
+        "pronunciation": {
+            "ipa": "/sliːp/",
+            "audio": null
+        },
+        "category": [
+            "daily"
+        ],
+        "synonyms": [
+            "rest",
+            "slumber"
+        ],
+        "antonyms": [
+            "wake"
+        ],
+        "examples": [
+            {
+                "english": "I sleep eight hours.",
+                "spanish": "Duermo ocho horas.",
+                "level": "A2"
+            },
+            {
+                "english": "She slept well last night.",
+                "spanish": "Ella durmió bien anoche.",
+                "level": "A2"
+            },
+            {
+                "english": "He has slept through the movie.",
+                "spanish": "Se ha dormido durante la película.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "daily",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "swim",
+        "translation": "nadar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "swim",
+            "thirdPerson": "swims",
+            "presentParticiple": "swiming",
+            "pastSimple": "swam",
+            "pastParticiple": "swum"
+        },
+        "pronunciation": {
+            "ipa": "/swɪm/",
+            "audio": null
+        },
+        "category": [
+            "movement",
+            "sport"
+        ],
+        "synonyms": [
+            "float",
+            "paddle"
+        ],
+        "antonyms": [
+            "sink"
+        ],
+        "examples": [
+            {
+                "english": "I swim every weekend.",
+                "spanish": "Nado cada fin de semana.",
+                "level": "A2"
+            },
+            {
+                "english": "She swam across the lake.",
+                "spanish": "Ella nadó a través del lago.",
+                "level": "A2"
+            },
+            {
+                "english": "He has swum in the ocean.",
+                "spanish": "Ha nadado en el océano.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "movement",
+            "sport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "teach",
+        "translation": "enseñar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "teach",
+            "thirdPerson": "teaches",
+            "presentParticiple": "teaching",
+            "pastSimple": "taught",
+            "pastParticiple": "taught"
+        },
+        "pronunciation": {
+            "ipa": "/tiːtʃ/",
+            "audio": null
+        },
+        "category": [
+            "education"
+        ],
+        "synonyms": [
+            "instruct",
+            "educate"
+        ],
+        "antonyms": [
+            "learn"
+        ],
+        "examples": [
+            {
+                "english": "I teach English.",
+                "spanish": "Enseño inglés.",
+                "level": "A2"
+            },
+            {
+                "english": "She taught me to swim.",
+                "spanish": "Ella me enseñó a nadar.",
+                "level": "A2"
+            },
+            {
+                "english": "He has taught for ten years.",
+                "spanish": "Ha enseñado durante diez años.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "understand",
+        "translation": "entender",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "understand",
+            "thirdPerson": "understands",
+            "presentParticiple": "understanding",
+            "pastSimple": "understood",
+            "pastParticiple": "understood"
+        },
+        "pronunciation": {
+            "ipa": "/ˌʌndərˈstænd/",
+            "audio": null
+        },
+        "category": [
+            "cognition"
+        ],
+        "synonyms": [
+            "comprehend",
+            "grasp"
+        ],
+        "antonyms": [
+            "misunderstand"
+        ],
+        "examples": [
+            {
+                "english": "I understand you.",
+                "spanish": "Te entiendo.",
+                "level": "A2"
+            },
+            {
+                "english": "She understood the question.",
+                "spanish": "Ella entendió la pregunta.",
+                "level": "A2"
+            },
+            {
+                "english": "He has understood the problem.",
+                "spanish": "Ha entendido el problema.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "cognition",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "wake",
+        "translation": "despertar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "wake",
+            "thirdPerson": "wakes",
+            "presentParticiple": "waking",
+            "pastSimple": "woke",
+            "pastParticiple": "woken"
+        },
+        "pronunciation": {
+            "ipa": "/weɪk/",
+            "audio": null
+        },
+        "category": [
+            "daily"
+        ],
+        "synonyms": [
+            "awaken",
+            "rouse"
+        ],
+        "antonyms": [
+            "sleep"
+        ],
+        "examples": [
+            {
+                "english": "I wake up at seven.",
+                "spanish": "Me despierto a las siete.",
+                "level": "A2"
+            },
+            {
+                "english": "She woke up early.",
+                "spanish": "Ella se despertó temprano.",
+                "level": "A2"
+            },
+            {
+                "english": "He has woken up refreshed.",
+                "spanish": "Se ha despertado refrescado.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "daily",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "win",
+        "translation": "ganar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "win",
+            "thirdPerson": "wins",
+            "presentParticiple": "wining",
+            "pastSimple": "won",
+            "pastParticiple": "won"
+        },
+        "pronunciation": {
+            "ipa": "/wɪn/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "triumph",
+            "succeed"
+        ],
+        "antonyms": [
+            "lose"
+        ],
+        "examples": [
+            {
+                "english": "I want to win.",
+                "spanish": "Quiero ganar.",
+                "level": "A2"
+            },
+            {
+                "english": "She won the race.",
+                "spanish": "Ella ganó la carrera.",
+                "level": "A2"
+            },
+            {
+                "english": "He has won three prizes.",
+                "spanish": "Ha ganado tres premios.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "sport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "beat",
+        "translation": "golpear/vencer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "beat",
+            "thirdPerson": "beats",
+            "presentParticiple": "beating",
+            "pastSimple": "beat",
+            "pastParticiple": "beaten"
+        },
+        "pronunciation": {
+            "ipa": "/biːt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "strike",
+            "defeat"
+        ],
+        "antonyms": [
+            "lose"
+        ],
+        "examples": [
+            {
+                "english": "Beat the eggs well.",
+                "spanish": "Bate bien los huevos.",
+                "level": "B1"
+            },
+            {
+                "english": "She beat him at chess.",
+                "spanish": "Ella lo venció al ajedrez.",
+                "level": "B1"
+            },
+            {
+                "english": "He has beaten the record.",
+                "spanish": "Ha batido el récord.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "sport"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "become",
+        "translation": "convertirse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "become",
+            "thirdPerson": "becomes",
+            "presentParticiple": "becoming",
+            "pastSimple": "became",
+            "pastParticiple": "become"
+        },
+        "pronunciation": {
+            "ipa": "/bɪˈkʌm/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "turn into",
+            "grow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I want to become a doctor.",
+                "spanish": "Quiero ser médico.",
+                "level": "B1"
+            },
+            {
+                "english": "She became famous.",
+                "spanish": "Ella se volvió famosa.",
+                "level": "B1"
+            },
+            {
+                "english": "He has become a leader.",
+                "spanish": "Se ha convertido en líder.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "change"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "bite",
+        "translation": "morder",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "bite",
+            "thirdPerson": "bites",
+            "presentParticiple": "biting",
+            "pastSimple": "bit",
+            "pastParticiple": "bitten"
+        },
+        "pronunciation": {
+            "ipa": "/baɪt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "nip",
+            "gnaw"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The dog might bite.",
+                "spanish": "El perro podría morder.",
+                "level": "B1"
+            },
+            {
+                "english": "She bit into the apple.",
+                "spanish": "Ella mordió la manzana.",
+                "level": "B1"
+            },
+            {
+                "english": "He has been bitten by mosquitoes.",
+                "spanish": "Ha sido mordido por mosquitos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "blow",
+        "translation": "soplar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "blow",
+            "thirdPerson": "blows",
+            "presentParticiple": "blowing",
+            "pastSimple": "blew",
+            "pastParticiple": "blown"
+        },
+        "pronunciation": {
+            "ipa": "/bloʊ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "blast",
+            "puff"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Blow out the candles.",
+                "spanish": "Sopla las velas.",
+                "level": "B1"
+            },
+            {
+                "english": "The wind blew hard.",
+                "spanish": "El viento sopló fuerte.",
+                "level": "B1"
+            },
+            {
+                "english": "He has blown his nose.",
+                "spanish": "Se ha sonado la nariz.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "weather"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "fight",
+        "translation": "pelear",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "fight",
+            "thirdPerson": "fights",
+            "presentParticiple": "fighting",
+            "pastSimple": "fought",
+            "pastParticiple": "fought"
+        },
+        "pronunciation": {
+            "ipa": "/faɪt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "battle",
+            "struggle"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Don't fight with him.",
+                "spanish": "No pelees con él.",
+                "level": "B1"
+            },
+            {
+                "english": "She fought for her rights.",
+                "spanish": "Ella luchó por sus derechos.",
+                "level": "B1"
+            },
+            {
+                "english": "They have fought bravely.",
+                "spanish": "Han luchado valientemente.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "conflict"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "grow",
+        "translation": "crecer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "grow",
+            "thirdPerson": "grows",
+            "presentParticiple": "growing",
+            "pastSimple": "grew",
+            "pastParticiple": "grown"
+        },
+        "pronunciation": {
+            "ipa": "/ɡroʊ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "develop",
+            "increase"
+        ],
+        "antonyms": [
+            "shrink",
+            "decrease"
+        ],
+        "examples": [
+            {
+                "english": "Plants grow fast.",
+                "spanish": "Las plantas crecen rápido.",
+                "level": "B1"
+            },
+            {
+                "english": "She grew up in Mexico.",
+                "spanish": "Ella creció en México.",
+                "level": "B1"
+            },
+            {
+                "english": "He has grown a beard.",
+                "spanish": "Se ha dejado barba.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "nature"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "hear",
+        "translation": "oír",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hear",
+            "thirdPerson": "hears",
+            "presentParticiple": "hearing",
+            "pastSimple": "heard",
+            "pastParticiple": "heard"
+        },
+        "pronunciation": {
+            "ipa": "/hɪər/",
+            "audio": null
+        },
+        "category": [
+            "perception"
+        ],
+        "synonyms": [
+            "listen",
+            "perceive"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I can hear you.",
+                "spanish": "Puedo oírte.",
+                "level": "B1"
+            },
+            {
+                "english": "She heard a noise.",
+                "spanish": "Ella oyó un ruido.",
+                "level": "B1"
+            },
+            {
+                "english": "He has heard the news.",
+                "spanish": "Ha oído las noticias.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "perception",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "hide",
+        "translation": "esconder",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hide",
+            "thirdPerson": "hides",
+            "presentParticiple": "hiding",
+            "pastSimple": "hid",
+            "pastParticiple": "hidden"
+        },
+        "pronunciation": {
+            "ipa": "/haɪd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "conceal",
+            "cover"
+        ],
+        "antonyms": [
+            "reveal",
+            "show"
+        ],
+        "examples": [
+            {
+                "english": "Hide the gift.",
+                "spanish": "Esconde el regalo.",
+                "level": "B1"
+            },
+            {
+                "english": "She hid behind the door.",
+                "spanish": "Ella se escondió detrás de la puerta.",
+                "level": "B1"
+            },
+            {
+                "english": "He has hidden the truth.",
+                "spanish": "Ha escondido la verdad.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "hurt",
+        "translation": "lastimar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hurt",
+            "thirdPerson": "hurts",
+            "presentParticiple": "hurting",
+            "pastSimple": "hurt",
+            "pastParticiple": "hurt"
+        },
+        "pronunciation": {
+            "ipa": "/hɜːrt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "injure",
+            "pain"
+        ],
+        "antonyms": [
+            "heal"
+        ],
+        "examples": [
+            {
+                "english": "My back hurts.",
+                "spanish": "Me duele la espalda.",
+                "level": "B1"
+            },
+            {
+                "english": "She hurt her ankle.",
+                "spanish": "Ella se lastimó el tobillo.",
+                "level": "B1"
+            },
+            {
+                "english": "He has hurt her feelings.",
+                "spanish": "Ha herido sus sentimientos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "health"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "let",
+        "translation": "dejar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "let",
+            "thirdPerson": "lets",
+            "presentParticiple": "leting",
+            "pastSimple": "let",
+            "pastParticiple": "let"
+        },
+        "pronunciation": {
+            "ipa": "/lɛt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "allow",
+            "permit"
+        ],
+        "antonyms": [
+            "forbid",
+            "prevent"
+        ],
+        "examples": [
+            {
+                "english": "Let me go.",
+                "spanish": "Déjame ir.",
+                "level": "B1"
+            },
+            {
+                "english": "She let him win.",
+                "spanish": "Ella lo dejó ganar.",
+                "level": "B1"
+            },
+            {
+                "english": "He has let go of the past.",
+                "spanish": "Ha soltado el pasado.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "permission"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "light",
+        "translation": "encender",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "light",
+            "thirdPerson": "lights",
+            "presentParticiple": "lighting",
+            "pastSimple": "lit",
+            "pastParticiple": "lit"
+        },
+        "pronunciation": {
+            "ipa": "/laɪt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "ignite",
+            "illuminate"
+        ],
+        "antonyms": [
+            "extinguish"
+        ],
+        "examples": [
+            {
+                "english": "Light the candle.",
+                "spanish": "Enciende la vela.",
+                "level": "B1"
+            },
+            {
+                "english": "She lit a fire.",
+                "spanish": "Ella encendió un fuego.",
+                "level": "B1"
+            },
+            {
+                "english": "He has lit the way.",
+                "spanish": "Ha iluminado el camino.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "fire"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "mean",
+        "translation": "significar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "mean",
+            "thirdPerson": "means",
+            "presentParticiple": "meaning",
+            "pastSimple": "meant",
+            "pastParticiple": "meant"
+        },
+        "pronunciation": {
+            "ipa": "/miːn/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "signify",
+            "intend"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "What does this mean?",
+                "spanish": "¿Qué significa esto?",
+                "level": "B1"
+            },
+            {
+                "english": "She meant what she said.",
+                "spanish": "Ella dijo lo que pensaba.",
+                "level": "B1"
+            },
+            {
+                "english": "He has meant to call you.",
+                "spanish": "Ha tenido la intención de llamarte.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "ring",
+        "translation": "sonar/llamar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "ring",
+            "thirdPerson": "rings",
+            "presentParticiple": "ringing",
+            "pastSimple": "rang",
+            "pastParticiple": "rung"
+        },
+        "pronunciation": {
+            "ipa": "/rɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "chime",
+            "call"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The phone is ringing.",
+                "spanish": "El teléfono está sonando.",
+                "level": "B1"
+            },
+            {
+                "english": "She rang the bell.",
+                "spanish": "Ella tocó la campana.",
+                "level": "B1"
+            },
+            {
+                "english": "He has rung twice.",
+                "spanish": "Ha llamado dos veces.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "sound"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "rise",
+        "translation": "levantarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "rise",
+            "thirdPerson": "rises",
+            "presentParticiple": "rising",
+            "pastSimple": "rose",
+            "pastParticiple": "risen"
+        },
+        "pronunciation": {
+            "ipa": "/raɪz/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "get up",
+            "ascend"
+        ],
+        "antonyms": [
+            "fall",
+            "descend"
+        ],
+        "examples": [
+            {
+                "english": "The sun rises early.",
+                "spanish": "El sol sale temprano.",
+                "level": "B1"
+            },
+            {
+                "english": "Prices rose last year.",
+                "spanish": "Los precios subieron el año pasado.",
+                "level": "B1"
+            },
+            {
+                "english": "He has risen to fame.",
+                "spanish": "Ha alcanzado la fama.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "movement"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "shake",
+        "translation": "sacudir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "shake",
+            "thirdPerson": "shakes",
+            "presentParticiple": "shaking",
+            "pastSimple": "shook",
+            "pastParticiple": "shaken"
+        },
+        "pronunciation": {
+            "ipa": "/ʃeɪk/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "tremble",
+            "agitate"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Shake the bottle.",
+                "spanish": "Sacude la botella.",
+                "level": "B1"
+            },
+            {
+                "english": "She shook her head.",
+                "spanish": "Ella sacudió la cabeza.",
+                "level": "B1"
+            },
+            {
+                "english": "He has shaken with fear.",
+                "spanish": "Ha temblado de miedo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "shoot",
+        "translation": "disparar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "shoot",
+            "thirdPerson": "shoots",
+            "presentParticiple": "shooting",
+            "pastSimple": "shot",
+            "pastParticiple": "shot"
+        },
+        "pronunciation": {
+            "ipa": "/ʃuːt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "fire",
+            "launch"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Don't shoot!",
+                "spanish": "¡No dispares!",
+                "level": "B1"
+            },
+            {
+                "english": "She shot a photo.",
+                "spanish": "Ella tomó una foto.",
+                "level": "B1"
+            },
+            {
+                "english": "He has shot three films.",
+                "spanish": "Ha filmado tres películas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "action"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "spend",
+        "translation": "gastar/pasar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "spend",
+            "thirdPerson": "spends",
+            "presentParticiple": "spending",
+            "pastSimple": "spent",
+            "pastParticiple": "spent"
+        },
+        "pronunciation": {
+            "ipa": "/spɛnd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "use",
+            "devote"
+        ],
+        "antonyms": [
+            "save",
+            "conserve"
+        ],
+        "examples": [
+            {
+                "english": "I spend time with my family.",
+                "spanish": "Paso tiempo con mi familia.",
+                "level": "B1"
+            },
+            {
+                "english": "She spent all her money.",
+                "spanish": "Ella gastó todo su dinero.",
+                "level": "B1"
+            },
+            {
+                "english": "He has spent years on this.",
+                "spanish": "Ha pasado años en esto.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "money"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "steal",
+        "translation": "robar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "steal",
+            "thirdPerson": "steals",
+            "presentParticiple": "stealing",
+            "pastSimple": "stole",
+            "pastParticiple": "stolen"
+        },
+        "pronunciation": {
+            "ipa": "/stiːl/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "take",
+            "rob"
+        ],
+        "antonyms": [
+            "return",
+            "give back"
+        ],
+        "examples": [
+            {
+                "english": "Don't steal.",
+                "spanish": "No robes.",
+                "level": "B1"
+            },
+            {
+                "english": "Someone stole my wallet.",
+                "spanish": "Alguien robó mi cartera.",
+                "level": "B1"
+            },
+            {
+                "english": "He has stolen my heart.",
+                "spanish": "Me ha robado el corazón.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "crime"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "tear",
+        "translation": "romper/rasgar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "tear",
+            "thirdPerson": "tears",
+            "presentParticiple": "tearing",
+            "pastSimple": "tore",
+            "pastParticiple": "torn"
+        },
+        "pronunciation": {
+            "ipa": "/tɛər/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "rip",
+            "split"
+        ],
+        "antonyms": [
+            "mend",
+            "repair"
+        ],
+        "examples": [
+            {
+                "english": "Tear the paper.",
+                "spanish": "Rompe el papel.",
+                "level": "B1"
+            },
+            {
+                "english": "She tore her dress.",
+                "spanish": "Ella rasgó su vestido.",
+                "level": "B1"
+            },
+            {
+                "english": "He has torn out the page.",
+                "spanish": "Ha arrancado la página.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "throw",
+        "translation": "lanzar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "throw",
+            "thirdPerson": "throws",
+            "presentParticiple": "throwing",
+            "pastSimple": "threw",
+            "pastParticiple": "thrown"
+        },
+        "pronunciation": {
+            "ipa": "/θroʊ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "toss",
+            "hurl"
+        ],
+        "antonyms": [
+            "catch"
+        ],
+        "examples": [
+            {
+                "english": "Throw the ball.",
+                "spanish": "Lanza la pelota.",
+                "level": "B1"
+            },
+            {
+                "english": "She threw a party.",
+                "spanish": "Ella dio una fiesta.",
+                "level": "B1"
+            },
+            {
+                "english": "He has thrown away the trash.",
+                "spanish": "Ha tirado la basura.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "wear",
+        "translation": "usar/llevar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "wear",
+            "thirdPerson": "wears",
+            "presentParticiple": "wearing",
+            "pastSimple": "wore",
+            "pastParticiple": "worn"
+        },
+        "pronunciation": {
+            "ipa": "/wɛər/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "have on",
+            "dress in"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I wear glasses.",
+                "spanish": "Uso gafas.",
+                "level": "B1"
+            },
+            {
+                "english": "She wore a blue dress.",
+                "spanish": "Ella llevó un vestido azul.",
+                "level": "B1"
+            },
+            {
+                "english": "He has worn the same shoes.",
+                "spanish": "Ha usado los mismos zapatos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "clothing"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "bend",
+        "translation": "doblar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "bend",
+            "thirdPerson": "bends",
+            "presentParticiple": "bending",
+            "pastSimple": "bent",
+            "pastParticiple": "bent"
+        },
+        "pronunciation": {
+            "ipa": "/bɛnd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "curve",
+            "flex"
+        ],
+        "antonyms": [
+            "straighten"
+        ],
+        "examples": [
+            {
+                "english": "Bend your knees.",
+                "spanish": "Dobla las rodillas.",
+                "level": "B1"
+            },
+            {
+                "english": "She bent down to pick it up.",
+                "spanish": "Ella se agachó a recogerlo.",
+                "level": "B1"
+            },
+            {
+                "english": "He has bent the rules.",
+                "spanish": "Ha doblado las reglas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "breed",
+        "translation": "criar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "breed",
+            "thirdPerson": "breeds",
+            "presentParticiple": "breeding",
+            "pastSimple": "bred",
+            "pastParticiple": "bred"
+        },
+        "pronunciation": {
+            "ipa": "/briːd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "raise",
+            "rear"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "They breed dogs.",
+                "spanish": "Crían perros.",
+                "level": "B1"
+            },
+            {
+                "english": "She bred cattle.",
+                "spanish": "Ella crió ganado.",
+                "level": "B1"
+            },
+            {
+                "english": "He has bred champion horses.",
+                "spanish": "Ha criado caballos campeones.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "animals"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "cling",
+        "translation": "aferrarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "cling",
+            "thirdPerson": "clings",
+            "presentParticiple": "clinging",
+            "pastSimple": "clung",
+            "pastParticiple": "clung"
+        },
+        "pronunciation": {
+            "ipa": "/klɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "hold",
+            "stick"
+        ],
+        "antonyms": [
+            "release",
+            "let go"
+        ],
+        "examples": [
+            {
+                "english": "Cling to the rope.",
+                "spanish": "Aférrate a la cuerda.",
+                "level": "B1"
+            },
+            {
+                "english": "She clung to her mother.",
+                "spanish": "Ella se aferró a su madre.",
+                "level": "B1"
+            },
+            {
+                "english": "He has clung to hope.",
+                "spanish": "Se ha aferrado a la esperanza.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "creep",
+        "translation": "arrastrarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "creep",
+            "thirdPerson": "creeps",
+            "presentParticiple": "creeping",
+            "pastSimple": "crept",
+            "pastParticiple": "crept"
+        },
+        "pronunciation": {
+            "ipa": "/kriːp/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "crawl",
+            "sneak"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The cat creeps quietly.",
+                "spanish": "El gato se arrastra silenciosamente.",
+                "level": "B1"
+            },
+            {
+                "english": "She crept into the room.",
+                "spanish": "Ella entró sigilosamente al cuarto.",
+                "level": "B1"
+            },
+            {
+                "english": "He has crept up on us.",
+                "spanish": "Se nos ha acercado sigilosamente.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "deal",
+        "translation": "tratar/repartir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "deal",
+            "thirdPerson": "deals",
+            "presentParticiple": "dealing",
+            "pastSimple": "dealt",
+            "pastParticiple": "dealt"
+        },
+        "pronunciation": {
+            "ipa": "/diːl/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "handle",
+            "distribute"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Deal the cards.",
+                "spanish": "Reparte las cartas.",
+                "level": "B1"
+            },
+            {
+                "english": "She dealt with the problem.",
+                "spanish": "Ella lidió con el problema.",
+                "level": "B1"
+            },
+            {
+                "english": "He has dealt with many clients.",
+                "spanish": "Ha tratado con muchos clientes.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "social"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "dig",
+        "translation": "cavar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "dig",
+            "thirdPerson": "digs",
+            "presentParticiple": "diging",
+            "pastSimple": "dug",
+            "pastParticiple": "dug"
+        },
+        "pronunciation": {
+            "ipa": "/dɪɡ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "excavate",
+            "burrow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Dig a hole.",
+                "spanish": "Cava un hoyo.",
+                "level": "B1"
+            },
+            {
+                "english": "She dug in the garden.",
+                "spanish": "Ella cavó en el jardín.",
+                "level": "B1"
+            },
+            {
+                "english": "He has dug up old bones.",
+                "spanish": "Ha desenterrado huesos viejos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "feed",
+        "translation": "alimentar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "feed",
+            "thirdPerson": "feeds",
+            "presentParticiple": "feeding",
+            "pastSimple": "fed",
+            "pastParticiple": "fed"
+        },
+        "pronunciation": {
+            "ipa": "/fiːd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "nourish",
+            "sustain"
+        ],
+        "antonyms": [
+            "starve"
+        ],
+        "examples": [
+            {
+                "english": "Feed the baby.",
+                "spanish": "Alimenta al bebé.",
+                "level": "B1"
+            },
+            {
+                "english": "She fed the cat.",
+                "spanish": "Ella alimentó al gato.",
+                "level": "B1"
+            },
+            {
+                "english": "He has fed the family well.",
+                "spanish": "Ha mantenido bien a la familia.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "forgive",
+        "translation": "perdonar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "forgive",
+            "thirdPerson": "forgives",
+            "presentParticiple": "forgiving",
+            "pastSimple": "forgave",
+            "pastParticiple": "forgiven"
+        },
+        "pronunciation": {
+            "ipa": "/fərˈɡɪv/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "pardon",
+            "excuse"
+        ],
+        "antonyms": [
+            "blame",
+            "condemn"
+        ],
+        "examples": [
+            {
+                "english": "I forgive you.",
+                "spanish": "Te perdono.",
+                "level": "B1"
+            },
+            {
+                "english": "She forgave him.",
+                "spanish": "Ella lo perdonó.",
+                "level": "B1"
+            },
+            {
+                "english": "He has forgiven his enemies.",
+                "spanish": "Ha perdonado a sus enemigos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "emotion"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "freeze",
+        "translation": "congelar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "freeze",
+            "thirdPerson": "freezes",
+            "presentParticiple": "freezing",
+            "pastSimple": "froze",
+            "pastParticiple": "frozen"
+        },
+        "pronunciation": {
+            "ipa": "/friːz/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "solidify",
+            "ice"
+        ],
+        "antonyms": [
+            "melt",
+            "thaw"
+        ],
+        "examples": [
+            {
+                "english": "The water will freeze.",
+                "spanish": "El agua se va a congelar.",
+                "level": "B1"
+            },
+            {
+                "english": "She froze with fear.",
+                "spanish": "Ella se quedó helada de miedo.",
+                "level": "B1"
+            },
+            {
+                "english": "He has frozen the meat.",
+                "spanish": "Ha congelado la carne.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "lay",
+        "translation": "poner/colocar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "lay",
+            "thirdPerson": "lays",
+            "presentParticiple": "laying",
+            "pastSimple": "laid",
+            "pastParticiple": "laid"
+        },
+        "pronunciation": {
+            "ipa": "/leɪ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "place",
+            "set down"
+        ],
+        "antonyms": [
+            "lift",
+            "raise"
+        ],
+        "examples": [
+            {
+                "english": "Lay the books here.",
+                "spanish": "Pon los libros aquí.",
+                "level": "B1"
+            },
+            {
+                "english": "She laid the baby in the crib.",
+                "spanish": "Ella puso al bebé en la cuna.",
+                "level": "B1"
+            },
+            {
+                "english": "He has laid the foundation.",
+                "spanish": "Ha sentado las bases.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "placement"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "lead",
+        "translation": "liderar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "lead",
+            "thirdPerson": "leads",
+            "presentParticiple": "leading",
+            "pastSimple": "led",
+            "pastParticiple": "led"
+        },
+        "pronunciation": {
+            "ipa": "/liːd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "guide",
+            "direct"
+        ],
+        "antonyms": [
+            "follow"
+        ],
+        "examples": [
+            {
+                "english": "She leads the team.",
+                "spanish": "Ella lidera el equipo.",
+                "level": "B1"
+            },
+            {
+                "english": "She led the discussion.",
+                "spanish": "Ella dirigió la discusión.",
+                "level": "B1"
+            },
+            {
+                "english": "He has led a good life.",
+                "spanish": "Ha llevado una buena vida.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "leadership"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "lie",
+        "translation": "mentir/recostarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "lie",
+            "thirdPerson": "lies",
+            "presentParticiple": "lying",
+            "pastSimple": "lay",
+            "pastParticiple": "lain"
+        },
+        "pronunciation": {
+            "ipa": "/laɪ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "recline",
+            "fib"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Don't lie to me.",
+                "spanish": "No me mientas.",
+                "level": "B1"
+            },
+            {
+                "english": "She lay on the grass.",
+                "spanish": "Ella se recostó en la hierba.",
+                "level": "B1"
+            },
+            {
+                "english": "He has lain there all day.",
+                "spanish": "Ha estado acostado allí todo el día.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "position"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "seek",
+        "translation": "buscar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "seek",
+            "thirdPerson": "seeks",
+            "presentParticiple": "seeking",
+            "pastSimple": "sought",
+            "pastParticiple": "sought"
+        },
+        "pronunciation": {
+            "ipa": "/siːk/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "search",
+            "hunt for"
+        ],
+        "antonyms": [
+            "hide"
+        ],
+        "examples": [
+            {
+                "english": "Seek the truth.",
+                "spanish": "Busca la verdad.",
+                "level": "B1"
+            },
+            {
+                "english": "She sought help.",
+                "spanish": "Ella buscó ayuda.",
+                "level": "B1"
+            },
+            {
+                "english": "He has sought advice.",
+                "spanish": "Ha buscado consejo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "search"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "set",
+        "translation": "establecer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "set",
+            "thirdPerson": "sets",
+            "presentParticiple": "seting",
+            "pastSimple": "set",
+            "pastParticiple": "set"
+        },
+        "pronunciation": {
+            "ipa": "/sɛt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "establish",
+            "place"
+        ],
+        "antonyms": [
+            "unset"
+        ],
+        "examples": [
+            {
+                "english": "Set the table.",
+                "spanish": "Pon la mesa.",
+                "level": "B1"
+            },
+            {
+                "english": "She set a new record.",
+                "spanish": "Ella estableció un nuevo récord.",
+                "level": "B1"
+            },
+            {
+                "english": "He has set his goals.",
+                "spanish": "Ha establecido sus metas.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "slide",
+        "translation": "deslizar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "slide",
+            "thirdPerson": "slides",
+            "presentParticiple": "sliding",
+            "pastSimple": "slid",
+            "pastParticiple": "slid"
+        },
+        "pronunciation": {
+            "ipa": "/slaɪd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "glide",
+            "slip"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Slide the door open.",
+                "spanish": "Desliza la puerta para abrirla.",
+                "level": "B1"
+            },
+            {
+                "english": "She slid on the ice.",
+                "spanish": "Ella resbaló en el hielo.",
+                "level": "B1"
+            },
+            {
+                "english": "He has slid into the habit.",
+                "spanish": "Ha caído en el hábito.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "spin",
+        "translation": "girar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "spin",
+            "thirdPerson": "spins",
+            "presentParticiple": "spining",
+            "pastSimple": "spun",
+            "pastParticiple": "spun"
+        },
+        "pronunciation": {
+            "ipa": "/spɪn/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "rotate",
+            "twirl"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Spin the wheel.",
+                "spanish": "Gira la rueda.",
+                "level": "B1"
+            },
+            {
+                "english": "She spun around quickly.",
+                "spanish": "Ella giró rápidamente.",
+                "level": "B1"
+            },
+            {
+                "english": "He has spun a yarn.",
+                "spanish": "Ha contado una historia.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "spread",
+        "translation": "extender",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "spread",
+            "thirdPerson": "spreads",
+            "presentParticiple": "spreading",
+            "pastSimple": "spread",
+            "pastParticiple": "spread"
+        },
+        "pronunciation": {
+            "ipa": "/sprɛd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "extend",
+            "unfold"
+        ],
+        "antonyms": [
+            "fold",
+            "concentrate"
+        ],
+        "examples": [
+            {
+                "english": "Spread the butter.",
+                "spanish": "Extiende la mantequilla.",
+                "level": "B1"
+            },
+            {
+                "english": "She spread the news.",
+                "spanish": "Ella difundió la noticia.",
+                "level": "B1"
+            },
+            {
+                "english": "He has spread the rumors.",
+                "spanish": "Ha difundido los rumores.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "stick",
+        "translation": "pegar/atascar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "stick",
+            "thirdPerson": "sticks",
+            "presentParticiple": "sticking",
+            "pastSimple": "stuck",
+            "pastParticiple": "stuck"
+        },
+        "pronunciation": {
+            "ipa": "/stɪk/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "adhere",
+            "jam"
+        ],
+        "antonyms": [
+            "unstick",
+            "detach"
+        ],
+        "examples": [
+            {
+                "english": "Stick the label on.",
+                "spanish": "Pega la etiqueta.",
+                "level": "B1"
+            },
+            {
+                "english": "She stuck to her plan.",
+                "spanish": "Ella se apegó a su plan.",
+                "level": "B1"
+            },
+            {
+                "english": "He has stuck with the project.",
+                "spanish": "Ha perseverado con el proyecto.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "swear",
+        "translation": "jurar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "swear",
+            "thirdPerson": "swears",
+            "presentParticiple": "swearing",
+            "pastSimple": "swore",
+            "pastParticiple": "sworn"
+        },
+        "pronunciation": {
+            "ipa": "/swɛər/",
+            "audio": null
+        },
+        "category": [
+            "communication"
+        ],
+        "synonyms": [
+            "promise",
+            "curse"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I swear it's true.",
+                "spanish": "Juro que es verdad.",
+                "level": "B1"
+            },
+            {
+                "english": "She swore at him.",
+                "spanish": "Ella le maldijo.",
+                "level": "B1"
+            },
+            {
+                "english": "He has sworn to be loyal.",
+                "spanish": "Ha jurado ser leal.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "communication",
+            "language"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "sweep",
+        "translation": "barrer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sweep",
+            "thirdPerson": "sweeps",
+            "presentParticiple": "sweeping",
+            "pastSimple": "swept",
+            "pastParticiple": "swept"
+        },
+        "pronunciation": {
+            "ipa": "/swiːp/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "clean",
+            "brush"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Sweep the floor.",
+                "spanish": "Barre el suelo.",
+                "level": "B1"
+            },
+            {
+                "english": "She swept the room.",
+                "spanish": "Ella barrió el cuarto.",
+                "level": "B1"
+            },
+            {
+                "english": "He has swept her off her feet.",
+                "spanish": "La ha dejado sin aliento.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "cleaning"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "wind",
+        "translation": "enrollar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "wind",
+            "thirdPerson": "winds",
+            "presentParticiple": "winding",
+            "pastSimple": "wound",
+            "pastParticiple": "wound"
+        },
+        "pronunciation": {
+            "ipa": "/waɪnd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "coil",
+            "twist"
+        ],
+        "antonyms": [
+            "unwind"
+        ],
+        "examples": [
+            {
+                "english": "Wind the string.",
+                "spanish": "Enrolla el hilo.",
+                "level": "B1"
+            },
+            {
+                "english": "She wound the clock.",
+                "spanish": "Ella dio cuerda al reloj.",
+                "level": "B1"
+            },
+            {
+                "english": "He has wound down from work.",
+                "spanish": "Se ha relajado del trabajo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "abide",
+        "translation": "soportar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "abide",
+            "thirdPerson": "abides",
+            "presentParticiple": "abiding",
+            "pastSimple": "abode",
+            "pastParticiple": "abided"
+        },
+        "pronunciation": {
+            "ipa": "/əˈbaɪd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "tolerate",
+            "endure"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I cannot abide noise.",
+                "spanish": "No soporto el ruido.",
+                "level": "B2"
+            },
+            {
+                "english": "She abided by the rules.",
+                "spanish": "Ella cumplió las reglas.",
+                "level": "B2"
+            },
+            {
+                "english": "He has abided there long.",
+                "spanish": "Ha permanecido allí mucho tiempo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "formal"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "arise",
+        "translation": "surgir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "arise",
+            "thirdPerson": "arises",
+            "presentParticiple": "arising",
+            "pastSimple": "arose",
+            "pastParticiple": "arisen"
+        },
+        "pronunciation": {
+            "ipa": "/əˈraɪz/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "emerge",
+            "appear"
+        ],
+        "antonyms": [
+            "disappear"
+        ],
+        "examples": [
+            {
+                "english": "Problems arise.",
+                "spanish": "Surgen problemas.",
+                "level": "B2"
+            },
+            {
+                "english": "A crisis arose.",
+                "spanish": "Surgió una crisis.",
+                "level": "B2"
+            },
+            {
+                "english": "Difficulties have arisen.",
+                "spanish": "Han surgido dificultades.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "formal"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "befall",
+        "translation": "suceder",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "befall",
+            "thirdPerson": "befalls",
+            "presentParticiple": "befalling",
+            "pastSimple": "befell",
+            "pastParticiple": "befallen"
+        },
+        "pronunciation": {
+            "ipa": "/bɪˈfɔːl/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "happen to"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Woe befell them.",
+                "spanish": "La desgracia les sobrevino.",
+                "level": "B2"
+            },
+            {
+                "english": "A tragedy befell the family.",
+                "spanish": "Una tragedia sobrevino a la familia.",
+                "level": "B2"
+            },
+            {
+                "english": "Misfortune has befallen us.",
+                "spanish": "Nos ha sobrevenido la mala suerte.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "rare"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "bet",
+        "translation": "apostar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "bet",
+            "thirdPerson": "bets",
+            "presentParticiple": "beting",
+            "pastSimple": "bet",
+            "pastParticiple": "bet"
+        },
+        "pronunciation": {
+            "ipa": "/bɛt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "wager",
+            "gamble"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I bet you ten dollars.",
+                "spanish": "Te apuesto diez dólares.",
+                "level": "B2"
+            },
+            {
+                "english": "She bet on the horse.",
+                "spanish": "Ella apostó al caballo.",
+                "level": "B2"
+            },
+            {
+                "english": "He has bet everything.",
+                "spanish": "Ha apostado todo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "gambling"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "bind",
+        "translation": "atar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "bind",
+            "thirdPerson": "binds",
+            "presentParticiple": "binding",
+            "pastSimple": "bound",
+            "pastParticiple": "bound"
+        },
+        "pronunciation": {
+            "ipa": "/baɪnd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "tie",
+            "fasten"
+        ],
+        "antonyms": [
+            "unbind",
+            "free"
+        ],
+        "examples": [
+            {
+                "english": "Bind the rope.",
+                "spanish": "Ata la cuerda.",
+                "level": "B2"
+            },
+            {
+                "english": "She bound the package.",
+                "spanish": "Ella ató el paquete.",
+                "level": "B2"
+            },
+            {
+                "english": "He has bound himself to the task.",
+                "spanish": "Se ha comprometido con la tarea.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "burst",
+        "translation": "estallar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "burst",
+            "thirdPerson": "bursts",
+            "presentParticiple": "bursting",
+            "pastSimple": "burst",
+            "pastParticiple": "burst"
+        },
+        "pronunciation": {
+            "ipa": "/bɜːrst/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "explode",
+            "rupture"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The balloon will burst.",
+                "spanish": "El globo va a estallar.",
+                "level": "B2"
+            },
+            {
+                "english": "She burst into tears.",
+                "spanish": "Ella rompió a llorar.",
+                "level": "B2"
+            },
+            {
+                "english": "The pipe has burst.",
+                "spanish": "La tubería ha reventado.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "forbid",
+        "translation": "prohibir",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "forbid",
+            "thirdPerson": "forbids",
+            "presentParticiple": "forbiding",
+            "pastSimple": "forbade",
+            "pastParticiple": "forbidden"
+        },
+        "pronunciation": {
+            "ipa": "/fərˈbɪd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "prohibit",
+            "ban"
+        ],
+        "antonyms": [
+            "permit",
+            "allow"
+        ],
+        "examples": [
+            {
+                "english": "I forbid you to go.",
+                "spanish": "Te prohíbo ir.",
+                "level": "B2"
+            },
+            {
+                "english": "She forbade smoking.",
+                "spanish": "Ella prohibió fumar.",
+                "level": "B2"
+            },
+            {
+                "english": "He has forbidden it.",
+                "spanish": "Lo ha prohibido.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "authority"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "forsake",
+        "translation": "abandonar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "forsake",
+            "thirdPerson": "forsakes",
+            "presentParticiple": "forsaking",
+            "pastSimple": "forsook",
+            "pastParticiple": "forsaken"
+        },
+        "pronunciation": {
+            "ipa": "/fərˈseɪk/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "abandon",
+            "desert"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Don't forsake me.",
+                "spanish": "No me abandones.",
+                "level": "B2"
+            },
+            {
+                "english": "She forsook her old life.",
+                "spanish": "Ella abandonó su vieja vida.",
+                "level": "B2"
+            },
+            {
+                "english": "He has forsaken his fears.",
+                "spanish": "Ha abandonado sus miedos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "rare"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "hew",
+        "translation": "talar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hew",
+            "thirdPerson": "hews",
+            "presentParticiple": "hewing",
+            "pastSimple": "hewed",
+            "pastParticiple": "hewn"
+        },
+        "pronunciation": {
+            "ipa": "/hjuː/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "chop",
+            "cut"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hew the wood.",
+                "spanish": "Tala la madera.",
+                "level": "B2"
+            },
+            {
+                "english": "She hewed a statue.",
+                "spanish": "Ella talló una estatua.",
+                "level": "B2"
+            },
+            {
+                "english": "He has hewn a path.",
+                "spanish": "Ha abierto un camino.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "rare"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "hit",
+        "translation": "golpear",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "hit",
+            "thirdPerson": "hits",
+            "presentParticiple": "hiting",
+            "pastSimple": "hit",
+            "pastParticiple": "hit"
+        },
+        "pronunciation": {
+            "ipa": "/hɪt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "strike",
+            "punch"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hit the ball.",
+                "spanish": "Golpea la pelota.",
+                "level": "B2"
+            },
+            {
+                "english": "She hit the target.",
+                "spanish": "Ella dio en el blanco.",
+                "level": "B2"
+            },
+            {
+                "english": "He has hit a home run.",
+                "spanish": "Ha bateado un jonrón.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "kneel",
+        "translation": "arrodillarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "kneel",
+            "thirdPerson": "kneels",
+            "presentParticiple": "kneeling",
+            "pastSimple": "knelt",
+            "pastParticiple": "knelt"
+        },
+        "pronunciation": {
+            "ipa": "/niːl/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "genuflect"
+        ],
+        "antonyms": [
+            "stand"
+        ],
+        "examples": [
+            {
+                "english": "Kneel down.",
+                "spanish": "Arrodíllate.",
+                "level": "B2"
+            },
+            {
+                "english": "She knelt in prayer.",
+                "spanish": "Ella se arrodilló a rezar.",
+                "level": "B2"
+            },
+            {
+                "english": "He has knelt before the king.",
+                "spanish": "Se ha arrodillado ante el rey.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "position"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "knit",
+        "translation": "tejer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "knit",
+            "thirdPerson": "knits",
+            "presentParticiple": "kniting",
+            "pastSimple": "knit",
+            "pastParticiple": "knit"
+        },
+        "pronunciation": {
+            "ipa": "/nɪt/",
+            "audio": null
+        },
+        "category": [
+            "creation"
+        ],
+        "synonyms": [
+            "weave",
+            "craft"
+        ],
+        "antonyms": [
+            "unravel"
+        ],
+        "examples": [
+            {
+                "english": "She knits sweaters.",
+                "spanish": "Ella teje suéteres.",
+                "level": "B2"
+            },
+            {
+                "english": "She knit a scarf.",
+                "spanish": "Ella tejió una bufanda.",
+                "level": "B2"
+            },
+            {
+                "english": "He has knit his brows.",
+                "spanish": "Ha fruncido el ceño.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "creation",
+            "craft"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "mow",
+        "translation": "cortar (césped)",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "mow",
+            "thirdPerson": "mows",
+            "presentParticiple": "mowing",
+            "pastSimple": "mowed",
+            "pastParticiple": "mown"
+        },
+        "pronunciation": {
+            "ipa": "/moʊ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "cut grass"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Mow the lawn.",
+                "spanish": "Corta el césped.",
+                "level": "B2"
+            },
+            {
+                "english": "She mowed the grass.",
+                "spanish": "Ella cortó el césped.",
+                "level": "B2"
+            },
+            {
+                "english": "He has mowed the field.",
+                "spanish": "Ha cortado el campo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "gardening"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "sew",
+        "translation": "coser",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "sew",
+            "thirdPerson": "sews",
+            "presentParticiple": "sewing",
+            "pastSimple": "sewed",
+            "pastParticiple": "sewn"
+        },
+        "pronunciation": {
+            "ipa": "/soʊ/",
+            "audio": null
+        },
+        "category": [
+            "creation"
+        ],
+        "synonyms": [
+            "stitch",
+            "suture"
+        ],
+        "antonyms": [
+            "unsew",
+            "rip"
+        ],
+        "examples": [
+            {
+                "english": "She sews clothes.",
+                "spanish": "Ella cose ropa.",
+                "level": "B2"
+            },
+            {
+                "english": "She sewed a button.",
+                "spanish": "Ella cosió un botón.",
+                "level": "B2"
+            },
+            {
+                "english": "He has sewn the wound.",
+                "spanish": "Ha cosido la herida.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "creation",
+            "craft"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "smite",
+        "translation": "golpear",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "smite",
+            "thirdPerson": "smites",
+            "presentParticiple": "smiting",
+            "pastSimple": "smote",
+            "pastParticiple": "smitten"
+        },
+        "pronunciation": {
+            "ipa": "/smaɪt/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "strike",
+            "afflict"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The hero smote the dragon.",
+                "spanish": "El héroe golpeó al dragón.",
+                "level": "B2"
+            },
+            {
+                "english": "She was smitten with fear.",
+                "spanish": "Ella fue golpeada por el miedo.",
+                "level": "B2"
+            },
+            {
+                "english": "He has smitten the enemy.",
+                "spanish": "Ha golpeado al enemigo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "archaic"
+        ],
+        "difficulty": "HARD",
+        "level": 5
+    },
+    {
+        "word": "stride",
+        "translation": "caminar (a pasos largos)",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "stride",
+            "thirdPerson": "strides",
+            "presentParticiple": "striding",
+            "pastSimple": "strode",
+            "pastParticiple": "stridden"
+        },
+        "pronunciation": {
+            "ipa": "/straɪd/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "march",
+            "stalk"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Stride across the room.",
+                "spanish": "Camina a pasos largos por el cuarto.",
+                "level": "B2"
+            },
+            {
+                "english": "She strode into the office.",
+                "spanish": "Ella entró a zancadas a la oficina.",
+                "level": "B2"
+            },
+            {
+                "english": "He has strode forward.",
+                "spanish": "Ha avanzado a pasos largos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "strive",
+        "translation": "esforzarse",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "strive",
+            "thirdPerson": "strives",
+            "presentParticiple": "striving",
+            "pastSimple": "strove",
+            "pastParticiple": "striven"
+        },
+        "pronunciation": {
+            "ipa": "/straɪv/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "endeavor",
+            "struggle"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Strive for excellence.",
+                "spanish": "Esfuérzate por la excelencia.",
+                "level": "B2"
+            },
+            {
+                "english": "She strove to succeed.",
+                "spanish": "Ella se esforzó por tener éxito.",
+                "level": "B2"
+            },
+            {
+                "english": "He has striven for peace.",
+                "spanish": "Ha luchado por la paz.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "effort"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "withdraw",
+        "translation": "retirar",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "withdraw",
+            "thirdPerson": "withdraws",
+            "presentParticiple": "withdrawing",
+            "pastSimple": "withdrew",
+            "pastParticiple": "withdrawn"
+        },
+        "pronunciation": {
+            "ipa": "/wɪðˈdrɔː/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "retreat",
+            "pull back"
+        ],
+        "antonyms": [
+            "deposit",
+            "advance"
+        ],
+        "examples": [
+            {
+                "english": "Withdraw money.",
+                "spanish": "Retira dinero.",
+                "level": "B2"
+            },
+            {
+                "english": "She withdrew from the race.",
+                "spanish": "Ella se retiró de la carrera.",
+                "level": "B2"
+            },
+            {
+                "english": "He has withdrawn his support.",
+                "spanish": "Ha retirado su apoyo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "movement"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "withhold",
+        "translation": "retener",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "withhold",
+            "thirdPerson": "withholds",
+            "presentParticiple": "withholding",
+            "pastSimple": "withheld",
+            "pastParticiple": "withheld"
+        },
+        "pronunciation": {
+            "ipa": "/wɪðˈhoʊld/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "refuse",
+            "hold back"
+        ],
+        "antonyms": [
+            "give",
+            "provide"
+        ],
+        "examples": [
+            {
+                "english": "Withhold information.",
+                "spanish": "Retén la información.",
+                "level": "B2"
+            },
+            {
+                "english": "She withheld payment.",
+                "spanish": "Ella retuvo el pago.",
+                "level": "B2"
+            },
+            {
+                "english": "He has withheld his consent.",
+                "spanish": "Ha retenido su consentimiento.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "control"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "wring",
+        "translation": "retorcer",
+        "type": "verb",
+        "regular": false,
+        "forms": {
+            "base": "wring",
+            "thirdPerson": "wrings",
+            "presentParticiple": "wringing",
+            "pastSimple": "wrung",
+            "pastParticiple": "wrung"
+        },
+        "pronunciation": {
+            "ipa": "/rɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "twist",
+            "squeeze"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Wring out the cloth.",
+                "spanish": "Retuerce el trapo.",
+                "level": "B2"
+            },
+            {
+                "english": "She wrung her hands.",
+                "spanish": "Ella se retorció las manos.",
+                "level": "B2"
+            },
+            {
+                "english": "He has wrung out the truth.",
+                "spanish": "Ha arrancado la verdad.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    }
+]

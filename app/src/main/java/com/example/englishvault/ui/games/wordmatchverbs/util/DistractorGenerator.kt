@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.games.wordmatch.util
+﻿package com.example.englishvault.ui.games.wordmatchverbs.util
 
 /**
  * Produces plausible misspelt alternatives for the Word Match Verbs
@@ -6,10 +6,10 @@ package com.example.englishvault.ui.games.wordmatch.util
  *
  * The algorithm picks one character position at random and replaces
  * it with a phonetically or visually similar substitute:
- *  - Vowels swap with another vowel (`a` ↔ `e` ↔ `i` ↔ `o` ↔ `u`).
+ *  - Vowels swap with another vowel (`a` â†” `e` â†” `i` â†” `o` â†” `u`).
  *  - Consonants swap with a phonetically close sibling
- *    (`b` ↔ `p`, `d` ↔ `t`, `g` ↔ `c` ↔ `k`, `f` ↔ `v`,
- *    `s` ↔ `z`, `m` ↔ `n`, `l` ↔ `r`).
+ *    (`b` â†” `p`, `d` â†” `t`, `g` â†” `c` â†” `k`, `f` â†” `v`,
+ *    `s` â†” `z`, `m` â†” `n`, `l` â†” `r`).
  *
  * The function retries until it has produced [count] unique
  * strings that differ from the [correct] input. A safety cap on the

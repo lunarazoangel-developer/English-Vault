@@ -1,0 +1,1655 @@
+[
+    {
+        "word": "good",
+        "translation": "bueno",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɡʊd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["great", "fine"],
+        "antonyms": ["bad", "poor"],
+        "examples": [
+            {"english": "This food is good.", "spanish": "Esta comida es buena.", "level": "A1"},
+            {"english": "She is a good person.", "spanish": "Ella es una buena persona.", "level": "A1"},
+            {"english": "That was a good decision.", "spanish": "Fue una buena decisión.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "bad",
+        "translation": "malo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/bæd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["poor", "awful"],
+        "antonyms": ["good", "excellent"],
+        "examples": [
+            {"english": "That was a bad idea.", "spanish": "Esa fue una mala idea.", "level": "A1"},
+            {"english": "I had a bad day yesterday.", "spanish": "Tuve un mal día ayer.", "level": "A2"},
+            {"english": "The weather has been bad all week.", "spanish": "El clima ha estado malo toda la semana.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "big",
+        "translation": "grande",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/bɪɡ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["large", "huge"],
+        "antonyms": ["small", "tiny"],
+        "examples": [
+            {"english": "That is a big dog.", "spanish": "Ese es un perro grande.", "level": "A1"},
+            {"english": "They live in a big house.", "spanish": "Ellos viven en una casa grande.", "level": "A1"},
+            {"english": "It was a big decision to make.", "spanish": "Fue una gran decisión que tomar.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "small",
+        "translation": "pequeño",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/smɔːl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["little", "tiny"],
+        "antonyms": ["big", "large"],
+        "examples": [
+            {"english": "I have a small car.", "spanish": "Tengo un coche pequeño.", "level": "A1"},
+            {"english": "She lives in a small town.", "spanish": "Ella vive en un pueblo pequeño.", "level": "A2"},
+            {"english": "It was a small mistake with big consequences.", "spanish": "Fue un pequeño error con grandes consecuencias.", "level": "B2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "happy",
+        "translation": "feliz",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈhæpi/", "audio": null},
+        "category": ["emotion"],
+        "synonyms": ["joyful", "glad"],
+        "antonyms": ["sad", "unhappy"],
+        "examples": [
+            {"english": "I am so happy today.", "spanish": "Estoy muy feliz hoy.", "level": "A1"},
+            {"english": "She looked happy in the photo.", "spanish": "Ella se veía feliz en la foto.", "level": "A2"},
+            {"english": "They were happy with the result.", "spanish": "Estaban felices con el resultado.", "level": "B1"}
+        ],
+        "tags": ["emotion", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "sad",
+        "translation": "triste",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/sæd/", "audio": null},
+        "category": ["emotion"],
+        "synonyms": ["unhappy", "sorrowful"],
+        "antonyms": ["happy", "cheerful"],
+        "examples": [
+            {"english": "Why are you sad?", "spanish": "¿Por qué estás triste?", "level": "A1"},
+            {"english": "She felt sad after the movie.", "spanish": "Ella se sintió triste después de la película.", "level": "A2"},
+            {"english": "It was a sad moment for everyone.", "spanish": "Fue un momento triste para todos.", "level": "B1"}
+        ],
+        "tags": ["emotion"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "hot",
+        "translation": "caliente",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/hɒt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["warm"],
+        "antonyms": ["cold", "cool"],
+        "examples": [
+            {"english": "The soup is hot.", "spanish": "La sopa está caliente.", "level": "A1"},
+            {"english": "It is hot today.", "spanish": "Hace calor hoy.", "level": "A1"},
+            {"english": "The coffee was too hot to drink.", "spanish": "El café estaba demasiado caliente para beber.", "level": "B1"}
+        ],
+        "tags": ["description", "weather"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "cold",
+        "translation": "frío",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/koʊld/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["chilly", "freezing"],
+        "antonyms": ["hot", "warm"],
+        "examples": [
+            {"english": "The water is cold.", "spanish": "El agua está fría.", "level": "A1"},
+            {"english": "It is cold today.", "spanish": "Hace frío hoy.", "level": "A1"},
+            {"english": "My hands are cold.", "spanish": "Tengo las manos frías.", "level": "A2"}
+        ],
+        "tags": ["description", "weather"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "new",
+        "translation": "nuevo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/nuː/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["fresh", "recent"],
+        "antonyms": ["old", "used"],
+        "examples": [
+            {"english": "I bought a new phone.", "spanish": "Compré un teléfono nuevo.", "level": "A1"},
+            {"english": "This is a new chapter in our history.", "spanish": "Este es un nuevo capítulo en nuestra historia.", "level": "A2"},
+            {"english": "She started a new job last month.", "spanish": "Ella comenzó un nuevo trabajo el mes pasado.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "old",
+        "translation": "viejo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/oʊld/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["ancient", "aged"],
+        "antonyms": ["new", "young"],
+        "examples": [
+            {"english": "That is an old building.", "spanish": "Ese es un edificio viejo.", "level": "A1"},
+            {"english": "My grandmother is very old.", "spanish": "Mi abuela es muy vieja.", "level": "A1"},
+            {"english": "He has an old car that needs repairs.", "spanish": "Tiene un carro viejo que necesita reparaciones.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "fast",
+        "translation": "rápido",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/fæst/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["quick", "rapid"],
+        "antonyms": ["slow"],
+        "examples": [
+            {"english": "That car is very fast.", "spanish": "Ese coche es muy rápido.", "level": "A1"},
+            {"english": "He is a fast runner.", "spanish": "Él es un corredor rápido.", "level": "A2"},
+            {"english": "She learns fast.", "spanish": "Ella aprende rápido.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "slow",
+        "translation": "lento",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/sloʊ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["sluggish"],
+        "antonyms": ["fast", "quick"],
+        "examples": [
+            {"english": "The turtle is slow.", "spanish": "La tortuga es lenta.", "level": "A1"},
+            {"english": "Traffic is slow today.", "spanish": "El tráfico está lento hoy.", "level": "A2"},
+            {"english": "His progress has been slow but steady.", "spanish": "Su progreso ha sido lento pero constante.", "level": "B2"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "easy",
+        "translation": "fácil",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈiːzi/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["simple", "effortless"],
+        "antonyms": ["hard", "difficult"],
+        "examples": [
+            {"english": "This exercise is easy.", "spanish": "Este ejercicio es fácil.", "level": "A1"},
+            {"english": "It was easy to find the answer.", "spanish": "Fue fácil encontrar la respuesta.", "level": "A2"},
+            {"english": "The test was easier than I expected.", "spanish": "El examen fue más fácil de lo que esperaba.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "difficult",
+        "translation": "difícil",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdɪfɪkəlt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["hard", "challenging"],
+        "antonyms": ["easy", "simple"],
+        "examples": [
+            {"english": "This problem is very difficult.", "spanish": "Este problema es muy difícil.", "level": "A1"},
+            {"english": "Learning a new language is difficult.", "spanish": "Aprender un nuevo idioma es difícil.", "level": "A2"},
+            {"english": "The exam was more difficult than the practice tests.", "spanish": "El examen fue más difícil que las pruebas de práctica.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "beautiful",
+        "translation": "hermoso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈbjuːtɪfəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["pretty", "lovely"],
+        "antonyms": ["ugly"],
+        "examples": [
+            {"english": "What a beautiful day!", "spanish": "¡Qué día tan hermoso!", "level": "A1"},
+            {"english": "She is a beautiful woman.", "spanish": "Ella es una mujer hermosa.", "level": "A2"},
+            {"english": "The sunset was beautiful.", "spanish": "La puesta de sol fue hermosa.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "long",
+        "translation": "largo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/lɔːŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["extended", "lengthy"],
+        "antonyms": ["short", "brief"],
+        "examples": [
+            {"english": "I have a long day ahead.", "spanish": "Tengo un día largo por delante.", "level": "A1"},
+            {"english": "The movie was very long.", "spanish": "La película fue muy larga.", "level": "A1"},
+            {"english": "She has long hair.", "spanish": "Ella tiene el pelo largo.", "level": "A1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "short",
+        "translation": "corto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ʃɔːrt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["brief", "small"],
+        "antonyms": ["long", "tall"],
+        "examples": [
+            {"english": "He has short hair.", "spanish": "Él tiene el pelo corto.", "level": "A1"},
+            {"english": "The meeting was short.", "spanish": "La reunión fue corta.", "level": "A1"},
+            {"english": "It was a short trip.", "spanish": "Fue un viaje corto.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "tall",
+        "translation": "alto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/tɔːl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["high"],
+        "antonyms": ["short", "low"],
+        "examples": [
+            {"english": "He is very tall.", "spanish": "Él es muy alto.", "level": "A1"},
+            {"english": "That is a tall building.", "spanish": "Ese es un edificio alto.", "level": "A1"},
+            {"english": "The tree is taller than the house.", "spanish": "El árbol es más alto que la casa.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "strong",
+        "translation": "fuerte",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/strɔːŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["powerful", "muscular"],
+        "antonyms": ["weak", "fragile"],
+        "examples": [
+            {"english": "He is very strong.", "spanish": "Él es muy fuerte.", "level": "A1"},
+            {"english": "That is a strong wind.", "spanish": "Ese es un viento fuerte.", "level": "A2"},
+            {"english": "She has a strong personality.", "spanish": "Ella tiene una personalidad fuerte.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "weak",
+        "translation": "débil",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/wiːk/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["frail", "feeble"],
+        "antonyms": ["strong", "powerful"],
+        "examples": [
+            {"english": "She felt weak after being sick.", "spanish": "Se sintió débil después de estar enferma.", "level": "A1"},
+            {"english": "The old man is very weak.", "spanish": "El anciano es muy débil.", "level": "A2"},
+            {"english": "His argument was weak.", "spanish": "Su argumento era débil.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "rich",
+        "translation": "rico",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/rɪtʃ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["wealthy", "affluent"],
+        "antonyms": ["poor"],
+        "examples": [
+            {"english": "She is a rich woman.", "spanish": "Ella es una mujer rica.", "level": "A1"},
+            {"english": "The country is rich in natural resources.", "spanish": "El país es rico en recursos naturales.", "level": "A2"},
+            {"english": "He inherited a rich fortune.", "spanish": "Heredó una fortuna rica.", "level": "B1"}
+        ],
+        "tags": ["description", "social"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "poor",
+        "translation": "pobre",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/pɔːr/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["impoverished", "needy"],
+        "antonyms": ["rich", "wealthy"],
+        "examples": [
+            {"english": "They live in a poor neighborhood.", "spanish": "Viven en un vecindario pobre.", "level": "A1"},
+            {"english": "The poor family needed help.", "spanish": "La familia pobre necesitaba ayuda.", "level": "A2"},
+            {"english": "The soil is poor in nutrients.", "spanish": "El suelo es pobre en nutrientes.", "level": "B1"}
+        ],
+        "tags": ["description", "social"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "clean",
+        "translation": "limpio",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/kliːn/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["spotless", "tidy"],
+        "antonyms": ["dirty", "filthy"],
+        "examples": [
+            {"english": "The room is very clean.", "spanish": "La habitación está muy limpia.", "level": "A1"},
+            {"english": "She keeps her house clean.", "spanish": "Ella mantiene su casa limpia.", "level": "A1"},
+            {"english": "The water is clean and safe to drink.", "spanish": "El agua está limpia y es segura para beber.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "dirty",
+        "translation": "sucio",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdɜːrti/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["filthy", "soiled"],
+        "antonyms": ["clean", "spotless"],
+        "examples": [
+            {"english": "Your hands are dirty.", "spanish": "Tus manos están sucias.", "level": "A1"},
+            {"english": "The car is dirty.", "spanish": "El carro está sucio.", "level": "A1"},
+            {"english": "The river has become dirty over the years.", "spanish": "El río se ha vuelto sucio con los años.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "young",
+        "translation": "joven",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/jʌŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["youthful"],
+        "antonyms": ["old", "elderly"],
+        "examples": [
+            {"english": "She is a young artist.", "spanish": "Ella es una artista joven.", "level": "A1"},
+            {"english": "The young generation thinks differently.", "spanish": "La generación joven piensa diferente.", "level": "A2"},
+            {"english": "He was young when he first traveled abroad.", "spanish": "Era joven cuando viajaba al extranjero por primera vez.", "level": "B1"}
+        ],
+        "tags": ["description", "age"],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "important",
+        "translation": "importante",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪmˈpɔːrtənt/", "audio": null},
+        "category": ["abstract"],
+        "synonyms": ["significant", "crucial"],
+        "antonyms": ["trivial", "unimportant"],
+        "examples": [
+            {"english": "This is an important meeting.", "spanish": "Esta es una reunión importante.", "level": "A2"},
+            {"english": "Family is important to me.", "spanish": "La familia es importante para mí.", "level": "A2"},
+            {"english": "It is important to stay hydrated.", "spanish": "Es importante mantenerse hidratado.", "level": "B1"}
+        ],
+        "tags": ["abstract", "important"],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "interesting",
+        "translation": "interesante",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈɪntrəstɪŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["fascinating", "intriguing"],
+        "antonyms": ["boring", "dull"],
+        "examples": [
+            {"english": "This book is very interesting.", "spanish": "Este libro es muy interesante.", "level": "A1"},
+            {"english": "She told an interesting story.", "spanish": "Ella contó una historia interesante.", "level": "A2"},
+            {"english": "It was an interesting experience.", "spanish": "Fue una experiencia interesante.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "boring",
+        "translation": "aburrido",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈbɔːrɪŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["dull", "tedious"],
+        "antonyms": ["interesting", "exciting"],
+        "examples": [
+            {"english": "The movie was boring.", "spanish": "La película fue aburrida.", "level": "A1"},
+            {"english": "This class is so boring.", "spanish": "Esta clase es tan aburrida.", "level": "A2"},
+            {"english": "I found the lecture boring.", "spanish": "Encontré la conferencia aburrida.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "funny",
+        "translation": "divertido",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfʌni/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["humorous", "comical"],
+        "antonyms": ["serious", "sad"],
+        "examples": [
+            {"english": "That joke is very funny.", "spanish": "Ese chiste es muy divertido.", "level": "A1"},
+            {"english": "He is a funny person.", "spanish": "Él es una persona divertida.", "level": "A1"},
+            {"english": "The movie was funny but also touching.", "spanish": "La película fue divertida pero también conmovedora.", "level": "A2"}
+        ],
+        "tags": ["description", "humor"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "serious",
+        "translation": "serio",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsɪəriəs/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["grave", "earnest"],
+        "antonyms": ["funny", "playful"],
+        "examples": [
+            {"english": "He is a serious student.", "spanish": "Él es un estudiante serio.", "level": "A1"},
+            {"english": "This is a serious matter.", "spanish": "Este es un asunto serio.", "level": "A2"},
+            {"english": "She looked serious when she spoke.", "spanish": "Se veía seria cuando hablaba.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "kind",
+        "translation": "amable",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/kaɪnd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["nice", "gentle"],
+        "antonyms": ["unkind", "mean"],
+        "examples": [
+            {"english": "She is very kind.", "spanish": "Ella es muy amable.", "level": "A1"},
+            {"english": "That was kind of you to help.", "spanish": "Fue amable de tu parte ayudar.", "level": "A2"},
+            {"english": "He has a kind heart.", "spanish": "Él tiene un corazón amable.", "level": "B1"}
+        ],
+        "tags": ["description", "personality"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "angry",
+        "translation": "enojado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈæŋɡri/", "audio": null},
+        "category": ["emotion"],
+        "synonyms": ["mad", "furious"],
+        "antonyms": ["happy", "calm"],
+        "examples": [
+            {"english": "Why are you angry?", "spanish": "¿Por qué estás enojado?", "level": "A1"},
+            {"english": "She was angry about the decision.", "spanish": "Ella estaba enojada por la decisión.", "level": "A2"},
+            {"english": "He got angry when he heard the news.", "spanish": "Se enojó cuando escuchó las noticias.", "level": "B1"}
+        ],
+        "tags": ["emotion", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "scared",
+        "translation": "asustado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/skeərd/", "audio": null},
+        "category": ["emotion"],
+        "synonyms": ["frightened", "afraid"],
+        "antonyms": ["brave", "courageous"],
+        "examples": [
+            {"english": "The child is scared of the dark.", "spanish": "El niño tiene miedo de la oscuridad.", "level": "A1"},
+            {"english": "I am scared of heights.", "spanish": "Tengo miedo a las alturas.", "level": "A1"},
+            {"english": "She looked scared when she saw him.", "spanish": "Se veía asustada cuando lo vio.", "level": "A2"}
+        ],
+        "tags": ["emotion", "fear"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "tired",
+        "translation": "cansado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈtaɪərd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["exhausted", "weary"],
+        "antonyms": ["energetic", "rested"],
+        "examples": [
+            {"english": "I am very tired today.", "spanish": "Estoy muy cansado hoy.", "level": "A1"},
+            {"english": "She looked tired after the long trip.", "spanish": "Se veía cansada después del viaje largo.", "level": "A2"},
+            {"english": "I am too tired to go out.", "spanish": "Estoy muy cansado para salir.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "hungry",
+        "translation": "hambriento",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈhʌŋɡri/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["starving"],
+        "antonyms": ["full", "satisfied"],
+        "examples": [
+            {"english": "I am hungry.", "spanish": "Tengo hambre.", "level": "A1"},
+            {"english": "The children are always hungry after school.", "spanish": "Los niños siempre tienen hambre después de la escuela.", "level": "A1"},
+            {"english": "I am too hungry to wait.", "spanish": "Tengo demasiada hambre para esperar.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "thirsty",
+        "translation": "sediento",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈθɜːrsti/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["dry"],
+        "antonyms": ["hydrated"],
+        "examples": [
+            {"english": "I am thirsty.", "spanish": "Tengo sed.", "level": "A1"},
+            {"english": "The hot weather made us thirsty.", "spanish": "El clima caluroso nos dio sed.", "level": "A2"},
+            {"english": "Are you thirsty or hungry?", "spanish": "¿Tienes sed o hambre?", "level": "A1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "sick",
+        "translation": "enfermo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/sɪk/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["ill", "unwell"],
+        "antonyms": ["healthy", "well"],
+        "examples": [
+            {"english": "I feel sick.", "spanish": "Me siento enfermo.", "level": "A1"},
+            {"english": "She has been sick for a week.", "spanish": "Ella ha estado enferma por una semana.", "level": "A1"},
+            {"english": "He is too sick to work.", "spanish": "Está muy enfermo para trabajar.", "level": "A2"}
+        ],
+        "tags": ["description", "health"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "healthy",
+        "translation": "sano",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈhelθi/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["well", "fit"],
+        "antonyms": ["sick", "unhealthy"],
+        "examples": [
+            {"english": "Eating vegetables is healthy.", "spanish": "Comer verduras es sano.", "level": "A1"},
+            {"english": "She leads a healthy lifestyle.", "spanish": "Ella lleva un estilo de vida sano.", "level": "A2"},
+            {"english": "Regular exercise keeps you healthy.", "spanish": "El ejercicio regular te mantiene sano.", "level": "B1"}
+        ],
+        "tags": ["description", "health"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "full",
+        "translation": "lleno",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/fʊl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["complete", "filled"],
+        "antonyms": ["empty", "hungry"],
+        "examples": [
+            {"english": "The glass is full.", "spanish": "El vaso está lleno.", "level": "A1"},
+            {"english": "I am full after dinner.", "spanish": "Estoy lleno después de cenar.", "level": "A1"},
+            {"english": "The theater was full for the show.", "spanish": "El teatro estaba lleno para la función.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "empty",
+        "translation": "vacío",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈempti/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["blank", "void"],
+        "antonyms": ["full", "filled"],
+        "examples": [
+            {"english": "The room is empty.", "spanish": "La habitación está vacía.", "level": "A1"},
+            {"english": "My stomach is empty.", "spanish": "Mi estómago está vacío.", "level": "A2"},
+            {"english": "He felt empty after the loss.", "spanish": "Se sintió vacío después de la pérdida.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "loud",
+        "translation": "ruidoso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/laʊd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["noisy"],
+        "antonyms": ["quiet", "silent"],
+        "examples": [
+            {"english": "The music is too loud.", "spanish": "La música está muy fuerte.", "level": "A1"},
+            {"english": "He has a loud voice.", "spanish": "Él tiene una voz fuerte.", "level": "A2"},
+            {"english": "The crowd was loud and energetic.", "spanish": "La multitud era ruidosa y enérgica.", "level": "B1"}
+        ],
+        "tags": ["description", "sound"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "quiet",
+        "translation": "tranquilo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkwaɪət/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["silent", "peaceful"],
+        "antonyms": ["loud", "noisy"],
+        "examples": [
+            {"english": "Please be quiet.", "spanish": "Por favor, quédate tranquilo.", "level": "A1"},
+            {"english": "She lives in a quiet neighborhood.", "spanish": "Ella vive en un vecindario tranquilo.", "level": "A1"},
+            {"english": "It was a quiet evening at home.", "spanish": "Fue una noche tranquila en casa.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "dark",
+        "translation": "oscuro",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/dɑːrk/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["dim", "black"],
+        "antonyms": ["light", "bright"],
+        "examples": [
+            {"english": "The room is too dark.", "spanish": "La habitación está muy oscura.", "level": "A1"},
+            {"english": "It gets dark early in winter.", "spanish": "Se hace oscuro temprano en invierno.", "level": "A2"},
+            {"english": "She has dark hair.", "spanish": "Ella tiene pelo oscuro.", "level": "A1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "bright",
+        "translation": "brillante",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/braɪt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["brilliant", "shining"],
+        "antonyms": ["dark", "dim"],
+        "examples": [
+            {"english": "The sun is very bright today.", "spanish": "El sol está muy brillante hoy.", "level": "A1"},
+            {"english": "She is a bright student.", "spanish": "Ella es una estudiante brillante.", "level": "A2"},
+            {"english": "The future looks bright.", "spanish": "El futuro se ve brillante.", "level": "B1"}
+        ],
+        "tags": ["description", "light"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "safe",
+        "translation": "seguro",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/seɪf/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["secure", "protected"],
+        "antonyms": ["dangerous", "unsafe"],
+        "examples": [
+            {"english": "This area is very safe.", "spanish": "Esta área es muy segura.", "level": "A1"},
+            {"english": "Is it safe to swim here?", "spanish": "¿Es seguro nadar aquí?", "level": "A2"},
+            {"english": "Feel safe with your family.", "spanish": "Siéntete seguro con tu familia.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "dangerous",
+        "translation": "peligroso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈdeɪndʒərəs/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["risky", "hazardous"],
+        "antonyms": ["safe", "secure"],
+        "examples": [
+            {"english": "This is a dangerous neighborhood.", "spanish": "Este es un vecindario peligroso.", "level": "A1"},
+            {"english": "It is dangerous to swim here.", "spanish": "Es peligroso nadar aquí.", "level": "A2"},
+            {"english": "Smoking is dangerous for your health.", "spanish": "Fumar es peligroso para tu salud.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "ugly",
+        "translation": "feo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈʌɡli/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["unattractive", "hideous"],
+        "antonyms": ["beautiful", "pretty"],
+        "examples": [
+            {"english": "That building is ugly.", "spanish": "Ese edificio es feo.", "level": "A1"},
+            {"english": "I think the dress is ugly.", "spanish": "Creo que el vestido es feo.", "level": "A2"},
+            {"english": "Don't judge a book by its cover.", "spanish": "No juzgues un libro por su portada.", "level": "A2"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "wrong",
+        "translation": "incorrecto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/rɔːŋ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["incorrect", "mistaken"],
+        "antonyms": ["right", "correct"],
+        "examples": [
+            {"english": "That is the wrong answer.", "spanish": "Esa es la respuesta incorrecta.", "level": "A1"},
+            {"english": "I took the wrong bus.", "spanish": "Tomé el autobús incorrecto.", "level": "A1"},
+            {"english": "Something went wrong with the plan.", "spanish": "Algo salió mal con el plan.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "right",
+        "translation": "correcto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/raɪt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["correct", "proper"],
+        "antonyms": ["wrong", "incorrect"],
+        "examples": [
+            {"english": "That is the right answer.", "spanish": "Esa es la respuesta correcta.", "level": "A1"},
+            {"english": "You are on the right track.", "spanish": "Vas por el camino correcto.", "level": "A2"},
+            {"english": "He always makes the right decision.", "spanish": "Él siempre toma la decisión correcta.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "true",
+        "translation": "verdadero",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/truː/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["real", "genuine"],
+        "antonyms": ["false", "untrue"],
+        "examples": [
+            {"english": "That is a true story.", "spanish": "Esa es una historia verdadera.", "level": "A1"},
+            {"english": "He is a true friend.", "spanish": "Él es un verdadero amigo.", "level": "A2"},
+            {"english": "It is true that she works hard.", "spanish": "Es verdad que ella trabaja duro.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "false",
+        "translation": "falso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/fɔːls/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["fake", "untrue"],
+        "antonyms": ["true", "real"],
+        "examples": [
+            {"english": "That is a false statement.", "spanish": "Esa es una declaración falsa.", "level": "A1"},
+            {"english": "He gave a false impression.", "spanish": "Dio una impresión falsa.", "level": "A2"},
+            {"english": "The alarm was a false alarm.", "spanish": "La alarma fue falsa.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "open",
+        "translation": "abierto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈoʊpən/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["unclosed", "available"],
+        "antonyms": ["closed", "shut"],
+        "examples": [
+            {"english": "The door is open.", "spanish": "La puerta está abierta.", "level": "A1"},
+            {"english": "She has an open mind.", "spanish": "Ella tiene la mente abierta.", "level": "A2"},
+            {"english": "The store is open 24 hours.", "spanish": "La tienda está abierta 24 horas.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "closed",
+        "translation": "cerrado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/kloʊzd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["shut", "locked"],
+        "antonyms": ["open"],
+        "examples": [
+            {"english": "The door is closed.", "spanish": "La puerta está cerrada.", "level": "A1"},
+            {"english": "The store is closed on Sundays.", "spanish": "La tienda está cerrada los domingos.", "level": "A1"},
+            {"english": "He felt closed in the small room.", "spanish": "Se sintió cerrado en el cuarto pequeño.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "ready",
+        "translation": "listo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈredi/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["prepared", "set"],
+        "antonyms": ["unready", "unprepared"],
+        "examples": [
+            {"english": "I am ready to go.", "spanish": "Estoy listo para ir.", "level": "A1"},
+            {"english": "Are you ready for the test?", "spanish": "¿Estás listo para el examen?", "level": "A1"},
+            {"english": "She always arrives ready.", "spanish": "Ella siempre llega lista.", "level": "A2"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "special",
+        "translation": "especial",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈspeʃəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["unique", "particular"],
+        "antonyms": ["ordinary", "common"],
+        "examples": [
+            {"english": "Today is a special day.", "spanish": "Hoy es un día especial.", "level": "A1"},
+            {"english": "She has a special talent.", "spanish": "Ella tiene un talento especial.", "level": "A2"},
+            {"english": "This is a special moment for us.", "spanish": "Este es un momento especial para nosotros.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "common",
+        "translation": "común",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkɒmən/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["usual", "ordinary"],
+        "antonyms": ["rare", "uncommon"],
+        "examples": [
+            {"english": "This is a common mistake.", "spanish": "Este es un error común.", "level": "A1"},
+            {"english": "It is common to feel nervous.", "spanish": "Es común sentirse nervioso.", "level": "A2"},
+            {"english": "Common sense is not so common.", "spanish": "El sentido común no es tan común.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "rare",
+        "translation": "raro",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/reər/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["uncommon", "scarce"],
+        "antonyms": ["common", "frequent"],
+        "examples": [
+            {"english": "That is a rare bird.", "spanish": "Ese es un pájaro raro.", "level": "A1"},
+            {"english": "It is rare to see snow here.", "spanish": "Es raro ver nieve aquí.", "level": "A2"},
+            {"english": "He has a rare disease.", "spanish": "Él tiene una enfermedad rara.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "clear",
+        "translation": "claro",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/klɪər/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["obvious", "evident"],
+        "antonyms": ["unclear", "vague"],
+        "examples": [
+            {"english": "The sky is clear today.", "spanish": "El cielo está claro hoy.", "level": "A1"},
+            {"english": "It is clear that she is talented.", "spanish": "Es claro que ella es talentosa.", "level": "A2"},
+            {"english": "Please make your instructions clear.", "spanish": "Por favor, haz tus instrucciones claras.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "warm",
+        "translation": "tibio",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/wɔːrm/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["lukewarm", "mild"],
+        "antonyms": ["cold", "cool"],
+        "examples": [
+            {"english": "The weather is warm today.", "spanish": "El clima está tibio hoy.", "level": "A1"},
+            {"english": "She gave me a warm welcome.", "spanish": "Ella me dio una bienvenida cálida.", "level": "A2"},
+            {"english": "The soup is still warm.", "spanish": "La sopa todavía está tibia.", "level": "A2"}
+        ],
+        "tags": ["description", "weather"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "dry",
+        "translation": "seco",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/draɪ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["arid", "dehydrated"],
+        "antonyms": ["wet", "moist"],
+        "examples": [
+            {"english": "The climate is very dry here.", "spanish": "El clima es muy seco aquí.", "level": "A1"},
+            {"english": "My skin is dry in winter.", "spanish": "Mi piel está seca en invierno.", "level": "A2"},
+            {"english": "The river dried up during the summer.", "spanish": "El río se secó durante el verano.", "level": "B1"}
+        ],
+        "tags": ["description", "weather"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "wet",
+        "translation": "mojado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/wet/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["damp", "soaked"],
+        "antonyms": ["dry"],
+        "examples": [
+            {"english": "The ground is wet from the rain.", "spanish": "El suelo está mojado por la lluvia.", "level": "A1"},
+            {"english": "My hair is still wet.", "spanish": "Mi pelo todavía está mojado.", "level": "A1"},
+            {"english": "Be careful, the floor is wet.", "spanish": "Cuidado, el piso está mojado.", "level": "A2"}
+        ],
+        "tags": ["description", "weather"],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "soft",
+        "translation": "suave",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/sɒft/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["smooth", "gentle"],
+        "antonyms": ["hard", "rough"],
+        "examples": [
+            {"english": "This fabric is very soft.", "spanish": "Esta tela es muy suave.", "level": "A1"},
+            {"english": "She has a soft voice.", "spanish": "Ella tiene una voz suave.", "level": "A2"},
+            {"english": "The pillow is soft and comfortable.", "spanish": "La almohada es suave y cómoda.", "level": "A2"}
+        ],
+        "tags": ["description", "texture"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "hard",
+        "translation": "duro",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/hɑːrd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["firm", "solid"],
+        "antonyms": ["soft"],
+        "examples": [
+            {"english": "The rock is very hard.", "spanish": "La roca es muy dura.", "level": "A1"},
+            {"english": "This is a hard decision.", "spanish": "Esta es una decisión difícil.", "level": "A2"},
+            {"english": "He has a hard shell.", "spanish": "Él tiene una concha dura.", "level": "A2"}
+        ],
+        "tags": ["description", "texture"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "rough",
+        "translation": "áspero",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/rʌf/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["coarse", "bumpy"],
+        "antonyms": ["smooth", "soft"],
+        "examples": [
+            {"english": "The surface is rough.", "spanish": "La superficie es áspera.", "level": "A1"},
+            {"english": "He has rough hands from work.", "spanish": "Tiene las manos ásperas del trabajo.", "level": "A2"},
+            {"english": "The terrain is rough and rocky.", "spanish": "El terreno es áspero y rocoso.", "level": "B1"}
+        ],
+        "tags": ["description", "texture"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "smooth",
+        "translation": "liso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/smuːð/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["silky", "sleek"],
+        "antonyms": ["rough", "bumpy"],
+        "examples": [
+            {"english": "The road is smooth.", "spanish": "El camino es liso.", "level": "A1"},
+            {"english": "She has smooth skin.", "spanish": "Ella tiene la piel lisa.", "level": "A2"},
+            {"english": "The process went smoothly.", "spanish": "El proceso fue sin problemas.", "level": "B1"}
+        ],
+        "tags": ["description", "texture"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "thick",
+        "translation": "grueso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/θɪk/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["fat", "bulky"],
+        "antonyms": ["thin", "slim"],
+        "examples": [
+            {"english": "This book is very thick.", "spanish": "Este libro es muy grueso.", "level": "A1"},
+            {"english": "He has thick hair.", "spanish": "Él tiene el pelo grueso.", "level": "A2"},
+            {"english": "The fog is getting thicker.", "spanish": "La niebla se está poniendo más densa.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "thin",
+        "translation": "delgado",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/θɪn/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["slim", "skinny"],
+        "antonyms": ["thick", "fat"],
+        "examples": [
+            {"english": "She is very thin.", "spanish": "Ella es muy delgada.", "level": "A1"},
+            {"english": "I need a thinner slice of cake.", "spanish": "Necesito una rebanada más delgada de pastel.", "level": "A2"},
+            {"english": "The ice is too thin to walk on.", "spanish": "El hielo es muy delgado para caminar.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "wide",
+        "translation": "ancho",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/waɪd/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["broad", "spacious"],
+        "antonyms": ["narrow"],
+        "examples": [
+            {"english": "The street is very wide.", "spanish": "La calle es muy ancha.", "level": "A1"},
+            {"english": "She has a wide smile.", "spanish": "Ella tiene una sonrisa amplia.", "level": "A2"},
+            {"english": "The river is very wide here.", "spanish": "El río es muy ancho aquí.", "level": "A2"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "narrow",
+        "translation": "estrecho",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnæroʊ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["tight"],
+        "antonyms": ["wide", "broad"],
+        "examples": [
+            {"english": "This is a narrow street.", "spanish": "Esta es una calle estrecha.", "level": "A1"},
+            {"english": "She has narrow interests.", "spanish": "Ella tiene intereses limitados.", "level": "A2"},
+            {"english": "The path is too narrow for a car.", "spanish": "El sendero es demasiado estrecho para un carro.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "perfect",
+        "translation": "perfecto",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈpɜːrfɪkt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["ideal", "flawless"],
+        "antonyms": ["imperfect", "flawed"],
+        "examples": [
+            {"english": "That is a perfect day.", "spanish": "Ese es un día perfecto.", "level": "A1"},
+            {"english": "Her English is perfect.", "spanish": "Su inglés es perfecto.", "level": "A2"},
+            {"english": "This is the perfect opportunity.", "spanish": "Esta es la oportunidad perfecta.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "real",
+        "translation": "real",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/riːl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["true", "actual"],
+        "antonyms": ["fake", "imaginary"],
+        "examples": [
+            {"english": "That is a real diamond.", "spanish": "Ese es un diamante real.", "level": "A1"},
+            {"english": "This is a real problem.", "spanish": "Este es un problema real.", "level": "A2"},
+            {"english": "He is a real hero.", "spanish": "Él es un verdadero héroe.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "famous",
+        "translation": "famoso",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈfeɪməs/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["well-known", "renowned"],
+        "antonyms": ["unknown", "obscure"],
+        "examples": [
+            {"english": "She is a famous actress.", "spanish": "Ella es una actriz famosa.", "level": "A1"},
+            {"english": "This is a famous restaurant.", "spanish": "Este es un restaurante famoso.", "level": "A2"},
+            {"english": "The city is famous for its food.", "spanish": "La ciudad es famosa por su comida.", "level": "B1"}
+        ],
+        "tags": ["description", "reputation"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "strange",
+        "translation": "extraño",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/streɪndʒ/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["odd", "weird"],
+        "antonyms": ["normal", "usual"],
+        "examples": [
+            {"english": "That is a strange feeling.", "spanish": "Esa es una sensación extraña.", "level": "A1"},
+            {"english": "Something strange happened.", "spanish": "Algo extraño sucedió.", "level": "A2"},
+            {"english": "He has strange habits.", "spanish": "Él tiene hábitos extraños.", "level": "B1"}
+        ],
+        "tags": ["description"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "legal",
+        "translation": "legal",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈliːɡəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["lawful", "legitimate"],
+        "antonyms": ["illegal", "unlawful"],
+        "examples": [
+            {"english": "It is legal to drive here.", "spanish": "Es legal conducir aquí.", "level": "A1"},
+            {"english": "You need legal advice.", "spanish": "Necesitas asesoramiento legal.", "level": "A2"},
+            {"english": "This is a legal matter.", "spanish": "Este es un asunto legal.", "level": "B1"}
+        ],
+        "tags": ["description", "law"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "illegal",
+        "translation": "ilegal",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪˈliːɡəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["unlawful", "prohibited"],
+        "antonyms": ["legal", "lawful"],
+        "examples": [
+            {"english": "It is illegal to park here.", "spanish": "Es ilegal estacionar aquí.", "level": "A1"},
+            {"english": "Smoking is illegal in this building.", "spanish": "Fumar es ilegal en este edificio.", "level": "A2"},
+            {"english": "He was arrested for illegal activities.", "spanish": "Fue arrestado por actividades ilegales.", "level": "B1"}
+        ],
+        "tags": ["description", "law"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "national",
+        "translation": "nacional",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈnæʃənəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["countrywide", "state"],
+        "antonyms": ["local", "international"],
+        "examples": [
+            {"english": "This is a national holiday.", "spanish": "Este es un día festivo nacional.", "level": "A1"},
+            {"english": "The national team won the match.", "spanish": "El equipo nacional ganó el partido.", "level": "A2"},
+            {"english": "National security is important.", "spanish": "La seguridad nacional es importante.", "level": "B1"}
+        ],
+        "tags": ["description", "geography"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "international",
+        "translation": "internacional",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌɪntərˈnæʃənəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["global", "worldwide"],
+        "antonyms": ["national", "local"],
+        "examples": [
+            {"english": "This is an international flight.", "spanish": "Este es un vuelo internacional.", "level": "A1"},
+            {"english": "She works for an international company.", "spanish": "Ella trabaja para una empresa internacional.", "level": "A2"},
+            {"english": "The conference is international.", "spanish": "La conferencia es internacional.", "level": "B1"}
+        ],
+        "tags": ["description", "geography"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "local",
+        "translation": "local",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈloʊkəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["regional", "neighborhood"],
+        "antonyms": ["national", "international"],
+        "examples": [
+            {"english": "This is a local store.", "spanish": "Esta es una tienda local.", "level": "A1"},
+            {"english": "I prefer local food.", "spanish": "Prefiero comida local.", "level": "A2"},
+            {"english": "The local news is interesting.", "spanish": "Las noticias locales son interesantes.", "level": "A2"}
+        ],
+        "tags": ["description", "geography"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "personal",
+        "translation": "personal",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈpɜːrsənəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["private", "individual"],
+        "antonyms": ["public", "shared"],
+        "examples": [
+            {"english": "This is my personal opinion.", "spanish": "Esta es mi opinión personal.", "level": "A1"},
+            {"english": "She has a personal assistant.", "spanish": "Ella tiene un asistente personal.", "level": "A2"},
+            {"english": "Keep this information personal.", "spanish": "Mantén esta información personal.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "social",
+        "translation": "social",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈsoʊʃəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["communal", "societal"],
+        "antonyms": ["individual", "private"],
+        "examples": [
+            {"english": "Social media is popular.", "spanish": "Las redes sociales son populares.", "level": "A1"},
+            {"english": "Social activities bring people together.", "spanish": "Las actividades sociales unen a las personas.", "level": "A2"},
+            {"english": "Social norms vary by culture.", "spanish": "Las normas sociales varían por cultura.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "cultural",
+        "translation": "cultural",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈkʌltʃərəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["social", "traditional"],
+        "antonyms": [],
+        "examples": [
+            {"english": "This is a cultural event.", "spanish": "Este es un evento cultural.", "level": "A1"},
+            {"english": "We visited cultural sites.", "spanish": "Visitamos sitios culturales.", "level": "A2"},
+            {"english": "Cultural differences can be challenging.", "spanish": "Las diferencias culturales pueden ser desafiantes.", "level": "B1"}
+        ],
+        "tags": ["description", "culture"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "political",
+        "translation": "político",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/pəˈlɪtɪkəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["governmental"],
+        "antonyms": [],
+        "examples": [
+            {"english": "This is a political issue.", "spanish": "Este es un tema político.", "level": "A1"},
+            {"english": "He has strong political views.", "spanish": "Tiene opiniones políticas fuertes.", "level": "A2"},
+            {"english": "Political systems vary by country.", "spanish": "Los sistemas políticos varían por país.", "level": "B1"}
+        ],
+        "tags": ["description", "politics"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "modern",
+        "translation": "moderno",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈmɒdərn/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["contemporary", "up-to-date"],
+        "antonyms": ["old-fashioned", "ancient"],
+        "examples": [
+            {"english": "This is a modern city.", "spanish": "Esta es una ciudad moderna.", "level": "A1"},
+            {"english": "Modern technology changes our lives.", "spanish": "La tecnología moderna cambia nuestras vidas.", "level": "A2"},
+            {"english": "She has modern ideas.", "spanish": "Ella tiene ideas modernas.", "level": "B1"}
+        ],
+        "tags": ["description", "common"],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "ancient",
+        "translation": "antiguo",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˈeɪnʃənt/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["old", "antique"],
+        "antonyms": ["modern", "new"],
+        "examples": [
+            {"english": "This is an ancient temple.", "spanish": "Este es un templo antiguo.", "level": "A1"},
+            {"english": "Ancient civilizations are fascinating.", "spanish": "Las civilizaciones antiguas son fascinantes.", "level": "A2"},
+            {"english": "He studies ancient history.", "spanish": "Él estudia historia antigua.", "level": "B1"}
+        ],
+        "tags": ["description", "history"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "historical",
+        "translation": "histórico",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/hɪˈstɒrɪkəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["historic", "past"],
+        "antonyms": ["modern", "contemporary"],
+        "examples": [
+            {"english": "This is a historical building.", "spanish": "Este es un edificio histórico.", "level": "A1"},
+            {"english": "Historical events shape the future.", "spanish": "Los eventos históricos dan forma al futuro.", "level": "A2"},
+            {"english": "This is a historical novel.", "spanish": "Esta es una novela histórica.", "level": "B1"}
+        ],
+        "tags": ["description", "history"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "economic",
+        "translation": "económico",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ˌekəˈnɒmɪk/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["financial", "monetary"],
+        "antonyms": [],
+        "examples": [
+            {"english": "The economic situation is bad.", "spanish": "La situación económica es mala.", "level": "A2"},
+            {"english": "Economic growth is important.", "spanish": "El crecimiento económico es importante.", "level": "A2"},
+            {"english": "There are many economic challenges.", "spanish": "Hay muchos desafíos económicos.", "level": "B1"}
+        ],
+        "tags": ["description", "economy"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "environmental",
+        "translation": "ambiental",
+        "type": "adjective",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {"ipa": "/ɪnˌvaɪrənˈmentəl/", "audio": null},
+        "category": ["description"],
+        "synonyms": ["ecological"],
+        "antonyms": [],
+        "examples": [
+            {"english": "Environmental protection is important.", "spanish": "La protección ambiental es importante.", "level": "A2"},
+            {"english": "We need environmental policies.", "spanish": "Necesitamos políticas ambientales.", "level": "A2"},
+            {"english": "There are many environmental issues.", "spanish": "Hay muchos problemas ambientales.", "level": "B1"}
+        ],
+        "tags": ["description", "nature"],
+        "difficulty": "MEDIUM",
+        "level": 3
+    }
+]

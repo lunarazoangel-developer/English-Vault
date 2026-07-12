@@ -1,5 +1,6 @@
-package com.example.englishvault.ui.games.wordmatch.model
+﻿package com.example.englishvault.ui.games.wordmatchverbs.model
 
+import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.entities.WordEntity
 
 /**
@@ -39,18 +40,26 @@ enum class WordMatchAskType(val promptResId: Int) {
  * @property correctAnswer The expected answer string.
  * @property options Three strings shown as multiple-choice buttons.
  *   Always includes [correctAnswer]; the other two are misspellings
- *   produced by [com.example.englishvault.ui.games.wordmatch.util.DistractorGenerator].
+ *   produced by [com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator].
+ * @property category The grammatical category bucket this verb
+ *   belongs to (regular verbs / irregular verbs / …). Used by the
+ *   ViewModel to credit XP to the right per-category progress row.
+ * @property wordLevel The verb's progression level (1..N). Carried
+ *   alongside the category so the gating evaluator can compute
+ *   learned-percentage at the user's current level.
  */
 data class WordMatchQuestion(
     val baseWord: String,
     val askType: WordMatchAskType,
     val correctAnswer: String,
-    val options: List<String>
+    val options: List<String>,
+    val category: WordTypeFilter,
+    val wordLevel: Int
 )
 
 /**
  * The answer the player just submitted, plus whether it was right.
- * Used by the UI to render a transient ✓ / ✗ overlay before
+ * Used by the UI to render a transient âœ“ / âœ— overlay before
  * auto-advancing to the next question.
  */
 data class WordMatchAnswer(

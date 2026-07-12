@@ -41,8 +41,8 @@ interface WordDao {
     // region: Inserts
     /**
      * Bulk-inserts core dictionary words. Used during the first-launch
-     * seed and when re-importing a newer version of
-     * `assets/words.json`.
+     * seed and when re-importing a newer version of the bundled
+     * `assets/dictionary/`.
      *
      * Conflicts (matching primary key) are resolved by replacing the
      * existing row, which keeps the table idempotent across re-imports.
@@ -365,5 +365,63 @@ interface WordDao {
      */
     @Query("DELETE FROM core_words")
     suspend fun deleteAllCoreWords(): Int
+    // endregion
+
+    // region: Per-category aggregate counts (Phase 4.6)
+    /**
+     * Total number of words in the dictionary that match [type]
+     * (and [regular] when non-null) at the given [level].
+     *
+     * Used by the per-category gating evaluator to compute the
+     * denominator of the learned-percentage requirement.
+     *
+     * @param type Word type literal (`"verb"`, `"adjective"`, …).
+     * @param regular Verb-regularity filter. Pass `null` for
+     *   non-verb types so the SQL ignores the column.
+     * @param level Progression bucket (`word.level`).
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM words_view
+        WHERE `type` = :type
+          AND (:regular IS NULL OR `regular` = :regular)
+          AND `level` = :level
+        """
+    )
+    suspend fun countWordsAt(type: String, regular: Boolean?, level: Int): Int
+
+    /**
+     * Number of words in the dictionary that match [type]
+     * (and [regular] when non-null) at [level] **and** are marked
+     * `LEARNED`.
+     *
+     * Used by the per-category gating evaluator to compute the
+     * numerator of the learned-percentage requirement.
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM words_view
+        WHERE `type` = :type
+          AND (:regular IS NULL OR `regular` = :regular)
+          AND `level` = :level
+          AND `status` = 'LEARNED'
+        """
+    )
+    suspend fun countLearnedAt(type: String, regular: Boolean?, level: Int): Int
+
+    /**
+     * Highest level present in the dictionary for the given [type]
+     * (and [regular] when non-null). Returns `0` when the
+     * combination has no rows. Used to cap the category max level
+     * displayed on the Progress screen.
+     */
+    @Query(
+        """
+        SELECT IFNULL(MAX(`level`), 0) FROM words_view
+        WHERE `type` = :type
+          AND (:regular IS NULL OR `regular` = :regular)
+        """
+    )
+    suspend fun maxLevelByType(type: String, regular: Boolean?): Int
     // endregion
 }

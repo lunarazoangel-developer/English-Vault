@@ -35,7 +35,8 @@ data class UserProfileEntity(
      * Version of the bundled core dictionary that this device has
      * applied. Compared against [data.seed.DictionarySeeder.CORE_DICTIONARY_VERSION]
      * on every launch; when the bundled version is greater, the seeder
-     * wipes `core_words` and re-imports `assets/words.json`.
+     * wipes `core_words` and re-imports the section files under
+     * `assets/dictionary/`.
      *
      * Starts at `0` so any existing install (whose profile predates
      * this field) immediately re-seeds when the app upgrades.

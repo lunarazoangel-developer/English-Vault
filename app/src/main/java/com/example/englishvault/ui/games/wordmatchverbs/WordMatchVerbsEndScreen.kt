@@ -1,4 +1,4 @@
-package com.example.englishvault.ui.games.wordmatch
+﻿package com.example.englishvault.ui.games.wordmatchverbs
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,12 +25,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
-import com.example.englishvault.ui.games.wordmatch.model.WordMatchError
-import com.example.englishvault.ui.games.wordmatch.model.WordMatchGameState
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchError
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
 
 /**
  * Results panel for a finished Word Match Verbs run. Rendered in
- * place inside [WordMatchGameScreen] when the VM transitions to
+ * place inside [WordMatchVerbsGameScreen] when the VM transitions to
  * [WordMatchGameState.Finished], avoiding a separate navigation
  * hop and the cross-VM state sharing it would require.
  *
@@ -41,13 +41,13 @@ import com.example.englishvault.ui.games.wordmatch.model.WordMatchGameState
  * @param state The finished game state straight from the VM.
  * @param onPlayAgain Invoked when the user wants to retry the same
  *   level. The screen drives this by calling
- *   [com.example.englishvault.ui.games.wordmatch.viewmodel.WordMatchVerbsViewModel.startGame]
+ *   [com.example.englishvault.ui.games.wordmatchverbs.viewmodel.WordMatchVerbsViewModel.startGame]
  *   with the level it already received.
  * @param onExit Invoked when the user wants to leave the game (the
  *   parent navigates back to the Games tab).
  */
 @Composable
-fun WordMatchEndContent(
+fun WordMatchVerbsEndContent(
     state: WordMatchGameState.Finished,
     onPlayAgain: () -> Unit,
     onExit: () -> Unit,
