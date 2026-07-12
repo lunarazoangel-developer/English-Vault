@@ -84,6 +84,32 @@ interface UserProfileDao {
         name: String,
         id: Int = UserProfileEntity.SINGLE_USER_ID
     ): Int
+
+    /**
+     * Atomically adjusts the player's heart counter. Negative amounts
+     * are ignored by the SQL engine so callers can guard against
+     * accidental heart loss; pass positive values to refill.
+     *
+     * @return Number of rows updated (0 if the profile is missing).
+     */
+    @Query("UPDATE user_profile SET hearts = hearts + :amount WHERE id = :id AND :amount >= 0")
+    suspend fun addHearts(
+        amount: Int,
+        id: Int = UserProfileEntity.SINGLE_USER_ID
+    ): Int
+
+    /**
+     * Atomically adjusts the player's coin counter. Negative amounts
+     * (spending coins) are also accepted because purchases can reduce
+     * the balance — unlike XP, coins are spendable currency.
+     *
+     * @return Number of rows updated (0 if the profile is missing).
+     */
+    @Query("UPDATE user_profile SET coins = coins + :amount WHERE id = :id")
+    suspend fun addCoins(
+        amount: Int,
+        id: Int = UserProfileEntity.SINGLE_USER_ID
+    ): Int
     // endregion
 
     // region: Maintenance

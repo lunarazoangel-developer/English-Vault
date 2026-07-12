@@ -18,7 +18,7 @@ import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsGameScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsLevelScreen
 import com.example.englishvault.ui.navigation.Destination
 import com.example.englishvault.ui.progress.ProgressScreen
-import com.example.englishvault.ui.test.TestScreen
+import com.example.englishvault.ui.world.WorldScreen
 import com.example.englishvault.ui.words.WordFormScreen
 import com.example.englishvault.ui.words.WordListScreen
 import com.example.englishvault.ui.words.viewmodel.WordListViewModel
@@ -73,8 +73,8 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                     }
                 )
             }
-            composable(Destination.Test.route) {
-                TestScreen()
+            composable(Destination.World.route) {
+                WorldScreen()
             }
             composable(Destination.Words.route) {
                 WordListScreen(

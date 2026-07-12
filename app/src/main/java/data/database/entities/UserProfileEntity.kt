@@ -41,7 +41,20 @@ data class UserProfileEntity(
      * Starts at `0` so any existing install (whose profile predates
      * this field) immediately re-seeds when the app upgrades.
      */
-    val coreDictionaryVersion: Int = 0
+    val coreDictionaryVersion: Int = 0,
+    /**
+     * Lives the player has. Decremented when the player loses a level;
+     * when it reaches zero the world map (Phase 7) becomes a game-over
+     * state until a refill happens. Defaults to [DEFAULT_HEARTS] so a
+     * freshly created profile can play right away.
+     */
+    val hearts: Int = DEFAULT_HEARTS,
+    /**
+     * Spendable currency earned for clearing levels and redeemed at
+     * the in-world shop. The world map HUD surfaces this counter; the
+     * actual shop is a placeholder for a future phase.
+     */
+    val coins: Int = 0
 ) {
     companion object {
         /** Fixed primary key — single-user schema. */
@@ -52,5 +65,8 @@ data class UserProfileEntity(
 
         /** Default daily XP target. Surfaced in the Progress screen. */
         const val DEFAULT_DAILY_GOAL: Int = 50
+
+        /** Starting hearts for a fresh profile. */
+        const val DEFAULT_HEARTS: Int = 5
     }
 }

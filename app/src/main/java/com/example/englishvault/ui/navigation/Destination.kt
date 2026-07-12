@@ -3,16 +3,17 @@ package com.example.englishvault.ui.navigation
 /**
  * Sealed hierarchy describing every navigation destination in the app.
  *
- * Phase 6 keeps navigation intentionally simple: four bottom-bar
- * entries plus the Word CRUD flow and the Word Match Verbs
- * mini-game flow.
+ * Phase 7: the "Test" tab has been replaced by a beta "World" map
+ * (Duolingo-style path selector reimagined as a Super Mario Bros
+ * level map). The remaining bottom-bar entries stay aligned with
+ * [com.example.englishvault.ui.navigation.bottomNavItems].
  */
 sealed class Destination(val route: String) {
 
     // region: Bottom-bar tabs
     data object Progress : Destination("progress")
+    data object World : Destination("world")
     data object Games : Destination("games")
-    data object Test : Destination("test")
     data object Words : Destination("words")
     // endregion
 
@@ -42,8 +43,8 @@ sealed class Destination(val route: String) {
         /** Top-level routes rendered as tabs in the bottom bar. */
         val bottomBarDestinations: List<Destination> = listOf(
             Progress,
+            World,
             Games,
-            Test,
             Words
         )
     }

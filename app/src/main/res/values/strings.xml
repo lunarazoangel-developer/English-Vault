@@ -3,8 +3,8 @@
 
     <!-- region: Bottom navigation -->
     <string name="nav_progress">Progress</string>
+    <string name="nav_world">World</string>
     <string name="nav_games">Games</string>
-    <string name="nav_test">Test</string>
     <string name="nav_words">Words</string>
     <!-- endregion -->
 
@@ -45,16 +45,18 @@
     <string name="games_difficulty_hard">Hard</string>
     <!-- endregion -->
 
-    <!-- region: Test screen -->
-    <string name="test_title">Test your knowledge</string>
-    <string name="test_subtitle">Pick a test format and start practising.</string>
-    <string name="test_quick_title">Quick test</string>
-    <string name="test_quick_subtitle">10 words · 5 min</string>
-    <string name="test_full_title">Full test</string>
-    <string name="test_full_subtitle">50 words · 20 min</string>
-    <string name="test_custom_title">Custom test</string>
-    <string name="test_custom_subtitle">Pick the words you want</string>
-    <string name="test_start">Start</string>
+    <!-- region: World screen (beta) -->
+    <string name="world_title">World map</string>
+    <string name="world_subtitle">Pick a level to keep learning.</string>
+    <string name="world_beta">BETA</string>
+    <string name="world_level_format">Level %1$d</string>
+    <string name="world_status_current">You are here</string>
+    <string name="world_status_completed">Cleared</string>
+    <string name="world_status_locked">Locked</string>
+    <string name="world_hearts_format">x%1$d</string>
+    <string name="world_coins_format">x%1$d</string>
+    <string name="world_goto_next">Go to next level</string>
+    <string name="world_cleared">World cleared!</string>
     <!-- endregion -->
 
     <!-- region: Words screen -->

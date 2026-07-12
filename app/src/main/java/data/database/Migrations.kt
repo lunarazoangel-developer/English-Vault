@@ -416,4 +416,24 @@ object Migrations {
             }
         }
     }
+
+    /**
+     * Phase 7 — adds the player's `hearts` and `coins` counters to
+     * `user_profile`. The world map HUD (Phase 7) renders both; the
+     * values default to 5 hearts and 0 coins so freshly migrated
+     * installs keep a balanced starting state.
+     *
+     * SQLite requires one `ALTER TABLE ADD COLUMN` per statement, so
+     * each column gets its own `execSQL` call.
+     */
+    val MIGRATION_7_8: Migration = object : Migration(7, 8) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `hearts` INTEGER NOT NULL DEFAULT 5"
+            )
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `coins` INTEGER NOT NULL DEFAULT 0"
+            )
+        }
+    }
 }

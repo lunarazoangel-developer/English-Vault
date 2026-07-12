@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.LibraryBooks
 import androidx.compose.material.icons.filled.EmojiEvents
-import androidx.compose.material.icons.filled.Quiz
+import androidx.compose.material.icons.filled.Public
 import androidx.compose.material.icons.filled.SportsEsports
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.englishvault.R
@@ -26,7 +26,8 @@ data class BottomNavItem(
 /**
  * Order of the bottom navigation entries, left-to-right.
  *
- * Intentionally frozen so visual mockups match the implementation.
+ * Phase 7: the "Test" tab was replaced by the beta "World" map, which
+ * sits between Progress and Games.
  */
 val bottomNavItems: List<BottomNavItem> = listOf(
     BottomNavItem(
@@ -35,14 +36,14 @@ val bottomNavItems: List<BottomNavItem> = listOf(
         icon = Icons.Filled.EmojiEvents
     ),
     BottomNavItem(
+        destination = Destination.World,
+        labelRes = R.string.nav_world,
+        icon = Icons.Filled.Public
+    ),
+    BottomNavItem(
         destination = Destination.Games,
         labelRes = R.string.nav_games,
         icon = Icons.Filled.SportsEsports
-    ),
-    BottomNavItem(
-        destination = Destination.Test,
-        labelRes = R.string.nav_test,
-        icon = Icons.Filled.Quiz
     ),
     BottomNavItem(
         destination = Destination.Words,

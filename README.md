@@ -2,7 +2,7 @@
 
 > Your personal English vocabulary trainer for Android, built with Kotlin and Jetpack Compose.
 
-A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level progression, mini-games, self-tests and a personal word database you fully own. Built offline-first on top of Room and a versioned seed JSON asset.
+A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level progression, mini-games, a Super Mario Bros-style world map and a personal word database you fully own. Built offline-first on top of Room and a versioned seed JSON asset.
 
 ---
 
@@ -28,25 +28,26 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 ### Available now
 
 - **Offline dictionary** seeded from `assets/dictionary/` — eight per-type section files (`verbs_irregular.json`, `verbs_regular.json`, `interjections.json`, `nouns.json`, `adjectives.json`, `adverbs.json`, `prepositions.json`, `conjunctions.json`) totalling **hundreds of entries** with bilingual examples tagged by CEFR level. `assets/dictionary/README.md` acts as the section index.
-- **Room storage v7** with four artefacts:
+- **Room storage v8** with four artefacts:
   - `core_words` — dictionary entries seeded from the `assets/dictionary/` section files. Conceptually read-only; the user can only update its user-state columns (`favorite`, `status`, `level`, `notes`, …) via the dual-table DAO pattern.
   - `user_words` — entries the learner added through the form. Fully mutable.
   - `words_view` — `UNION ALL` of both tables, exposed as the read-only `WordEntity` data class so the UI consumes a single model regardless of origin.
-  - `user_profile` — single-row table for global XP, streak, daily goal, display name and the dictionary seed version.
+  - `user_profile` — single-row table for global XP, streak, daily goal, display name, dictionary seed version and the player's persistent hearts and coins counters.
   - `category_progress` — one row per tracked grammatical category (`VERBS_REGULAR`, `ADJECTIVES`, …) holding cumulative XP, unlocked level and XP-since-last-promotion. Drives the per-category progression system on the Progress screen.
 - **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
 - **Hilt DI graph** wiring `AppDatabase`, three DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
-- **Six versioned migrations** that keep every previous install alive:
+- **Seven versioned migrations** that keep every previous install alive:
   - `MIGRATION_1_2` — adds the `user_profile` table.
   - `MIGRATION_2_3` — recreates `words` with `AUTOINCREMENT` ids.
   - `MIGRATION_3_4` — splits `words` into `core_words` + `user_words` + `words_view`.
   - `MIGRATION_4_5` — adds the `coreDictionaryVersion` column for versioned seeding.
   - `MIGRATION_5_6` — replaces the boolean `learned` column with a tri-state `status` enum and adds a `level: Int` to both word tables.
   - `MIGRATION_6_7` — adds `category_progress` and seeds one row per tracked category.
+  - `MIGRATION_7_8` — adds the persistent `hearts` and `coins` counters to `user_profile` so the World map HUD can render the player's gamified state.
 - **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumping `CORE_DICTIONARY_VERSION` in code triggers an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) — reused by both the global XP card and the per-category levels.
 - **Per-category progression (Phase 4.6)** — eight parallel tracks. Correct answers in the mini-game grant XP per category. Advancing to the next level requires a hybrid gate: at least `XP_MIN_PER_LEVEL` XP earned at the current level **and** at least `LEARNED_PCT_REQUIRED` of the words at that level marked `LEARNED`. The DAO wraps each grant + promotion in a single transaction.
-- **Bottom navigation shell** with four tabs: Progress, Games, Test, Words.
+- **Bottom navigation shell** with four tabs: Progress, World, Games, Words. The Test tab was replaced by a beta SMB-style World map that turns the level selector into a horizontal scrolling journey, complete with a 10-node path, a branching shop and a castle finale.
 - **Words screen wired to Room** via `WordListViewModel` (`@HiltViewModel`, `StateFlow`). Create + Delete persist.
 - **Eight type-filter chips** on the Words screen — regular verbs, irregular verbs, adjectives, adverbs, nouns, conjunctions, prepositions, interjections — plus `All` and `Mine`, in a horizontally-scrollable row.
 - **Live sort row** — A-Z, Z-A, level ascending, level descending — combined with the type filter and persisted across rotations via `rememberSaveable`.
@@ -57,13 +58,15 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once.
 - **Progress screen** — `ProgressViewModel` exposes the global profile, level / xp slice, daily-goal estimate, streak and one `CategoryProgressUi` per tracked grammatical category. Each per-category card carries its own level (1..N), an XP bar, a learned-percentage bar and a hybrid-gate status message.
 - **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple, 3rd person or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`.
+- **World map (Phase 7, beta)** — Super Mario Bros-inspired level selector rendered as a single Canvas. The map is 2200 dp wide so the user must scroll horizontally to discover all 10 nodes, which trace an almost-straight path across a grass-and-sky scene. A branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. A HUD in the header shows the player's persistent hearts and coins (read live from `UserProfileEntity` through `WorldViewModel`). Tapping the next waypoint advances the protagonist with a smooth `Animatable` interpolation.
 
 ### Planned
 
-- **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7).
-- **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7).
-- **User settings** — theme mode, daily goal editor, reminder time, profile name (Phase 7).
-- **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7).
+- **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7.1).
+- **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7.1).
+- **User settings** — theme mode, daily goal editor, reminder time, profile name (Phase 7.1).
+- **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7.1).
+- **Shop economy wiring** — connect the World shop to `addCoins` / `addHearts` so spending coins actually buys lives (Phase 7.1).
 - **Cloud sync / backup** (Phase 8).
 
 ---
@@ -72,9 +75,9 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 
 > Placeholder — UI mockups will be added once the app is run on a device.
 
-| Progress | Games | Test | Words |
-| :------: | :---: | :--: | :---: |
-|   TBD    |  TBD  | TBD  |  TBD  |
+| Progress | World | Games | Words |
+| :------: | :---: | :---: | :---: |
+|   TBD    |  TBD  |  TBD  |  TBD  |
 
 > Word Match Verbs is reachable from **Games → Word Match Verbs** and walks through `Level Select → Branded Loading → Verb / 3 Options → green / blue / red feedback → Results`.
 
@@ -121,53 +124,61 @@ English Vault follows a clean **offline-first** pipeline plus an MVVM-flavoured 
    +----------+----------+
               |  List<CoreWordEntity>
               v
-   +-------------------------------------------------------+
-   | data/database  (AppDatabase v7)                       |
-   |   +- CoreWordEntity   -> core_words  (AUTOINCREMENT)   |
-   |   +- UserWordEntity   -> user_words  (AUTOINCREMENT)   |
-   |   +- WordEntity       -> words_view  (@DatabaseView)   |
-   |   +- UserProfileEntity -> user_profile (+ version)     |
-   |   +- CategoryProgressEntity -> category_progress       |
-   |   +- WordDao                                            |
-   |   +- UserProfileDao                                     |
-   |   +- CategoryProgressDao                                |
-   |   +- 5 TypeConverters                                   |
-   +----------+--------------------------------------------+
-              |  Flow<List<WordEntity>> via words_view
-              v
-   +---------------------+
-   |  data/seed          |   DictionarySeeder.seedIfNeeded()
-   |   DictionarySeeder  |   (re-imports JSON when bundled
-   +----------+----------+    version > stored version)
-              |
-              v
-   +---------------------+
-   | WordListViewModel   |   @HiltViewModel - add / delete
-   |  (StateFlow + ops)  |   gating (isUserAdded)
-   +----------+----------+
-              |  collectAsState
-              v
-   +---------------------+          +---------------------+
-   |       ui/words      |          |      ui/progress    |
-   |   Compose UI        |          |   Compose UI        |
-   | (WordListScreen +   |          | (ProgressScreen +   |
-   |  WordFormScreen +   |          |  8 CategoryProgress |
-   |  WordCard)          |          |  Cards)             |
-   +---------------------+          +---------------------+
+    +-------------------------------------------------------+
+    | data/database  (AppDatabase v8)                       |
+    |   +- CoreWordEntity   -> core_words  (AUTOINCREMENT)   |
+    |   +- UserWordEntity   -> user_words  (AUTOINCREMENT)   |
+    |   +- WordEntity       -> words_view  (@DatabaseView)   |
+    |   +- UserProfileEntity -> user_profile (+ version,     |
+    |   |                       hearts, coins)               |
+    |   +- CategoryProgressEntity -> category_progress       |
+    |   +- WordDao                                            |
+    |   +- UserProfileDao                                     |
+    |   +- CategoryProgressDao                                |
+    |   +- 5 TypeConverters                                   |
+    +----------+--------------------------------------------+
+               |  Flow<List<WordEntity>> via words_view
+               v
+    +---------------------+
+    |  data/seed          |   DictionarySeeder.seedIfNeeded()
+    |   DictionarySeeder  |   (re-imports JSON when bundled
+    +----------+----------+    version > stored version)
+               |
+               v
+    +---------------------+
+    | WordListViewModel   |   @HiltViewModel - add / delete
+    |  (StateFlow + ops)  |   gating (isUserAdded)
+    +----------+----------+
+               |  collectAsState
+               v
+    +---------------------+          +---------------------+
+    |       ui/words      |          |      ui/progress    |
+    |   Compose UI        |          |   Compose UI        |
+    | (WordListScreen +   |          | (ProgressScreen +   |
+    |  WordFormScreen +   |          |  8 CategoryProgress |
+    |  WordCard)          |          |  Cards)             |
+    +---------------------+          +---------------------+
 
-              +---------------------+
-              |   ui/games/wordmatch  |   Word Match Verbs mini-game
-              |   (WordMatchVerbs...) |
-              +---------------------+
-                              ^
-                              | reads core verbs (level + status)
-                              |
-   +---------------------------+
-   |  data/database           |
-   |   WordDao               |  getCoreWordsForGame(level)
-   |   observeProgressStats(now)
-   |   setStatus(id, status)  (dual-table)
-   +---------------------------+
+    +---------------------+
+    |   ui/games/wordmatch  |   Word Match Verbs mini-game
+    |   (WordMatchVerbs...) |
+    +---------------------+
+
+               +---------------------+
+               |   ui/world          |   World map (Phase 7, beta)
+               |   (WorldScreen +    |   reads profile.hearts / profile.coins
+               |    WorldViewModel)  |
+               +---------------------+
+                               ^
+                               | reads UserProfileEntity
+                               |
+    +---------------------------+
+    |  data/database           |
+    |   WordDao               |  getCoreWordsForGame(level)
+    |   UserProfileDao        |  observeProfile, addHearts, addCoins
+    |   observeProgressStats(now)
+    |   setStatus(id, status)  (dual-table)
+    +---------------------------+
 
    Mini-game flow (Phase 4.6):
      submitAnswer(correct) -> accumulate XP in state.correctXpByCategory
@@ -243,10 +254,12 @@ EnglishVault/
             |       |       |-- util/DistractorGenerator.kt
             |       |       `-- viewmodel/WordMatchVerbsViewModel.kt
             |       |-- navigation/                  <- Destination + BottomNavItem
-            |       |-- progress/
-            |       |   |-- ProgressScreen.kt         <- 8 per-category cards + global XP
-            |       |   `-- viewmodel/ProgressViewModel.kt
-            |       |-- test/TestScreen.kt
+             |       |-- progress/
+             |       |   |-- ProgressScreen.kt         <- 8 per-category cards + global XP
+             |       |   `-- viewmodel/ProgressViewModel.kt
+             |       |-- world/
+             |       |   |-- WorldScreen.kt            <- horizontal SMB-style level map
+             |       |   `-- WorldViewModel.kt         <- hearts / coins from UserProfileEntity
             |       |-- theme/                       <- blue palette
             |       `-- words/
             |           |-- WordListScreen.kt        <- 8 type chips + sort row + expandable cards
@@ -256,8 +269,8 @@ EnglishVault/
             |           `-- viewmodel/WordListViewModel.kt   <- @HiltViewModel
             `-- data/
                 |-- database/
-                |   |-- AppDatabase.kt               (v7)
-                |   |-- Migrations.kt                <- 6 migrations (1->2, 2->3, 3->4, 4->5, 5->6, 6->7)
+                |   |-- AppDatabase.kt               (v8)
+                |   |-- Migrations.kt                <- 7 migrations (1->2, 2->3, 3->4, 4->5, 5->6, 6->7, 7->8)
                 |   |-- UserLevel.kt                 <- XP/Level pure math (global + per-category)
                 |   |-- dao/
                 |   |   |-- WordDao.kt                <- dual-table updates, game queries, per-category counts
@@ -331,7 +344,7 @@ The generated APK lives under `app/build/outputs/apk/`.
 ./gradlew :app:connectedDebugAndroidTest
 ```
 
-> The repository still ships with the default `ExampleUnitTest` and `ExampleInstrumentedTest` scaffolds. Real coverage for the data layer (`WordDao` dual-table pattern, `WordMapper`, `JsonLoader`, `UserProfileDao`), the seed flow (`DictionarySeeder` + the six migrations) and the Words screen flow (`WordListViewModel` + chip + sort filters) will land in a dedicated testing phase.
+> The repository still ships with the default `ExampleUnitTest` and `ExampleInstrumentedTest` scaffolds. Real coverage for the data layer (`WordDao` dual-table pattern, `WordMapper`, `JsonLoader`, `UserProfileDao`), the seed flow (`DictionarySeeder` + the seven migrations) and the Words screen flow (`WordListViewModel` + chip + sort filters) will land in a dedicated testing phase.
 
 ---
 
@@ -351,12 +364,23 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 6      |   Done     | Word Match Verbs mini-game + `DistractorGenerator` + branded loading screen    |
 | 6.5    |   Done     | Per-category progression: `category_progress` table, XP grant + hybrid gate      |
 | 6.6    |   Done     | Words screen: 8 type chips + sort row, in-place feedback colours on the game    |
-| 7      |  Planned   | SRS review scheduling, settings UI, search + filters, other mini-games           |
+| 7      |  Beta      | World map (replaces Test tab), persistent hearts and coins on `user_profile`   |
+| 7.1    |  Planned   | SRS review scheduling, settings UI, search + filters, other mini-games           |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7 - World map beta + persistent player state
+
+- New `ui/world/WorldScreen.kt` - horizontal Super Mario Bros-inspired level map. The canvas is fixed at 2200 dp so the user must swipe right to discover all 10 nodes; a branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. Tap detection now reads `scrollX` from the host `rememberScrollState` so node hits remain accurate after scrolling. The protagonist still slides between waypoints with an `Animatable`.
+- New `ui/world/WorldViewModel.kt` - `@HiltViewModel` that exposes `UserProfileEntity` as a `StateFlow` so the screen can render the player's persistent hearts and coins live from Room.
+- New HUD: a `HeartsPill` and a `CoinsPill` sit next to the BETA badge in the header, both fed by the strings `world_hearts_format` and `world_coins_format`.
+- New `UserProfileEntity` columns: `hearts: Int = 5` and `coins: Int = 0` (plus a `DEFAULT_HEARTS` companion constant). The hearts default keeps a fresh profile playable out of the box.
+- New `UserProfileDao` methods: `addHearts(amount)` and `addCoins(amount)`, atomic increments symmetric with the existing `addXp`. `addHearts` rejects negative deltas, `addCoins` accepts them because the shop will eventually spend the balance.
+- `MIGRATION_7_8` (`AppDatabase` bumped to v8) - two `ALTER TABLE ADD COLUMN` statements that bring `hearts` (default 5) and `coins` (default 0) to existing installs without losing data.
+- The Test tab was removed from the bottom navigation and replaced by World. The new destination keeps the same slot in the tab order so muscle memory carries over.
 
 ### Phase 6.6 - Game feedback + Words screen polish
 
@@ -474,6 +498,8 @@ The generated APK lives under `app/build/outputs/apk/`.
 - Blue Material 3 palette.
 - Comprehensive English comments across `ui/`, `data/`, `di/`.
 - README and project documentation.
+
+> Note: the Phase 2 release originally shipped with four tabs (Progress, Games, Test, Words). The Test tab was retired in Phase 7 and replaced by the World map, which makes the level selector feel like a journey rather than a menu.
 
 ### Phase 1 - Data layer
 
