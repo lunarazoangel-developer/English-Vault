@@ -115,6 +115,48 @@ interface WordDao {
     suspend fun getCoreWordsForGame(level: Int): List<WordEntity>
 
     /**
+     * One-shot list of core words at [level] whose length (in
+     * characters) sits between [min] and [max] inclusive.
+     *
+     * Used by the Letter Soup mini-game to pick words that fit on the
+     * board — both the 8×8 default and the 10×10 fallback for longer
+     * words. The query filters on `source = 'core'` so user-added
+     * entries do not leak into the curated pool, and ignores the
+     * learning-status gate that Word Match Verbs applies — Letter Soup
+     * is short and varied, and rotating mastered words keeps the
+     * board fresh.
+     */
+    @Query(
+        """
+        SELECT * FROM words_view
+        WHERE source = 'core'
+          AND level = :level
+          AND LENGTH(word) BETWEEN :min AND :max
+        ORDER BY word ASC
+        """
+    )
+    suspend fun getCoreWordsByLengthAndLevel(
+        level: Int,
+        min: Int,
+        max: Int
+    ): List<WordEntity>
+
+    /**
+     * Highest `level` value present in the dictionary for words that
+     * fit on the Letter Soup board (length within [min]..[max]).
+     *
+     * Drives the count of cards the level selector renders.
+     */
+    @Query(
+        """
+        SELECT IFNULL(MAX(level), 0) FROM words_view
+        WHERE source = 'core'
+          AND LENGTH(word) BETWEEN :min AND :max
+        """
+    )
+    suspend fun maxCoreLevelByLength(min: Int, max: Int): Int
+
+    /**
      * Maximum level currently used by the dictionary. Used by the
      * level selector to know how many level cards to render.
      */

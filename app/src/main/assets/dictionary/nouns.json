@@ -1,2956 +1,2882 @@
 [
     {
-        "word":  "afternoon",
-        "translation":  "la tarde",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˌæf.tərˈnuːn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Good afternoon! How are you?",
-                             "spanish":  "¡Buenas tardes! ¿Cómo estás?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We met in the afternoon to study.",
-                             "spanish":  "Nos reunimos por la tarde para estudiar.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The afternoon sun was warm on her face.",
-                             "spanish":  "El sol de la tarde estaba cálido en su rostro.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "answer",
-        "translation":  "respuesta",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈæn.sər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract",
-                         "communication"
-                     ],
-        "synonyms":  [
-                         "reply",
-                         "response"
-                     ],
-        "antonyms":  [
-                         "question"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "What's the answer?",
-                             "spanish":  "¿Cuál es la respuesta?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She didn't give me an answer.",
-                             "spanish":  "Ella no me dio una respuesta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "His answer surprised everyone in the room.",
-                             "spanish":  "Su respuesta sorprendió a todos en la sala.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "communication",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "apple",
-        "translation":  "manzana",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈæp.əl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "food"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I eat an apple every day.",
-                             "spanish":  "Como una manzana cada día.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "An apple a day keeps the doctor away.",
-                             "spanish":  "Una manzana al día mantiene al doctor lejos.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The apple pie smelled delicious.",
-                             "spanish":  "El pastel de manzana olía delicioso.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "food",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "baby",
-        "translation":  "bebé",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈbeɪ.bi/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "family"
-                     ],
-        "synonyms":  [
-                         "infant",
-                         "newborn"
-                     ],
-        "antonyms":  [
-                         "adult"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The baby is sleeping.",
-                             "spanish":  "El bebé está durmiendo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She had a baby last year.",
-                             "spanish":  "Ella tuvo un bebé el año pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The baby cried all night long.",
-                             "spanish":  "El bebé lloró toda la noche.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "family",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "bag",
-        "translation":  "bolsa",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bæɡ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "object"
-                     ],
-        "synonyms":  [
-                         "sack",
-                         "purse"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I carry my books in this bag.",
-                             "spanish":  "Llevo mis libros en esta bolsa.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She bought a new bag yesterday.",
-                             "spanish":  "Ella compró una bolsa nueva ayer.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He packed his bag and left for the trip.",
-                             "spanish":  "Empacó su bolsa y se fue de viaje.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "object",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "bed",
-        "translation":  "cama",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bɛd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home",
-                         "furniture"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I go to bed at ten o'clock.",
-                             "spanish":  "Me acuesto a las diez.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She made her bed this morning.",
-                             "spanish":  "Ella hizo su cama esta mañana.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He stayed in bed all day because he was sick.",
-                             "spanish":  "Se quedó en cama todo el día porque estaba enfermo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "book",
-        "translation":  "libro",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bʊk/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "object",
-                         "education"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I'm reading a book.",
-                             "spanish":  "Estoy leyendo un libro.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She wrote a book about her travels.",
-                             "spanish":  "Ella escribió un libro sobre sus viajes.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "That book changed my life.",
-                             "spanish":  "Ese libro me cambió la vida.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "education",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "boy",
-        "translation":  "chico / niño",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bɔɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people"
-                     ],
-        "synonyms":  [
-                         "lad",
-                         "youth"
-                     ],
-        "antonyms":  [
-                         "girl"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The boy is playing in the park.",
-                             "spanish":  "El niño está jugando en el parque.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He was a shy boy at school.",
-                             "spanish":  "Era un chico tímido en la escuela.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The boy grew up to be a great leader.",
-                             "spanish":  "El chico creció y se convirtió en un gran líder.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "bread",
-        "translation":  "pan",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/brɛd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "food"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I like bread with butter.",
-                             "spanish":  "Me gusta el pan con mantequilla.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She bought fresh bread at the bakery.",
-                             "spanish":  "Ella compró pan fresco en la panadería.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Bread is a staple food in many cultures.",
-                             "spanish":  "El pan es un alimento básico en muchas culturas.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "food",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "car",
-        "translation":  "coche",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/kɑːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "vehicle",
-                         "transport"
-                     ],
-        "synonyms":  [
-                         "automobile"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I drive my car to work.",
-                             "spanish":  "Conduzco mi coche al trabajo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She bought a new car last month.",
-                             "spanish":  "Ella compró un coche nuevo el mes pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "His car broke down on the highway.",
-                             "spanish":  "Su coche se averió en la autopista.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "transport",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "cat",
-        "translation":  "gato",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/kæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "animal"
-                     ],
-        "synonyms":  [
-                         "kitty",
-                         "feline"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a cat named Luna.",
-                             "spanish":  "Tengo un gato llamado Luna.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The cat is sleeping on the couch.",
-                             "spanish":  "El gato está durmiendo en el sofá.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Cats are more independent than dogs.",
-                             "spanish":  "Los gatos son más independientes que los perros.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "animal",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "chair",
-        "translation":  "silla",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/tʃɛr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "furniture",
-                         "object"
-                     ],
-        "synonyms":  [
-                         "seat"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Please sit on that chair.",
-                             "spanish":  "Por favor, siéntate en esa silla.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "There are four chairs around the table.",
-                             "spanish":  "Hay cuatro sillas alrededor de la mesa.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He pulled up a chair and joined the conversation.",
-                             "spanish":  "Arrastró una silla y se unió a la conversación.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "furniture",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "child",
-        "translation":  "niño",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/tʃaɪld/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "family"
-                     ],
-        "synonyms":  [
-                         "kid",
-                         "youngster"
-                     ],
-        "antonyms":  [
-                         "adult"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The child is playing with toys.",
-                             "spanish":  "El niño está jugando con juguetes.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Every child needs love and care.",
-                             "spanish":  "Todo niño necesita amor y cuidado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "As a child, she dreamed of being a doctor.",
-                             "spanish":  "De niña, soñaba con ser doctora.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "family"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "city",
-        "translation":  "ciudad",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈsɪt.i/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "place"
-                     ],
-        "synonyms":  [
-                         "town",
-                         "metropolis"
-                     ],
-        "antonyms":  [
-                         "countryside"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I live in a big city.",
-                             "spanish":  "Vivo en una ciudad grande.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The city is full of tourists in summer.",
-                             "spanish":  "La ciudad está llena de turistas en verano.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She moved to the city to find work.",
-                             "spanish":  "Se mudó a la ciudad para encontrar trabajo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "place",
-                     "geography"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "coffee",
-        "translation":  "café",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈkɒf.i/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "food",
-                         "drink"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I drink coffee every morning.",
-                             "spanish":  "Tomo café cada mañana.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Would you like a cup of coffee?",
-                             "spanish":  "¿Quieres una taza de café?",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The smell of fresh coffee filled the kitchen.",
-                             "spanish":  "El olor del café recién hecho llenó la cocina.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "food",
-                     "drink",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "computer",
-        "translation":  "computadora",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/kəmˈpjuː.tər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "object",
-                         "technology"
-                     ],
-        "synonyms":  [
-                         "PC"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I use my computer every day.",
-                             "spanish":  "Uso mi computadora cada día.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "My computer is very fast.",
-                             "spanish":  "Mi computadora es muy rápida.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She works on the computer all day long.",
-                             "spanish":  "Trabaja en la computadora todo el día.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "technology",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "country",
-        "translation":  "país",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈkʌn.tri/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "place",
-                         "geography"
-                     ],
-        "synonyms":  [
-                         "nation",
-                         "state"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Spain is a beautiful country.",
-                             "spanish":  "España es un país bonito.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She visited three countries last year.",
-                             "spanish":  "Ella visitó tres países el año pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Each country has its own culture and traditions.",
-                             "spanish":  "Cada país tiene su propia cultura y tradiciones.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "geography",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "daughter",
-        "translation":  "hija",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈdɔː.tər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "family"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "son"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is my daughter.",
-                             "spanish":  "Ella es mi hija.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Their daughter just started school.",
-                             "spanish":  "Su hija acaba de empezar la escuela.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He is proud of his daughter.",
-                             "spanish":  "Está orgulloso de su hija.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "family",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "day",
-        "translation":  "día",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/deɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                         "date",
-                         "period"
-                     ],
-        "antonyms":  [
-                         "night"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Have a nice day!",
-                             "spanish":  "¡Que tengas un buen día!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She works out every day.",
-                             "spanish":  "Ella hace ejercicio cada día.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "It was a long day at the office.",
-                             "spanish":  "Fue un largo día en la oficina.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "dog",
-        "translation":  "perro",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dɒɡ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "animal"
-                     ],
-        "synonyms":  [
-                         "puppy",
-                         "hound"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My dog is very friendly.",
-                             "spanish":  "Mi perro es muy amigable.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She walks her dog every morning.",
-                             "spanish":  "Ella pasea a su perro cada mañana.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Their dog barked at the stranger.",
-                             "spanish":  "Su perro ladró al desconocido.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "animal",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "door",
-        "translation":  "puerta",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home",
-                         "object"
-                     ],
-        "synonyms":  [
-                         "entrance"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Close the door, please.",
-                             "spanish":  "Cierra la puerta, por favor.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Someone is knocking at the door.",
-                             "spanish":  "Alguien está tocando la puerta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He opened the door and walked in.",
-                             "spanish":  "Abrió la puerta y entró.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home",
-                     "object"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "evening",
-        "translation":  "la tarde-noche",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈiːv.nɪŋ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                         "dusk",
-                         "nightfall"
-                     ],
-        "antonyms":  [
-                         "morning"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Good evening!",
-                             "spanish":  "¡Buenas tardes!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We had dinner in the evening.",
-                             "spanish":  "Cenamos por la noche.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The evening breeze was cool and refreshing.",
-                             "spanish":  "La brisa de la tarde era fresca y agradable.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "eye",
-        "translation":  "ojo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/aɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "body"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She has blue eyes.",
-                             "spanish":  "Ella tiene ojos azules.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He hurt his eye playing football.",
-                             "spanish":  "Se lastimó el ojo jugando al fútbol.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Her eyes sparkled with joy.",
-                             "spanish":  "Sus ojos brillaban de alegría.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "body",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "family",
-        "translation":  "familia",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈfæmɪli/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "social"
-                     ],
-        "synonyms":  [
-                         "relatives",
-                         "kin"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I love my family.",
-                             "spanish":  "Amo a mi familia.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We have a big family.",
-                             "spanish":  "Tenemos una familia grande.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Family comes first in her life.",
-                             "spanish":  "La familia es lo primero en su vida.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "social",
-                     "important"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "father",
-        "translation":  "padre",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈfɑː.ðər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "family"
-                     ],
-        "synonyms":  [
-                         "dad",
-                         "papa"
-                     ],
-        "antonyms":  [
-                         "mother"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My father is a teacher.",
-                             "spanish":  "Mi padre es profesor.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Her father works in a hospital.",
-                             "spanish":  "Su padre trabaja en un hospital.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He became a father last year.",
-                             "spanish":  "Se convirtió en padre el año pasado.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "family",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "fish",
-        "translation":  "pez",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/fɪʃ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "animal",
-                         "food"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a fish in my aquarium.",
-                             "spanish":  "Tengo un pez en mi pecera.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We had fish for dinner last night.",
-                             "spanish":  "Cenamos pescado anoche.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "There are hundreds of fish in this lake.",
-                             "spanish":  "Hay cientos de peces en este lago.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "animal",
-                     "food"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "flower",
-        "translation":  "flor",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈflaʊ.ər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "nature",
-                         "plant"
-                     ],
-        "synonyms":  [
-                         "bloom"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She gave me a flower.",
-                             "spanish":  "Ella me dio una flor.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The flowers in the garden are beautiful.",
-                             "spanish":  "Las flores del jardín son hermosas.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Flowers bloomed all over the field.",
-                             "spanish":  "Florecieron flores por todo el campo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "nature",
-                     "plant"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "food",
-        "translation":  "comida",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/fuːd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "food"
-                     ],
-        "synonyms":  [
-                         "meal",
-                         "cuisine"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I love Italian food.",
-                             "spanish":  "Me encanta la comida italiana.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We need to buy some food for dinner.",
-                             "spanish":  "Necesitamos comprar comida para cenar.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The food at the restaurant was excellent.",
-                             "spanish":  "La comida del restaurante estaba excelente.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "food",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "foot",
-        "translation":  "pie",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/fʊt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "body"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My foot hurts.",
-                             "spanish":  "Me duele el pie.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He hurt his foot playing soccer.",
-                             "spanish":  "Se lastimó el pie jugando al fútbol.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She walked on foot to the station.",
-                             "spanish":  "Fue a pie hasta la estación.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "body",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "friend",
-        "translation":  "amigo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/frɛnd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "social"
-                     ],
-        "synonyms":  [
-                         "companion",
-                         "buddy"
-                     ],
-        "antonyms":  [
-                         "enemy",
-                         "stranger"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is my best friend.",
-                             "spanish":  "Ella es mi mejor amiga.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I made many friends at school.",
-                             "spanish":  "Hice muchos amigos en la escuela.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "True friends are hard to find.",
-                             "spanish":  "Los verdaderos amigos son difíciles de encontrar.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "social",
-                     "important"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "girl",
-        "translation":  "chica / niña",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɡɜːrl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "boy"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The girl is singing.",
-                             "spanish":  "La chica está cantando.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She was a quiet girl at school.",
-                             "spanish":  "Era una chica callada en la escuela.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The girl won first prize in the contest.",
-                             "spanish":  "La chica ganó el primer premio del concurso.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hand",
-        "translation":  "mano",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hænd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "body"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Wash your hands before eating.",
-                             "spanish":  "Lávate las manos antes de comer.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She held his hand tightly.",
-                             "spanish":  "Ella sostuvo su mano con fuerza.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He raised his hand to ask a question.",
-                             "spanish":  "Levantó la mano para hacer una pregunta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "body",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "head",
-        "translation":  "cabeza",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɛd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "body"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a headache.",
-                             "spanish":  "Tengo dolor de cabeza.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She nodded her head in agreement.",
-                             "spanish":  "Asintió con la cabeza de acuerdo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He is the head of the company.",
-                             "spanish":  "Es el jefe de la empresa.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "body",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "heart",
-        "translation":  "corazón",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɑːrt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "body",
-                         "emotion"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My heart beats fast when I run.",
-                             "spanish":  "Mi corazón late rápido cuando corro.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She has a kind heart.",
-                             "spanish":  "Ella tiene un corazón amable.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He spoke from the heart.",
-                             "spanish":  "Habló desde el corazón.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "body",
-                     "emotion"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "home",
-        "translation":  "hogar / casa",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hoʊm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home",
-                         "place"
-                     ],
-        "synonyms":  [
-                         "house",
-                         "residence"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I want to go home.",
-                             "spanish":  "Quiero ir a casa.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She left home at eighteen.",
-                             "spanish":  "Se fue de casa a los dieciocho.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "There's no place like home.",
-                             "spanish":  "No hay lugar como el hogar.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "horse",
-        "translation":  "caballo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɔːrs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "animal"
-                     ],
-        "synonyms":  [
-                         "steed"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I love riding horses.",
-                             "spanish":  "Me encanta montar a caballo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The horse ran across the field.",
-                             "spanish":  "El caballo corrió por el campo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She's been riding horses since she was five.",
-                             "spanish":  "Monta a caballo desde que tenía cinco años.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "animal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hour",
-        "translation":  "hora",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/aʊər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I'll be there in one hour.",
-                             "spanish":  "Estaré allí en una hora.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I waited for an hour.",
-                             "spanish":  "Esperé una hora.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She works forty hours a week.",
-                             "spanish":  "Trabaja cuarenta horas a la semana.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "house",
-        "translation":  "casa",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/haʊs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home"
-                     ],
-        "synonyms":  [
-                         "home",
-                         "residence"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My house is small.",
-                             "spanish":  "Mi casa es pequeña.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "They bought a new house last year.",
-                             "spanish":  "Ellos compraron una casa nueva el año pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Their house overlooks the ocean.",
-                             "spanish":  "Su casa tiene vista al océano.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "idea",
-        "translation":  "idea",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/aɪˈdɪə/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "thought",
-                         "concept"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a good idea.",
-                             "spanish":  "Tengo una buena idea.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "That's a great idea!",
-                             "spanish":  "¡Es una gran idea!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "His idea changed the way we work.",
-                             "spanish":  "Su idea cambió la forma en que trabajamos.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "abstract",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "job",
-        "translation":  "trabajo / empleo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dʒɒb/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "work",
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "employment",
-                         "work"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I love my job.",
-                             "spanish":  "Me encanta mi trabajo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She got a new job last month.",
-                             "spanish":  "Consiguió un trabajo nuevo el mes pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He lost his job in the recession.",
-                             "spanish":  "Perdió su trabajo durante la recesión.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "work",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "kitchen",
-        "translation":  "cocina",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈkɪtʃ.ən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home",
-                         "place"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The kitchen is very clean.",
-                             "spanish":  "La cocina está muy limpia.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We eat breakfast in the kitchen.",
-                             "spanish":  "Desayunamos en la cocina.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She cooked dinner in the kitchen for hours.",
-                             "spanish":  "Cocinó la cena en la cocina durante horas.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "knowledge",
-        "translation":  "conocimiento",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈnɒlɪdʒ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "wisdom",
-                         "understanding"
-                     ],
-        "antonyms":  [
-                         "ignorance"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Knowledge is power.",
-                             "spanish":  "El conocimiento es poder.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She has deep knowledge of history.",
-                             "spanish":  "Ella tiene un profundo conocimiento de la historia.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He shared his knowledge freely with the team.",
-                             "spanish":  "Compartió su conocimiento libremente con el equipo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "abstract",
-                     "important"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "language",
-        "translation":  "idioma / lengua",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈlæŋ.ɡwɪdʒ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "communication",
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "tongue"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I speak two languages.",
-                             "spanish":  "Hablo dos idiomas.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "English is a global language.",
-                             "spanish":  "El inglés es un idioma global.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She is studying four foreign languages.",
-                             "spanish":  "Está estudiando cuatro idiomas extranjeros.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "communication",
-                     "education"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "lesson",
-        "translation":  "lección",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈlɛs.ən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "education"
-                     ],
-        "synonyms":  [
-                         "class"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a piano lesson today.",
-                             "spanish":  "Tengo clase de piano hoy.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Today's lesson was very interesting.",
-                             "spanish":  "La lección de hoy fue muy interesante.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She never misses a lesson.",
-                             "spanish":  "Nunca falta a una clase.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "education",
-                     "school"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "love",
-        "translation":  "amor",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/lʌv/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "emotion",
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "affection"
-                     ],
-        "antonyms":  [
-                         "hate"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I love you.",
-                             "spanish":  "Te quiero.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Love is a beautiful feeling.",
-                             "spanish":  "El amor es un sentimiento hermoso.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Their love story is famous around the world.",
-                             "spanish":  "Su historia de amor es famosa en todo el mundo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "man",
-        "translation":  "hombre",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/mæn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people"
-                     ],
-        "synonyms":  [
-                         "guy"
-                     ],
-        "antonyms":  [
-                         "woman"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The man is reading a book.",
-                             "spanish":  "El hombre está leyendo un libro.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He is a tall man.",
-                             "spanish":  "Es un hombre alto.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She married a kind man.",
-                             "spanish":  "Se casó con un hombre amable.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "minute",
-        "translation":  "minuto",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈmɪn.ɪt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Wait a minute, please.",
-                             "spanish":  "Espera un minuto, por favor.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The meeting lasted thirty minutes.",
-                             "spanish":  "La reunión duró treinta minutos.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I'll be back in a few minutes.",
-                             "spanish":  "Vuelvo en unos minutos.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "money",
-        "translation":  "dinero",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈmʌn.i/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract",
-                         "finance"
-                     ],
-        "synonyms":  [
-                         "cash"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I need more money.",
-                             "spanish":  "Necesito más dinero.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She doesn't have enough money.",
-                             "spanish":  "Ella no tiene suficiente dinero.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Money can't buy happiness.",
-                             "spanish":  "El dinero no puede comprar la felicidad.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "finance",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "month",
-        "translation":  "mes",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/mʌnθ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "There are twelve months in a year.",
-                             "spanish":  "Hay doce meses en un año.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She visited us last month.",
-                             "spanish":  "Ella nos visitó el mes pasado.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "It took them three months to finish.",
-                             "spanish":  "Les tomó tres meses terminar.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "morning",
-        "translation":  "mañana",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈmɔːr.nɪŋ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                         "dawn"
-                     ],
-        "antonyms":  [
-                         "evening"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Good morning!",
-                             "spanish":  "¡Buenos días!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I exercise every morning.",
-                             "spanish":  "Hago ejercicio cada mañana.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The morning air was fresh and cool.",
-                             "spanish":  "El aire de la mañana estaba fresco.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "mother",
-        "translation":  "madre",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈmʌð.ər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "family"
-                     ],
-        "synonyms":  [
-                         "mom",
-                         "mum"
-                     ],
-        "antonyms":  [
-                         "father"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My mother is a doctor.",
-                             "spanish":  "Mi madre es doctora.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Her mother cooks very well.",
-                             "spanish":  "Su madre cocina muy bien.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She became a mother at thirty.",
-                             "spanish":  "Se convirtió en madre a los treinta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "family",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "name",
-        "translation":  "nombre",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/neɪm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract",
-                         "communication"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My name is Anna.",
-                             "spanish":  "Me llamo Anna.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "What's your name?",
-                             "spanish":  "¿Cómo te llamas?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Her name will go down in history.",
-                             "spanish":  "Su nombre pasará a la historia.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "communication",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "night",
-        "translation":  "noche",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/naɪt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                         "evening"
-                     ],
-        "antonyms":  [
-                         "day"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Good night!",
-                             "spanish":  "¡Buenas noches!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We went out last night.",
-                             "spanish":  "Salimos anoche.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She studied through the night.",
-                             "spanish":  "Ella estudió durante toda la noche.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "person",
-        "translation":  "persona",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈpɜːr.sən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people"
-                     ],
-        "synonyms":  [
-                         "individual",
-                         "human"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is a nice person.",
-                             "spanish":  "Ella es una persona agradable.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He is the right person for the job.",
-                             "spanish":  "Él es la persona adecuada para el trabajo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Only one person knew the answer.",
-                             "spanish":  "Solo una persona sabía la respuesta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "problem",
-        "translation":  "problema",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈprɒb.ləm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "issue",
-                         "trouble"
-                     ],
-        "antonyms":  [
-                         "solution"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I have a problem.",
-                             "spanish":  "Tengo un problema.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She solved the problem quickly.",
-                             "spanish":  "Resolvió el problema rápidamente.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The problem is more complex than we thought.",
-                             "spanish":  "El problema es más complejo de lo que pensábamos.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "abstract",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "question",
-        "translation":  "pregunta",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈkwɛs.tʃən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "communication",
-                         "abstract"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "answer"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Can I ask a question?",
-                             "spanish":  "¿Puedo hacer una pregunta?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She asked a difficult question.",
-                             "spanish":  "Ella hizo una pregunta difícil.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "That's a good question.",
-                             "spanish":  "Es buena pregunta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "communication",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "room",
-        "translation":  "habitación",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ruːm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "home",
-                         "place"
-                     ],
-        "synonyms":  [
-                         "chamber"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My room is small.",
-                             "spanish":  "Mi habitación es pequeña.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "There are three rooms in the apartment.",
-                             "spanish":  "Hay tres habitaciones en el apartamento.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She cleaned her room before the guests arrived.",
-                             "spanish":  "Limpió su habitación antes de que llegaran los invitados.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "home",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "school",
-        "translation":  "escuela",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/skuːl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "education",
-                         "place"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I go to school every day.",
-                             "spanish":  "Voy a la escuela cada día.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "School starts at eight o'clock.",
-                             "spanish":  "La escuela empieza a las ocho.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She has been at this school for five years.",
-                             "spanish":  "Lleva cinco años en esta escuela.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "education",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "student",
-        "translation":  "estudiante",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈstuː.dənt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "education"
-                     ],
-        "synonyms":  [
-                         "pupil",
-                         "learner"
-                     ],
-        "antonyms":  [
-                         "teacher"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I am a student.",
-                             "spanish":  "Soy estudiante.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She is a university student.",
-                             "spanish":  "Ella es estudiante universitaria.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The students took an exam yesterday.",
-                             "spanish":  "Los estudiantes hicieron un examen ayer.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "education",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "sun",
-        "translation":  "sol",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/sʌn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "nature"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The sun is shining.",
-                             "spanish":  "El sol está brillando.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The sun rises in the east.",
-                             "spanish":  "El sol sale por el este.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The sun was setting over the mountains.",
-                             "spanish":  "El sol se estaba poniendo sobre las montañas.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "nature",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "table",
-        "translation":  "mesa",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈteɪ.bəl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "furniture",
-                         "object"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Put the book on the table.",
-                             "spanish":  "Pon el libro sobre la mesa.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "There are four chairs around the table.",
-                             "spanish":  "Hay cuatro sillas alrededor de la mesa.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She set the table for dinner.",
-                             "spanish":  "Puso la mesa para cenar.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "furniture",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "teacher",
-        "translation":  "profesor",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈtiː.tʃər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people",
-                         "education"
-                     ],
-        "synonyms":  [
-                         "instructor",
-                         "educator"
-                     ],
-        "antonyms":  [
-                         "student"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My teacher is very kind.",
-                             "spanish":  "Mi profesor es muy amable.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She is a math teacher.",
-                             "spanish":  "Ella es profesora de matemáticas.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The teacher gave us a lot of homework.",
-                             "spanish":  "El profesor nos puso mucha tarea.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "education",
-                     "people"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "time",
-        "translation":  "tiempo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/taɪm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "common"
-                     ],
-        "synonyms":  [
-                         "moment",
-                         "period"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "What time is it?",
-                             "spanish":  "¿Qué hora es?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We had a great time at the party.",
-                             "spanish":  "Nos divertimos mucho en la fiesta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Time flies when you are having fun.",
-                             "spanish":  "El tiempo vuela cuando te estás divirtiendo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "tree",
-        "translation":  "árbol",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/triː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "nature",
-                         "plant"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "There is a big tree in the park.",
-                             "spanish":  "Hay un árbol grande en el parque.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "The tree lost its leaves in autumn.",
-                             "spanish":  "El árbol perdió sus hojas en otoño.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "An old tree stood at the edge of the forest.",
-                             "spanish":  "Un viejo árbol estaba al borde del bosque.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "nature",
-                     "plant"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "water",
-        "translation":  "agua",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈwɔːtər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "food",
-                         "nature"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Can I have some water?",
-                             "spanish":  "¿Puedo tener un poco de agua?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She drinks eight glasses of water a day.",
-                             "spanish":  "Ella bebe ocho vasos de agua al día.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Water covers most of the planet.",
-                             "spanish":  "El agua cubre la mayor parte del planeta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "food",
-                     "nature",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "week",
-        "translation":  "semana",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wiːk/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I work five days a week.",
-                             "spanish":  "Trabajo cinco días a la semana.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We went on vacation last week.",
-                             "spanish":  "Fuimos de vacaciones la semana pasada.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "It took her a week to recover.",
-                             "spanish":  "Le tomó una semana recuperarse.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "woman",
-        "translation":  "mujer",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈwʊm.ən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "people"
-                     ],
-        "synonyms":  [
-                         "lady"
-                     ],
-        "antonyms":  [
-                         "man"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The woman is wearing a red dress.",
-                             "spanish":  "La mujer lleva un vestido rojo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She is a strong woman.",
-                             "spanish":  "Es una mujer fuerte.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The woman won the Nobel Prize.",
-                             "spanish":  "La mujer ganó el Premio Nobel.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "people",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "world",
-        "translation":  "mundo",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɜːrld/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "abstract"
-                     ],
-        "synonyms":  [
-                         "planet",
-                         "globe"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The world is big.",
-                             "spanish":  "El mundo es grande.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She has travelled the world.",
-                             "spanish":  "Ella ha viajado por el mundo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It is a small world after all.",
-                             "spanish":  "Es un mundo pequeño después de todo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "abstract",
-                     "geography"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "year",
-        "translation":  "año",
-        "type":  "noun",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɪər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I am twenty years old.",
-                             "spanish":  "Tengo veinte años.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "We met one year ago.",
-                             "spanish":  "Nos conocimos hace un año.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "It has been a very good year for the company.",
-                             "spanish":  "Ha sido un muy buen año para la empresa.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "time",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "bag",
+        "translation": "bolsa",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bæɡ/",
+            "audio": null
+        },
+        "category": [
+            "object"
+        ],
+        "synonyms": [
+            "sack",
+            "purse"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I carry my books in this bag.",
+                "spanish": "Llevo mis libros en esta bolsa.",
+                "level": "A1"
+            },
+            {
+                "english": "She bought a new bag yesterday.",
+                "spanish": "Ella compró una bolsa nueva ayer.",
+                "level": "A2"
+            },
+            {
+                "english": "He packed his bag and left for the trip.",
+                "spanish": "Empacó su bolsa y se fue de viaje.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "object",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "bed",
+        "translation": "cama",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bɛd/",
+            "audio": null
+        },
+        "category": [
+            "home",
+            "furniture"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I go to bed at ten o'clock.",
+                "spanish": "Me acuesto a las diez.",
+                "level": "A1"
+            },
+            {
+                "english": "She made her bed this morning.",
+                "spanish": "Ella hizo su cama esta mañana.",
+                "level": "A2"
+            },
+            {
+                "english": "He stayed in bed all day because he was sick.",
+                "spanish": "Se quedó en cama todo el día porque estaba enfermo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "boy",
+        "translation": "chico / niño",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bɔɪ/",
+            "audio": null
+        },
+        "category": [
+            "people"
+        ],
+        "synonyms": [
+            "lad",
+            "youth"
+        ],
+        "antonyms": [
+            "girl"
+        ],
+        "examples": [
+            {
+                "english": "The boy is playing in the park.",
+                "spanish": "El niño está jugando en el parque.",
+                "level": "A1"
+            },
+            {
+                "english": "He was a shy boy at school.",
+                "spanish": "Era un chico tímido en la escuela.",
+                "level": "A2"
+            },
+            {
+                "english": "The boy grew up to be a great leader.",
+                "spanish": "El chico creció y se convirtió en un gran líder.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "car",
+        "translation": "coche",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/kɑːr/",
+            "audio": null
+        },
+        "category": [
+            "vehicle",
+            "transport"
+        ],
+        "synonyms": [
+            "automobile"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I drive my car to work.",
+                "spanish": "Conduzco mi coche al trabajo.",
+                "level": "A1"
+            },
+            {
+                "english": "She bought a new car last month.",
+                "spanish": "Ella compró un coche nuevo el mes pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "His car broke down on the highway.",
+                "spanish": "Su coche se averió en la autopista.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "transport",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "cat",
+        "translation": "gato",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/kæt/",
+            "audio": null
+        },
+        "category": [
+            "animal"
+        ],
+        "synonyms": [
+            "kitty",
+            "feline"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I have a cat named Luna.",
+                "spanish": "Tengo un gato llamado Luna.",
+                "level": "A1"
+            },
+            {
+                "english": "The cat is sleeping on the couch.",
+                "spanish": "El gato está durmiendo en el sofá.",
+                "level": "A2"
+            },
+            {
+                "english": "Cats are more independent than dogs.",
+                "spanish": "Los gatos son más independientes que los perros.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "animal",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "day",
+        "translation": "día",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/deɪ/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [
+            "date",
+            "period"
+        ],
+        "antonyms": [
+            "night"
+        ],
+        "examples": [
+            {
+                "english": "Have a nice day!",
+                "spanish": "¡Que tengas un buen día!",
+                "level": "A1"
+            },
+            {
+                "english": "She works out every day.",
+                "spanish": "Ella hace ejercicio cada día.",
+                "level": "A1"
+            },
+            {
+                "english": "It was a long day at the office.",
+                "spanish": "Fue un largo día en la oficina.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "dog",
+        "translation": "perro",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dɒɡ/",
+            "audio": null
+        },
+        "category": [
+            "animal"
+        ],
+        "synonyms": [
+            "puppy",
+            "hound"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My dog is very friendly.",
+                "spanish": "Mi perro es muy amigable.",
+                "level": "A1"
+            },
+            {
+                "english": "She walks her dog every morning.",
+                "spanish": "Ella pasea a su perro cada mañana.",
+                "level": "A2"
+            },
+            {
+                "english": "Their dog barked at the stranger.",
+                "spanish": "Su perro ladró al desconocido.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "animal",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "eye",
+        "translation": "ojo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/aɪ/",
+            "audio": null
+        },
+        "category": [
+            "body"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She has blue eyes.",
+                "spanish": "Ella tiene ojos azules.",
+                "level": "A1"
+            },
+            {
+                "english": "He hurt his eye playing football.",
+                "spanish": "Se lastimó el ojo jugando al fútbol.",
+                "level": "A2"
+            },
+            {
+                "english": "Her eyes sparkled with joy.",
+                "spanish": "Sus ojos brillaban de alegría.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "body",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "job",
+        "translation": "trabajo / empleo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dʒɒb/",
+            "audio": null
+        },
+        "category": [
+            "work",
+            "abstract"
+        ],
+        "synonyms": [
+            "employment",
+            "work"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I love my job.",
+                "spanish": "Me encanta mi trabajo.",
+                "level": "A1"
+            },
+            {
+                "english": "She got a new job last month.",
+                "spanish": "Consiguió un trabajo nuevo el mes pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "He lost his job in the recession.",
+                "spanish": "Perdió su trabajo durante la recesión.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "work",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "man",
+        "translation": "hombre",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/mæn/",
+            "audio": null
+        },
+        "category": [
+            "people"
+        ],
+        "synonyms": [
+            "guy"
+        ],
+        "antonyms": [
+            "woman"
+        ],
+        "examples": [
+            {
+                "english": "The man is reading a book.",
+                "spanish": "El hombre está leyendo un libro.",
+                "level": "A1"
+            },
+            {
+                "english": "He is a tall man.",
+                "spanish": "Es un hombre alto.",
+                "level": "A2"
+            },
+            {
+                "english": "She married a kind man.",
+                "spanish": "Se casó con un hombre amable.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "sun",
+        "translation": "sol",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/sʌn/",
+            "audio": null
+        },
+        "category": [
+            "nature"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The sun is shining.",
+                "spanish": "El sol está brillando.",
+                "level": "A1"
+            },
+            {
+                "english": "The sun rises in the east.",
+                "spanish": "El sol sale por el este.",
+                "level": "A2"
+            },
+            {
+                "english": "The sun was setting over the mountains.",
+                "spanish": "El sol se estaba poniendo sobre las montañas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "nature",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "baby",
+        "translation": "bebé",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈbeɪ.bi/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "family"
+        ],
+        "synonyms": [
+            "infant",
+            "newborn"
+        ],
+        "antonyms": [
+            "adult"
+        ],
+        "examples": [
+            {
+                "english": "The baby is sleeping.",
+                "spanish": "El bebé está durmiendo.",
+                "level": "A1"
+            },
+            {
+                "english": "She had a baby last year.",
+                "spanish": "Ella tuvo un bebé el año pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "The baby cried all night long.",
+                "spanish": "El bebé lloró toda la noche.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "family",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "book",
+        "translation": "libro",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bʊk/",
+            "audio": null
+        },
+        "category": [
+            "object",
+            "education"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I'm reading a book.",
+                "spanish": "Estoy leyendo un libro.",
+                "level": "A1"
+            },
+            {
+                "english": "She wrote a book about her travels.",
+                "spanish": "Ella escribió un libro sobre sus viajes.",
+                "level": "A2"
+            },
+            {
+                "english": "That book changed my life.",
+                "spanish": "Ese libro me cambió la vida.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "city",
+        "translation": "ciudad",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈsɪt.i/",
+            "audio": null
+        },
+        "category": [
+            "place"
+        ],
+        "synonyms": [
+            "town",
+            "metropolis"
+        ],
+        "antonyms": [
+            "countryside"
+        ],
+        "examples": [
+            {
+                "english": "I live in a big city.",
+                "spanish": "Vivo en una ciudad grande.",
+                "level": "A1"
+            },
+            {
+                "english": "The city is full of tourists in summer.",
+                "spanish": "La ciudad está llena de turistas en verano.",
+                "level": "A2"
+            },
+            {
+                "english": "She moved to the city to find work.",
+                "spanish": "Se mudó a la ciudad para encontrar trabajo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "place",
+            "geography"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "door",
+        "translation": "puerta",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dɔːr/",
+            "audio": null
+        },
+        "category": [
+            "home",
+            "object"
+        ],
+        "synonyms": [
+            "entrance"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Close the door, please.",
+                "spanish": "Cierra la puerta, por favor.",
+                "level": "A1"
+            },
+            {
+                "english": "Someone is knocking at the door.",
+                "spanish": "Alguien está tocando la puerta.",
+                "level": "A2"
+            },
+            {
+                "english": "He opened the door and walked in.",
+                "spanish": "Abrió la puerta y entró.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home",
+            "object"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "fish",
+        "translation": "pez",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/fɪʃ/",
+            "audio": null
+        },
+        "category": [
+            "animal",
+            "food"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I have a fish in my aquarium.",
+                "spanish": "Tengo un pez en mi pecera.",
+                "level": "A1"
+            },
+            {
+                "english": "We had fish for dinner last night.",
+                "spanish": "Cenamos pescado anoche.",
+                "level": "A2"
+            },
+            {
+                "english": "There are hundreds of fish in this lake.",
+                "spanish": "Hay cientos de peces en este lago.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "animal",
+            "food"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "food",
+        "translation": "comida",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/fuːd/",
+            "audio": null
+        },
+        "category": [
+            "food"
+        ],
+        "synonyms": [
+            "meal",
+            "cuisine"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I love Italian food.",
+                "spanish": "Me encanta la comida italiana.",
+                "level": "A1"
+            },
+            {
+                "english": "We need to buy some food for dinner.",
+                "spanish": "Necesitamos comprar comida para cenar.",
+                "level": "A2"
+            },
+            {
+                "english": "The food at the restaurant was excellent.",
+                "spanish": "La comida del restaurante estaba excelente.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "food",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "foot",
+        "translation": "pie",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/fʊt/",
+            "audio": null
+        },
+        "category": [
+            "body"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My foot hurts.",
+                "spanish": "Me duele el pie.",
+                "level": "A1"
+            },
+            {
+                "english": "He hurt his foot playing soccer.",
+                "spanish": "Se lastimó el pie jugando al fútbol.",
+                "level": "A2"
+            },
+            {
+                "english": "She walked on foot to the station.",
+                "spanish": "Fue a pie hasta la estación.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "body",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "girl",
+        "translation": "chica / niña",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɡɜːrl/",
+            "audio": null
+        },
+        "category": [
+            "people"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "boy"
+        ],
+        "examples": [
+            {
+                "english": "The girl is singing.",
+                "spanish": "La chica está cantando.",
+                "level": "A1"
+            },
+            {
+                "english": "She was a quiet girl at school.",
+                "spanish": "Era una chica callada en la escuela.",
+                "level": "A2"
+            },
+            {
+                "english": "The girl won first prize in the contest.",
+                "spanish": "La chica ganó el primer premio del concurso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "hand",
+        "translation": "mano",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hænd/",
+            "audio": null
+        },
+        "category": [
+            "body"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Wash your hands before eating.",
+                "spanish": "Lávate las manos antes de comer.",
+                "level": "A1"
+            },
+            {
+                "english": "She held his hand tightly.",
+                "spanish": "Ella sostuvo su mano con fuerza.",
+                "level": "A2"
+            },
+            {
+                "english": "He raised his hand to ask a question.",
+                "spanish": "Levantó la mano para hacer una pregunta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "body",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "head",
+        "translation": "cabeza",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɛd/",
+            "audio": null
+        },
+        "category": [
+            "body"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I have a headache.",
+                "spanish": "Tengo dolor de cabeza.",
+                "level": "A1"
+            },
+            {
+                "english": "She nodded her head in agreement.",
+                "spanish": "Asintió con la cabeza de acuerdo.",
+                "level": "A2"
+            },
+            {
+                "english": "He is the head of the company.",
+                "spanish": "Es el jefe de la empresa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "body",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "home",
+        "translation": "hogar / casa",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hoʊm/",
+            "audio": null
+        },
+        "category": [
+            "home",
+            "place"
+        ],
+        "synonyms": [
+            "house",
+            "residence"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I want to go home.",
+                "spanish": "Quiero ir a casa.",
+                "level": "A1"
+            },
+            {
+                "english": "She left home at eighteen.",
+                "spanish": "Se fue de casa a los dieciocho.",
+                "level": "A2"
+            },
+            {
+                "english": "There's no place like home.",
+                "spanish": "No hay lugar como el hogar.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "hour",
+        "translation": "hora",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/aʊər/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I'll be there in one hour.",
+                "spanish": "Estaré allí en una hora.",
+                "level": "A1"
+            },
+            {
+                "english": "I waited for an hour.",
+                "spanish": "Esperé una hora.",
+                "level": "A2"
+            },
+            {
+                "english": "She works forty hours a week.",
+                "spanish": "Trabaja cuarenta horas a la semana.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "idea",
+        "translation": "idea",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/aɪˈdɪə/",
+            "audio": null
+        },
+        "category": [
+            "abstract"
+        ],
+        "synonyms": [
+            "thought",
+            "concept"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I have a good idea.",
+                "spanish": "Tengo una buena idea.",
+                "level": "A1"
+            },
+            {
+                "english": "That's a great idea!",
+                "spanish": "¡Es una gran idea!",
+                "level": "A2"
+            },
+            {
+                "english": "His idea changed the way we work.",
+                "spanish": "Su idea cambió la forma en que trabajamos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "abstract",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "love",
+        "translation": "amor",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/lʌv/",
+            "audio": null
+        },
+        "category": [
+            "emotion",
+            "abstract"
+        ],
+        "synonyms": [
+            "affection"
+        ],
+        "antonyms": [
+            "hate"
+        ],
+        "examples": [
+            {
+                "english": "I love you.",
+                "spanish": "Te quiero.",
+                "level": "A1"
+            },
+            {
+                "english": "Love is a beautiful feeling.",
+                "spanish": "El amor es un sentimiento hermoso.",
+                "level": "A2"
+            },
+            {
+                "english": "Their love story is famous around the world.",
+                "spanish": "Su historia de amor es famosa en todo el mundo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "name",
+        "translation": "nombre",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/neɪm/",
+            "audio": null
+        },
+        "category": [
+            "abstract",
+            "communication"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My name is Anna.",
+                "spanish": "Me llamo Anna.",
+                "level": "A1"
+            },
+            {
+                "english": "What's your name?",
+                "spanish": "¿Cómo te llamas?",
+                "level": "A1"
+            },
+            {
+                "english": "Her name will go down in history.",
+                "spanish": "Su nombre pasará a la historia.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "room",
+        "translation": "habitación",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ruːm/",
+            "audio": null
+        },
+        "category": [
+            "home",
+            "place"
+        ],
+        "synonyms": [
+            "chamber"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My room is small.",
+                "spanish": "Mi habitación es pequeña.",
+                "level": "A1"
+            },
+            {
+                "english": "There are three rooms in the apartment.",
+                "spanish": "Hay tres habitaciones en el apartamento.",
+                "level": "A2"
+            },
+            {
+                "english": "She cleaned her room before the guests arrived.",
+                "spanish": "Limpió su habitación antes de que llegaran los invitados.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "time",
+        "translation": "tiempo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/taɪm/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "moment",
+            "period"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "What time is it?",
+                "spanish": "¿Qué hora es?",
+                "level": "A1"
+            },
+            {
+                "english": "We had a great time at the party.",
+                "spanish": "Nos divertimos mucho en la fiesta.",
+                "level": "A2"
+            },
+            {
+                "english": "Time flies when you are having fun.",
+                "spanish": "El tiempo vuela cuando te estás divirtiendo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "tree",
+        "translation": "árbol",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/triː/",
+            "audio": null
+        },
+        "category": [
+            "nature",
+            "plant"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "There is a big tree in the park.",
+                "spanish": "Hay un árbol grande en el parque.",
+                "level": "A1"
+            },
+            {
+                "english": "The tree lost its leaves in autumn.",
+                "spanish": "El árbol perdió sus hojas en otoño.",
+                "level": "A2"
+            },
+            {
+                "english": "An old tree stood at the edge of the forest.",
+                "spanish": "Un viejo árbol estaba al borde del bosque.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "nature",
+            "plant"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "week",
+        "translation": "semana",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wiːk/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I work five days a week.",
+                "spanish": "Trabajo cinco días a la semana.",
+                "level": "A1"
+            },
+            {
+                "english": "We went on vacation last week.",
+                "spanish": "Fuimos de vacaciones la semana pasada.",
+                "level": "A2"
+            },
+            {
+                "english": "It took her a week to recover.",
+                "spanish": "Le tomó una semana recuperarse.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "year",
+        "translation": "año",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɪər/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I am twenty years old.",
+                "spanish": "Tengo veinte años.",
+                "level": "A1"
+            },
+            {
+                "english": "We met one year ago.",
+                "spanish": "Nos conocimos hace un año.",
+                "level": "A2"
+            },
+            {
+                "english": "It has been a very good year for the company.",
+                "spanish": "Ha sido un muy buen año para la empresa.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "apple",
+        "translation": "manzana",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈæp.əl/",
+            "audio": null
+        },
+        "category": [
+            "food"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I eat an apple every day.",
+                "spanish": "Como una manzana cada día.",
+                "level": "A1"
+            },
+            {
+                "english": "An apple a day keeps the doctor away.",
+                "spanish": "Una manzana al día mantiene al doctor lejos.",
+                "level": "A2"
+            },
+            {
+                "english": "The apple pie smelled delicious.",
+                "spanish": "El pastel de manzana olía delicioso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "food",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "bread",
+        "translation": "pan",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/brɛd/",
+            "audio": null
+        },
+        "category": [
+            "food"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I like bread with butter.",
+                "spanish": "Me gusta el pan con mantequilla.",
+                "level": "A1"
+            },
+            {
+                "english": "She bought fresh bread at the bakery.",
+                "spanish": "Ella compró pan fresco en la panadería.",
+                "level": "A2"
+            },
+            {
+                "english": "Bread is a staple food in many cultures.",
+                "spanish": "El pan es un alimento básico en muchas culturas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "food",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "chair",
+        "translation": "silla",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/tʃɛr/",
+            "audio": null
+        },
+        "category": [
+            "furniture",
+            "object"
+        ],
+        "synonyms": [
+            "seat"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Please sit on that chair.",
+                "spanish": "Por favor, siéntate en esa silla.",
+                "level": "A1"
+            },
+            {
+                "english": "There are four chairs around the table.",
+                "spanish": "Hay cuatro sillas alrededor de la mesa.",
+                "level": "A2"
+            },
+            {
+                "english": "He pulled up a chair and joined the conversation.",
+                "spanish": "Arrastró una silla y se unió a la conversación.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "furniture",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "child",
+        "translation": "niño",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/tʃaɪld/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "family"
+        ],
+        "synonyms": [
+            "kid",
+            "youngster"
+        ],
+        "antonyms": [
+            "adult"
+        ],
+        "examples": [
+            {
+                "english": "The child is playing with toys.",
+                "spanish": "El niño está jugando con juguetes.",
+                "level": "A1"
+            },
+            {
+                "english": "Every child needs love and care.",
+                "spanish": "Todo niño necesita amor y cuidado.",
+                "level": "A2"
+            },
+            {
+                "english": "As a child, she dreamed of being a doctor.",
+                "spanish": "De niña, soñaba con ser doctora.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "family"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "heart",
+        "translation": "corazón",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɑːrt/",
+            "audio": null
+        },
+        "category": [
+            "body",
+            "emotion"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My heart beats fast when I run.",
+                "spanish": "Mi corazón late rápido cuando corro.",
+                "level": "A1"
+            },
+            {
+                "english": "She has a kind heart.",
+                "spanish": "Ella tiene un corazón amable.",
+                "level": "A2"
+            },
+            {
+                "english": "He spoke from the heart.",
+                "spanish": "Habló desde el corazón.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "body",
+            "emotion"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 6
+    },
+    {
+        "word": "horse",
+        "translation": "caballo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɔːrs/",
+            "audio": null
+        },
+        "category": [
+            "animal"
+        ],
+        "synonyms": [
+            "steed"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I love riding horses.",
+                "spanish": "Me encanta montar a caballo.",
+                "level": "A1"
+            },
+            {
+                "english": "The horse ran across the field.",
+                "spanish": "El caballo corrió por el campo.",
+                "level": "A2"
+            },
+            {
+                "english": "She's been riding horses since she was five.",
+                "spanish": "Monta a caballo desde que tenía cinco años.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "animal"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "house",
+        "translation": "casa",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/haʊs/",
+            "audio": null
+        },
+        "category": [
+            "home"
+        ],
+        "synonyms": [
+            "home",
+            "residence"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My house is small.",
+                "spanish": "Mi casa es pequeña.",
+                "level": "A1"
+            },
+            {
+                "english": "They bought a new house last year.",
+                "spanish": "Ellos compraron una casa nueva el año pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "Their house overlooks the ocean.",
+                "spanish": "Su casa tiene vista al océano.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "money",
+        "translation": "dinero",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈmʌn.i/",
+            "audio": null
+        },
+        "category": [
+            "abstract",
+            "finance"
+        ],
+        "synonyms": [
+            "cash"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I need more money.",
+                "spanish": "Necesito más dinero.",
+                "level": "A1"
+            },
+            {
+                "english": "She doesn't have enough money.",
+                "spanish": "Ella no tiene suficiente dinero.",
+                "level": "A2"
+            },
+            {
+                "english": "Money can't buy happiness.",
+                "spanish": "El dinero no puede comprar la felicidad.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "finance",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "month",
+        "translation": "mes",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/mʌnθ/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "There are twelve months in a year.",
+                "spanish": "Hay doce meses en un año.",
+                "level": "A1"
+            },
+            {
+                "english": "She visited us last month.",
+                "spanish": "Ella nos visitó el mes pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "It took them three months to finish.",
+                "spanish": "Les tomó tres meses terminar.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "night",
+        "translation": "noche",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/naɪt/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [
+            "evening"
+        ],
+        "antonyms": [
+            "day"
+        ],
+        "examples": [
+            {
+                "english": "Good night!",
+                "spanish": "¡Buenas noches!",
+                "level": "A1"
+            },
+            {
+                "english": "We went out last night.",
+                "spanish": "Salimos anoche.",
+                "level": "A2"
+            },
+            {
+                "english": "She studied through the night.",
+                "spanish": "Ella estudió durante toda la noche.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "table",
+        "translation": "mesa",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈteɪ.bəl/",
+            "audio": null
+        },
+        "category": [
+            "furniture",
+            "object"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Put the book on the table.",
+                "spanish": "Pon el libro sobre la mesa.",
+                "level": "A1"
+            },
+            {
+                "english": "There are four chairs around the table.",
+                "spanish": "Hay cuatro sillas alrededor de la mesa.",
+                "level": "A2"
+            },
+            {
+                "english": "She set the table for dinner.",
+                "spanish": "Puso la mesa para cenar.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "furniture",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "water",
+        "translation": "agua",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈwɔːtər/",
+            "audio": null
+        },
+        "category": [
+            "food",
+            "nature"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Can I have some water?",
+                "spanish": "¿Puedo tener un poco de agua?",
+                "level": "A1"
+            },
+            {
+                "english": "She drinks eight glasses of water a day.",
+                "spanish": "Ella bebe ocho vasos de agua al día.",
+                "level": "A2"
+            },
+            {
+                "english": "Water covers most of the planet.",
+                "spanish": "El agua cubre la mayor parte del planeta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "food",
+            "nature",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "woman",
+        "translation": "mujer",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈwʊm.ən/",
+            "audio": null
+        },
+        "category": [
+            "people"
+        ],
+        "synonyms": [
+            "lady"
+        ],
+        "antonyms": [
+            "man"
+        ],
+        "examples": [
+            {
+                "english": "The woman is wearing a red dress.",
+                "spanish": "La mujer lleva un vestido rojo.",
+                "level": "A1"
+            },
+            {
+                "english": "She is a strong woman.",
+                "spanish": "Es una mujer fuerte.",
+                "level": "A2"
+            },
+            {
+                "english": "The woman won the Nobel Prize.",
+                "spanish": "La mujer ganó el Premio Nobel.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "world",
+        "translation": "mundo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɜːrld/",
+            "audio": null
+        },
+        "category": [
+            "abstract"
+        ],
+        "synonyms": [
+            "planet",
+            "globe"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The world is big.",
+                "spanish": "El mundo es grande.",
+                "level": "A2"
+            },
+            {
+                "english": "She has travelled the world.",
+                "spanish": "Ella ha viajado por el mundo.",
+                "level": "B1"
+            },
+            {
+                "english": "It is a small world after all.",
+                "spanish": "Es un mundo pequeño después de todo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "abstract",
+            "geography"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 7
+    },
+    {
+        "word": "answer",
+        "translation": "respuesta",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈæn.sər/",
+            "audio": null
+        },
+        "category": [
+            "abstract",
+            "communication"
+        ],
+        "synonyms": [
+            "reply",
+            "response"
+        ],
+        "antonyms": [
+            "question"
+        ],
+        "examples": [
+            {
+                "english": "What's the answer?",
+                "spanish": "¿Cuál es la respuesta?",
+                "level": "A1"
+            },
+            {
+                "english": "She didn't give me an answer.",
+                "spanish": "Ella no me dio una respuesta.",
+                "level": "A2"
+            },
+            {
+                "english": "His answer surprised everyone in the room.",
+                "spanish": "Su respuesta sorprendió a todos en la sala.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 7
+    },
+    {
+        "word": "coffee",
+        "translation": "café",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈkɒf.i/",
+            "audio": null
+        },
+        "category": [
+            "food",
+            "drink"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I drink coffee every morning.",
+                "spanish": "Tomo café cada mañana.",
+                "level": "A1"
+            },
+            {
+                "english": "Would you like a cup of coffee?",
+                "spanish": "¿Quieres una taza de café?",
+                "level": "A2"
+            },
+            {
+                "english": "The smell of fresh coffee filled the kitchen.",
+                "spanish": "El olor del café recién hecho llenó la cocina.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "food",
+            "drink",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "family",
+        "translation": "familia",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈfæmɪli/",
+            "audio": null
+        },
+        "category": [
+            "social"
+        ],
+        "synonyms": [
+            "relatives",
+            "kin"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I love my family.",
+                "spanish": "Amo a mi familia.",
+                "level": "A1"
+            },
+            {
+                "english": "We have a big family.",
+                "spanish": "Tenemos una familia grande.",
+                "level": "A2"
+            },
+            {
+                "english": "Family comes first in her life.",
+                "spanish": "La familia es lo primero en su vida.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "social",
+            "important"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "father",
+        "translation": "padre",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈfɑː.ðər/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "family"
+        ],
+        "synonyms": [
+            "dad",
+            "papa"
+        ],
+        "antonyms": [
+            "mother"
+        ],
+        "examples": [
+            {
+                "english": "My father is a teacher.",
+                "spanish": "Mi padre es profesor.",
+                "level": "A1"
+            },
+            {
+                "english": "Her father works in a hospital.",
+                "spanish": "Su padre trabaja en un hospital.",
+                "level": "A2"
+            },
+            {
+                "english": "He became a father last year.",
+                "spanish": "Se convirtió en padre el año pasado.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "family",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "flower",
+        "translation": "flor",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈflaʊ.ər/",
+            "audio": null
+        },
+        "category": [
+            "nature",
+            "plant"
+        ],
+        "synonyms": [
+            "bloom"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She gave me a flower.",
+                "spanish": "Ella me dio una flor.",
+                "level": "A1"
+            },
+            {
+                "english": "The flowers in the garden are beautiful.",
+                "spanish": "Las flores del jardín son hermosas.",
+                "level": "A2"
+            },
+            {
+                "english": "Flowers bloomed all over the field.",
+                "spanish": "Florecieron flores por todo el campo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "nature",
+            "plant"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "friend",
+        "translation": "amigo",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/frɛnd/",
+            "audio": null
+        },
+        "category": [
+            "social"
+        ],
+        "synonyms": [
+            "companion",
+            "buddy"
+        ],
+        "antonyms": [
+            "enemy",
+            "stranger"
+        ],
+        "examples": [
+            {
+                "english": "She is my best friend.",
+                "spanish": "Ella es mi mejor amiga.",
+                "level": "A1"
+            },
+            {
+                "english": "I made many friends at school.",
+                "spanish": "Hice muchos amigos en la escuela.",
+                "level": "A2"
+            },
+            {
+                "english": "True friends are hard to find.",
+                "spanish": "Los verdaderos amigos son difíciles de encontrar.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "social",
+            "important"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "lesson",
+        "translation": "lección",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈlɛs.ən/",
+            "audio": null
+        },
+        "category": [
+            "education"
+        ],
+        "synonyms": [
+            "class"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I have a piano lesson today.",
+                "spanish": "Tengo clase de piano hoy.",
+                "level": "A1"
+            },
+            {
+                "english": "Today's lesson was very interesting.",
+                "spanish": "La lección de hoy fue muy interesante.",
+                "level": "A2"
+            },
+            {
+                "english": "She never misses a lesson.",
+                "spanish": "Nunca falta a una clase.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "school"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "minute",
+        "translation": "minuto",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈmɪn.ɪt/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Wait a minute, please.",
+                "spanish": "Espera un minuto, por favor.",
+                "level": "A1"
+            },
+            {
+                "english": "The meeting lasted thirty minutes.",
+                "spanish": "La reunión duró treinta minutos.",
+                "level": "A2"
+            },
+            {
+                "english": "I'll be back in a few minutes.",
+                "spanish": "Vuelvo en unos minutos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "mother",
+        "translation": "madre",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈmʌð.ər/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "family"
+        ],
+        "synonyms": [
+            "mom",
+            "mum"
+        ],
+        "antonyms": [
+            "father"
+        ],
+        "examples": [
+            {
+                "english": "My mother is a doctor.",
+                "spanish": "Mi madre es doctora.",
+                "level": "A1"
+            },
+            {
+                "english": "Her mother cooks very well.",
+                "spanish": "Su madre cocina muy bien.",
+                "level": "A2"
+            },
+            {
+                "english": "She became a mother at thirty.",
+                "spanish": "Se convirtió en madre a los treinta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "family",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "person",
+        "translation": "persona",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈpɜːr.sən/",
+            "audio": null
+        },
+        "category": [
+            "people"
+        ],
+        "synonyms": [
+            "individual",
+            "human"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She is a nice person.",
+                "spanish": "Ella es una persona agradable.",
+                "level": "A1"
+            },
+            {
+                "english": "He is the right person for the job.",
+                "spanish": "Él es la persona adecuada para el trabajo.",
+                "level": "A2"
+            },
+            {
+                "english": "Only one person knew the answer.",
+                "spanish": "Solo una persona sabía la respuesta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "people",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "school",
+        "translation": "escuela",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/skuːl/",
+            "audio": null
+        },
+        "category": [
+            "education",
+            "place"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I go to school every day.",
+                "spanish": "Voy a la escuela cada día.",
+                "level": "A1"
+            },
+            {
+                "english": "School starts at eight o'clock.",
+                "spanish": "La escuela empieza a las ocho.",
+                "level": "A2"
+            },
+            {
+                "english": "She has been at this school for five years.",
+                "spanish": "Lleva cinco años en esta escuela.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "country",
+        "translation": "país",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈkʌn.tri/",
+            "audio": null
+        },
+        "category": [
+            "place",
+            "geography"
+        ],
+        "synonyms": [
+            "nation",
+            "state"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Spain is a beautiful country.",
+                "spanish": "España es un país bonito.",
+                "level": "A1"
+            },
+            {
+                "english": "She visited three countries last year.",
+                "spanish": "Ella visitó tres países el año pasado.",
+                "level": "A2"
+            },
+            {
+                "english": "Each country has its own culture and traditions.",
+                "spanish": "Cada país tiene su propia cultura y tradiciones.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "geography",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "evening",
+        "translation": "la tarde-noche",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈiːv.nɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [
+            "dusk",
+            "nightfall"
+        ],
+        "antonyms": [
+            "morning"
+        ],
+        "examples": [
+            {
+                "english": "Good evening!",
+                "spanish": "¡Buenas tardes!",
+                "level": "A1"
+            },
+            {
+                "english": "We had dinner in the evening.",
+                "spanish": "Cenamos por la noche.",
+                "level": "A2"
+            },
+            {
+                "english": "The evening breeze was cool and refreshing.",
+                "spanish": "La brisa de la tarde era fresca y agradable.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "kitchen",
+        "translation": "cocina",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈkɪtʃ.ən/",
+            "audio": null
+        },
+        "category": [
+            "home",
+            "place"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The kitchen is very clean.",
+                "spanish": "La cocina está muy limpia.",
+                "level": "A1"
+            },
+            {
+                "english": "We eat breakfast in the kitchen.",
+                "spanish": "Desayunamos en la cocina.",
+                "level": "A2"
+            },
+            {
+                "english": "She cooked dinner in the kitchen for hours.",
+                "spanish": "Cocinó la cena en la cocina durante horas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "home"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "morning",
+        "translation": "mañana",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈmɔːr.nɪŋ/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [
+            "dawn"
+        ],
+        "antonyms": [
+            "evening"
+        ],
+        "examples": [
+            {
+                "english": "Good morning!",
+                "spanish": "¡Buenos días!",
+                "level": "A1"
+            },
+            {
+                "english": "I exercise every morning.",
+                "spanish": "Hago ejercicio cada mañana.",
+                "level": "A2"
+            },
+            {
+                "english": "The morning air was fresh and cool.",
+                "spanish": "El aire de la mañana estaba fresco.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "problem",
+        "translation": "problema",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈprɒb.ləm/",
+            "audio": null
+        },
+        "category": [
+            "abstract"
+        ],
+        "synonyms": [
+            "issue",
+            "trouble"
+        ],
+        "antonyms": [
+            "solution"
+        ],
+        "examples": [
+            {
+                "english": "I have a problem.",
+                "spanish": "Tengo un problema.",
+                "level": "A1"
+            },
+            {
+                "english": "She solved the problem quickly.",
+                "spanish": "Resolvió el problema rápidamente.",
+                "level": "A2"
+            },
+            {
+                "english": "The problem is more complex than we thought.",
+                "spanish": "El problema es más complejo de lo que pensábamos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "abstract",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "student",
+        "translation": "estudiante",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈstuː.dənt/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "education"
+        ],
+        "synonyms": [
+            "pupil",
+            "learner"
+        ],
+        "antonyms": [
+            "teacher"
+        ],
+        "examples": [
+            {
+                "english": "I am a student.",
+                "spanish": "Soy estudiante.",
+                "level": "A1"
+            },
+            {
+                "english": "She is a university student.",
+                "spanish": "Ella es estudiante universitaria.",
+                "level": "A2"
+            },
+            {
+                "english": "The students took an exam yesterday.",
+                "spanish": "Los estudiantes hicieron un examen ayer.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "teacher",
+        "translation": "profesor",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈtiː.tʃər/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "education"
+        ],
+        "synonyms": [
+            "instructor",
+            "educator"
+        ],
+        "antonyms": [
+            "student"
+        ],
+        "examples": [
+            {
+                "english": "My teacher is very kind.",
+                "spanish": "Mi profesor es muy amable.",
+                "level": "A1"
+            },
+            {
+                "english": "She is a math teacher.",
+                "spanish": "Ella es profesora de matemáticas.",
+                "level": "A2"
+            },
+            {
+                "english": "The teacher gave us a lot of homework.",
+                "spanish": "El profesor nos puso mucha tarea.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "education",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "computer",
+        "translation": "computadora",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/kəmˈpjuː.tər/",
+            "audio": null
+        },
+        "category": [
+            "object",
+            "technology"
+        ],
+        "synonyms": [
+            "PC"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I use my computer every day.",
+                "spanish": "Uso mi computadora cada día.",
+                "level": "A1"
+            },
+            {
+                "english": "My computer is very fast.",
+                "spanish": "Mi computadora es muy rápida.",
+                "level": "A2"
+            },
+            {
+                "english": "She works on the computer all day long.",
+                "spanish": "Trabaja en la computadora todo el día.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "technology",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "daughter",
+        "translation": "hija",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈdɔː.tər/",
+            "audio": null
+        },
+        "category": [
+            "people",
+            "family"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "son"
+        ],
+        "examples": [
+            {
+                "english": "She is my daughter.",
+                "spanish": "Ella es mi hija.",
+                "level": "A1"
+            },
+            {
+                "english": "Their daughter just started school.",
+                "spanish": "Su hija acaba de empezar la escuela.",
+                "level": "A2"
+            },
+            {
+                "english": "He is proud of his daughter.",
+                "spanish": "Está orgulloso de su hija.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "family",
+            "people"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "language",
+        "translation": "idioma / lengua",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈlæŋ.ɡwɪdʒ/",
+            "audio": null
+        },
+        "category": [
+            "communication",
+            "abstract"
+        ],
+        "synonyms": [
+            "tongue"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I speak two languages.",
+                "spanish": "Hablo dos idiomas.",
+                "level": "A1"
+            },
+            {
+                "english": "English is a global language.",
+                "spanish": "El inglés es un idioma global.",
+                "level": "A2"
+            },
+            {
+                "english": "She is studying four foreign languages.",
+                "spanish": "Está estudiando cuatro idiomas extranjeros.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "education"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
+    },
+    {
+        "word": "question",
+        "translation": "pregunta",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈkwɛs.tʃən/",
+            "audio": null
+        },
+        "category": [
+            "communication",
+            "abstract"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "answer"
+        ],
+        "examples": [
+            {
+                "english": "Can I ask a question?",
+                "spanish": "¿Puedo hacer una pregunta?",
+                "level": "A1"
+            },
+            {
+                "english": "She asked a difficult question.",
+                "spanish": "Ella hizo una pregunta difícil.",
+                "level": "A2"
+            },
+            {
+                "english": "That's a good question.",
+                "spanish": "Es buena pregunta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "communication",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "afternoon",
+        "translation": "la tarde",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˌæf.tərˈnuːn/",
+            "audio": null
+        },
+        "category": [
+            "time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Good afternoon! How are you?",
+                "spanish": "¡Buenas tardes! ¿Cómo estás?",
+                "level": "A1"
+            },
+            {
+                "english": "We met in the afternoon to study.",
+                "spanish": "Nos reunimos por la tarde para estudiar.",
+                "level": "A2"
+            },
+            {
+                "english": "The afternoon sun was warm on her face.",
+                "spanish": "El sol de la tarde estaba cálido en su rostro.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "time",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "knowledge",
+        "translation": "conocimiento",
+        "type": "noun",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈnɒlɪdʒ/",
+            "audio": null
+        },
+        "category": [
+            "abstract"
+        ],
+        "synonyms": [
+            "wisdom",
+            "understanding"
+        ],
+        "antonyms": [
+            "ignorance"
+        ],
+        "examples": [
+            {
+                "english": "Knowledge is power.",
+                "spanish": "El conocimiento es poder.",
+                "level": "A2"
+            },
+            {
+                "english": "She has deep knowledge of history.",
+                "spanish": "Ella tiene un profundo conocimiento de la historia.",
+                "level": "B1"
+            },
+            {
+                "english": "He shared his knowledge freely with the team.",
+                "spanish": "Compartió su conocimiento libremente con el equipo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "abstract",
+            "important"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     }
 ]

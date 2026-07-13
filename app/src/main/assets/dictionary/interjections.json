@@ -1,2869 +1,2812 @@
 [
     {
-        "word":  "absolutely",
-        "translation":  "¡absolutamente!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈæbsə.luːtli/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "definitely",
-                         "sure"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Absolutely, I agree with you.",
-                             "spanish":  "¡Absolutamente, estoy de acuerdo contigo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Are you sure? — Absolutely!",
-                             "spanish":  "¿Estás seguro? — ¡Absolutamente!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It was absolutely the best concert ever.",
-                             "spanish":  "Fue absolutamente el mejor concierto de todos.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "daily"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "ah",
-        "translation":  "ah",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɑː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "realization",
-                         "emotion"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Ah, now I understand!",
-                             "spanish":  "¡Ah, ahora entiendo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Ah, that's why he was angry.",
-                             "spanish":  "Ah, por eso estaba enojado.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She sighed and said, 'Ah, what a beautiful day.'",
-                             "spanish":  "Ella suspiró y dijo: 'Ah, qué día tan bonito'.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "reaction"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "all right",
-        "translation":  "de acuerdo / está bien",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɔːl raɪt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "okay",
-                         "fine"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "All right, let's go!",
-                             "spanish":  "¡De acuerdo, vamos!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Is that okay with you? — All right.",
-                             "spanish":  "¿Te parece bien? — Está bien.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "All right, I'll think about it.",
-                             "spanish":  "Está bien, lo pensaré.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "argh",
-        "translation":  "argh",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɑːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "frustration"
-                     ],
-        "synonyms":  [
-                         "ugh"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Argh, I forgot my keys again!",
-                             "spanish":  "¡Argh, olvidé mis llaves otra vez!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He shouted 'Argh!' when the computer crashed.",
-                             "spanish":  "Gritó '¡Argh!' cuando se cayó el ordenador.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Argh, why does this always happen to me?",
-                             "spanish":  "Argh, ¿por qué siempre me pasa esto?",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "awesome",
-        "translation":  "¡genial! / ¡increíble!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈɔː.səm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "amazing",
-                         "fantastic"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Awesome! You got the job!",
-                             "spanish":  "¡Genial! ¡Conseguiste el trabajo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "That movie was awesome.",
-                             "spanish":  "Esa película fue increíble.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The view from the top was absolutely awesome.",
-                             "spanish":  "La vista desde arriba fue absolutamente genial.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "bah",
-        "translation":  "bah",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bɑː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "disdain"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Bah, who cares about that?",
-                             "spanish":  "Bah, ¿a quién le importa eso?",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He said 'Bah!' and walked away.",
-                             "spanish":  "Dijo '¡Bah!' y se fue.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Bah, it's just another boring day.",
-                             "spanish":  "Bah, es solo otro día aburrido.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "bingo",
-        "translation":  "¡bingo!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈbɪŋ.ɡoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "realization",
-                         "excitement"
-                     ],
-        "synonyms":  [
-                         "aha"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Bingo! I found it!",
-                             "spanish":  "¡Bingo! ¡Lo encontré!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "And bingo, the answer appeared.",
-                             "spanish":  "Y bingo, apareció la respuesta.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Bingo! That's exactly what I was looking for.",
-                             "spanish":  "¡Bingo! Eso es exactamente lo que buscaba.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "realization"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "boo",
-        "translation":  "¡buu!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/buː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "scare",
-                         "disapproval"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Boo! I scared you!",
-                             "spanish":  "¡Buu! ¡Te asusté!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The crowd shouted 'Boo!' when the player missed.",
-                             "spanish":  "El público gritó '¡Buu!' cuando el jugador falló.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Boo, that's not fair!",
-                             "spanish":  "¡Buu, eso no es justo!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "brr",
-        "translation":  "brrr",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/brr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "cold"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Brr, it's freezing out here!",
-                             "spanish":  "Brrr, ¡está helando aquí afuera!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Brr, I need a coat.",
-                             "spanish":  "Brrr, necesito un abrigo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She said brr and pulled her jacket tighter.",
-                             "spanish":  "Dijo brrr y se ajustó la chaqueta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "physical"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "bye",
-        "translation":  "adiós / chao",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/baɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings",
-                         "farewell"
-                     ],
-        "synonyms":  [
-                         "goodbye"
-                     ],
-        "antonyms":  [
-                         "hello"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Bye, see you tomorrow!",
-                             "spanish":  "¡Adiós, nos vemos mañana!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I waved bye to my friends.",
-                             "spanish":  "Me despedí con la mano de mis amigos.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said bye and closed the door.",
-                             "spanish":  "Dijo adiós y cerró la puerta.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "cheers",
-        "translation":  "¡salud! / ¡gracias!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/tʃɪərz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "toast",
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "thanks",
-                         "thank you"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Cheers! Here's to your new job.",
-                             "spanish":  "¡Salud! Por tu nuevo trabajo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Cheers for the help, mate.",
-                             "spanish":  "¡Gracias por la ayuda, amigo!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "In British English, 'cheers' often means thanks.",
-                             "spanish":  "En inglés británico, 'cheers' suele significar gracias.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "toast",
-                     "british"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "congratulations",
-        "translation":  "¡felicitaciones!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/kənˌɡrætʃəˈleɪʃənz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "approval",
-                         "emotion"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Congratulations on your promotion!",
-                             "spanish":  "¡Felicitaciones por tu ascenso!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She congratulated him on the new job.",
-                             "spanish":  "Ella lo felicitó por el nuevo trabajo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Congratulations to the whole team!",
-                             "spanish":  "¡Felicitaciones a todo el equipo!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "celebration"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "cool",
-        "translation":  "¡genial! / ¡guay!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/kuːl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "awesome",
-                         "great"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Cool! Let's do it!",
-                             "spanish":  "¡Genial! ¡Hagámoslo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "That jacket is really cool.",
-                             "spanish":  "Esa chaqueta es muy guay.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Cool, I'll see you at the party.",
-                             "spanish":  "Genial, te veo en la fiesta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "dear me",
-        "translation":  "¡Dios mío!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dɪər miː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "oh my",
-                         "my God"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Dear me, what a mess!",
-                             "spanish":  "¡Dios mío, qué desastre!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Dear me, I forgot my wallet.",
-                             "spanish":  "Dios mío, olvidé mi cartera.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Dear me, the children have been quiet for too long.",
-                             "spanish":  "Dios mío, los niños han estado callados demasiado tiempo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "surprise"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "eh",
-        "translation":  "¿eh?",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/eɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "question"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Nice day, eh?",
-                             "spanish":  "Buen día, ¿eh?",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "What was the name again, eh?",
-                             "spanish":  "¿Cómo se llamaba otra vez, eh?",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Eh, what do you think about that?",
-                             "spanish":  "Eh, ¿qué piensas de eso?",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "exactly",
-        "translation":  "exacto",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪɡˈzæktli/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "precisely",
-                         "right"
-                     ],
-        "antonyms":  [
-                         "wrong"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Exactly! That's what I meant.",
-                             "spanish":  "¡Exacto! Eso es lo que quise decir.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Exactly one hour later, the phone rang.",
-                             "spanish":  "Exactamente una hora después, sonó el teléfono.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "That's exactly the point I'm trying to make.",
-                             "spanish":  "Ese es exactamente el punto que intento señalar.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "excellent",
-        "translation":  "¡excelente!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈɛk.sə.lənt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "great",
-                         "wonderful"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Excellent! That's perfect.",
-                             "spanish":  "¡Excelente! Es perfecto.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She did an excellent job on the project.",
-                             "spanish":  "Hizo un trabajo excelente en el proyecto.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Excellent work, everyone!",
-                             "spanish":  "¡Trabajo excelente, todos!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "formal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "excuse me",
-        "translation":  "disculpe / perdón",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪkˈskjuːz miː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "pardon"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Excuse me, where is the station?",
-                             "spanish":  "Disculpe, ¿dónde está la estación?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Excuse me for being late.",
-                             "spanish":  "Perdona por llegar tarde.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Excuse me, I didn't mean to interrupt.",
-                             "spanish":  "Perdón, no quise interrumpir.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "fantastic",
-        "translation":  "¡fantástico!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/fænˈtæs.tɪk/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "amazing",
-                         "awesome"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Fantastic! We won the match!",
-                             "spanish":  "¡Fantástico! ¡Ganamos el partido!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The view from the hotel was fantastic.",
-                             "spanish":  "La vista desde el hotel era fantástica.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "You did a fantastic job on the presentation.",
-                             "spanish":  "Hiciste un trabajo fantástico en la presentación.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "gee",
-        "translation":  "¡caramba!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dʒiː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "gosh",
-                         "wow"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Gee, I didn't know that!",
-                             "spanish":  "¡Caramba, no sabía eso!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Gee whiz, that was close!",
-                             "spanish":  "¡Caramba, eso estuvo cerca!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Gee, you really surprised me.",
-                             "spanish":  "Caramba, realmente me sorprendiste.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "goodbye",
-        "translation":  "adiós",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɡʊdˈbaɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings"
-                     ],
-        "synonyms":  [
-                         "bye",
-                         "farewell"
-                     ],
-        "antonyms":  [
-                         "hello"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Goodbye, see you tomorrow.",
-                             "spanish":  "Adiós, nos vemos mañana.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She waved goodbye to her friends.",
-                             "spanish":  "Ella se despidió con la mano de sus amigos.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "It was hard to say goodbye.",
-                             "spanish":  "Fue difícil decir adiós.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "gosh",
-        "translation":  "¡Dios mío! / ¡caramba!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɡɒʃ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "gee",
-                         "wow"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Gosh, that's amazing!",
-                             "spanish":  "¡Caramba, eso es increíble!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oh gosh, I forgot my keys again.",
-                             "spanish":  "Oh Dios mío, olvidé mis llaves otra vez.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Gosh, has it really been ten years?",
-                             "spanish":  "Dios mío, ¿de verdad han pasado diez años?",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "great",
-        "translation":  "¡genial! / ¡estupendo!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɡreɪt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "awesome",
-                         "cool"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Great! I'll see you there.",
-                             "spanish":  "¡Genial! Te veo allí.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "That sounds great, thanks!",
-                             "spanish":  "Suena genial, ¡gracias!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "You did a great job on this report.",
-                             "spanish":  "Hiciste un gran trabajo en este informe.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "ha",
-        "translation":  "ja",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɑː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "laughter"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Ha! I knew you were joking.",
-                             "spanish":  "¡Ja! Sabía que estabas bromeando.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Ha ha, very funny.",
-                             "spanish":  "Ja ja, muy gracioso.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He said 'Ha!' and walked out of the room.",
-                             "spanish":  "Dijo '¡Ja!' y salió de la habitación.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "laughter",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "haha",
-        "translation":  "ja ja",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɑːˈhɑː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "laughter"
-                     ],
-        "synonyms":  [
-                         "lol"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Haha, that's so funny!",
-                             "spanish":  "Ja ja, ¡qué gracioso!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She laughed: 'Haha, you should have seen his face!'",
-                             "spanish":  "Se rió: '¡Ja ja, tendrías que haber visto su cara!'",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Haha, that's a good one.",
-                             "spanish":  "Ja ja, esa es buena.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "laughter",
-                     "common",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hello",
-        "translation":  "hola",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/həˈloʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings"
-                     ],
-        "synonyms":  [
-                         "hi",
-                         "hey"
-                     ],
-        "antonyms":  [
-                         "goodbye"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hello, how are you?",
-                             "spanish":  "Hola, ¿cómo estás?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said hello to her neighbour.",
-                             "spanish":  "Ella dijo hola a su vecina.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Hello everyone, welcome to the show!",
-                             "spanish":  "¡Hola a todos, bienvenidos al show!",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hey",
-        "translation":  "oye / hey",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/heɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings",
-                         "attention"
-                     ],
-        "synonyms":  [
-                         "hi",
-                         "hello"
-                     ],
-        "antonyms":  [
-                         "goodbye"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hey! How are you doing?",
-                             "spanish":  "¡Hola! ¿Cómo estás?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Hey, wait for me!",
-                             "spanish":  "¡Oye, espérame!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Hey, that's a great idea!",
-                             "spanish":  "Oye, ¡esa es una gran idea!",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hi",
-        "translation":  "hola",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/haɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings"
-                     ],
-        "synonyms":  [
-                         "hello",
-                         "hey"
-                     ],
-        "antonyms":  [
-                         "goodbye"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hi! Nice to meet you.",
-                             "spanish":  "¡Hola! Mucho gusto.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She waved and said hi.",
-                             "spanish":  "Saludó con la mano y dijo hola.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Hi there! How's it going?",
-                             "spanish":  "¡Hola! ¿Cómo va todo?",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "hmm",
-        "translation":  "mm / hum",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/həm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "hesitation"
-                     ],
-        "synonyms":  [
-                         "um",
-                         "uh"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hmm, let me think about it.",
-                             "spanish":  "Mm, déjame pensarlo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Hmm, I'm not sure I agree.",
-                             "spanish":  "Hum, no estoy seguro de estar de acuerdo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She said 'hmm' and looked puzzled.",
-                             "spanish":  "Dijo 'mm' y se quedó confundida.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "hesitation"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "hooray",
-        "translation":  "¡hurra!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hʊˈreɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "excitement"
-                     ],
-        "synonyms":  [
-                         "hurray"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hooray! We did it!",
-                             "spanish":  "¡Hurra! ¡Lo logramos!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Three cheers: hip hip hooray!",
-                             "spanish":  "¡Tres hurras: hip hip hurra!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Hooray for the weekend!",
-                             "spanish":  "¡Hurra por el fin de semana!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "celebration"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "hurray",
-        "translation":  "¡hurra!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hʌˈreɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "excitement"
-                     ],
-        "synonyms":  [
-                         "hooray"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hurray! It's Friday!",
-                             "spanish":  "¡Hurra! ¡Es viernes!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Hurray, we passed the exam!",
-                             "spanish":  "¡Hurra, aprobamos el examen!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "They shouted hurray when the team scored.",
-                             "spanish":  "Gritaron hurra cuando el equipo marcó.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "celebration"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "hush",
-        "translation":  "silencio",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hʌʃ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "silence"
-                     ],
-        "synonyms":  [
-                         "shh"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hush, the baby is sleeping.",
-                             "spanish":  "Silencio, el bebé está durmiendo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Hush now, everything will be okay.",
-                             "spanish":  "Shh, todo estará bien.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She hushed the children before the show started.",
-                             "spanish":  "Hizo callar a los niños antes de que empezara el show.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "silence"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "indeed",
-        "translation":  "en efecto",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪnˈdiːd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "truly",
-                         "certainly"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Indeed, that is the case.",
-                             "spanish":  "En efecto, ese es el caso.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Yes indeed, you are right.",
-                             "spanish":  "Sí, en efecto, tienes razón.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It was indeed a memorable evening.",
-                             "spanish":  "Fue sin duda una noche memorable.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "formal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "my God",
-        "translation":  "¡Dios mío!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/maɪ ɡɒd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "oh my God",
-                         "gosh"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My God, what happened here?",
-                             "spanish":  "¡Dios mío, qué pasó aquí?",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oh my God, I can't believe it!",
-                             "spanish":  "¡Dios mío, no lo puedo creer!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "My God, you're really tall!",
-                             "spanish":  "Dios mío, ¡eres muy alto!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "surprise"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "my goodness",
-        "translation":  "¡Dios mío!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/maɪ ˈɡʊd.nəs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "my God",
-                         "gosh"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "My goodness, you're all grown up!",
-                             "spanish":  "¡Dios mío, has crecido mucho!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "My goodness, that was fast.",
-                             "spanish":  "Dios mío, eso fue rápido.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "My goodness, what a surprise!",
-                             "spanish":  "¡Dios mío, qué sorpresa!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "surprise"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "no",
-        "translation":  "no",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/noʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "common"
-                     ],
-        "synonyms":  [
-                         "nope"
-                     ],
-        "antonyms":  [
-                         "yes"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "No, thank you.",
-                             "spanish":  "No, gracias.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said no to the offer.",
-                             "spanish":  "Ella dijo no a la oferta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "No, I don't think that's right.",
-                             "spanish":  "No, no creo que eso sea correcto.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "oh",
-        "translation":  "oh",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/oʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "emotion",
-                         "realization"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Oh, I see what you mean.",
-                             "spanish":  "Oh, ya veo lo que quieres decir.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Oh! I didn't know that.",
-                             "spanish":  "¡Oh! No sabía eso.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oh, how beautiful the sunset is!",
-                             "spanish":  "¡Oh, qué bonita es la puesta de sol!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "emotion"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "oh no",
-        "translation":  "¡oh no!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/oʊ noʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "dismay"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "oh yes"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Oh no, I forgot my homework!",
-                             "spanish":  "¡Oh no, olvidé mi tarea!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oh no, the cake fell on the floor!",
-                             "spanish":  "¡Oh no, el pastel se cayó al suelo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oh no, here comes my boss.",
-                             "spanish":  "Oh no, ahí viene mi jefe.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "okay",
-        "translation":  "vale / de acuerdo",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/oʊˈkeɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "all right",
-                         "fine"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Okay, I'll do it.",
-                             "spanish":  "Vale, lo haré.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Is this one okay?",
-                             "spanish":  "¿Este está bien?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Okay, let's start the meeting.",
-                             "spanish":  "De acuerdo, empecemos la reunión.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "oof",
-        "translation":  "uf",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʊf/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "physical"
-                     ],
-        "synonyms":  [
-                         "ouch"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Oof, that hurt!",
-                             "spanish":  "¡Uf, eso dolió!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oof, this bag is heavy.",
-                             "spanish":  "Uf, esta bolsa está pesada.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oof, what a long day!",
-                             "spanish":  "Uf, ¡qué día tan largo!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "oops",
-        "translation":  "ups",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʊps/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "mistake"
-                     ],
-        "synonyms":  [
-                         "whoops"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Oops, I dropped my coffee!",
-                             "spanish":  "¡Ups, se me cayó el café!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Oops, I sent the email to the wrong person.",
-                             "spanish":  "Ups, envié el correo a la persona equivocada.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Oops, sorry — I didn't see you there.",
-                             "spanish":  "Ups, perdón — no te vi.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "mistake"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "ouch",
-        "translation":  "ay",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/aʊtʃ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "pain"
-                     ],
-        "synonyms":  [
-                         "ow"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Ouch! That really hurt!",
-                             "spanish":  "¡Ay! ¡Eso dolió mucho!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Ouch, my toe!",
-                             "spanish":  "¡Ay, mi dedo!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She yelled 'Ouch!' when she touched the hot pan.",
-                             "spanish":  "Gritó '¡Ay!' cuando tocó la sartén caliente.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "physical"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "pardon",
-        "translation":  "perdón",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈpɑːr.dən/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "excuse me",
-                         "sorry"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Pardon? I didn't hear you.",
-                             "spanish":  "¿Perdón? No te escuché.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Pardon me, I didn't mean to interrupt.",
-                             "spanish":  "Perdón, no quise interrumpir.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I beg your pardon, sir.",
-                             "spanish":  "Le pido perdón, señor.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "formal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "phew",
-        "translation":  "uf",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/fjuː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "relief"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Phew, that was close!",
-                             "spanish":  "Uf, ¡eso estuvo cerca!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Phew, I'm glad that's over.",
-                             "spanish":  "Uf, me alegro de que se haya acabado.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Phew, it's hot in here.",
-                             "spanish":  "Uf, hace calor aquí.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "relief"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "please",
-        "translation":  "por favor",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/pliːz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "polite"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Could you help me, please?",
-                             "spanish":  "¿Puedes ayudarme, por favor?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She asked politely, please.",
-                             "spanish":  "Ella pidió amablemente, por favor.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Please sit down and make yourself comfortable.",
-                             "spanish":  "Por favor, siéntate y ponte cómodo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "psst",
-        "translation":  "psst",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/psst/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "attention"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Psst! Over here!",
-                             "spanish":  "¡Psst! ¡Por aquí!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Psst, can I talk to you for a second?",
-                             "spanish":  "Psst, ¿puedo hablar contigo un momento?",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She whispered 'psst' to get my attention.",
-                             "spanish":  "Susurró 'psst' para llamar mi atención.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "attention",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "right",
-        "translation":  "correcto / vale",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/raɪt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "exactly",
-                         "correct"
-                     ],
-        "antonyms":  [
-                         "wrong"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Right, let's get started.",
-                             "spanish":  "Vale, comencemos.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Right, I'll see you tomorrow.",
-                             "spanish":  "Correcto, te veo mañana.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Right, that's exactly what I thought.",
-                             "spanish":  "Exacto, eso es lo que pensé.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "shame",
-        "translation":  "¡qué vergüenza! / ¡qué lástima!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʃeɪm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "disappointment"
-                     ],
-        "synonyms":  [
-                         "what a pity"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Shame! We lost the game.",
-                             "spanish":  "¡Qué lástima! Perdimos el partido.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "What a shame you couldn't come.",
-                             "spanish":  "Qué lástima que no pudiste venir.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Shame on you!",
-                             "spanish":  "¡Qué vergüenza!",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "emotion"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "shh",
-        "translation":  "shh",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʃː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "silence"
-                     ],
-        "synonyms":  [
-                         "hush"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Shh, the baby is sleeping.",
-                             "spanish":  "Shh, el bebé está durmiendo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Shh, listen! Can you hear that?",
-                             "spanish":  "Shh, escucha. ¿Oyes eso?",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She shh'd the children during the movie.",
-                             "spanish":  "Hizo shh a los niños durante la película.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "silence",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "sorry",
-        "translation":  "lo siento",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈsɒri/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "emotion",
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "apologetic",
-                         "regretful"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Sorry, I am late.",
-                             "spanish":  "Lo siento, llego tarde.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She felt sorry for what she said.",
-                             "spanish":  "Ella se sintió mal por lo que dijo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I'm sorry to hear that.",
-                             "spanish":  "Siento escuchar eso.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "emotion"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "super",
-        "translation":  "¡súper!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈsuː.pər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "great",
-                         "awesome"
-                     ],
-        "antonyms":  [
-                         "terrible"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Super! Thanks a lot!",
-                             "spanish":  "¡Súper! ¡Muchas gracias!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The party was super fun.",
-                             "spanish":  "La fiesta estuvo súper divertida.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "That's a super cool idea.",
-                             "spanish":  "Esa es una idea súper genial.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "sure",
-        "translation":  "claro / seguro",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʃʊr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "okay",
-                         "certainly"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Sure, no problem!",
-                             "spanish":  "¡Claro, no hay problema!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Would you like some coffee? — Sure!",
-                             "spanish":  "¿Quieres café? — ¡Claro!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Sure thing, I'll be there at eight.",
-                             "spanish":  "Seguro, estaré allí a las ocho.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "thank you",
-        "translation":  "gracias",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/θæŋk juː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "thanks"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Thank you for your help.",
-                             "spanish":  "Gracias por tu ayuda.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said thank you with a smile.",
-                             "spanish":  "Ella dijo gracias con una sonrisa.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Thank you all for coming tonight.",
-                             "spanish":  "Gracias a todos por venir esta noche.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "daily",
-                     "important"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "thanks",
-        "translation":  "gracias",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/θæŋks/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "polite"
-                     ],
-        "synonyms":  [
-                         "thank you"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Thanks for your help!",
-                             "spanish":  "¡Gracias por tu ayuda!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Thanks a lot, I really appreciate it.",
-                             "spanish":  "Muchas gracias, lo agradezco mucho.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Thanks for coming to the party.",
-                             "spanish":  "Gracias por venir a la fiesta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "polite",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "there you go",
-        "translation":  "ahí tienes / aquí tienes",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðɛr juː ɡoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "encouragement"
-                     ],
-        "synonyms":  [
-                         "here you go"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "There you go, that's the right answer.",
-                             "spanish":  "Ahí tienes, esa es la respuesta correcta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "There you go — a fresh cup of coffee.",
-                             "spanish":  "Aquí tienes — una taza de café recién hecho.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "There you go, you've finished the race!",
-                             "spanish":  "¡Ahí tienes, has terminado la carrera!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "encouragement",
-                     "daily"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "uh",
-        "translation":  "ehh",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʌ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "hesitation"
-                     ],
-        "synonyms":  [
-                         "um",
-                         "er"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Uh, I'm not sure how to answer that.",
-                             "spanish":  "Ehh, no estoy seguro de cómo responder.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Uh-oh, I think we're lost.",
-                             "spanish":  "Ay-ay, creo que nos perdimos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Uh... can I call you back?",
-                             "spanish":  "Ehh... ¿puedo llamarte luego?",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "hesitation",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "um",
-        "translation":  "ehh",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ʌm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "hesitation"
-                     ],
-        "synonyms":  [
-                         "uh",
-                         "er"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Um, can you repeat that, please?",
-                             "spanish":  "Ehh, ¿puedes repetir eso, por favor?",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Um, I think we should wait a bit longer.",
-                             "spanish":  "Ehh, creo que deberíamos esperar un poco más.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She kept saying 'um' during the presentation.",
-                             "spanish":  "Seguía diciendo 'ehh' durante la presentación.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "hesitation",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "well",
-        "translation":  "bueno / pues",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "discourse-marker",
-                         "hesitation"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Well, I think we should go now.",
-                             "spanish":  "Bueno, creo que deberíamos irnos ya.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Well, that's a good question.",
-                             "spanish":  "Bueno, esa es una buena pregunta.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Well, I never expected that to happen.",
-                             "spanish":  "Pues, nunca esperé que pasara eso.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "discourse"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
-    },
-    {
-        "word":  "whoa",
-        "translation":  "whoa / guau",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/woʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock"
-                     ],
-        "synonyms":  [
-                         "wow"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Whoa, that's impressive!",
-                             "spanish":  "¡Guau, eso es impresionante!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Whoa, slow down! You're going too fast.",
-                             "spanish":  "¡Whoa, más despacio! Vas demasiado rápido.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Whoa, that car almost hit us!",
-                             "spanish":  "¡Whoa, ese coche casi nos choca!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "surprise"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "wow",
-        "translation":  "guau / increíble",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/waʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "shock",
-                         "admiration"
-                     ],
-        "synonyms":  [
-                         "amazing"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Wow, that's amazing!",
-                             "spanish":  "¡Guau, eso es increíble!",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Wow, look at that view!",
-                             "spanish":  "¡Guau, mira esa vista!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Wow, I didn't expect so many people.",
-                             "spanish":  "Guau, no esperaba tanta gente.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "common"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "yahoo",
-        "translation":  "¡yuju!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɑːˈhuː/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "excitement"
-                     ],
-        "synonyms":  [
-                         "hooray"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yahoo! We won the game!",
-                             "spanish":  "¡Yuju! ¡Ganamos el partido!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He shouted 'Yahoo!' and jumped into the pool.",
-                             "spanish":  "Gritó '¡Yuju!' y se tiró a la piscina.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Yahoo, finally it's the weekend!",
-                             "spanish":  "¡Yuju, por fin es fin de semana!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "enthusiasm",
-                     "informal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "yeah",
-        "translation":  "sí",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɛə/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "yes",
-                         "yep"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yeah, that sounds good.",
-                             "spanish":  "Sí, eso suena bien.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Yeah, I'm coming.",
-                             "spanish":  "Sí, ya voy.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Yeah, I guess you're right.",
-                             "spanish":  "Sí, supongo que tienes razón.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "yep",
-        "translation":  "sí",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɛp/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "agreement"
-                     ],
-        "synonyms":  [
-                         "yes",
-                         "yeah"
-                     ],
-        "antonyms":  [
-                         "nope"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yep, that's the one.",
-                             "spanish":  "Sí, ese es.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Are you ready? — Yep!",
-                             "spanish":  "¿Estás listo? — ¡Sí!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Yep, I'll be there in five minutes.",
-                             "spanish":  "Sí, estaré allí en cinco minutos.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "agreement",
-                     "informal"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
-    },
-    {
-        "word":  "yes",
-        "translation":  "sí",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɛs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "common"
-                     ],
-        "synonyms":  [
-                         "sure",
-                         "okay"
-                     ],
-        "antonyms":  [
-                         "no"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yes, I agree.",
-                             "spanish":  "Sí, estoy de acuerdo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said yes to the proposal.",
-                             "spanish":  "Ella dijo sí a la propuesta.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Yes, that is exactly what I meant.",
-                             "spanish":  "Sí, eso es exactamente lo que quise decir.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "daily"
-                 ],
-        "difficulty":  "EASY",
-        "level":  2
-    },
-    {
-        "word":  "yikes",
-        "translation":  "¡cielos!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jaɪks/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "dismay"
-                     ],
-        "synonyms":  [
-                         "oh no"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yikes! That was a close call.",
-                             "spanish":  "¡Cielos! Eso estuvo cerca.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Yikes, look at the time!",
-                             "spanish":  "¡Cielos, mira la hora!",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Yikes, that spider is huge!",
-                             "spanish":  "¡Cielos, esa araña es enorme!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "informal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
-    },
-    {
-        "word":  "yo",
-        "translation":  "¡ey! / ¡oye!",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/joʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "greetings",
-                         "attention"
-                     ],
-        "synonyms":  [
-                         "hey"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yo, what's up?",
-                             "spanish":  "¡Ey, qué tal!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Yo, check this out!",
-                             "spanish":  "¡Oye, mira esto!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Yo, I haven't seen you in ages!",
-                             "spanish":  "¡Oye, no te he visto en siglos!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "greeting",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
-    },
-    {
-        "word":  "yuck",
-        "translation":  "puaj",
-        "type":  "interjection",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jʌk/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "disgust"
-                     ],
-        "synonyms":  [
-                         "gross"
-                     ],
-        "antonyms":  [
-                         "yum"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Yuck, this milk smells bad!",
-                             "spanish":  "¡Puaj, esta leche huele mal!",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Yuck, I hate spinach.",
-                             "spanish":  "Puaj, odio las espinacas.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Yuck, that's disgusting!",
-                             "spanish":  "¡Puaj, eso es asqueroso!",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "emotion",
-                     "disgust"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "ah",
+        "translation": "ah",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɑː/",
+            "audio": null
+        },
+        "category": [
+            "realization",
+            "emotion"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Ah, now I understand!",
+                "spanish": "¡Ah, ahora entiendo!",
+                "level": "A2"
+            },
+            {
+                "english": "Ah, that's why he was angry.",
+                "spanish": "Ah, por eso estaba enojado.",
+                "level": "B1"
+            },
+            {
+                "english": "She sighed and said, 'Ah, what a beautiful day.'",
+                "spanish": "Ella suspiró y dijo: 'Ah, qué día tan bonito'.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "reaction"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "eh",
+        "translation": "¿eh?",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/eɪ/",
+            "audio": null
+        },
+        "category": [
+            "question"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Nice day, eh?",
+                "spanish": "Buen día, ¿eh?",
+                "level": "A2"
+            },
+            {
+                "english": "What was the name again, eh?",
+                "spanish": "¿Cómo se llamaba otra vez, eh?",
+                "level": "B1"
+            },
+            {
+                "english": "Eh, what do you think about that?",
+                "spanish": "Eh, ¿qué piensas de eso?",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "ha",
+        "translation": "ja",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɑː/",
+            "audio": null
+        },
+        "category": [
+            "laughter"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Ha! I knew you were joking.",
+                "spanish": "¡Ja! Sabía que estabas bromeando.",
+                "level": "A2"
+            },
+            {
+                "english": "Ha ha, very funny.",
+                "spanish": "Ja ja, muy gracioso.",
+                "level": "A2"
+            },
+            {
+                "english": "He said 'Ha!' and walked out of the room.",
+                "spanish": "Dijo '¡Ja!' y salió de la habitación.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "laughter",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
+    },
+    {
+        "word": "hi",
+        "translation": "hola",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/haɪ/",
+            "audio": null
+        },
+        "category": [
+            "greetings"
+        ],
+        "synonyms": [
+            "hello",
+            "hey"
+        ],
+        "antonyms": [
+            "goodbye"
+        ],
+        "examples": [
+            {
+                "english": "Hi! Nice to meet you.",
+                "spanish": "¡Hola! Mucho gusto.",
+                "level": "A1"
+            },
+            {
+                "english": "She waved and said hi.",
+                "spanish": "Saludó con la mano y dijo hola.",
+                "level": "A1"
+            },
+            {
+                "english": "Hi there! How's it going?",
+                "spanish": "¡Hola! ¿Cómo va todo?",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "no",
+        "translation": "no",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/noʊ/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "nope"
+        ],
+        "antonyms": [
+            "yes"
+        ],
+        "examples": [
+            {
+                "english": "No, thank you.",
+                "spanish": "No, gracias.",
+                "level": "A1"
+            },
+            {
+                "english": "She said no to the offer.",
+                "spanish": "Ella dijo no a la oferta.",
+                "level": "A2"
+            },
+            {
+                "english": "No, I don't think that's right.",
+                "spanish": "No, no creo que eso sea correcto.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "oh",
+        "translation": "oh",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/oʊ/",
+            "audio": null
+        },
+        "category": [
+            "emotion",
+            "realization"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Oh, I see what you mean.",
+                "spanish": "Oh, ya veo lo que quieres decir.",
+                "level": "A1"
+            },
+            {
+                "english": "Oh! I didn't know that.",
+                "spanish": "¡Oh! No sabía eso.",
+                "level": "A2"
+            },
+            {
+                "english": "Oh, how beautiful the sunset is!",
+                "spanish": "¡Oh, qué bonita es la puesta de sol!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "emotion"
+        ],
+        "difficulty": "EASY",
+        "level": 1
+    },
+    {
+        "word": "uh",
+        "translation": "ehh",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʌ/",
+            "audio": null
+        },
+        "category": [
+            "hesitation"
+        ],
+        "synonyms": [
+            "um",
+            "er"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Uh, I'm not sure how to answer that.",
+                "spanish": "Ehh, no estoy seguro de cómo responder.",
+                "level": "A2"
+            },
+            {
+                "english": "Uh-oh, I think we're lost.",
+                "spanish": "Ay-ay, creo que nos perdimos.",
+                "level": "B1"
+            },
+            {
+                "english": "Uh... can I call you back?",
+                "spanish": "Ehh... ¿puedo llamarte luego?",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "hesitation",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "um",
+        "translation": "ehh",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʌm/",
+            "audio": null
+        },
+        "category": [
+            "hesitation"
+        ],
+        "synonyms": [
+            "uh",
+            "er"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Um, can you repeat that, please?",
+                "spanish": "Ehh, ¿puedes repetir eso, por favor?",
+                "level": "A2"
+            },
+            {
+                "english": "Um, I think we should wait a bit longer.",
+                "spanish": "Ehh, creo que deberíamos esperar un poco más.",
+                "level": "B1"
+            },
+            {
+                "english": "She kept saying 'um' during the presentation.",
+                "spanish": "Seguía diciendo 'ehh' durante la presentación.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "hesitation",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "yo",
+        "translation": "¡ey! / ¡oye!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/joʊ/",
+            "audio": null
+        },
+        "category": [
+            "greetings",
+            "attention"
+        ],
+        "synonyms": [
+            "hey"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Yo, what's up?",
+                "spanish": "¡Ey, qué tal!",
+                "level": "A2"
+            },
+            {
+                "english": "Yo, check this out!",
+                "spanish": "¡Oye, mira esto!",
+                "level": "A2"
+            },
+            {
+                "english": "Yo, I haven't seen you in ages!",
+                "spanish": "¡Oye, no te he visto en siglos!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "bah",
+        "translation": "bah",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bɑː/",
+            "audio": null
+        },
+        "category": [
+            "disdain"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Bah, who cares about that?",
+                "spanish": "Bah, ¿a quién le importa eso?",
+                "level": "B1"
+            },
+            {
+                "english": "He said 'Bah!' and walked away.",
+                "spanish": "Dijo '¡Bah!' y se fue.",
+                "level": "B1"
+            },
+            {
+                "english": "Bah, it's just another boring day.",
+                "spanish": "Bah, es solo otro día aburrido.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "HARD",
+        "level": 2
+    },
+    {
+        "word": "boo",
+        "translation": "¡buu!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/buː/",
+            "audio": null
+        },
+        "category": [
+            "scare",
+            "disapproval"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Boo! I scared you!",
+                "spanish": "¡Buu! ¡Te asusté!",
+                "level": "A2"
+            },
+            {
+                "english": "The crowd shouted 'Boo!' when the player missed.",
+                "spanish": "El público gritó '¡Buu!' cuando el jugador falló.",
+                "level": "B1"
+            },
+            {
+                "english": "Boo, that's not fair!",
+                "spanish": "¡Buu, eso no es justo!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "brr",
+        "translation": "brrr",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/brr/",
+            "audio": null
+        },
+        "category": [
+            "cold"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Brr, it's freezing out here!",
+                "spanish": "Brrr, ¡está helando aquí afuera!",
+                "level": "A2"
+            },
+            {
+                "english": "Brr, I need a coat.",
+                "spanish": "Brrr, necesito un abrigo.",
+                "level": "A2"
+            },
+            {
+                "english": "She said brr and pulled her jacket tighter.",
+                "spanish": "Dijo brrr y se ajustó la chaqueta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "physical"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
+    },
+    {
+        "word": "bye",
+        "translation": "adiós / chao",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/baɪ/",
+            "audio": null
+        },
+        "category": [
+            "greetings",
+            "farewell"
+        ],
+        "synonyms": [
+            "goodbye"
+        ],
+        "antonyms": [
+            "hello"
+        ],
+        "examples": [
+            {
+                "english": "Bye, see you tomorrow!",
+                "spanish": "¡Adiós, nos vemos mañana!",
+                "level": "A1"
+            },
+            {
+                "english": "I waved bye to my friends.",
+                "spanish": "Me despedí con la mano de mis amigos.",
+                "level": "A1"
+            },
+            {
+                "english": "She said bye and closed the door.",
+                "spanish": "Dijo adiós y cerró la puerta.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 2
+    },
+    {
+        "word": "gee",
+        "translation": "¡caramba!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dʒiː/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "gosh",
+            "wow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Gee, I didn't know that!",
+                "spanish": "¡Caramba, no sabía eso!",
+                "level": "A2"
+            },
+            {
+                "english": "Gee whiz, that was close!",
+                "spanish": "¡Caramba, eso estuvo cerca!",
+                "level": "B1"
+            },
+            {
+                "english": "Gee, you really surprised me.",
+                "spanish": "Caramba, realmente me sorprendiste.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "hey",
+        "translation": "oye / hey",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/heɪ/",
+            "audio": null
+        },
+        "category": [
+            "greetings",
+            "attention"
+        ],
+        "synonyms": [
+            "hi",
+            "hello"
+        ],
+        "antonyms": [
+            "goodbye"
+        ],
+        "examples": [
+            {
+                "english": "Hey! How are you doing?",
+                "spanish": "¡Hola! ¿Cómo estás?",
+                "level": "A1"
+            },
+            {
+                "english": "Hey, wait for me!",
+                "spanish": "¡Oye, espérame!",
+                "level": "A1"
+            },
+            {
+                "english": "Hey, that's a great idea!",
+                "spanish": "Oye, ¡esa es una gran idea!",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "hmm",
+        "translation": "mm / hum",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/həm/",
+            "audio": null
+        },
+        "category": [
+            "hesitation"
+        ],
+        "synonyms": [
+            "um",
+            "uh"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hmm, let me think about it.",
+                "spanish": "Mm, déjame pensarlo.",
+                "level": "A2"
+            },
+            {
+                "english": "Hmm, I'm not sure I agree.",
+                "spanish": "Hum, no estoy seguro de estar de acuerdo.",
+                "level": "B1"
+            },
+            {
+                "english": "She said 'hmm' and looked puzzled.",
+                "spanish": "Dijo 'mm' y se quedó confundida.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "hesitation"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "oof",
+        "translation": "uf",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʊf/",
+            "audio": null
+        },
+        "category": [
+            "physical"
+        ],
+        "synonyms": [
+            "ouch"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Oof, that hurt!",
+                "spanish": "¡Uf, eso dolió!",
+                "level": "A2"
+            },
+            {
+                "english": "Oof, this bag is heavy.",
+                "spanish": "Uf, esta bolsa está pesada.",
+                "level": "A2"
+            },
+            {
+                "english": "Oof, what a long day!",
+                "spanish": "Uf, ¡qué día tan largo!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
+    },
+    {
+        "word": "shh",
+        "translation": "shh",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʃː/",
+            "audio": null
+        },
+        "category": [
+            "silence"
+        ],
+        "synonyms": [
+            "hush"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Shh, the baby is sleeping.",
+                "spanish": "Shh, el bebé está durmiendo.",
+                "level": "A1"
+            },
+            {
+                "english": "Shh, listen! Can you hear that?",
+                "spanish": "Shh, escucha. ¿Oyes eso?",
+                "level": "A2"
+            },
+            {
+                "english": "She shh'd the children during the movie.",
+                "spanish": "Hizo shh a los niños durante la película.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "silence",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "wow",
+        "translation": "guau / increíble",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/waʊ/",
+            "audio": null
+        },
+        "category": [
+            "shock",
+            "admiration"
+        ],
+        "synonyms": [
+            "amazing"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Wow, that's amazing!",
+                "spanish": "¡Guau, eso es increíble!",
+                "level": "A1"
+            },
+            {
+                "english": "Wow, look at that view!",
+                "spanish": "¡Guau, mira esa vista!",
+                "level": "A2"
+            },
+            {
+                "english": "Wow, I didn't expect so many people.",
+                "spanish": "Guau, no esperaba tanta gente.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "yep",
+        "translation": "sí",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɛp/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "yes",
+            "yeah"
+        ],
+        "antonyms": [
+            "nope"
+        ],
+        "examples": [
+            {
+                "english": "Yep, that's the one.",
+                "spanish": "Sí, ese es.",
+                "level": "A2"
+            },
+            {
+                "english": "Are you ready? — Yep!",
+                "spanish": "¿Estás listo? — ¡Sí!",
+                "level": "A2"
+            },
+            {
+                "english": "Yep, I'll be there in five minutes.",
+                "spanish": "Sí, estaré allí en cinco minutos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 3
+    },
+    {
+        "word": "yes",
+        "translation": "sí",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɛs/",
+            "audio": null
+        },
+        "category": [
+            "common"
+        ],
+        "synonyms": [
+            "sure",
+            "okay"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "Yes, I agree.",
+                "spanish": "Sí, estoy de acuerdo.",
+                "level": "A1"
+            },
+            {
+                "english": "She said yes to the proposal.",
+                "spanish": "Ella dijo sí a la propuesta.",
+                "level": "A2"
+            },
+            {
+                "english": "Yes, that is exactly what I meant.",
+                "spanish": "Sí, eso es exactamente lo que quise decir.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "argh",
+        "translation": "argh",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɑːr/",
+            "audio": null
+        },
+        "category": [
+            "frustration"
+        ],
+        "synonyms": [
+            "ugh"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Argh, I forgot my keys again!",
+                "spanish": "¡Argh, olvidé mis llaves otra vez!",
+                "level": "A2"
+            },
+            {
+                "english": "He shouted 'Argh!' when the computer crashed.",
+                "spanish": "Gritó '¡Argh!' cuando se cayó el ordenador.",
+                "level": "B1"
+            },
+            {
+                "english": "Argh, why does this always happen to me?",
+                "spanish": "Argh, ¿por qué siempre me pasa esto?",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "cool",
+        "translation": "¡genial! / ¡guay!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/kuːl/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "awesome",
+            "great"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Cool! Let's do it!",
+                "spanish": "¡Genial! ¡Hagámoslo!",
+                "level": "A2"
+            },
+            {
+                "english": "That jacket is really cool.",
+                "spanish": "Esa chaqueta es muy guay.",
+                "level": "A2"
+            },
+            {
+                "english": "Cool, I'll see you at the party.",
+                "spanish": "Genial, te veo en la fiesta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "gosh",
+        "translation": "¡Dios mío! / ¡caramba!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɡɒʃ/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "gee",
+            "wow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Gosh, that's amazing!",
+                "spanish": "¡Caramba, eso es increíble!",
+                "level": "A2"
+            },
+            {
+                "english": "Oh gosh, I forgot my keys again.",
+                "spanish": "Oh Dios mío, olvidé mis llaves otra vez.",
+                "level": "B1"
+            },
+            {
+                "english": "Gosh, has it really been ten years?",
+                "spanish": "Dios mío, ¿de verdad han pasado diez años?",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "haha",
+        "translation": "ja ja",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɑːˈhɑː/",
+            "audio": null
+        },
+        "category": [
+            "laughter"
+        ],
+        "synonyms": [
+            "lol"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Haha, that's so funny!",
+                "spanish": "Ja ja, ¡qué gracioso!",
+                "level": "A1"
+            },
+            {
+                "english": "She laughed: 'Haha, you should have seen his face!'",
+                "spanish": "Se rió: '¡Ja ja, tendrías que haber visto su cara!'",
+                "level": "A2"
+            },
+            {
+                "english": "Haha, that's a good one.",
+                "spanish": "Ja ja, esa es buena.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "laughter",
+            "common",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 4
+    },
+    {
+        "word": "hush",
+        "translation": "silencio",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hʌʃ/",
+            "audio": null
+        },
+        "category": [
+            "silence"
+        ],
+        "synonyms": [
+            "shh"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hush, the baby is sleeping.",
+                "spanish": "Silencio, el bebé está durmiendo.",
+                "level": "A2"
+            },
+            {
+                "english": "Hush now, everything will be okay.",
+                "spanish": "Shh, todo estará bien.",
+                "level": "B1"
+            },
+            {
+                "english": "She hushed the children before the show started.",
+                "spanish": "Hizo callar a los niños antes de que empezara el show.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "silence"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
+    },
+    {
+        "word": "okay",
+        "translation": "vale / de acuerdo",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/oʊˈkeɪ/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "all right",
+            "fine"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "Okay, I'll do it.",
+                "spanish": "Vale, lo haré.",
+                "level": "A1"
+            },
+            {
+                "english": "Is this one okay?",
+                "spanish": "¿Este está bien?",
+                "level": "A1"
+            },
+            {
+                "english": "Okay, let's start the meeting.",
+                "spanish": "De acuerdo, empecemos la reunión.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "oops",
+        "translation": "ups",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʊps/",
+            "audio": null
+        },
+        "category": [
+            "mistake"
+        ],
+        "synonyms": [
+            "whoops"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Oops, I dropped my coffee!",
+                "spanish": "¡Ups, se me cayó el café!",
+                "level": "A1"
+            },
+            {
+                "english": "Oops, I sent the email to the wrong person.",
+                "spanish": "Ups, envié el correo a la persona equivocada.",
+                "level": "A2"
+            },
+            {
+                "english": "Oops, sorry — I didn't see you there.",
+                "spanish": "Ups, perdón — no te vi.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "mistake"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "ouch",
+        "translation": "ay",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/aʊtʃ/",
+            "audio": null
+        },
+        "category": [
+            "pain"
+        ],
+        "synonyms": [
+            "ow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Ouch! That really hurt!",
+                "spanish": "¡Ay! ¡Eso dolió mucho!",
+                "level": "A1"
+            },
+            {
+                "english": "Ouch, my toe!",
+                "spanish": "¡Ay, mi dedo!",
+                "level": "A2"
+            },
+            {
+                "english": "She yelled 'Ouch!' when she touched the hot pan.",
+                "spanish": "Gritó '¡Ay!' cuando tocó la sartén caliente.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "physical"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "phew",
+        "translation": "uf",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/fjuː/",
+            "audio": null
+        },
+        "category": [
+            "relief"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Phew, that was close!",
+                "spanish": "Uf, ¡eso estuvo cerca!",
+                "level": "A2"
+            },
+            {
+                "english": "Phew, I'm glad that's over.",
+                "spanish": "Uf, me alegro de que se haya acabado.",
+                "level": "B1"
+            },
+            {
+                "english": "Phew, it's hot in here.",
+                "spanish": "Uf, hace calor aquí.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "relief"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "psst",
+        "translation": "psst",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/psst/",
+            "audio": null
+        },
+        "category": [
+            "attention"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Psst! Over here!",
+                "spanish": "¡Psst! ¡Por aquí!",
+                "level": "A2"
+            },
+            {
+                "english": "Psst, can I talk to you for a second?",
+                "spanish": "Psst, ¿puedo hablar contigo un momento?",
+                "level": "B1"
+            },
+            {
+                "english": "She whispered 'psst' to get my attention.",
+                "spanish": "Susurró 'psst' para llamar mi atención.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "attention",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "sure",
+        "translation": "claro / seguro",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʃʊr/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "okay",
+            "certainly"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "Sure, no problem!",
+                "spanish": "¡Claro, no hay problema!",
+                "level": "A1"
+            },
+            {
+                "english": "Would you like some coffee? — Sure!",
+                "spanish": "¿Quieres café? — ¡Claro!",
+                "level": "A1"
+            },
+            {
+                "english": "Sure thing, I'll be there at eight.",
+                "spanish": "Seguro, estaré allí a las ocho.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 5
+    },
+    {
+        "word": "well",
+        "translation": "bueno / pues",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛl/",
+            "audio": null
+        },
+        "category": [
+            "discourse-marker",
+            "hesitation"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Well, I think we should go now.",
+                "spanish": "Bueno, creo que deberíamos irnos ya.",
+                "level": "A2"
+            },
+            {
+                "english": "Well, that's a good question.",
+                "spanish": "Bueno, esa es una buena pregunta.",
+                "level": "B1"
+            },
+            {
+                "english": "Well, I never expected that to happen.",
+                "spanish": "Pues, nunca esperé que pasara eso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "discourse"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
+    },
+    {
+        "word": "whoa",
+        "translation": "whoa / guau",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/woʊ/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "wow"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Whoa, that's impressive!",
+                "spanish": "¡Guau, eso es impresionante!",
+                "level": "A2"
+            },
+            {
+                "english": "Whoa, slow down! You're going too fast.",
+                "spanish": "¡Whoa, más despacio! Vas demasiado rápido.",
+                "level": "B1"
+            },
+            {
+                "english": "Whoa, that car almost hit us!",
+                "spanish": "¡Whoa, ese coche casi nos choca!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "surprise"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 6
+    },
+    {
+        "word": "yeah",
+        "translation": "sí",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɛə/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "yes",
+            "yep"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "Yeah, that sounds good.",
+                "spanish": "Sí, eso suena bien.",
+                "level": "A1"
+            },
+            {
+                "english": "Yeah, I'm coming.",
+                "spanish": "Sí, ya voy.",
+                "level": "A1"
+            },
+            {
+                "english": "Yeah, I guess you're right.",
+                "spanish": "Sí, supongo que tienes razón.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "yuck",
+        "translation": "puaj",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jʌk/",
+            "audio": null
+        },
+        "category": [
+            "disgust"
+        ],
+        "synonyms": [
+            "gross"
+        ],
+        "antonyms": [
+            "yum"
+        ],
+        "examples": [
+            {
+                "english": "Yuck, this milk smells bad!",
+                "spanish": "¡Puaj, esta leche huele mal!",
+                "level": "A2"
+            },
+            {
+                "english": "Yuck, I hate spinach.",
+                "spanish": "Puaj, odio las espinacas.",
+                "level": "B1"
+            },
+            {
+                "english": "Yuck, that's disgusting!",
+                "spanish": "¡Puaj, eso es asqueroso!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "disgust"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 6
+    },
+    {
+        "word": "bingo",
+        "translation": "¡bingo!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈbɪŋ.ɡoʊ/",
+            "audio": null
+        },
+        "category": [
+            "realization",
+            "excitement"
+        ],
+        "synonyms": [
+            "aha"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Bingo! I found it!",
+                "spanish": "¡Bingo! ¡Lo encontré!",
+                "level": "A2"
+            },
+            {
+                "english": "And bingo, the answer appeared.",
+                "spanish": "Y bingo, apareció la respuesta.",
+                "level": "B1"
+            },
+            {
+                "english": "Bingo! That's exactly what I was looking for.",
+                "spanish": "¡Bingo! Eso es exactamente lo que buscaba.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "realization"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 6
+    },
+    {
+        "word": "great",
+        "translation": "¡genial! / ¡estupendo!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɡreɪt/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "awesome",
+            "cool"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Great! I'll see you there.",
+                "spanish": "¡Genial! Te veo allí.",
+                "level": "A1"
+            },
+            {
+                "english": "That sounds great, thanks!",
+                "spanish": "Suena genial, ¡gracias!",
+                "level": "A2"
+            },
+            {
+                "english": "You did a great job on this report.",
+                "spanish": "Hiciste un gran trabajo en este informe.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "hello",
+        "translation": "hola",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/həˈloʊ/",
+            "audio": null
+        },
+        "category": [
+            "greetings"
+        ],
+        "synonyms": [
+            "hi",
+            "hey"
+        ],
+        "antonyms": [
+            "goodbye"
+        ],
+        "examples": [
+            {
+                "english": "Hello, how are you?",
+                "spanish": "Hola, ¿cómo estás?",
+                "level": "A1"
+            },
+            {
+                "english": "She said hello to her neighbour.",
+                "spanish": "Ella dijo hola a su vecina.",
+                "level": "A1"
+            },
+            {
+                "english": "Hello everyone, welcome to the show!",
+                "spanish": "¡Hola a todos, bienvenidos al show!",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "oh no",
+        "translation": "¡oh no!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/oʊ noʊ/",
+            "audio": null
+        },
+        "category": [
+            "dismay"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "oh yes"
+        ],
+        "examples": [
+            {
+                "english": "Oh no, I forgot my homework!",
+                "spanish": "¡Oh no, olvidé mi tarea!",
+                "level": "A2"
+            },
+            {
+                "english": "Oh no, the cake fell on the floor!",
+                "spanish": "¡Oh no, el pastel se cayó al suelo!",
+                "level": "A2"
+            },
+            {
+                "english": "Oh no, here comes my boss.",
+                "spanish": "Oh no, ahí viene mi jefe.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 6
+    },
+    {
+        "word": "right",
+        "translation": "correcto / vale",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/raɪt/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "exactly",
+            "correct"
+        ],
+        "antonyms": [
+            "wrong"
+        ],
+        "examples": [
+            {
+                "english": "Right, let's get started.",
+                "spanish": "Vale, comencemos.",
+                "level": "A2"
+            },
+            {
+                "english": "Right, I'll see you tomorrow.",
+                "spanish": "Correcto, te veo mañana.",
+                "level": "A2"
+            },
+            {
+                "english": "Right, that's exactly what I thought.",
+                "spanish": "Exacto, eso es lo que pensé.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "shame",
+        "translation": "¡qué vergüenza! / ¡qué lástima!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ʃeɪm/",
+            "audio": null
+        },
+        "category": [
+            "disappointment"
+        ],
+        "synonyms": [
+            "what a pity"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Shame! We lost the game.",
+                "spanish": "¡Qué lástima! Perdimos el partido.",
+                "level": "B1"
+            },
+            {
+                "english": "What a shame you couldn't come.",
+                "spanish": "Qué lástima que no pudiste venir.",
+                "level": "B1"
+            },
+            {
+                "english": "Shame on you!",
+                "spanish": "¡Qué vergüenza!",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "emotion"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 7
+    },
+    {
+        "word": "sorry",
+        "translation": "lo siento",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈsɒri/",
+            "audio": null
+        },
+        "category": [
+            "emotion",
+            "polite"
+        ],
+        "synonyms": [
+            "apologetic",
+            "regretful"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Sorry, I am late.",
+                "spanish": "Lo siento, llego tarde.",
+                "level": "A1"
+            },
+            {
+                "english": "She felt sorry for what she said.",
+                "spanish": "Ella se sintió mal por lo que dijo.",
+                "level": "A2"
+            },
+            {
+                "english": "I'm sorry to hear that.",
+                "spanish": "Siento escuchar eso.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "emotion"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "super",
+        "translation": "¡súper!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈsuː.pər/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "great",
+            "awesome"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Super! Thanks a lot!",
+                "spanish": "¡Súper! ¡Muchas gracias!",
+                "level": "A2"
+            },
+            {
+                "english": "The party was super fun.",
+                "spanish": "La fiesta estuvo súper divertida.",
+                "level": "A2"
+            },
+            {
+                "english": "That's a super cool idea.",
+                "spanish": "Esa es una idea súper genial.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "informal"
+        ],
+        "difficulty": "EASY",
+        "level": 7
+    },
+    {
+        "word": "yahoo",
+        "translation": "¡yuju!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɑːˈhuː/",
+            "audio": null
+        },
+        "category": [
+            "excitement"
+        ],
+        "synonyms": [
+            "hooray"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Yahoo! We won the game!",
+                "spanish": "¡Yuju! ¡Ganamos el partido!",
+                "level": "B1"
+            },
+            {
+                "english": "He shouted 'Yahoo!' and jumped into the pool.",
+                "spanish": "Gritó '¡Yuju!' y se tiró a la piscina.",
+                "level": "B1"
+            },
+            {
+                "english": "Yahoo, finally it's the weekend!",
+                "spanish": "¡Yuju, por fin es fin de semana!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "informal"
+        ],
+        "difficulty": "HARD",
+        "level": 7
+    },
+    {
+        "word": "yikes",
+        "translation": "¡cielos!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jaɪks/",
+            "audio": null
+        },
+        "category": [
+            "dismay"
+        ],
+        "synonyms": [
+            "oh no"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Yikes! That was a close call.",
+                "spanish": "¡Cielos! Eso estuvo cerca.",
+                "level": "B1"
+            },
+            {
+                "english": "Yikes, look at the time!",
+                "spanish": "¡Cielos, mira la hora!",
+                "level": "B1"
+            },
+            {
+                "english": "Yikes, that spider is huge!",
+                "spanish": "¡Cielos, esa araña es enorme!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "informal"
+        ],
+        "difficulty": "HARD",
+        "level": 7
+    },
+    {
+        "word": "cheers",
+        "translation": "¡salud! / ¡gracias!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/tʃɪərz/",
+            "audio": null
+        },
+        "category": [
+            "toast",
+            "polite"
+        ],
+        "synonyms": [
+            "thanks",
+            "thank you"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Cheers! Here's to your new job.",
+                "spanish": "¡Salud! Por tu nuevo trabajo.",
+                "level": "A2"
+            },
+            {
+                "english": "Cheers for the help, mate.",
+                "spanish": "¡Gracias por la ayuda, amigo!",
+                "level": "B1"
+            },
+            {
+                "english": "In British English, 'cheers' often means thanks.",
+                "spanish": "En inglés británico, 'cheers' suele significar gracias.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "polite",
+            "toast",
+            "british"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "hooray",
+        "translation": "¡hurra!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hʊˈreɪ/",
+            "audio": null
+        },
+        "category": [
+            "excitement"
+        ],
+        "synonyms": [
+            "hurray"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hooray! We did it!",
+                "spanish": "¡Hurra! ¡Lo logramos!",
+                "level": "A2"
+            },
+            {
+                "english": "Three cheers: hip hip hooray!",
+                "spanish": "¡Tres hurras: hip hip hurra!",
+                "level": "B1"
+            },
+            {
+                "english": "Hooray for the weekend!",
+                "spanish": "¡Hurra por el fin de semana!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "celebration"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "hurray",
+        "translation": "¡hurra!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hʌˈreɪ/",
+            "audio": null
+        },
+        "category": [
+            "excitement"
+        ],
+        "synonyms": [
+            "hooray"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hurray! It's Friday!",
+                "spanish": "¡Hurra! ¡Es viernes!",
+                "level": "A2"
+            },
+            {
+                "english": "Hurray, we passed the exam!",
+                "spanish": "¡Hurra, aprobamos el examen!",
+                "level": "B1"
+            },
+            {
+                "english": "They shouted hurray when the team scored.",
+                "spanish": "Gritaron hurra cuando el equipo marcó.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "celebration"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "indeed",
+        "translation": "en efecto",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪnˈdiːd/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "truly",
+            "certainly"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Indeed, that is the case.",
+                "spanish": "En efecto, ese es el caso.",
+                "level": "B1"
+            },
+            {
+                "english": "Yes indeed, you are right.",
+                "spanish": "Sí, en efecto, tienes razón.",
+                "level": "B1"
+            },
+            {
+                "english": "It was indeed a memorable evening.",
+                "spanish": "Fue sin duda una noche memorable.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "formal"
+        ],
+        "difficulty": "HARD",
+        "level": 8
+    },
+    {
+        "word": "my God",
+        "translation": "¡Dios mío!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/maɪ ɡɒd/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "oh my God",
+            "gosh"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My God, what happened here?",
+                "spanish": "¡Dios mío, qué pasó aquí?",
+                "level": "A2"
+            },
+            {
+                "english": "Oh my God, I can't believe it!",
+                "spanish": "¡Dios mío, no lo puedo creer!",
+                "level": "A2"
+            },
+            {
+                "english": "My God, you're really tall!",
+                "spanish": "Dios mío, ¡eres muy alto!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "surprise"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "pardon",
+        "translation": "perdón",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈpɑːr.dən/",
+            "audio": null
+        },
+        "category": [
+            "polite"
+        ],
+        "synonyms": [
+            "excuse me",
+            "sorry"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Pardon? I didn't hear you.",
+                "spanish": "¿Perdón? No te escuché.",
+                "level": "A2"
+            },
+            {
+                "english": "Pardon me, I didn't mean to interrupt.",
+                "spanish": "Perdón, no quise interrumpir.",
+                "level": "B1"
+            },
+            {
+                "english": "I beg your pardon, sir.",
+                "spanish": "Le pido perdón, señor.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "polite",
+            "formal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
+    },
+    {
+        "word": "please",
+        "translation": "por favor",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/pliːz/",
+            "audio": null
+        },
+        "category": [
+            "polite"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Could you help me, please?",
+                "spanish": "¿Puedes ayudarme, por favor?",
+                "level": "A1"
+            },
+            {
+                "english": "She asked politely, please.",
+                "spanish": "Ella pidió amablemente, por favor.",
+                "level": "A2"
+            },
+            {
+                "english": "Please sit down and make yourself comfortable.",
+                "spanish": "Por favor, siéntate y ponte cómodo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 8
+    },
+    {
+        "word": "thanks",
+        "translation": "gracias",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/θæŋks/",
+            "audio": null
+        },
+        "category": [
+            "polite"
+        ],
+        "synonyms": [
+            "thank you"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Thanks for your help!",
+                "spanish": "¡Gracias por tu ayuda!",
+                "level": "A1"
+            },
+            {
+                "english": "Thanks a lot, I really appreciate it.",
+                "spanish": "Muchas gracias, lo agradezco mucho.",
+                "level": "A2"
+            },
+            {
+                "english": "Thanks for coming to the party.",
+                "spanish": "Gracias por venir a la fiesta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "awesome",
+        "translation": "¡genial! / ¡increíble!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈɔː.səm/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "amazing",
+            "fantastic"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Awesome! You got the job!",
+                "spanish": "¡Genial! ¡Conseguiste el trabajo!",
+                "level": "A2"
+            },
+            {
+                "english": "That movie was awesome.",
+                "spanish": "Esa película fue increíble.",
+                "level": "A2"
+            },
+            {
+                "english": "The view from the top was absolutely awesome.",
+                "spanish": "La vista desde arriba fue absolutamente genial.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 9
+    },
+    {
+        "word": "dear me",
+        "translation": "¡Dios mío!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dɪər miː/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "oh my",
+            "my God"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Dear me, what a mess!",
+                "spanish": "¡Dios mío, qué desastre!",
+                "level": "B1"
+            },
+            {
+                "english": "Dear me, I forgot my wallet.",
+                "spanish": "Dios mío, olvidé mi cartera.",
+                "level": "B1"
+            },
+            {
+                "english": "Dear me, the children have been quiet for too long.",
+                "spanish": "Dios mío, los niños han estado callados demasiado tiempo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "surprise"
+        ],
+        "difficulty": "HARD",
+        "level": 9
+    },
+    {
+        "word": "exactly",
+        "translation": "exacto",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪɡˈzæktli/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "precisely",
+            "right"
+        ],
+        "antonyms": [
+            "wrong"
+        ],
+        "examples": [
+            {
+                "english": "Exactly! That's what I meant.",
+                "spanish": "¡Exacto! Eso es lo que quise decir.",
+                "level": "A2"
+            },
+            {
+                "english": "Exactly one hour later, the phone rang.",
+                "spanish": "Exactamente una hora después, sonó el teléfono.",
+                "level": "B1"
+            },
+            {
+                "english": "That's exactly the point I'm trying to make.",
+                "spanish": "Ese es exactamente el punto que intento señalar.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 9
+    },
+    {
+        "word": "goodbye",
+        "translation": "adiós",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɡʊdˈbaɪ/",
+            "audio": null
+        },
+        "category": [
+            "greetings"
+        ],
+        "synonyms": [
+            "bye",
+            "farewell"
+        ],
+        "antonyms": [
+            "hello"
+        ],
+        "examples": [
+            {
+                "english": "Goodbye, see you tomorrow.",
+                "spanish": "Adiós, nos vemos mañana.",
+                "level": "A1"
+            },
+            {
+                "english": "She waved goodbye to her friends.",
+                "spanish": "Ella se despidió con la mano de sus amigos.",
+                "level": "A2"
+            },
+            {
+                "english": "It was hard to say goodbye.",
+                "spanish": "Fue difícil decir adiós.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "greeting",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "all right",
+        "translation": "de acuerdo / está bien",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɔːl raɪt/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "okay",
+            "fine"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "All right, let's go!",
+                "spanish": "¡De acuerdo, vamos!",
+                "level": "A1"
+            },
+            {
+                "english": "Is that okay with you? — All right.",
+                "spanish": "¿Te parece bien? — Está bien.",
+                "level": "A2"
+            },
+            {
+                "english": "All right, I'll think about it.",
+                "spanish": "Está bien, lo pensaré.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "common"
+        ],
+        "difficulty": "EASY",
+        "level": 9
+    },
+    {
+        "word": "excellent",
+        "translation": "¡excelente!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈɛk.sə.lənt/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "great",
+            "wonderful"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Excellent! That's perfect.",
+                "spanish": "¡Excelente! Es perfecto.",
+                "level": "A2"
+            },
+            {
+                "english": "She did an excellent job on the project.",
+                "spanish": "Hizo un trabajo excelente en el proyecto.",
+                "level": "B1"
+            },
+            {
+                "english": "Excellent work, everyone!",
+                "spanish": "¡Trabajo excelente, todos!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm",
+            "formal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 9
+    },
+    {
+        "word": "excuse me",
+        "translation": "disculpe / perdón",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪkˈskjuːz miː/",
+            "audio": null
+        },
+        "category": [
+            "polite"
+        ],
+        "synonyms": [
+            "pardon"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Excuse me, where is the station?",
+                "spanish": "Disculpe, ¿dónde está la estación?",
+                "level": "A1"
+            },
+            {
+                "english": "Excuse me for being late.",
+                "spanish": "Perdona por llegar tarde.",
+                "level": "A2"
+            },
+            {
+                "english": "Excuse me, I didn't mean to interrupt.",
+                "spanish": "Perdón, no quise interrumpir.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "daily"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "fantastic",
+        "translation": "¡fantástico!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/fænˈtæs.tɪk/",
+            "audio": null
+        },
+        "category": [
+            "admiration"
+        ],
+        "synonyms": [
+            "amazing",
+            "awesome"
+        ],
+        "antonyms": [
+            "terrible"
+        ],
+        "examples": [
+            {
+                "english": "Fantastic! We won the match!",
+                "spanish": "¡Fantástico! ¡Ganamos el partido!",
+                "level": "A2"
+            },
+            {
+                "english": "The view from the hotel was fantastic.",
+                "spanish": "La vista desde el hotel era fantástica.",
+                "level": "B1"
+            },
+            {
+                "english": "You did a fantastic job on the presentation.",
+                "spanish": "Hiciste un trabajo fantástico en la presentación.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "enthusiasm"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
+    },
+    {
+        "word": "thank you",
+        "translation": "gracias",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/θæŋk juː/",
+            "audio": null
+        },
+        "category": [
+            "polite"
+        ],
+        "synonyms": [
+            "thanks"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Thank you for your help.",
+                "spanish": "Gracias por tu ayuda.",
+                "level": "A1"
+            },
+            {
+                "english": "She said thank you with a smile.",
+                "spanish": "Ella dijo gracias con una sonrisa.",
+                "level": "A2"
+            },
+            {
+                "english": "Thank you all for coming tonight.",
+                "spanish": "Gracias a todos por venir esta noche.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "daily",
+            "important"
+        ],
+        "difficulty": "EASY",
+        "level": 10
+    },
+    {
+        "word": "absolutely",
+        "translation": "¡absolutamente!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈæbsə.luːtli/",
+            "audio": null
+        },
+        "category": [
+            "agreement"
+        ],
+        "synonyms": [
+            "definitely",
+            "sure"
+        ],
+        "antonyms": [
+            "no"
+        ],
+        "examples": [
+            {
+                "english": "Absolutely, I agree with you.",
+                "spanish": "¡Absolutamente, estoy de acuerdo contigo!",
+                "level": "A2"
+            },
+            {
+                "english": "Are you sure? — Absolutely!",
+                "spanish": "¿Estás seguro? — ¡Absolutamente!",
+                "level": "B1"
+            },
+            {
+                "english": "It was absolutely the best concert ever.",
+                "spanish": "Fue absolutamente el mejor concierto de todos.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "agreement",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
+    },
+    {
+        "word": "my goodness",
+        "translation": "¡Dios mío!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/maɪ ˈɡʊd.nəs/",
+            "audio": null
+        },
+        "category": [
+            "shock"
+        ],
+        "synonyms": [
+            "my God",
+            "gosh"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "My goodness, you're all grown up!",
+                "spanish": "¡Dios mío, has crecido mucho!",
+                "level": "A2"
+            },
+            {
+                "english": "My goodness, that was fast.",
+                "spanish": "Dios mío, eso fue rápido.",
+                "level": "B1"
+            },
+            {
+                "english": "My goodness, what a surprise!",
+                "spanish": "¡Dios mío, qué sorpresa!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "emotion",
+            "surprise"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
+    },
+    {
+        "word": "there you go",
+        "translation": "ahí tienes / aquí tienes",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðɛr juː ɡoʊ/",
+            "audio": null
+        },
+        "category": [
+            "encouragement"
+        ],
+        "synonyms": [
+            "here you go"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "There you go, that's the right answer.",
+                "spanish": "Ahí tienes, esa es la respuesta correcta.",
+                "level": "A2"
+            },
+            {
+                "english": "There you go — a fresh cup of coffee.",
+                "spanish": "Aquí tienes — una taza de café recién hecho.",
+                "level": "A2"
+            },
+            {
+                "english": "There you go, you've finished the race!",
+                "spanish": "¡Ahí tienes, has terminado la carrera!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "encouragement",
+            "daily"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
+    },
+    {
+        "word": "congratulations",
+        "translation": "¡felicitaciones!",
+        "type": "interjection",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/kənˌɡrætʃəˈleɪʃənz/",
+            "audio": null
+        },
+        "category": [
+            "approval",
+            "emotion"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Congratulations on your promotion!",
+                "spanish": "¡Felicitaciones por tu ascenso!",
+                "level": "A2"
+            },
+            {
+                "english": "She congratulated him on the new job.",
+                "spanish": "Ella lo felicitó por el nuevo trabajo.",
+                "level": "B1"
+            },
+            {
+                "english": "Congratulations to the whole team!",
+                "spanish": "¡Felicitaciones a todo el equipo!",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "polite",
+            "celebration"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 10
     }
 ]

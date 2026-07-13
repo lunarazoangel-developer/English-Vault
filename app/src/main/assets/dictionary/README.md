@@ -25,7 +25,7 @@ loader constant — the two must stay aligned.
 | 6  | `adverbs.json`          | 165     | adverb           | Frequency, time, place, direction, manner, degree, certainty, affirmation, addition / linking. |
 | 7  | `prepositions.json`     | 62      | preposition      | Place, time, direction, manner, possession, and common multi-word prepositions (`because of`, `in spite of`, `according to`, `due to`, `instead of`, `next to`, etc.). |
 | 8  | `conjunctions.json`     | 62      | conjunction      | Coordinating, subordinating (time / condition / concession / cause / purpose / result / comparison / manner / place), correlative and conjunctive adverbs. |
-| **Total**                   | **624** |                  |                                                        |
+| **Total**                   | **794** |                  |                                                        |
 
 Verbs come first because they cover the most mini-game content today;
 everything else is grouped by grammatical type, alphabetised inside the
@@ -49,7 +49,7 @@ Every `.json` is a flat JSON array; each element matches `WordDto`:
   "examples":        [ { "english": "string", "spanish": "string", "level": "A1|A2|B1|B2" } ],
   "tags":            ["string"],
   "difficulty":      "EASY | MEDIUM | HARD",
-  "level":           1 | 2
+  "level":           1 | 2 | … | 10
 }
 ```
 
@@ -127,3 +127,15 @@ re-seeding. Bump it whenever the bundled dictionary changes:
   (linking, frequency / period, direction, place, degree,
   certainty, and more manner descriptors). Total dictionary
   now **624 entries**.
+- **14** — every `level` field re-bucketed across all 10 levels
+  via `tools/redistribute_levels.py`. Previously uneven: verbs
+  went up to 5, nouns / prepositions / conjunctions /
+  interjections only to 2. The script sorts each section file by
+  word length (alphabetical tiebreaker) and assigns
+  `level = ceil((i + 1) * 10 / n)` so every level is populated in
+  every category. **Entry count unchanged at 794; per-entry
+  content (translation, examples, IPA, …) untouched.** Word Match
+  Verbs and Letter Soup both surface up to 10 level cards on their
+  selectors; total XP to unlock everything per category scales
+  from 250 (5 × `XP_MIN_PER_LEVEL`) to 500 (10 ×
+  `XP_MIN_PER_LEVEL`).

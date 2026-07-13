@@ -6,10 +6,13 @@ import data.database.entities.WordEntity
 /**
  * Which form of the verb is being tested in a single
  * [WordMatchQuestion].
+ *
+ * Phase 7.4 dropped `THIRD_PERSON` from the rotation — the form was
+ * deemed too predictable from the base verb. The game now alternates
+ * between `PAST_SIMPLE` and `PAST_PARTICIPLE`.
  */
 enum class WordMatchAskType(val promptResId: Int) {
     PAST_SIMPLE(com.example.englishvault.R.string.game_wordmatch_ask_past_simple),
-    THIRD_PERSON(com.example.englishvault.R.string.game_wordmatch_ask_third_person),
     PAST_PARTICIPLE(com.example.englishvault.R.string.game_wordmatch_ask_past_participle);
 
     /**
@@ -21,7 +24,6 @@ enum class WordMatchAskType(val promptResId: Int) {
         val forms = word.forms ?: return word.word
         return when (this) {
             PAST_SIMPLE -> forms.pastSimple?.takeIf { it.isNotBlank() } ?: word.word
-            THIRD_PERSON -> forms.thirdPerson?.takeIf { it.isNotBlank() } ?: word.word
             PAST_PARTICIPLE -> forms.pastParticiple?.takeIf { it.isNotBlank() } ?: word.word
         }
     }

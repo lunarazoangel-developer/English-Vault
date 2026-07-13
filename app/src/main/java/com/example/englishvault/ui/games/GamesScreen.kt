@@ -45,14 +45,17 @@ import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
 
 /**
- * Games zone â€” a 2-column grid of mini-game cards.
+ * Games zone — a 2-column grid of mini-game cards.
  *
  * Phase 2 mockup. Tapping a card does nothing; Phase 3 will route each
  * entry to its corresponding game screen.
  *
  * Phase 6: the "Word Match Verbs" card is wired to the new
- * Word Match Verbs mini-game via [onOpenWordMatchVerbs]. The other five
- * entries remain non-interactive placeholders.
+ * Word Match Verbs mini-game via [onOpenWordMatchVerbs].
+ *
+ * Phase 7.3: the "Letter Soup" card replaces the placeholder
+ * "Memory Cards" entry and routes to the Letter Soup mini-game via
+ * [onOpenLetterSoup].
  *
  * Each card shows a colored icon, the game name, a short description
  * and a difficulty chip.
@@ -60,9 +63,10 @@ import com.example.englishvault.R
 @Composable
 fun GamesScreen(
     onOpenWordMatchVerbs: () -> Unit,
+    onOpenLetterSoup: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // region: Mock games catalogue â€” wire to real sources in Phase 3
+    // region: Mock games catalogue — wire to real sources in Phase 3
     val games = listOf(
         GameItem(
             name = "Word Match Verbs",
@@ -81,12 +85,12 @@ fun GamesScreen(
             isInteractive = false
         ),
         GameItem(
-            name = "Memory Cards",
-            description = "Flip and pair the matching cards.",
+            name = "Letter Soup",
+            description = "Swap letters to fix the broken words.",
             icon = Icons.Filled.Memory,
             color = MaterialTheme.colorScheme.tertiary,
-            difficulty = DifficultyLevel.EASY,
-            isInteractive = false
+            difficulty = DifficultyLevel.MEDIUM,
+            isInteractive = true
         ),
         GameItem(
             name = "Listening",
@@ -145,8 +149,10 @@ fun GamesScreen(
                 GameCard(
                     game = game,
                     onClick = {
-                        if (game.isInteractive && game.name == "Word Match Verbs") {
-                            onOpenWordMatchVerbs()
+                        if (!game.isInteractive) return@GameCard
+                        when (game.name) {
+                            "Word Match Verbs" -> onOpenWordMatchVerbs()
+                            "Letter Soup" -> onOpenLetterSoup()
                         }
                     }
                 )

@@ -1,2662 +1,2593 @@
 [
     {
-        "word":  "after",
-        "translation":  "después de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈæf.tɚ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "before"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "After we finished dinner, we watched a movie.",
-                             "spanish":  "Después de cenar, vimos una película.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Call me after you arrive.",
-                             "spanish":  "Llámame después de que llegues.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "After living in Madrid for years, she moved to London.",
-                             "spanish":  "Después de vivir en Madrid durante años, se mudó a Londres.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "time"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "as",
+        "translation": "como / mientras / ya que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-cause"
+        ],
+        "synonyms": [
+            "while",
+            "since",
+            "because"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "As I was tired, I went to bed early.",
+                "spanish": "Como estaba cansado, me acosté temprano.",
+                "level": "A2"
+            },
+            {
+                "english": "As you know, the meeting has been postponed.",
+                "spanish": "Como sabes, la reunión se ha pospuesto.",
+                "level": "B1"
+            },
+            {
+                "english": "She smiled as she opened the door.",
+                "spanish": "Ella sonrió al abrir la puerta.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "multi-use"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 1
     },
     {
-        "word":  "although",
-        "translation":  "aunque",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɔːlˈðoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar"
-                     ],
-        "synonyms":  [
-                         "though",
-                         "even though"
-                     ],
-        "antonyms":  [
-                         "because"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Although it was cold, we went outside.",
-                             "spanish":  "Aunque hacía frío, salimos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She went to work although she was sick.",
-                             "spanish":  "Ella fue a trabajar aunque estaba enferma.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Although tired, he kept studying.",
-                             "spanish":  "Aunque estaba cansado, siguió estudiando.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "grammar"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "if",
+        "translation": "si",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪf/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "in case"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "If it rains, I will stay home.",
+                "spanish": "Si llueve, me quedaré en casa.",
+                "level": "A1"
+            },
+            {
+                "english": "I would go if I had money.",
+                "spanish": "Iría si tuviera dinero.",
+                "level": "A2"
+            },
+            {
+                "english": "If you need help, just call me.",
+                "spanish": "Si necesitas ayuda, solo llámame.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word":  "and",
-        "translation":  "y",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ænd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                         "plus"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Tom and Jerry are friends.",
-                             "spanish":  "Tom y Jerry son amigos.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I like coffee and tea.",
-                             "spanish":  "Me gusta el café y el té.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She sings and dances at the same time.",
-                             "spanish":  "Ella canta y baila al mismo tiempo.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "or",
+        "translation": "o / u",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Would you like tea or coffee?",
+                "spanish": "¿Quieres té o café?",
+                "level": "A1"
+            },
+            {
+                "english": "Do you want to stay or go?",
+                "spanish": "¿Quieres quedarte o irte?",
+                "level": "A1"
+            },
+            {
+                "english": "Hurry up, or we will be late.",
+                "spanish": "Date prisa, o llegaremos tarde.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word":  "as",
-        "translation":  "como / mientras / ya que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-cause"
-                     ],
-        "synonyms":  [
-                         "while",
-                         "since",
-                         "because"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "As I was tired, I went to bed early.",
-                             "spanish":  "Como estaba cansado, me acosté temprano.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "As you know, the meeting has been postponed.",
-                             "spanish":  "Como sabes, la reunión se ha pospuesto.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She smiled as she opened the door.",
-                             "spanish":  "Ella sonrió al abrir la puerta.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "multi-use"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "so",
+        "translation": "así que / entonces",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/soʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [
+            "therefore",
+            "thus"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "It was raining, so we stayed home.",
+                "spanish": "Estaba lloviendo, así que nos quedamos en casa.",
+                "level": "A1"
+            },
+            {
+                "english": "She was tired, so she went to bed.",
+                "spanish": "Estaba cansada, entonces se fue a la cama.",
+                "level": "A2"
+            },
+            {
+                "english": "I didn't study, so I failed the test.",
+                "spanish": "No estudié, así que suspendí el examen.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word":  "as if",
-        "translation":  "como si",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz ɪf/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-manner"
-                     ],
-        "synonyms":  [
-                         "as though"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She talks as if she knew everything.",
-                             "spanish":  "Ella habla como si lo supiera todo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He looked at me as if I were crazy.",
-                             "spanish":  "Me miró como si estuviera loco.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It looks as if it's going to rain.",
-                             "spanish":  "Parece como si fuera a llover.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "and",
+        "translation": "y",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ænd/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [
+            "plus"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Tom and Jerry are friends.",
+                "spanish": "Tom y Jerry son amigos.",
+                "level": "A1"
+            },
+            {
+                "english": "I like coffee and tea.",
+                "spanish": "Me gusta el café y el té.",
+                "level": "A1"
+            },
+            {
+                "english": "She sings and dances at the same time.",
+                "spanish": "Ella canta y baila al mismo tiempo.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word":  "as long as",
-        "translation":  "mientras / con tal de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz lɔːŋ æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "provided that",
-                         "while"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "You can stay as long as you want.",
-                             "spanish":  "Puedes quedarte tanto tiempo como quieras.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I'll help you, as long as you ask nicely.",
-                             "spanish":  "Te ayudaré, siempre que lo pidas con educación.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "You can watch TV as long as you finish your homework first.",
-                             "spanish":  "Puedes ver la tele siempre que termines primero la tarea.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "but",
+        "translation": "pero",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bʌt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [
+            "yet"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I like coffee but I don't like tea.",
+                "spanish": "Me gusta el café pero no me gusta el té.",
+                "level": "A1"
+            },
+            {
+                "english": "She is young but very smart.",
+                "spanish": "Es joven pero muy lista.",
+                "level": "A1"
+            },
+            {
+                "english": "He studied hard but failed the exam.",
+                "spanish": "Estudió mucho pero suspendió el examen.",
+                "level": "A2"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 1
     },
     {
-        "word":  "as soon as",
-        "translation":  "tan pronto como",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz suːn æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "the moment",
-                         "once"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Call me as soon as you arrive.",
-                             "spanish":  "Llámame tan pronto como llegues.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "As soon as he saw her, he smiled.",
-                             "spanish":  "Tan pronto como la vio, sonrió.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I'll leave as soon as the rain stops.",
-                             "spanish":  "Me iré en cuanto deje de llover.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "nor",
+        "translation": "ni",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/nɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He doesn't smoke, nor does he drink.",
+                "spanish": "No fuma, ni bebe.",
+                "level": "B1"
+            },
+            {
+                "english": "She didn't call, nor did she write.",
+                "spanish": "No llamó, ni escribió.",
+                "level": "B1"
+            },
+            {
+                "english": "I have neither the time nor the money.",
+                "spanish": "No tengo ni tiempo ni dinero.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "formal"
+        ],
+        "difficulty": "HARD",
+        "level": 2
     },
     {
-        "word":  "as though",
-        "translation":  "como si",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz ðoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-manner"
-                     ],
-        "synonyms":  [
-                         "as if"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She acts as though nothing happened.",
-                             "spanish":  "Actúa como si nada hubiera pasado.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He behaves as though he were the boss.",
-                             "spanish":  "Se comporta como si fuera el jefe.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It sounds as though she's very upset.",
-                             "spanish":  "Suena como si estuviera muy molesta.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "yet",
+        "translation": "sin embargo / pero",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/jɛt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [
+            "but",
+            "however"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She is young, yet very wise.",
+                "spanish": "Es joven, pero muy sabia.",
+                "level": "B1"
+            },
+            {
+                "english": "He studied hard, yet he failed.",
+                "spanish": "Estudió mucho, sin embargo suspendió.",
+                "level": "B1"
+            },
+            {
+                "english": "It was strange, yet true.",
+                "spanish": "Era extraño, pero cierto.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 2
     },
     {
-        "word":  "as well as",
-        "translation":  "además de / así como",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz wɛl æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                         "in addition to"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She speaks Spanish as well as English.",
-                             "spanish":  "Habla español además de inglés.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He plays piano as well as guitar.",
-                             "spanish":  "Toca el piano así como la guitarra.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The book is informative as well as entertaining.",
-                             "spanish":  "El libro es informativo y a la vez entretenido.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "lest",
+        "translation": "para que no",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/lɛst/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-purpose"
+        ],
+        "synonyms": [
+            "so that...not"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He ran fast lest he miss the train.",
+                "spanish": "Corrió rápido para no perder el tren.",
+                "level": "B2"
+            },
+            {
+                "english": "Be careful lest you fall.",
+                "spanish": "Ten cuidado para que no te caigas.",
+                "level": "B2"
+            },
+            {
+                "english": "She studied hard lest she fail the exam.",
+                "spanish": "Estudió mucho para no suspender el examen.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written",
+            "archaic"
+        ],
+        "difficulty": "HARD",
+        "level": 2
     },
     {
-        "word":  "as...as",
-        "translation":  "tan...como",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/æz...æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-comparison"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is as tall as her mother.",
-                             "spanish":  "Es tan alta como su madre.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "This book is as interesting as that one.",
-                             "spanish":  "Este libro es tan interesante como aquel.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Run as fast as you can.",
-                             "spanish":  "Corre tan rápido como puedas.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "comparison"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "like",
+        "translation": "como",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/laɪk/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-manner"
+        ],
+        "synonyms": [
+            "as",
+            "the way"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Do it like I showed you.",
+                "spanish": "Hazlo como te enseñé.",
+                "level": "A2"
+            },
+            {
+                "english": "She sings like an angel.",
+                "spanish": "Canta como un ángel.",
+                "level": "B1"
+            },
+            {
+                "english": "It looks like it's going to rain.",
+                "spanish": "Parece que va a llover.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "informal"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
     },
     {
-        "word":  "because",
-        "translation":  "porque",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bɪˈkɒz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar"
-                     ],
-        "synonyms":  [
-                         "since",
-                         "as"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I am tired because I worked a lot.",
-                             "spanish":  "Estoy cansado porque trabajé mucho.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She stayed home because it was raining.",
-                             "spanish":  "Ella se quedó en casa porque estaba lloviendo.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "He succeeded because of his hard work.",
-                             "spanish":  "Tuvo éxito debido a su duro trabajo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "grammar",
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "once",
+        "translation": "una vez que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wʌns/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "as soon as",
+            "when"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Once you start, it's hard to stop.",
+                "spanish": "Una vez que empiezas, es difícil parar.",
+                "level": "A2"
+            },
+            {
+                "english": "Once he arrived, we began the meeting.",
+                "spanish": "Una vez que llegó, empezamos la reunión.",
+                "level": "B1"
+            },
+            {
+                "english": "Once you finish, you can leave.",
+                "spanish": "Una vez que termines, puedes irte.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 2
     },
     {
-        "word":  "before",
-        "translation":  "antes de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bɪˈfɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "prior to"
-                     ],
-        "antonyms":  [
-                         "after"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Wash your hands before you eat.",
-                             "spanish":  "Lávate las manos antes de comer.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Think before you speak.",
-                             "spanish":  "Piensa antes de hablar.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She had already left before I arrived.",
-                             "spanish":  "Ya se había ido antes de que yo llegara.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "than",
+        "translation": "que / de lo que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðæn/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-comparison"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She is taller than me.",
+                "spanish": "Es más alta que yo.",
+                "level": "A1"
+            },
+            {
+                "english": "Today is colder than yesterday.",
+                "spanish": "Hoy hace más frío que ayer.",
+                "level": "A2"
+            },
+            {
+                "english": "I have more friends than I had last year.",
+                "spanish": "Tengo más amigos que el año pasado.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "comparison"
+        ],
+        "difficulty": "EASY",
+        "level": 2
     },
     {
-        "word":  "both...and",
-        "translation":  "tanto...como",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/boʊθ...ænd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "neither...nor"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Both John and Mary are coming.",
-                             "spanish":  "Tanto John como Mary vienen.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She is both smart and kind.",
-                             "spanish":  "Es tanto inteligente como amable.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The project requires both time and effort.",
-                             "spanish":  "El proyecto requiere tanto tiempo como esfuerzo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "correlative"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "that",
+        "translation": "que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðæt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-cause"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I know that you are right.",
+                "spanish": "Sé que tienes razón.",
+                "level": "A1"
+            },
+            {
+                "english": "She said that she was leaving.",
+                "spanish": "Dijo que se iba.",
+                "level": "A2"
+            },
+            {
+                "english": "The book that I read was amazing.",
+                "spanish": "El libro que leí era increíble.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 3
     },
     {
-        "word":  "but",
-        "translation":  "pero",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/bʌt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                         "yet"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I like coffee but I don't like tea.",
-                             "spanish":  "Me gusta el café pero no me gusta el té.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She is young but very smart.",
-                             "spanish":  "Es joven pero muy lista.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "He studied hard but failed the exam.",
-                             "spanish":  "Estudió mucho pero suspendió el examen.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "thus",
+        "translation": "así pues / por lo tanto",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðʌs/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "therefore",
+            "hence"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He studied hard; thus, he passed the test.",
+                "spanish": "Estudió mucho; así pues, aprobó el examen.",
+                "level": "B2"
+            },
+            {
+                "english": "The company grew, thus creating more jobs.",
+                "spanish": "La empresa creció, creando así más empleos.",
+                "level": "B2"
+            },
+            {
+                "english": "She was the fastest; thus, she won the race.",
+                "spanish": "Era la más rápida; por lo tanto, ganó la carrera.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 3
     },
     {
-        "word":  "by the time",
-        "translation":  "para cuando",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/baɪ ðə taɪm/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "when"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "By the time you arrive, dinner will be ready.",
-                             "spanish":  "Para cuando llegues, la cena estará lista.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "By the time I got to the station, the train had left.",
-                             "spanish":  "Para cuando llegué a la estación, el tren ya se había ido.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "By the time she realized, it was too late.",
-                             "spanish":  "Para cuando se dio cuenta, ya era demasiado tarde.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "when",
+        "translation": "cuando",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛn/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Call me when you arrive.",
+                "spanish": "Llámame cuando llegues.",
+                "level": "A1"
+            },
+            {
+                "english": "I was reading when the phone rang.",
+                "spanish": "Estaba leyendo cuando sonó el teléfono.",
+                "level": "A2"
+            },
+            {
+                "english": "When I was a child, I lived in Spain.",
+                "spanish": "Cuando era niño, vivía en España.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "basic"
+        ],
+        "difficulty": "EASY",
+        "level": 3
     },
     {
-        "word":  "either...or",
-        "translation":  "o...o",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈiːðər...ɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "neither...nor"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "You can either stay or leave.",
-                             "spanish":  "Puedes quedarte o irte.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Either you call him, or I will.",
-                             "spanish":  "O lo llamas tú, o lo llamo yo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Either way, we have to decide today.",
-                             "spanish":  "De cualquier forma, tenemos que decidir hoy.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "correlative"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "after",
+        "translation": "después de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈæf.tɚ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "before"
+        ],
+        "examples": [
+            {
+                "english": "After we finished dinner, we watched a movie.",
+                "spanish": "Después de cenar, vimos una película.",
+                "level": "A2"
+            },
+            {
+                "english": "Call me after you arrive.",
+                "spanish": "Llámame después de que llegues.",
+                "level": "A2"
+            },
+            {
+                "english": "After living in Madrid for years, she moved to London.",
+                "spanish": "Después de vivir en Madrid durante años, se mudó a Londres.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "time"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 3
     },
     {
-        "word":  "even if",
-        "translation":  "incluso si / aunque",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈiːvən ɪf/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "even though"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Even if it rains, we will go.",
-                             "spanish":  "Incluso si llueve, iremos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I wouldn't go, even if you paid me.",
-                             "spanish":  "No iría, aunque me pagaras.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Even if you are right, you should apologize.",
-                             "spanish":  "Incluso si tienes razón, deberías disculparte.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "as if",
+        "translation": "como si",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz ɪf/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-manner"
+        ],
+        "synonyms": [
+            "as though"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She talks as if she knew everything.",
+                "spanish": "Ella habla como si lo supiera todo.",
+                "level": "B1"
+            },
+            {
+                "english": "He looked at me as if I were crazy.",
+                "spanish": "Me miró como si estuviera loco.",
+                "level": "B1"
+            },
+            {
+                "english": "It looks as if it's going to rain.",
+                "spanish": "Parece como si fuera a llover.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 3
     },
     {
-        "word":  "even though",
-        "translation":  "incluso aunque",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈiːvən ðoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-concession"
-                     ],
-        "synonyms":  [
-                         "although",
-                         "though"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Even though he was tired, he kept working.",
-                             "spanish":  "Aunque estaba cansado, siguió trabajando.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Even though I studied, I failed.",
-                             "spanish":  "A pesar de que estudié, suspendí.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Even though she disagreed, she stayed silent.",
-                             "spanish":  "Aunque estaba en desacuerdo, se quedó callada.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "hence",
+        "translation": "por lo tanto / de ahí",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/hɛns/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "therefore",
+            "thus"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He didn't study; hence he failed.",
+                "spanish": "No estudió; por lo tanto suspendió.",
+                "level": "B2"
+            },
+            {
+                "english": "The store closed, hence the empty shelves.",
+                "spanish": "La tienda cerró, de ahí los estantes vacíos.",
+                "level": "B2"
+            },
+            {
+                "english": "It was raining, hence the cancellation.",
+                "spanish": "Estaba lloviendo, de ahí la cancelación.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 3
     },
     {
-        "word":  "furthermore",
-        "translation":  "además",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈfɜːrðər.mɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "moreover",
-                         "in addition"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He is smart; furthermore, he is very hardworking.",
-                             "spanish":  "Es inteligente; además, es muy trabajador.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The hotel is cheap. Furthermore, it's near the beach.",
-                             "spanish":  "El hotel es barato. Además, está cerca de la playa.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "She speaks three languages. Furthermore, she plays two instruments.",
-                             "spanish":  "Habla tres idiomas. Además, toca dos instrumentos.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "since",
+        "translation": "ya que / desde que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/sɪns/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-cause"
+        ],
+        "synonyms": [
+            "because",
+            "as"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Since you're here, help me.",
+                "spanish": "Ya que estás aquí, ayúdame.",
+                "level": "A2"
+            },
+            {
+                "english": "Since it was late, we went home.",
+                "spanish": "Como era tarde, nos fuimos a casa.",
+                "level": "B1"
+            },
+            {
+                "english": "I've lived here since I was born.",
+                "spanish": "He vivido aquí desde que nací.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word":  "hardly...when",
-        "translation":  "apenas...cuando",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈhɑːrdli...wɛn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                         "no sooner...than"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hardly had I arrived when it started raining.",
-                             "spanish":  "Apenas había llegado cuando empezó a llover.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Hardly did she speak when the phone rang.",
-                             "spanish":  "Apenas había hablado cuando sonó el teléfono.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "He had hardly sat down when the door opened.",
-                             "spanish":  "Apenas se había sentado cuando se abrió la puerta.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "still",
+        "translation": "sin embargo / aun así",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/stɪl/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "however",
+            "nevertheless"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "It's expensive; still, I want to buy it.",
+                "spanish": "Es caro; aun así, quiero comprarlo.",
+                "level": "B1"
+            },
+            {
+                "english": "She was tired; still, she kept working.",
+                "spanish": "Estaba cansada; sin embargo, siguió trabajando.",
+                "level": "B1"
+            },
+            {
+                "english": "The movie was long. Still, it was worth watching.",
+                "spanish": "La película era larga. Aun así, valía la pena verla.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 4
     },
     {
-        "word":  "hence",
-        "translation":  "por lo tanto / de ahí",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/hɛns/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "therefore",
-                         "thus"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He didn't study; hence he failed.",
-                             "spanish":  "No estudió; por lo tanto suspendió.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "The store closed, hence the empty shelves.",
-                             "spanish":  "La tienda cerró, de ahí los estantes vacíos.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "It was raining, hence the cancellation.",
-                             "spanish":  "Estaba lloviendo, de ahí la cancelación.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "until",
+        "translation": "hasta que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ənˈtɪl/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "till"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Wait until I come back.",
+                "spanish": "Espera hasta que vuelva.",
+                "level": "A2"
+            },
+            {
+                "english": "Don't leave until I tell you.",
+                "spanish": "No te vayas hasta que te diga.",
+                "level": "A2"
+            },
+            {
+                "english": "She worked until she was exhausted.",
+                "spanish": "Trabajó hasta que se agotó.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word":  "however",
-        "translation":  "sin embargo",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/haʊˈɛvər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "nevertheless",
-                         "yet"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "However, we still decided to go.",
-                             "spanish":  "Sin embargo, aún decidimos ir.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It was hard. However, we succeeded.",
-                             "spanish":  "Fue difícil. Sin embargo, lo logramos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "However you look at it, the answer is the same.",
-                             "spanish":  "Como lo mires, la respuesta es la misma.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "where",
+        "translation": "donde",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-place"
+        ],
+        "synonyms": [
+            "in which",
+            "at which"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "This is where I grew up.",
+                "spanish": "Aquí es donde crecí.",
+                "level": "A2"
+            },
+            {
+                "english": "I don't know where he went.",
+                "spanish": "No sé adónde fue.",
+                "level": "B1"
+            },
+            {
+                "english": "The house where I was born is gone.",
+                "spanish": "La casa donde nací ya no existe.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word":  "if",
-        "translation":  "si",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪf/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "in case"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "If it rains, I will stay home.",
-                             "spanish":  "Si llueve, me quedaré en casa.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I would go if I had money.",
-                             "spanish":  "Iría si tuviera dinero.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "If you need help, just call me.",
-                             "spanish":  "Si necesitas ayuda, solo llámame.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "while",
+        "translation": "mientras / mientras que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/waɪl/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "as",
+            "whereas"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She read a book while waiting.",
+                "spanish": "Leyó un libro mientras esperaba.",
+                "level": "A2"
+            },
+            {
+                "english": "While I was cooking, he was watching TV.",
+                "spanish": "Mientras yo cocinaba, él veía la tele.",
+                "level": "B1"
+            },
+            {
+                "english": "She is outgoing, while her sister is shy.",
+                "spanish": "Ella es extrovertida, mientras que su hermana es tímida.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word":  "in case",
-        "translation":  "en caso de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪn keɪs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "if"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Take an umbrella in case it rains.",
-                             "spanish":  "Lleva un paraguas en caso de que llueva.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I'll bring snacks in case we get hungry.",
-                             "spanish":  "Llevaré snacks por si nos da hambre.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Save your work in case the computer crashes.",
-                             "spanish":  "Guarda tu trabajo por si se cae el ordenador.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "before",
+        "translation": "antes de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bɪˈfɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "prior to"
+        ],
+        "antonyms": [
+            "after"
+        ],
+        "examples": [
+            {
+                "english": "Wash your hands before you eat.",
+                "spanish": "Lávate las manos antes de comer.",
+                "level": "A2"
+            },
+            {
+                "english": "Think before you speak.",
+                "spanish": "Piensa antes de hablar.",
+                "level": "B1"
+            },
+            {
+                "english": "She had already left before I arrived.",
+                "spanish": "Ya se había ido antes de que yo llegara.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 4
     },
     {
-        "word":  "instead",
-        "translation":  "en cambio",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɪnˈstɛd/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "alternatively"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I don't like coffee; I'll have tea instead.",
-                             "spanish":  "No me gusta el café; tomaré té en su lugar.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She didn't go out; instead, she stayed home.",
-                             "spanish":  "No salió; en cambio, se quedó en casa.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He didn't apologize. Instead, he laughed.",
-                             "spanish":  "No se disculpó. En cambio, se rió.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "though",
+        "translation": "aunque",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðoʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-concession"
+        ],
+        "synonyms": [
+            "although",
+            "even though"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Though it was late, we kept talking.",
+                "spanish": "Aunque era tarde, seguimos hablando.",
+                "level": "B1"
+            },
+            {
+                "english": "She was tired, though she didn't complain.",
+                "spanish": "Estaba cansada, aunque no se quejó.",
+                "level": "B1"
+            },
+            {
+                "english": "Though he is rich, he lives simply.",
+                "spanish": "Aunque es rico, vive de forma sencilla.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "informal"
+        ],
+        "difficulty": "HARD",
+        "level": 5
     },
     {
-        "word":  "just as",
-        "translation":  "justo cuando / igual que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/dʒʌst æz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "when",
-                         "like"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She arrived just as I was leaving.",
-                             "spanish":  "Llegó justo cuando me iba.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Just as I thought, it started to rain.",
-                             "spanish":  "Justo cuando pensaba, empezó a llover.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Just as she opened the door, the phone rang.",
-                             "spanish":  "Justo cuando abrió la puerta, sonó el teléfono.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "unless",
+        "translation": "a menos que / a no ser que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ənˈlɛs/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "if not"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "You won't pass unless you study.",
+                "spanish": "No aprobarás a menos que estudies.",
+                "level": "A2"
+            },
+            {
+                "english": "Unless it rains, we'll go to the park.",
+                "spanish": "A no ser que llueva, iremos al parque.",
+                "level": "B1"
+            },
+            {
+                "english": "I won't go unless you come with me.",
+                "spanish": "No iré a menos que vengas conmigo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
     },
     {
-        "word":  "lest",
-        "translation":  "para que no",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/lɛst/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-purpose"
-                     ],
-        "synonyms":  [
-                         "so that...not"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He ran fast lest he miss the train.",
-                             "spanish":  "Corrió rápido para no perder el tren.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "Be careful lest you fall.",
-                             "spanish":  "Ten cuidado para que no te caigas.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "She studied hard lest she fail the exam.",
-                             "spanish":  "Estudió mucho para no suspender el examen.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written",
-                     "archaic"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "as...as",
+        "translation": "tan...como",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz...æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-comparison"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She is as tall as her mother.",
+                "spanish": "Es tan alta como su madre.",
+                "level": "A1"
+            },
+            {
+                "english": "This book is as interesting as that one.",
+                "spanish": "Este libro es tan interesante como aquel.",
+                "level": "A2"
+            },
+            {
+                "english": "Run as fast as you can.",
+                "spanish": "Corre tan rápido como puedas.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "comparison"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
     },
     {
-        "word":  "like",
-        "translation":  "como",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/laɪk/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-manner"
-                     ],
-        "synonyms":  [
-                         "as",
-                         "the way"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Do it like I showed you.",
-                             "spanish":  "Hazlo como te enseñé.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She sings like an angel.",
-                             "spanish":  "Canta como un ángel.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It looks like it's going to rain.",
-                             "spanish":  "Parece que va a llover.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "informal"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "because",
+        "translation": "porque",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/bɪˈkɒz/",
+            "audio": null
+        },
+        "category": [
+            "grammar"
+        ],
+        "synonyms": [
+            "since",
+            "as"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I am tired because I worked a lot.",
+                "spanish": "Estoy cansado porque trabajé mucho.",
+                "level": "A2"
+            },
+            {
+                "english": "She stayed home because it was raining.",
+                "spanish": "Ella se quedó en casa porque estaba lloviendo.",
+                "level": "A2"
+            },
+            {
+                "english": "He succeeded because of his hard work.",
+                "spanish": "Tuvo éxito debido a su duro trabajo.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "grammar",
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 5
     },
     {
-        "word":  "meanwhile",
-        "translation":  "mientras tanto",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈmiːn.waɪl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "in the meantime",
-                         "at the same time"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I'll make dinner. Meanwhile, you can set the table.",
-                             "spanish":  "Haré la cena. Mientras tanto, puedes poner la mesa.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She's studying; meanwhile, her brother plays outside.",
-                             "spanish":  "Ella estudia; mientras tanto, su hermano juega fuera.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Meanwhile, the storm continued to grow.",
-                             "spanish":  "Mientras tanto, la tormenta seguía creciendo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "even if",
+        "translation": "incluso si / aunque",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈiːvən ɪf/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "even though"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Even if it rains, we will go.",
+                "spanish": "Incluso si llueve, iremos.",
+                "level": "B1"
+            },
+            {
+                "english": "I wouldn't go, even if you paid me.",
+                "spanish": "No iría, aunque me pagaras.",
+                "level": "B1"
+            },
+            {
+                "english": "Even if you are right, you should apologize.",
+                "spanish": "Incluso si tienes razón, deberías disculparte.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 5
     },
     {
-        "word":  "moreover",
-        "translation":  "además / es más",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/mɔːrˈoʊvər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "furthermore",
-                         "in addition"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "The car is cheap; moreover, it runs well.",
-                             "spanish":  "El coche es barato; además, funciona bien.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He is kind. Moreover, he is very generous.",
-                             "spanish":  "Es amable. Es más, es muy generoso.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "The hotel is clean. Moreover, the staff is friendly.",
-                             "spanish":  "El hotel está limpio. Además, el personal es amable.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "however",
+        "translation": "sin embargo",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/haʊˈɛvər/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "nevertheless",
+            "yet"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "However, we still decided to go.",
+                "spanish": "Sin embargo, aún decidimos ir.",
+                "level": "B1"
+            },
+            {
+                "english": "It was hard. However, we succeeded.",
+                "spanish": "Fue difícil. Sin embargo, lo logramos.",
+                "level": "B1"
+            },
+            {
+                "english": "However you look at it, the answer is the same.",
+                "spanish": "Como lo mires, la respuesta es la misma.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 5
     },
     {
-        "word":  "neither...nor",
-        "translation":  "ni...ni",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈniːðər...nɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                         "both...and"
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Neither John nor Mary came.",
-                             "spanish":  "Ni John ni Mary vinieron.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I like neither coffee nor tea.",
-                             "spanish":  "No me gusta ni el café ni el té.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Neither the teacher nor the students were ready.",
-                             "spanish":  "Ni el profesor ni los estudiantes estaban listos.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "correlative"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "in case",
+        "translation": "en caso de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪn keɪs/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "if"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Take an umbrella in case it rains.",
+                "spanish": "Lleva un paraguas en caso de que llueva.",
+                "level": "B1"
+            },
+            {
+                "english": "I'll bring snacks in case we get hungry.",
+                "spanish": "Llevaré snacks por si nos da hambre.",
+                "level": "B1"
+            },
+            {
+                "english": "Save your work in case the computer crashes.",
+                "spanish": "Guarda tu trabajo por si se cae el ordenador.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 5
     },
     {
-        "word":  "nevertheless",
-        "translation":  "sin embargo / no obstante",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˌnɛvərðəˈlɛs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "however",
-                         "nonetheless"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "It was raining; nevertheless, we went out.",
-                             "spanish":  "Estaba lloviendo; sin embargo, salimos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She was tired. Nevertheless, she kept working.",
-                             "spanish":  "Estaba cansada. No obstante, siguió trabajando.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "The task was hard; nevertheless, he succeeded.",
-                             "spanish":  "La tarea era difícil; sin embargo, la logró.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "instead",
+        "translation": "en cambio",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɪnˈstɛd/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "alternatively"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I don't like coffee; I'll have tea instead.",
+                "spanish": "No me gusta el café; tomaré té en su lugar.",
+                "level": "A2"
+            },
+            {
+                "english": "She didn't go out; instead, she stayed home.",
+                "spanish": "No salió; en cambio, se quedó en casa.",
+                "level": "B1"
+            },
+            {
+                "english": "He didn't apologize. Instead, he laughed.",
+                "spanish": "No se disculpó. En cambio, se rió.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "no sooner...than",
-        "translation":  "apenas...cuando",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/noʊ ˈsuːnər...ðæn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                         "hardly...when"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "No sooner had I arrived than it started to rain.",
-                             "spanish":  "Apenas había llegado cuando empezó a llover.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "No sooner did she leave than the phone rang.",
-                             "spanish":  "Apenas se fue cuando sonó el teléfono.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "No sooner had we sat down than the lights went out.",
-                             "spanish":  "Apenas nos habíamos sentado cuando se apagaron las luces.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "just as",
+        "translation": "justo cuando / igual que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/dʒʌst æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "when",
+            "like"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She arrived just as I was leaving.",
+                "spanish": "Llegó justo cuando me iba.",
+                "level": "B1"
+            },
+            {
+                "english": "Just as I thought, it started to rain.",
+                "spanish": "Justo cuando pensaba, empezó a llover.",
+                "level": "B1"
+            },
+            {
+                "english": "Just as she opened the door, the phone rang.",
+                "spanish": "Justo cuando abrió la puerta, sonó el teléfono.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "nor",
-        "translation":  "ni",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/nɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He doesn't smoke, nor does he drink.",
-                             "spanish":  "No fuma, ni bebe.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She didn't call, nor did she write.",
-                             "spanish":  "No llamó, ni escribió.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I have neither the time nor the money.",
-                             "spanish":  "No tengo ni tiempo ni dinero.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "formal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "so that",
+        "translation": "para que / a fin de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/soʊ ðæt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-purpose"
+        ],
+        "synonyms": [
+            "in order that"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I studied hard so that I could pass.",
+                "spanish": "Estudié mucho para poder aprobar.",
+                "level": "B1"
+            },
+            {
+                "english": "She spoke slowly so that everyone could understand.",
+                "spanish": "Hablaba despacio para que todos pudieran entender.",
+                "level": "B1"
+            },
+            {
+                "english": "He left early so that he wouldn't be late.",
+                "spanish": "Salió temprano para no llegar tarde.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "not only...but also",
-        "translation":  "no solo...sino también",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/nɑːt ˈoʊnli...bʌt ˈɔːlsoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is not only smart but also kind.",
-                             "spanish":  "No solo es inteligente sino también amable.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He speaks not only English but also French.",
-                             "spanish":  "No solo habla inglés sino también francés.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Not only did she win, but she also broke the record.",
-                             "spanish":  "No solo ganó, sino que también rompió el récord.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "correlative"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "the way",
+        "translation": "como / la forma en que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ðə weɪ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-manner"
+        ],
+        "synonyms": [
+            "how"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I like the way you sing.",
+                "spanish": "Me gusta cómo cantas.",
+                "level": "B1"
+            },
+            {
+                "english": "He explained it the way his teacher did.",
+                "spanish": "Lo explicó como lo hacía su profesor.",
+                "level": "B1"
+            },
+            {
+                "english": "I admire the way she handles problems.",
+                "spanish": "Admiro la forma en que maneja los problemas.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "once",
-        "translation":  "una vez que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wʌns/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "as soon as",
-                         "when"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Once you start, it's hard to stop.",
-                             "spanish":  "Una vez que empiezas, es difícil parar.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Once he arrived, we began the meeting.",
-                             "spanish":  "Una vez que llegó, empezamos la reunión.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Once you finish, you can leave.",
-                             "spanish":  "Una vez que termines, puedes irte.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "whereas",
+        "translation": "mientras que / en cambio",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛrˈæz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-concession"
+        ],
+        "synonyms": [
+            "while",
+            "although"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She likes coffee, whereas he prefers tea.",
+                "spanish": "A ella le gusta el café, mientras que él prefiere el té.",
+                "level": "B1"
+            },
+            {
+                "english": "He is outgoing, whereas his brother is shy.",
+                "spanish": "Él es extrovertido, mientras que su hermano es tímido.",
+                "level": "B2"
+            },
+            {
+                "english": "Some people love math, whereas others hate it.",
+                "spanish": "A algunos les encantan las matemáticas, mientras que otros las odian.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "or",
-        "translation":  "o / u",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Would you like tea or coffee?",
-                             "spanish":  "¿Quieres té o café?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Do you want to stay or go?",
-                             "spanish":  "¿Quieres quedarte o irte?",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Hurry up, or we will be late.",
-                             "spanish":  "Date prisa, o llegaremos tarde.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "although",
+        "translation": "aunque",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ɔːlˈðoʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar"
+        ],
+        "synonyms": [
+            "though",
+            "even though"
+        ],
+        "antonyms": [
+            "because"
+        ],
+        "examples": [
+            {
+                "english": "Although it was cold, we went outside.",
+                "spanish": "Aunque hacía frío, salimos.",
+                "level": "B1"
+            },
+            {
+                "english": "She went to work although she was sick.",
+                "spanish": "Ella fue a trabajar aunque estaba enferma.",
+                "level": "B1"
+            },
+            {
+                "english": "Although tired, he kept studying.",
+                "spanish": "Aunque estaba cansado, siguió estudiando.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "grammar"
+        ],
+        "difficulty": "HARD",
+        "level": 6
     },
     {
-        "word":  "otherwise",
-        "translation":  "de lo contrario / si no",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈʌðər.waɪz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "or else",
-                         "if not"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Hurry, otherwise we'll be late.",
-                             "spanish":  "Date prisa, si no llegaremos tarde.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "You must study; otherwise, you will fail.",
-                             "spanish":  "Debes estudiar; de lo contrario, suspenderás.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "He worked hard; otherwise, he would have lost his job.",
-                             "spanish":  "Trabajó duro; de lo contrario, habría perdido su trabajo.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "moreover",
+        "translation": "además / es más",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/mɔːrˈoʊvər/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "furthermore",
+            "in addition"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "The car is cheap; moreover, it runs well.",
+                "spanish": "El coche es barato; además, funciona bien.",
+                "level": "B1"
+            },
+            {
+                "english": "He is kind. Moreover, he is very generous.",
+                "spanish": "Es amable. Es más, es muy generoso.",
+                "level": "B2"
+            },
+            {
+                "english": "The hotel is clean. Moreover, the staff is friendly.",
+                "spanish": "El hotel está limpio. Además, el personal es amable.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 7
     },
     {
-        "word":  "provided that",
-        "translation":  "siempre que / con tal de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/prəˈvaɪdɪd ðæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "as long as",
-                         "on condition that"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "You can go, provided that you finish your homework.",
-                             "spanish":  "Puedes ir, siempre que termines la tarea.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I'll lend you the car, provided that you drive carefully.",
-                             "spanish":  "Te prestaré el coche, con tal de que conduzcas con cuidado.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "You may enter, provided that you have a ticket.",
-                             "spanish":  "Puedes entrar, siempre que tengas entrada.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "whenever",
+        "translation": "cuando sea / cada vez que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛnˈɛvər/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "every time that"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Come visit whenever you want.",
+                "spanish": "Ven a visitarme cuando quieras.",
+                "level": "A2"
+            },
+            {
+                "english": "Whenever I see her, she smiles.",
+                "spanish": "Cada vez que la veo, sonríe.",
+                "level": "B1"
+            },
+            {
+                "english": "He talks about it whenever he can.",
+                "spanish": "Habla de ello siempre que puede.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 7
     },
     {
-        "word":  "rather than",
-        "translation":  "en lugar de / más que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈræðər ðæn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-comparison"
-                     ],
-        "synonyms":  [
-                         "instead of"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I would read rather than watch TV.",
-                             "spanish":  "Preferiría leer en lugar de ver la tele.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He chose to walk rather than take the bus.",
-                             "spanish":  "Eligió caminar en lugar de tomar el autobús.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "She'd rather stay home than go out.",
-                             "spanish":  "Prefiere quedarse en casa a salir.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "wherever",
+        "translation": "donde sea / dondequiera que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/wɛrˈɛvər/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-place"
+        ],
+        "synonyms": [
+            "anywhere"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Sit wherever you like.",
+                "spanish": "Siéntate donde quieras.",
+                "level": "B1"
+            },
+            {
+                "english": "Wherever he goes, he makes friends.",
+                "spanish": "Dondequiera que va, hace amigos.",
+                "level": "B1"
+            },
+            {
+                "english": "Wherever you travel, take your passport.",
+                "spanish": "Dondequiera que viajes, lleva tu pasaporte.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 7
     },
     {
-        "word":  "since",
-        "translation":  "ya que / desde que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/sɪns/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-cause"
-                     ],
-        "synonyms":  [
-                         "because",
-                         "as"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Since you're here, help me.",
-                             "spanish":  "Ya que estás aquí, ayúdame.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Since it was late, we went home.",
-                             "spanish":  "Como era tarde, nos fuimos a casa.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I've lived here since I was born.",
-                             "spanish":  "He vivido aquí desde que nací.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "as though",
+        "translation": "como si",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz ðoʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-manner"
+        ],
+        "synonyms": [
+            "as if"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She acts as though nothing happened.",
+                "spanish": "Actúa como si nada hubiera pasado.",
+                "level": "B1"
+            },
+            {
+                "english": "He behaves as though he were the boss.",
+                "spanish": "Se comporta como si fuera el jefe.",
+                "level": "B1"
+            },
+            {
+                "english": "It sounds as though she's very upset.",
+                "spanish": "Suena como si estuviera muy molesta.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 7
     },
     {
-        "word":  "so",
-        "translation":  "así que / entonces",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/soʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                         "therefore",
-                         "thus"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "It was raining, so we stayed home.",
-                             "spanish":  "Estaba lloviendo, así que nos quedamos en casa.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She was tired, so she went to bed.",
-                             "spanish":  "Estaba cansada, entonces se fue a la cama.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I didn't study, so I failed the test.",
-                             "spanish":  "No estudié, así que suspendí el examen.",
-                             "level":  "A2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "meanwhile",
+        "translation": "mientras tanto",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈmiːn.waɪl/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "in the meantime",
+            "at the same time"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I'll make dinner. Meanwhile, you can set the table.",
+                "spanish": "Haré la cena. Mientras tanto, puedes poner la mesa.",
+                "level": "B1"
+            },
+            {
+                "english": "She's studying; meanwhile, her brother plays outside.",
+                "spanish": "Ella estudia; mientras tanto, su hermano juega fuera.",
+                "level": "B1"
+            },
+            {
+                "english": "Meanwhile, the storm continued to grow.",
+                "spanish": "Mientras tanto, la tormenta seguía creciendo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 7
     },
     {
-        "word":  "so that",
-        "translation":  "para que / a fin de que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/soʊ ðæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-purpose"
-                     ],
-        "synonyms":  [
-                         "in order that"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I studied hard so that I could pass.",
-                             "spanish":  "Estudié mucho para poder aprobar.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She spoke slowly so that everyone could understand.",
-                             "spanish":  "Hablaba despacio para que todos pudieran entender.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He left early so that he wouldn't be late.",
-                             "spanish":  "Salió temprano para no llegar tarde.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "otherwise",
+        "translation": "de lo contrario / si no",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈʌðər.waɪz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "or else",
+            "if not"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hurry, otherwise we'll be late.",
+                "spanish": "Date prisa, si no llegaremos tarde.",
+                "level": "B1"
+            },
+            {
+                "english": "You must study; otherwise, you will fail.",
+                "spanish": "Debes estudiar; de lo contrario, suspenderás.",
+                "level": "B2"
+            },
+            {
+                "english": "He worked hard; otherwise, he would have lost his job.",
+                "spanish": "Trabajó duro; de lo contrario, habría perdido su trabajo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 7
     },
     {
-        "word":  "so...that",
-        "translation":  "tan...que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/soʊ...ðæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-result"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "It was so cold that the lake froze.",
-                             "spanish":  "Hacía tanto frío que el lago se congeló.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She was so tired that she fell asleep.",
-                             "spanish":  "Estaba tan cansada que se quedó dormida.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The movie was so good that I watched it twice.",
-                             "spanish":  "La película era tan buena que la vi dos veces.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "result"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "so...that",
+        "translation": "tan...que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/soʊ...ðæt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-result"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "It was so cold that the lake froze.",
+                "spanish": "Hacía tanto frío que el lago se congeló.",
+                "level": "A2"
+            },
+            {
+                "english": "She was so tired that she fell asleep.",
+                "spanish": "Estaba tan cansada que se quedó dormida.",
+                "level": "B1"
+            },
+            {
+                "english": "The movie was so good that I watched it twice.",
+                "spanish": "La película era tan buena que la vi dos veces.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common",
+            "result"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
     },
     {
-        "word":  "still",
-        "translation":  "sin embargo / aun así",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/stɪl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "however",
-                         "nevertheless"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "It's expensive; still, I want to buy it.",
-                             "spanish":  "Es caro; aun así, quiero comprarlo.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She was tired; still, she kept working.",
-                             "spanish":  "Estaba cansada; sin embargo, siguió trabajando.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The movie was long. Still, it was worth watching.",
-                             "spanish":  "La película era larga. Aun así, valía la pena verla.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "therefore",
+        "translation": "por lo tanto / por consiguiente",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈðɛr.fɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "thus",
+            "hence",
+            "consequently"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He didn't study; therefore, he failed.",
+                "spanish": "No estudió; por lo tanto, suspendió.",
+                "level": "B1"
+            },
+            {
+                "english": "It was raining; therefore, we stayed home.",
+                "spanish": "Estaba lloviendo; por lo tanto, nos quedamos en casa.",
+                "level": "B2"
+            },
+            {
+                "english": "The roads were icy; therefore, we drove slowly.",
+                "spanish": "Las carreteras estaban heladas; por lo tanto, conducíamos despacio.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 8
     },
     {
-        "word":  "such...that",
-        "translation":  "tan...que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/sʌtʃ...ðæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-result"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "It was such a cold day that we stayed home.",
-                             "spanish":  "Era un día tan frío que nos quedamos en casa.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She has such talent that she'll be famous.",
-                             "spanish":  "Tiene tanto talento que será famosa.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He told such a funny joke that everyone laughed.",
-                             "spanish":  "Contó un chiste tan gracioso que todos se rieron.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "result"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "as long as",
+        "translation": "mientras / con tal de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz lɔːŋ æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "provided that",
+            "while"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "You can stay as long as you want.",
+                "spanish": "Puedes quedarte tanto tiempo como quieras.",
+                "level": "A2"
+            },
+            {
+                "english": "I'll help you, as long as you ask nicely.",
+                "spanish": "Te ayudaré, siempre que lo pidas con educación.",
+                "level": "B1"
+            },
+            {
+                "english": "You can watch TV as long as you finish your homework first.",
+                "spanish": "Puedes ver la tele siempre que termines primero la tarea.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
     },
     {
-        "word":  "than",
-        "translation":  "que / de lo que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðæn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-comparison"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is taller than me.",
-                             "spanish":  "Es más alta que yo.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "Today is colder than yesterday.",
-                             "spanish":  "Hoy hace más frío que ayer.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I have more friends than I had last year.",
-                             "spanish":  "Tengo más amigos que el año pasado.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "comparison"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "as soon as",
+        "translation": "tan pronto como",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz suːn æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "the moment",
+            "once"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Call me as soon as you arrive.",
+                "spanish": "Llámame tan pronto como llegues.",
+                "level": "A2"
+            },
+            {
+                "english": "As soon as he saw her, he smiled.",
+                "spanish": "Tan pronto como la vio, sonrió.",
+                "level": "B1"
+            },
+            {
+                "english": "I'll leave as soon as the rain stops.",
+                "spanish": "Me iré en cuanto deje de llover.",
+                "level": "B1"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "MEDIUM",
+        "level": 8
     },
     {
-        "word":  "that",
-        "translation":  "que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðæt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-cause"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I know that you are right.",
-                             "spanish":  "Sé que tienes razón.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "She said that she was leaving.",
-                             "spanish":  "Dijo que se iba.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "The book that I read was amazing.",
-                             "spanish":  "El libro que leí era increíble.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "as well as",
+        "translation": "además de / así como",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/æz wɛl æz/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "coordinating"
+        ],
+        "synonyms": [
+            "in addition to"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She speaks Spanish as well as English.",
+                "spanish": "Habla español además de inglés.",
+                "level": "B1"
+            },
+            {
+                "english": "He plays piano as well as guitar.",
+                "spanish": "Toca el piano así como la guitarra.",
+                "level": "B1"
+            },
+            {
+                "english": "The book is informative as well as entertaining.",
+                "spanish": "El libro es informativo y a la vez entretenido.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 8
     },
     {
-        "word":  "the way",
-        "translation":  "como / la forma en que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðə weɪ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-manner"
-                     ],
-        "synonyms":  [
-                         "how"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I like the way you sing.",
-                             "spanish":  "Me gusta cómo cantas.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He explained it the way his teacher did.",
-                             "spanish":  "Lo explicó como lo hacía su profesor.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I admire the way she handles problems.",
-                             "spanish":  "Admiro la forma en que maneja los problemas.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "both...and",
+        "translation": "tanto...como",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/boʊθ...ænd/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "neither...nor"
+        ],
+        "examples": [
+            {
+                "english": "Both John and Mary are coming.",
+                "spanish": "Tanto John como Mary vienen.",
+                "level": "B1"
+            },
+            {
+                "english": "She is both smart and kind.",
+                "spanish": "Es tanto inteligente como amable.",
+                "level": "B1"
+            },
+            {
+                "english": "The project requires both time and effort.",
+                "spanish": "El proyecto requiere tanto tiempo como esfuerzo.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "correlative"
+        ],
+        "difficulty": "HARD",
+        "level": 8
     },
     {
-        "word":  "therefore",
-        "translation":  "por lo tanto / por consiguiente",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈðɛr.fɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "thus",
-                         "hence",
-                         "consequently"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He didn't study; therefore, he failed.",
-                             "spanish":  "No estudió; por lo tanto, suspendió.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It was raining; therefore, we stayed home.",
-                             "spanish":  "Estaba lloviendo; por lo tanto, nos quedamos en casa.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "The roads were icy; therefore, we drove slowly.",
-                             "spanish":  "Las carreteras estaban heladas; por lo tanto, conducíamos despacio.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "by the time",
+        "translation": "para cuando",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/baɪ ðə taɪm/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-time"
+        ],
+        "synonyms": [
+            "when"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "By the time you arrive, dinner will be ready.",
+                "spanish": "Para cuando llegues, la cena estará lista.",
+                "level": "B1"
+            },
+            {
+                "english": "By the time I got to the station, the train had left.",
+                "spanish": "Para cuando llegué a la estación, el tren ya se había ido.",
+                "level": "B1"
+            },
+            {
+                "english": "By the time she realized, it was too late.",
+                "spanish": "Para cuando se dio cuenta, ya era demasiado tarde.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "though",
-        "translation":  "aunque",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðoʊ/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-concession"
-                     ],
-        "synonyms":  [
-                         "although",
-                         "even though"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Though it was late, we kept talking.",
-                             "spanish":  "Aunque era tarde, seguimos hablando.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She was tired, though she didn't complain.",
-                             "spanish":  "Estaba cansada, aunque no se quejó.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Though he is rich, he lives simply.",
-                             "spanish":  "Aunque es rico, vive de forma sencilla.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "informal"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "either...or",
+        "translation": "o...o",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈiːðər...ɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "neither...nor"
+        ],
+        "examples": [
+            {
+                "english": "You can either stay or leave.",
+                "spanish": "Puedes quedarte o irte.",
+                "level": "B1"
+            },
+            {
+                "english": "Either you call him, or I will.",
+                "spanish": "O lo llamas tú, o lo llamo yo.",
+                "level": "B1"
+            },
+            {
+                "english": "Either way, we have to decide today.",
+                "spanish": "De cualquier forma, tenemos que decidir hoy.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "correlative"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "thus",
-        "translation":  "así pues / por lo tanto",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ðʌs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "conjunctive-adverb"
-                     ],
-        "synonyms":  [
-                         "therefore",
-                         "hence"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "He studied hard; thus, he passed the test.",
-                             "spanish":  "Estudió mucho; así pues, aprobó el examen.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "The company grew, thus creating more jobs.",
-                             "spanish":  "La empresa creció, creando así más empleos.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "She was the fastest; thus, she won the race.",
-                             "spanish":  "Era la más rápida; por lo tanto, ganó la carrera.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "even though",
+        "translation": "incluso aunque",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈiːvən ðoʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-concession"
+        ],
+        "synonyms": [
+            "although",
+            "though"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Even though he was tired, he kept working.",
+                "spanish": "Aunque estaba cansado, siguió trabajando.",
+                "level": "B1"
+            },
+            {
+                "english": "Even though I studied, I failed.",
+                "spanish": "A pesar de que estudié, suspendí.",
+                "level": "B1"
+            },
+            {
+                "english": "Even though she disagreed, she stayed silent.",
+                "spanish": "Aunque estaba en desacuerdo, se quedó callada.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "unless",
-        "translation":  "a menos que / a no ser que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ənˈlɛs/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-condition"
-                     ],
-        "synonyms":  [
-                         "if not"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "You won't pass unless you study.",
-                             "spanish":  "No aprobarás a menos que estudies.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Unless it rains, we'll go to the park.",
-                             "spanish":  "A no ser que llueva, iremos al parque.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "I won't go unless you come with me.",
-                             "spanish":  "No iré a menos que vengas conmigo.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "furthermore",
+        "translation": "además",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈfɜːrðər.mɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "moreover",
+            "in addition"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "He is smart; furthermore, he is very hardworking.",
+                "spanish": "Es inteligente; además, es muy trabajador.",
+                "level": "B1"
+            },
+            {
+                "english": "The hotel is cheap. Furthermore, it's near the beach.",
+                "spanish": "El hotel es barato. Además, está cerca de la playa.",
+                "level": "B2"
+            },
+            {
+                "english": "She speaks three languages. Furthermore, she plays two instruments.",
+                "spanish": "Habla tres idiomas. Además, toca dos instrumentos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "until",
-        "translation":  "hasta que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ənˈtɪl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "till"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Wait until I come back.",
-                             "spanish":  "Espera hasta que vuelva.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Don't leave until I tell you.",
-                             "spanish":  "No te vayas hasta que te diga.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "She worked until she was exhausted.",
-                             "spanish":  "Trabajó hasta que se agotó.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "rather than",
+        "translation": "en lugar de / más que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈræðər ðæn/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-comparison"
+        ],
+        "synonyms": [
+            "instead of"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I would read rather than watch TV.",
+                "spanish": "Preferiría leer en lugar de ver la tele.",
+                "level": "B1"
+            },
+            {
+                "english": "He chose to walk rather than take the bus.",
+                "spanish": "Eligió caminar en lugar de tomar el autobús.",
+                "level": "B2"
+            },
+            {
+                "english": "She'd rather stay home than go out.",
+                "spanish": "Prefiere quedarse en casa a salir.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "when",
-        "translation":  "cuando",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛn/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Call me when you arrive.",
-                             "spanish":  "Llámame cuando llegues.",
-                             "level":  "A1"
-                         },
-                         {
-                             "english":  "I was reading when the phone rang.",
-                             "spanish":  "Estaba leyendo cuando sonó el teléfono.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "When I was a child, I lived in Spain.",
-                             "spanish":  "Cuando era niño, vivía en España.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common",
-                     "basic"
-                 ],
-        "difficulty":  "EASY",
-        "level":  1
+        "word": "such...that",
+        "translation": "tan...que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/sʌtʃ...ðæt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-result"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "It was such a cold day that we stayed home.",
+                "spanish": "Era un día tan frío que nos quedamos en casa.",
+                "level": "B1"
+            },
+            {
+                "english": "She has such talent that she'll be famous.",
+                "spanish": "Tiene tanto talento que será famosa.",
+                "level": "B1"
+            },
+            {
+                "english": "He told such a funny joke that everyone laughed.",
+                "spanish": "Contó un chiste tan gracioso que todos se rieron.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "result"
+        ],
+        "difficulty": "HARD",
+        "level": 9
     },
     {
-        "word":  "whenever",
-        "translation":  "cuando sea / cada vez que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛnˈɛvər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "every time that"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Come visit whenever you want.",
-                             "spanish":  "Ven a visitarme cuando quieras.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "Whenever I see her, she smiles.",
-                             "spanish":  "Cada vez que la veo, sonríe.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He talks about it whenever he can.",
-                             "spanish":  "Habla de ello siempre que puede.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "nevertheless",
+        "translation": "sin embargo / no obstante",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˌnɛvərðəˈlɛs/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "conjunctive-adverb"
+        ],
+        "synonyms": [
+            "however",
+            "nonetheless"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "It was raining; nevertheless, we went out.",
+                "spanish": "Estaba lloviendo; sin embargo, salimos.",
+                "level": "B1"
+            },
+            {
+                "english": "She was tired. Nevertheless, she kept working.",
+                "spanish": "Estaba cansada. No obstante, siguió trabajando.",
+                "level": "B2"
+            },
+            {
+                "english": "The task was hard; nevertheless, he succeeded.",
+                "spanish": "La tarea era difícil; sin embargo, la logró.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "where",
-        "translation":  "donde",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-place"
-                     ],
-        "synonyms":  [
-                         "in which",
-                         "at which"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "This is where I grew up.",
-                             "spanish":  "Aquí es donde crecí.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "I don't know where he went.",
-                             "spanish":  "No sé adónde fue.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "The house where I was born is gone.",
-                             "spanish":  "La casa donde nací ya no existe.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "whether...or",
+        "translation": "si...o",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈwɛðər...ɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [
+            "if"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "I don't know whether to stay or leave.",
+                "spanish": "No sé si quedarme o irme.",
+                "level": "B1"
+            },
+            {
+                "english": "Whether you like it or not, we have to go.",
+                "spanish": "Te guste o no, tenemos que irnos.",
+                "level": "B1"
+            },
+            {
+                "english": "Whether he wins or loses, he'll learn.",
+                "spanish": "Gane o pierda, aprenderá.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "whereas",
-        "translation":  "mientras que / en cambio",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛrˈæz/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-concession"
-                     ],
-        "synonyms":  [
-                         "while",
-                         "although"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She likes coffee, whereas he prefers tea.",
-                             "spanish":  "A ella le gusta el café, mientras que él prefiere el té.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He is outgoing, whereas his brother is shy.",
-                             "spanish":  "Él es extrovertido, mientras que su hermano es tímido.",
-                             "level":  "B2"
-                         },
-                         {
-                             "english":  "Some people love math, whereas others hate it.",
-                             "spanish":  "A algunos les encantan las matemáticas, mientras que otros las odian.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "formal",
-                     "written"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "hardly...when",
+        "translation": "apenas...cuando",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈhɑːrdli...wɛn/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [
+            "no sooner...than"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "Hardly had I arrived when it started raining.",
+                "spanish": "Apenas había llegado cuando empezó a llover.",
+                "level": "B1"
+            },
+            {
+                "english": "Hardly did she speak when the phone rang.",
+                "spanish": "Apenas había hablado cuando sonó el teléfono.",
+                "level": "B2"
+            },
+            {
+                "english": "He had hardly sat down when the door opened.",
+                "spanish": "Apenas se había sentado cuando se abrió la puerta.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "wherever",
-        "translation":  "donde sea / dondequiera que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/wɛrˈɛvər/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-place"
-                     ],
-        "synonyms":  [
-                         "anywhere"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "Sit wherever you like.",
-                             "spanish":  "Siéntate donde quieras.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Wherever he goes, he makes friends.",
-                             "spanish":  "Dondequiera que va, hace amigos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Wherever you travel, take your passport.",
-                             "spanish":  "Dondequiera que viajes, lleva tu pasaporte.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  2
+        "word": "neither...nor",
+        "translation": "ni...ni",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/ˈniːðər...nɔːr/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [],
+        "antonyms": [
+            "both...and"
+        ],
+        "examples": [
+            {
+                "english": "Neither John nor Mary came.",
+                "spanish": "Ni John ni Mary vinieron.",
+                "level": "B1"
+            },
+            {
+                "english": "I like neither coffee nor tea.",
+                "spanish": "No me gusta ni el café ni el té.",
+                "level": "B1"
+            },
+            {
+                "english": "Neither the teacher nor the students were ready.",
+                "spanish": "Ni el profesor ni los estudiantes estaban listos.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "correlative"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "whether...or",
-        "translation":  "si...o",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/ˈwɛðər...ɔːr/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "correlative"
-                     ],
-        "synonyms":  [
-                         "if"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "I don't know whether to stay or leave.",
-                             "spanish":  "No sé si quedarme o irme.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Whether you like it or not, we have to go.",
-                             "spanish":  "Te guste o no, tenemos que irnos.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "Whether he wins or loses, he'll learn.",
-                             "spanish":  "Gane o pierda, aprenderá.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "provided that",
+        "translation": "siempre que / con tal de que",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/prəˈvaɪdɪd ðæt/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "subordinating-condition"
+        ],
+        "synonyms": [
+            "as long as",
+            "on condition that"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "You can go, provided that you finish your homework.",
+                "spanish": "Puedes ir, siempre que termines la tarea.",
+                "level": "B1"
+            },
+            {
+                "english": "I'll lend you the car, provided that you drive carefully.",
+                "spanish": "Te prestaré el coche, con tal de que conduzcas con cuidado.",
+                "level": "B2"
+            },
+            {
+                "english": "You may enter, provided that you have a ticket.",
+                "spanish": "Puedes entrar, siempre que tengas entrada.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "while",
-        "translation":  "mientras / mientras que",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/waɪl/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "subordinating-time"
-                     ],
-        "synonyms":  [
-                         "as",
-                         "whereas"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She read a book while waiting.",
-                             "spanish":  "Leyó un libro mientras esperaba.",
-                             "level":  "A2"
-                         },
-                         {
-                             "english":  "While I was cooking, he was watching TV.",
-                             "spanish":  "Mientras yo cocinaba, él veía la tele.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "She is outgoing, while her sister is shy.",
-                             "spanish":  "Ella es extrovertida, mientras que su hermana es tímida.",
-                             "level":  "B1"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "MEDIUM",
-        "level":  1
+        "word": "no sooner...than",
+        "translation": "apenas...cuando",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/noʊ ˈsuːnər...ðæn/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [
+            "hardly...when"
+        ],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "No sooner had I arrived than it started to rain.",
+                "spanish": "Apenas había llegado cuando empezó a llover.",
+                "level": "B2"
+            },
+            {
+                "english": "No sooner did she leave than the phone rang.",
+                "spanish": "Apenas se fue cuando sonó el teléfono.",
+                "level": "B2"
+            },
+            {
+                "english": "No sooner had we sat down than the lights went out.",
+                "spanish": "Apenas nos habíamos sentado cuando se apagaron las luces.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "formal",
+            "written"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     },
     {
-        "word":  "yet",
-        "translation":  "sin embargo / pero",
-        "type":  "conjunction",
-        "regular":  null,
-        "forms":  null,
-        "pronunciation":  {
-                              "ipa":  "/jɛt/",
-                              "audio":  null
-                          },
-        "category":  [
-                         "grammar",
-                         "coordinating"
-                     ],
-        "synonyms":  [
-                         "but",
-                         "however"
-                     ],
-        "antonyms":  [
-                     ],
-        "examples":  [
-                         {
-                             "english":  "She is young, yet very wise.",
-                             "spanish":  "Es joven, pero muy sabia.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "He studied hard, yet he failed.",
-                             "spanish":  "Estudió mucho, sin embargo suspendió.",
-                             "level":  "B1"
-                         },
-                         {
-                             "english":  "It was strange, yet true.",
-                             "spanish":  "Era extraño, pero cierto.",
-                             "level":  "B2"
-                         }
-                     ],
-        "tags":  [
-                     "common"
-                 ],
-        "difficulty":  "HARD",
-        "level":  2
+        "word": "not only...but also",
+        "translation": "no solo...sino también",
+        "type": "conjunction",
+        "regular": null,
+        "forms": null,
+        "pronunciation": {
+            "ipa": "/nɑːt ˈoʊnli...bʌt ˈɔːlsoʊ/",
+            "audio": null
+        },
+        "category": [
+            "grammar",
+            "correlative"
+        ],
+        "synonyms": [],
+        "antonyms": [],
+        "examples": [
+            {
+                "english": "She is not only smart but also kind.",
+                "spanish": "No solo es inteligente sino también amable.",
+                "level": "B1"
+            },
+            {
+                "english": "He speaks not only English but also French.",
+                "spanish": "No solo habla inglés sino también francés.",
+                "level": "B1"
+            },
+            {
+                "english": "Not only did she win, but she also broke the record.",
+                "spanish": "No solo ganó, sino que también rompió el récord.",
+                "level": "B2"
+            }
+        ],
+        "tags": [
+            "common",
+            "correlative"
+        ],
+        "difficulty": "HARD",
+        "level": 10
     }
 ]

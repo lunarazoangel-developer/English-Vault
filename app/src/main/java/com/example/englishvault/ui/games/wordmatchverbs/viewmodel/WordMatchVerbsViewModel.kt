@@ -4,10 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.englishvault.audio.SoundEffectPlayer
 import com.example.englishvault.audio.SoundKey
+import com.example.englishvault.ui.games.wordmatchverbs.model.GameMode
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchAnswer
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchAskType
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchError
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.INITIAL_HELP_ITEMS
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.INITIAL_LIVES
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.INITIAL_TIME_BOOST_ITEMS
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.MAX_TIME_REMAINING_MS
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.QUESTION_TIME_MS
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.TIME_BOOST_MS
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchQuestion
 import com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator
 import com.example.englishvault.ui.words.WordTypeFilter
@@ -17,10 +24,12 @@ import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
-import data.game.CategoryGating
 import data.database.UserLevel
+import data.game.CategoryGating
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -38,10 +47,23 @@ import kotlinx.coroutines.launch
  * and avoids cross-screen state pollution that previously caused the
  * game to hang at the loading screen.
  *
- * One VM instance is scoped to the [WordMatchVerbsGameScreen]
- * destination. When the run finishes, the screen renders the
- * results UI in place (see [WordMatchGameState.Finished]); calling
- * [startGame] again starts a fresh run at the same level.
+ * ## Modes
+ *
+ * The VM exposes [currentMode] as a [StateFlow] so the dev toggle
+ * button on the play screen can switch between [GameMode.NORMAL] and
+ * [GameMode.WORLD] without restarting. [startGame] reads the current
+ * mode and seeds the [WordMatchGameState.InProgress] accordingly —
+ * world runs get lives, a per-question timer, 50/50 help items and
+ * +5s time-boost items.
+ *
+ * ## Timer
+ *
+ * World-mode runs start a coroutine inside [viewModelScope] that
+ * decrements [WordMatchGameState.InProgress.timeRemainingMs] every
+ * 100 ms. The coroutine is cancelled when the player answers (or
+ * when the screen leaves composition). On expiry the VM calls
+ * [onTimeExpired], which counts as a wrong answer and decrements
+ * the lives counter.
  *
  * Phase 4.6 — XP grant pipeline:
  *  - Every correct answer accumulates `CategoryGating.XP_PER_CORRECT_ANSWER`
@@ -65,14 +87,47 @@ class WordMatchVerbsViewModel @Inject constructor(
      * Live effects volume in `[0.0, 1.0]` read from the user profile.
      * Used by [submitAnswer] to scale the correct-answer SFX so the
      * Settings slider has an immediate effect on playback.
+     *
+     * Sharing is `Eagerly` (not `WhileSubscribed`) because this
+     * StateFlow has no UI subscribers — only [submitAnswer] reads
+     * `.value`. With `WhileSubscribed` the upstream Room flow would
+     * never start, leaving `.value` stuck at [initialValue]
+     * (`DEFAULT_VOLUME = 1.0`) regardless of the slider. The single-
+     * row indexed query is cheap enough that keeping it alive for the
+     * lifetime of the VM is fine.
      */
     private val effectsVolume: StateFlow<Float> = userProfileDao.observeProfile()
         .map { profile -> profile?.effectsVolume ?: UserProfileEntity.DEFAULT_VOLUME }
         .stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+            started = SharingStarted.Eagerly,
             initialValue = UserProfileEntity.DEFAULT_VOLUME
         )
+
+    /**
+     * Currently selected mode. The dev toggle button flips this
+     * between [GameMode.NORMAL] and [GameMode.WORLD] at any time;
+     * [startGame] reads the value at run start and freezes the
+     * per-run mode into the resulting [WordMatchGameState.InProgress].
+     */
+    private val _currentMode = MutableStateFlow(GameMode.NORMAL)
+    val currentMode: StateFlow<GameMode> = _currentMode.asStateFlow()
+
+    /**
+     * Level the active run is playing at. Stored so [toggleMode]
+     * can restart the run in the new mode without requiring the
+     * screen to push the level back through `startGame` (the screen
+     * only seeds the VM via `LaunchedEffect(level)`, which does not
+     * re-fire when the toggle is tapped mid-run).
+     */
+    private var currentLevel: Int = 1
+
+    /**
+     * Active countdown for the current world-mode question. Cleared
+     * whenever the player answers or the run ends so we never have
+     * two ticks running in parallel.
+     */
+    private var timerJob: Job? = null
 
     private companion object {
         /**
@@ -85,8 +140,8 @@ class WordMatchVerbsViewModel @Inject constructor(
          */
         const val MAX_QUESTIONS_PER_GAME: Int = 20
 
-        /** Subscription grace period before the upstream Flow is cancelled. */
-        private const val STOP_TIMEOUT_MILLIS: Long = 5_000
+        /** How often the world-mode timer ticks the countdown. */
+        const val TIMER_TICK_MS: Long = 100L
     }
 
     private val _gameState = MutableStateFlow<WordMatchGameState>(WordMatchGameState.Loading)
@@ -122,11 +177,37 @@ class WordMatchVerbsViewModel @Inject constructor(
     }
 
     /**
+     * Flips the dev toggle between [GameMode.NORMAL] and
+     * [GameMode.WORLD] **and immediately restarts the active run**
+     * so the new mode is applied without having to navigate away
+     * and back. The previously running game (if any) is discarded —
+     * questions, score, lives and timer all reset to the values
+     * seeded for the new mode.
+     */
+    fun toggleMode() {
+        _currentMode.value = when (_currentMode.value) {
+            GameMode.NORMAL -> GameMode.WORLD
+            GameMode.WORLD -> GameMode.NORMAL
+        }
+        // Apply the new mode to the current level right away. If no
+        // run has been seeded yet `currentLevel` is still its
+        // default (`1`); that's fine — tapping the toggle before
+        // startGame runs just flips the flag for the upcoming run.
+        cancelTimer()
+        startGame(currentLevel)
+    }
+
+    /**
      * Loads the questions for [level] and flips the game state into
      * [WordMatchGameState.InProgress]. Idempotent: re-calling it
      * resets the run (zero errors, fresh score, empty XP map).
+     *
+     * Seeds mode-specific fields based on [currentMode]: world runs
+     * receive lives, a countdown timer and help / boost inventories;
+     * normal runs leave them at their `0` defaults.
      */
     fun startGame(level: Int) {
+        currentLevel = level
         viewModelScope.launch {
             _gameState.value = WordMatchGameState.Loading
             val words = wordDao.getCoreWordsForGame(level)
@@ -134,21 +215,38 @@ class WordMatchVerbsViewModel @Inject constructor(
                 _gameState.value = WordMatchGameState.Empty
                 return@launch
             }
-            // Pick a random sample of up to MAX_QUESTIONS_PER_GAME
-            // verbs so the player does not see the whole pool in one
-            // run. Re-runs of the same level get a fresh shuffle.
             val selectedWords = words.shuffled().take(MAX_QUESTIONS_PER_GAME)
             val questions = selectedWords.map(::buildQuestion)
+            val mode = _currentMode.value
             _gameState.value = WordMatchGameState.InProgress(
                 questions = questions,
                 currentIndex = 0,
                 correctCount = 0,
                 errors = emptyList(),
                 lastAnswer = null,
-                correctXpByCategory = emptyMap()
+                correctXpByCategory = emptyMap(),
+                mode = mode,
+                lives = if (mode == GameMode.WORLD) INITIAL_LIVES else 0,
+                timeRemainingMs = if (mode == GameMode.WORLD) QUESTION_TIME_MS else 0L,
+                helpItems = if (mode == GameMode.WORLD) INITIAL_HELP_ITEMS else 0,
+                timeBoostItems = if (mode == GameMode.WORLD) INITIAL_TIME_BOOST_ITEMS else 0
             )
+            if (mode == GameMode.WORLD) {
+                startTimerForCurrentQuestion()
+            }
         }
     }
+
+    /**
+     * Called by the play screen after the level argument changes
+     * (or after `Play again`). Starts a fresh run.
+     *
+     * The current implementation is the same as [startGame] — the
+     * dedicated method exists so call sites read clearly and so a
+     * future iteration can hook in analytics without touching the
+     * VM API.
+     */
+    fun startGameWithCurrentMode(level: Int) = startGame(level)
 
     /**
      * Records [picked] as the player's answer for the current
@@ -158,11 +256,17 @@ class WordMatchVerbsViewModel @Inject constructor(
      * add XP to the question's category bucket; the actual DB
      * persistence happens at end-of-game in [acknowledgeAnswer].
      *
+     * In [GameMode.WORLD] a wrong answer additionally costs one
+     * life; when lives reach zero the next [acknowledgeAnswer]
+     * transitions to [WordMatchGameState.Finished] with
+     * `outOfLives = true`.
+     *
      * Does NOT advance to the next question — the screen calls
      * [acknowledgeAnswer] after the brief feedback delay.
      */
     fun submitAnswer(picked: String) {
         val state = _gameState.value as? WordMatchGameState.InProgress ?: return
+        cancelTimer()
         val question = state.currentQuestion ?: return
         val isCorrect = picked.equals(question.correctAnswer, ignoreCase = true)
         val newErrors = if (isCorrect) {
@@ -181,19 +285,44 @@ class WordMatchVerbsViewModel @Inject constructor(
             state.correctXpByCategory
         }
 
+        val newLives = when {
+            state.mode != GameMode.WORLD -> state.lives
+            isCorrect -> state.lives
+            else -> (state.lives - 1).coerceAtLeast(0)
+        }
+
         _gameState.value = state.copy(
             correctCount = newCorrect,
             errors = newErrors,
             lastAnswer = WordMatchAnswer(picked = picked, isCorrect = isCorrect),
-            correctXpByCategory = newXpByCategory
+            correctXpByCategory = newXpByCategory,
+            lives = newLives,
+            timedOut = false
         )
 
-        // Audio feedback. Phase 7.2 only ships the positive beep
-        // so the player gets a small reward for correct answers; the
-        // wrong-answer SFX is reserved for a future iteration.
         if (isCorrect) {
             soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
         }
+    }
+
+    /**
+     * Called by the world-mode timer coroutine when the countdown
+     * reaches zero. Behaves like a wrong answer: appends to errors,
+     * decrements lives and surfaces the feedback overlay.
+     */
+    private fun onTimeExpired() {
+        val state = _gameState.value as? WordMatchGameState.InProgress ?: return
+        if (state.lastAnswer != null) return
+        cancelTimer()
+        val question = state.currentQuestion ?: return
+        val newErrors = state.errors + WordMatchError(question = question, userPicked = "")
+        val newLives = (state.lives - 1).coerceAtLeast(0)
+        _gameState.value = state.copy(
+            errors = newErrors,
+            lastAnswer = WordMatchAnswer(picked = "", isCorrect = false),
+            lives = newLives,
+            timedOut = true
+        )
     }
 
     /**
@@ -213,12 +342,11 @@ class WordMatchVerbsViewModel @Inject constructor(
     fun acknowledgeAnswer() {
         val state = _gameState.value as? WordMatchGameState.InProgress ?: return
         if (state.lastAnswer == null) return
+        val outOfLives = state.mode == GameMode.WORLD && state.lives <= 0
         val nextIndex = state.currentIndex + 1
-        if (nextIndex >= state.questions.size) {
-            // End of run — grant accumulated XP per category before
-            // transitioning to the Finished state so the Progress
-            // screen reflects the gains the moment the user
-            // navigates back to it.
+        val outOfQuestions = nextIndex >= state.questions.size
+        if (outOfQuestions || outOfLives) {
+            cancelTimer()
             viewModelScope.launch {
                 for ((categoryKey, xp) in state.correctXpByCategory) {
                     tryUnlockCategory(categoryKey, xp)
@@ -226,15 +354,97 @@ class WordMatchVerbsViewModel @Inject constructor(
                 _gameState.value = WordMatchGameState.Finished(
                     totalQuestions = state.questions.size,
                     correctCount = state.correctCount,
-                    errors = state.errors
+                    errors = state.errors,
+                    mode = state.mode,
+                    outOfLives = outOfLives
                 )
             }
-        } else {
-            _gameState.value = state.copy(
-                currentIndex = nextIndex,
-                lastAnswer = null
-            )
+            return
         }
+        _gameState.value = state.copy(
+            currentIndex = nextIndex,
+            lastAnswer = null,
+            timedOut = false,
+            eliminatedOptions = emptySet(),
+            timeRemainingMs = if (state.mode == GameMode.WORLD) QUESTION_TIME_MS else 0L
+        )
+        if (state.mode == GameMode.WORLD) {
+            startTimerForCurrentQuestion()
+        }
+    }
+
+    /**
+     * Consumes one 50/50 help item: hides two incorrect options for
+     * the current question. No-op outside [GameMode.WORLD] or when
+     * the inventory is empty / the question has already been
+     * answered.
+     */
+    fun useHelpItem() {
+        val state = _gameState.value as? WordMatchGameState.InProgress ?: return
+        if (state.mode != GameMode.WORLD) return
+        if (state.helpItems <= 0) return
+        if (state.lastAnswer != null) return
+        val question = state.currentQuestion ?: return
+        val wrongs = state.eliminatedOptions +
+            question.options
+                .filter { !it.equals(question.correctAnswer, ignoreCase = true) }
+                .shuffled()
+                .take(2 - state.eliminatedOptions.size.coerceAtMost(2))
+                .toSet()
+        _gameState.value = state.copy(
+            helpItems = state.helpItems - 1,
+            eliminatedOptions = wrongs
+        )
+    }
+
+    /**
+     * Consumes one +5s time-boost item. The remaining time grows by
+     * [TIME_BOOST_MS] but is capped at [MAX_TIME_REMAINING_MS] so a
+     * chain of boosts cannot pin a single question open forever.
+     */
+    fun useTimeBoostItem() {
+        val state = _gameState.value as? WordMatchGameState.InProgress ?: return
+        if (state.mode != GameMode.WORLD) return
+        if (state.timeBoostItems <= 0) return
+        if (state.lastAnswer != null) return
+        if (state.timeRemainingMs <= 0L) return
+        val boosted = (state.timeRemainingMs + TIME_BOOST_MS).coerceAtMost(MAX_TIME_REMAINING_MS)
+        _gameState.value = state.copy(
+            timeBoostItems = state.timeBoostItems - 1,
+            timeRemainingMs = boosted
+        )
+    }
+
+    /**
+     * Launches a coroutine that ticks [timeRemainingMs] down by
+     * [TIMER_TICK_MS] every iteration. Exits the loop when the
+     * player answers (so the feedback overlay can take its time)
+     * or when the countdown reaches zero (which calls
+     * [onTimeExpired]). Any previous timer is cancelled first to
+     * guarantee at most one tick coroutine is alive at any time.
+     */
+    private fun startTimerForCurrentQuestion() {
+        cancelTimer()
+        timerJob = viewModelScope.launch {
+            while (true) {
+                delay(TIMER_TICK_MS)
+                val current = _gameState.value as? WordMatchGameState.InProgress ?: return@launch
+                if (current.lastAnswer != null) return@launch
+                if (current.mode != GameMode.WORLD) return@launch
+                val nextTime = (current.timeRemainingMs - TIMER_TICK_MS).coerceAtLeast(0L)
+                _gameState.value = current.copy(timeRemainingMs = nextTime)
+                if (nextTime <= 0L) {
+                    onTimeExpired()
+                    return@launch
+                }
+            }
+        }
+    }
+
+    /** Cancels the active timer coroutine if there is one. */
+    private fun cancelTimer() {
+        timerJob?.cancel()
+        timerJob = null
     }
 
     /**
@@ -277,16 +487,14 @@ class WordMatchVerbsViewModel @Inject constructor(
             targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
         )
 
-        // Surface currentLevel (derived from xpTotal) for callers
-        // that need it. Currently unused outside this VM but kept
-        // here as a hook for future logging or telemetry.
         @Suppress("UNUSED_VARIABLE")
         val derivedLevel = UserLevel.levelFromXp(progress.xpTotal + xpToGrant)
             .coerceAtMost(maxLevel)
     }
 
     /**
-     * Builds a single question from [word]: picks a random form,
+     * Builds a single question from [word]: picks a random form
+     * (PAST_SIMPLE or PAST_PARTICIPLE after the Phase 7.4 cleanup),
      * resolves the correct answer and pairs it with two distractor
      * misspellings. The three options are shuffled so the correct
      * answer is not always in the same slot. The verb's
@@ -319,13 +527,16 @@ class WordMatchVerbsViewModel @Inject constructor(
     private fun classifyWordSafely(word: WordEntity): WordTypeFilter {
         val tracked = WordTypeFilter.TRACKED.firstOrNull { it.matches(word) }
         if (tracked != null) return tracked
-        // Verb-ish word whose `regular` flag is unexpected: best
-        // effort bucket assignment.
         return if (word.type == "verb") {
             if (word.regular == false) WordTypeFilter.VERBS_IRREGULAR
             else WordTypeFilter.VERBS_REGULAR
         } else {
             WordTypeFilter.ADJECTIVES
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        cancelTimer()
     }
 }

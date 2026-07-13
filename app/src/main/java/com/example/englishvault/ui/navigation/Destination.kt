@@ -39,6 +39,21 @@ sealed class Destination(val route: String) {
     }
     // endregion
 
+    // region: Letter Soup mini-game
+    /** Level selector. Mirrors [WordMatchVerbsLevel]. */
+    data object LetterSoupLevel : Destination("games/lettersoup/level")
+
+    /**
+     * Active game. Carries the chosen [level] in the route. The
+     * finished state is rendered in place inside this same
+     * destination, so there is no separate "end" route.
+     */
+    data object LetterSoupPlay : Destination("games/lettersoup/play?level={level}") {
+        const val ARG_LEVEL: String = "level"
+        fun buildRoute(level: Int): String = "games/lettersoup/play?level=$level"
+    }
+    // endregion
+
     // region: Settings (Phase 7.1)
     /** Settings hub — profile + sound. Reachable from the Progress
      *  screen via the greeting button. */

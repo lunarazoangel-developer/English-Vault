@@ -181,7 +181,6 @@
     <string name="game_wordmatch_header">Level %1$d</string>
     <string name="game_wordmatch_progress">%1$d / %2$d</string>
     <string name="game_wordmatch_ask_past_simple">What is the past simple?</string>
-    <string name="game_wordmatch_ask_third_person">What is the third person?</string>
     <string name="game_wordmatch_ask_past_participle">What is the past participle?</string>
     <string name="game_wordmatch_correct">Correct!</string>
     <string name="game_wordmatch_wrong_short">Wrong</string>
@@ -197,5 +196,46 @@
     <string name="game_wordmatch_back">Back</string>
     <string name="game_wordmatch_loading_title">Word Match Verbs</string>
     <string name="game_wordmatch_loading_subtitle">Loading your words…</string>
+    <!-- World mode (Phase 7.4) -->
+    <string name="game_wordmatch_world_lives_format">%1$d lives</string>
+    <string name="game_wordmatch_world_timeout">Time\'s up!</string>
+    <string name="game_wordmatch_world_help_cd">Use 50/50 hint</string>
+    <string name="game_wordmatch_world_time_boost_cd">Use +5 seconds</string>
+    <string name="game_wordmatch_world_dev_toggle_cd">Toggle world mode (dev)</string>
+    <!-- endregion -->
+
+    <!-- region: Letter Soup mini-game -->
+    <string name="game_lettersoup_title">Letter Soup</string>
+    <string name="game_lettersoup_subtitle">Swap letters to fix the broken words.</string>
+    <string name="game_lettersoup_header">Letter Soup — Level %1$d</string>
+    <string name="game_lettersoup_moves_format">%1$d moves</string>
+    <string name="game_lettersoup_words_format">%1$d / %2$d words</string>
+    <string name="game_lettersoup_hint">Tap any cell, then tap another to swap their letters. Use the 💡 buttons to reveal the wrong letter or its English form.</string>
+    <string name="game_lettersoup_hint_button">Hint</string>
+    <string name="game_lettersoup_hint_location">Reveal the wrong letter</string>
+    <string name="game_lettersoup_hint_english">Show the English word</string>
+    <string name="game_lettersoup_hint_translation_format">Find: %1$s</string>
+    <string name="game_lettersoup_wrong_letter_cd">Wrong letter — find the correct one in the soup</string>
+    <string name="game_lettersoup_fixed_word_cd">Word fixed!</string>
+    <string name="game_lettersoup_win">You won!</string>
+    <string name="game_lettersoup_win_subtitle">You fixed %1$d words.</string>
+    <string name="game_lettersoup_lose">Out of moves</string>
+    <string name="game_lettersoup_lose_subtitle">You fixed %1$d of %2$d words.</string>
+    <string name="game_lettersoup_play_again">Play again</string>
+    <string name="game_lettersoup_back_games">Back to games</string>
+    <string name="game_lettersoup_back">Back</string>
+    <string name="game_lettersoup_choose_level">Choose a level</string>
+    <string name="game_lettersoup_level_format">Level %1$d</string>
+    <string name="game_lettersoup_to_play_format">%1$d to play</string>
+    <string name="game_lettersoup_level_locked">Locked</string>
+    <string name="game_lettersoup_level_locked_hint">Earn XP at the previous level to unlock</string>
+    <string name="game_lettersoup_loading_title">Letter Soup</string>
+    <string name="game_lettersoup_loading_subtitle">Building the board…</string>
+    <!-- World mode (Phase 7.4) -->
+    <string name="game_lettersoup_world_mode_banner">WORLD mode (test)</string>
+    <string name="game_lettersoup_world_timer_format">%1$d:%2$02d</string>
+    <string name="game_lettersoup_world_hints_format">%1$d/%2$d</string>
+    <string name="game_lettersoup_world_timeout">Time\'s up!</string>
+    <string name="game_lettersoup_world_dev_toggle_cd">Toggle world mode (dev)</string>
     <!-- endregion -->
 </resources>

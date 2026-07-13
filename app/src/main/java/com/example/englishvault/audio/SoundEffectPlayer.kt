@@ -1,83 +1,85 @@
 package com.example.englishvault.audio
 
-import android.media.ToneGenerator
+import android.content.Context
+import android.media.AudioAttributes
+import android.media.SoundPool
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
  * Single entry point for playing short sound effects.
  *
- * Phase 7.2 placeholder: backs onto [ToneGenerator], which produces
- * system DTMF-style beeps with zero asset dependency. When real audio
- * files land in `res/raw/`, swap the internal implementation to
- * `SoundPool` — the public API ([play]) is shaped so callers don't
- * change.
+ * Backed by [SoundPool], which is the Android-native low-latency
+ * audio engine for game SFX. Compared to the previous `ToneGenerator`
+ * implementation this solves two issues at once:
  *
- * Lifecycle: a fresh [ToneGenerator] is created on every [play] call
- * with the right relative volume and released immediately afterwards.
- * [ToneGenerator] exposes no per-call volume control — `startTone`
- * only takes the tone type and an optional duration — so recreating is
- * the cleanest way to react to slider changes in real time. The OS
- * reclaims the underlying native handle within microseconds so the
- * overhead is negligible.
+ *  - **Volume slider is honoured.** `SoundPool.play(id, volL, volR,
+ *    ...)` applies the volume **per playback**, with no gating by
+ *    the system's notification / media stream volume. The Settings
+ *    effects slider therefore controls SFX loudness 1:1, even when
+ *    the device is on silent.
+ *  - **No more UI-thread stall.** `SoundPool.play()` is non-blocking
+ *    and returns immediately, so callers no longer need to hop to
+ *    `Dispatchers.IO` to avoid the multi-millisecond hitch that
+ *    `ToneGenerator`'s native constructor used to produce.
+ *
+ * The pool is allocated lazily once per app process (Hilt
+ * `@Singleton`) and the assets referenced by every [SoundKey] are
+ * pre-loaded in `init`. `SoundPool.load()` is async, so the very
+ * first play after process start may be slightly delayed while the
+ * file finishes decoding; subsequent plays are instant.
  */
 @Singleton
-class SoundEffectPlayer @Inject constructor() {
+class SoundEffectPlayer @Inject constructor(
+    @ApplicationContext context: Context
+) {
+
+    private val soundPool: SoundPool = SoundPool.Builder()
+        .setMaxStreams(MAX_STREAMS)
+        .setAudioAttributes(
+            AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build()
+        )
+        .build()
+
+    private val soundIds: Map<SoundKey, Int> = SoundKey.entries.associateWith { key ->
+        soundPool.load(context, key.resId, 1)
+    }
 
     /**
      * Plays [key] at the user-selected effects level.
      *
      * @param key Which SFX to play.
      * @param effectsVolume User preference in `[0.0, 1.0]`. The
-     *   effective gain passed to the underlying generator is
+     *   effective gain passed to the underlying pool is
      *   `effectsVolume.coerceIn(0, 1) * key.gain`. A zero volume is a
      *   no-op, so callers don't need to pre-check the slider value.
      */
     fun play(key: SoundKey, effectsVolume: Float) {
         val gain = (effectsVolume.coerceIn(0f, 1f) * key.gain).coerceIn(0f, 1f)
         if (gain <= 0f) return
-
-        // ToneGenerator uses its own 0..100 scale. Passing
-        // AudioManager.STREAM_MUSIC (value = 3) silently capped the
-        // beep at ~3 % loudness, which was almost inaudible on the
-        // emulator. Multiplying by the user-selected gain keeps the
-        // slider responsive.
-        val relativeVolume = (gain * MAX_TONE_VOLUME).toInt().coerceIn(1, MAX_TONE_VOLUME)
-
-        // Allocate a fresh generator per call so the volume reflects
-        // the current slider value. Wrap in try / finally so a
-        // platform failure never leaks the native handle.
-        val generator = try {
-            ToneGenerator(relativeVolume, ToneGenerator.TONE_DTMF_S)
-        } catch (t: Throwable) {
-            return
-        }
-        try {
-            // Explicit duration so the beep is long enough to be
-            // heard even at low gain (the default for TONE_PROP_ACK
-            // is around 150 ms, which feels like a click rather than
-            // a reward).
-            generator.startTone(key.tone, TONE_DURATION_MS)
-        } finally {
-            generator.release()
-        }
+        val soundId = soundIds[key] ?: return
+        soundPool.play(soundId, gain, gain, PRIORITY_NORMAL, NO_LOOP, FULL_RATE)
     }
 
     companion object {
         /**
-         * `ToneGenerator` expects a relative volume in `[0, 100]`.
-         * Anything above the platform maximum is clamped internally,
-         * but staying at `100` keeps the math predictable from the
-         * Kotlin side. The actual loudness reaching the speaker is
-         * also gated by the system's media stream volume.
+         * Maximum number of overlapping SFX streams. Four is enough
+         * headroom for the player answering in rapid succession
+         * without losing the first beep to the second.
          */
-        private const val MAX_TONE_VOLUME: Int = 100
+        private const val MAX_STREAMS: Int = 4
 
-        /**
-         * Duration of every SFX beep. `TONE_PROP_ACK` defaults to a
-         * short click (~150 ms); extending to 300 ms gives the player
-         * an actual reward feel and survives quieter streams better.
-         */
-        private const val TONE_DURATION_MS: Int = 300
+        /** `SoundPool.play()` priority — normal queue position. */
+        private const val PRIORITY_NORMAL: Int = 1
+
+        /** No looping for one-shot SFX. */
+        private const val NO_LOOP: Int = 0
+
+        /** Native playback rate — `1.0` means unaltered pitch / speed. */
+        private const val FULL_RATE: Float = 1.0f
     }
 }

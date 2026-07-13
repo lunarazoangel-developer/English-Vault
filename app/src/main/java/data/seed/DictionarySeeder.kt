@@ -122,12 +122,20 @@ class DictionarySeeder @Inject constructor(
          *    time / state, abstract qualities, and physical
          *    descriptors). Total dictionary now 459 entries across
          *    the eight per-type section files.
-         *  - 13 — `adverbs.json` extended from 105 to 165 entries
-         *    (linking, frequency / period, direction, place,
-         *    degree, certainty, and more manner descriptors).
-         *    Total dictionary now 624 entries across the eight
-         *    per-type section files.
-         */
-        const val CORE_DICTIONARY_VERSION: Int = 13
+*  - 13 — `adverbs.json` extended from 105 to 165 entries
+ *    (linking, frequency / period, direction, place,
+ *    degree, certainty, and more manner descriptors).
+ *    Total dictionary now 624 entries across the eight per-type
+ *    section files.
+ *  - 14 — every entry's `level` field re-bucketed across all 10
+ *    levels (was previously uneven: verbs went up to 5, nouns /
+ *    prepositions / conjunctions / interjections only to 2). The
+ *    redistribution sorts each section file by word length
+ *    (alphabetical tiebreaker) and assigns `level =
+ *    ceil((i+1) * 10 / n)` so every level is populated in every
+ *    category. Total word count unchanged; per-entry content
+ *    (translation, examples, IPA, …) untouched.
+ */
+        const val CORE_DICTIONARY_VERSION: Int = 14
     }
 }

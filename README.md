@@ -61,6 +61,11 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **World map (Phase 7, beta)** — Super Mario Bros-inspired level selector rendered as a single Canvas. The map is 2200 dp wide so the user must scroll horizontally to discover all 10 nodes, which trace an almost-straight path across a grass-and-sky scene. A branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. A HUD in the header shows the player's persistent hearts and coins (read live from `UserProfileEntity` through `WorldViewModel`). Tapping the next waypoint advances the protagonist with a smooth `Animatable` interpolation.
 - **Settings hub (Phase 7.1)** — reachable from the Progress screen via the greeting button (tap "Hello, Name" to open). Two sections: **Profile** (rename the user in a dedicated sub-screen with form validation) and **Sound** (music and effects volume sliders in `[0.0, 1.0]`, both persisted via Room; music is wired as a placeholder until the audio engine lands). The schema bump v8 → v9 brings `musicVolume` and `effectsVolume` columns to `user_profile` via `MIGRATION_8_9` without data loss.
 - **Audio foundation (Phase 7.2)** — `audio/SoundEffectPlayer` plays short SFX on game events, currently backed by `ToneGenerator` so the app ships zero audio assets. WordMatchVerbs plays a positive beep (`TONE_PROP_ACK`, 300 ms) when the user picks the correct answer, and the volume reacts live to the **Effects** slider in Settings because the VM observes `user_profile.effectsVolume` through a `StateFlow`. `SoundKey` already declares `Wrong` and `Victory` placeholders so the wrong-answer / end-of-run sounds are a one-line addition when the team is ready.
+- **SoundPool-backed SFX + custom assets (Phase 7.3)** — `SoundEffectPlayer` now wraps `android.media.SoundPool` with `AudioAttributes(USAGE_GAME, CONTENT_TYPE_SONIFICATION)` and loads `res/raw/correct_sound.mp3` once per process. `setMaxStreams(4)` lets overlapping beeps stack without losing the first one. `SoundKey.Correct` reuses that single asset; the per-playback `volume` argument honours the Effects slider 1:1 (the previous `ToneGenerator`-based path was gated by the system notification-stream volume, which `SoundPool.setVolume` bypasses).
+- **Letter Soup mini-game (Phase 7.3)** — second playable mini-game, gated by `category_progress.LETTER_SOUP`. The level selector mirrors `WordMatchVerbsLevelScreen` (one card per `level` 1..10, dimmed past the unlocked threshold). The play screen renders an 8×8 grid by default and auto-scales to **10×10** when any placement has 9+ characters. Each round places up to **5** words at the chosen level; each placement carries ONE wrong letter (badge ❌ + pulse animation) and the player must find the correct letter in the soup and swap to fix it. The Spanish translations list is **always visible** above the board; tapping the 💡 button reveals the wrong-letter cell for 3 s, tapping the 🔤 button swaps that chip's translation for the English word inline for 3 s. The board does **not** reset mid-run; the run ends when every placement is fixed (`wordsFixed == wordsToWin`). 20 moves budget per run. The `redistribute_levels.py` script guarantees every category has words at every level, so the selector renders 10 cards for every grammar bucket.
+- **Dev toggle for both mini-games (Phase 7.4)** — a small `ModeToggleButton` in the top-right of each play screen flips between `NORMAL` and `WORLD` (or `HintMode.WORLD` for Letter Soup). Flipping the toggle restarts the active run in the new mode so the change is applied without navigating away. World mode adds **lives** (3), a **per-question countdown** (10 s) for Word Match Verbs / a **per-run countdown** (5 min) for Letter Soup, and **limited hint items** in Letter Soup (2 location + 2 English). Hiding the toggle is one boolean flip (`DEV_MODE_TOGGLE_ENABLED`) at the top of each screen; removing it is one delete of the `if (...) ModeToggleButton(...)` block. The dedicated player-inventory system that will eventually back these items is out of scope for the beta — `consumeHintItemIfWorldMode` / `consumeHintItemIfWorldMode` are intentional `TODO` stubs and the inventories are hard-coded caps surfaced through the `*HintsRemaining` state fields.
+- **Dictionary levelled up to 10 (Phase 7.4)** — `tools/redistribute_levels.py` re-bucketed every entry's `level` field across all 10 levels. Previously the levels were uneven: verbs went up to 5, nouns / prepositions / conjunctions / interjections only reached 2. The script sorts each section by word length (alphabetical tiebreaker) and assigns `level = ceil((i + 1) * 10 / n)` so every level is populated in every category. **Entry count unchanged at 794; per-entry content untouched.** Word Match Verbs and Letter Soup both render up to 10 level cards on their selectors; total XP to unlock everything per category scales from 250 (5 × `XP_MIN_PER_LEVEL`) to 500 (10 × `XP_MIN_PER_LEVEL`). `DictionarySeeder.CORE_DICTIONARY_VERSION` bumped 13 → 14 so existing installs re-seed automatically.
+- **Word Match Verbs: 3rd-person removed (Phase 7.4)** — `WordMatchAskType.THIRD_PERSON` removed from the rotation because it was deemed too predictable from the base verb. The game now alternates between `PAST_SIMPLE` and `PAST_PARTICIPLE`.
 
 ### Planned
 
@@ -163,10 +168,14 @@ English Vault follows a clean **offline-first** pipeline plus an MVVM-flavoured 
     |  WordCard)          |          |  Cards)             |
     +---------------------+          +---------------------+
 
-    +---------------------+
-    |   ui/games/wordmatch  |   Word Match Verbs mini-game
-    |   (WordMatchVerbs...) |
-    +---------------------+
++---------------------+
+     |   ui/games/wordmatch  |   Word Match Verbs mini-game
+     |   (WordMatchVerbs...) |
+     +---------------------+
+     +---------------------+
+     |   ui/games/lettersoup |   Letter Soup mini-game (Phase 7.3+)
+     |   (LetterSoup...)    |
+     +---------------------+
 
                +---------------------+
                |   ui/world          |   World map (Phase 7, beta)
@@ -217,6 +226,8 @@ EnglishVault/
 |-- settings.gradle.kts
 |-- gradle/
 |   `-- libs.versions.toml             <- version catalog
+|-- tools/                             <- one-shot maintenance scripts
+|   `-- redistribute_levels.py        <- re-bucket every entry's `level` field (Phase 7.4)
 `-- app/
     |-- build.gradle.kts
     |-- proguard-rules.pro
@@ -233,12 +244,14 @@ EnglishVault/
         |       |-- adverbs.json
         |       |-- prepositions.json
         |       `-- conjunctions.json
-        |-- res/
-        |   |-- values/
-        |   |   |-- strings.xml        <- UI strings
-        |   |   |-- colors.xml
-        |   |   `-- themes.xml
-        |   `-- mipmap-*/              <- launcher icons
+|-- res/
+         |   |-- values/
+         |   |   |-- strings.xml        <- UI strings
+         |   |   |-- colors.xml
+         |   |   `-- themes.xml
+         |   |-- raw/                    <- binary audio assets (Phase 7.3+)
+         |   |   `-- correct_sound.mp3
+         |   `-- mipmap-*/              <- launcher icons
         `-- java/
             |-- com/example/englishvault/
             |   |-- EnglishVaultApp.kt <- @HiltAndroidApp
@@ -246,17 +259,31 @@ EnglishVault/
             |   `-- ui/
             |       |-- app/MainScaffold.kt          <- bottom nav + NavHost
             |       |-- components/                  <- AppBottomBar, PrimaryButton, SectionHeader
-            |       |-- games/
-            |       |   |-- GamesScreen.kt
-            |       |   `-- wordmatchverbs/          <- Word Match Verbs mini-game
-            |       |       |-- WordMatchVerbsLevelScreen.kt
-            |       |       |-- WordMatchVerbsGameScreen.kt
-            |       |       |-- WordMatchVerbsEndScreen.kt   (WordMatchVerbsEndContent composable)
-            |       |       |-- model/
-            |       |       |   |-- WordMatchQuestion.kt
-            |       |       |   `-- WordMatchGameState.kt
-            |       |       |-- util/DistractorGenerator.kt
-            |       |       `-- viewmodel/WordMatchVerbsViewModel.kt
+|       |-- games/
+             |       |   |-- GamesScreen.kt
+             |       |   |-- wordmatchverbs/          <- Word Match Verbs mini-game
+             |       |   |   |-- WordMatchVerbsLevelScreen.kt
+             |       |   |   |-- WordMatchVerbsGameScreen.kt
+             |       |   |   |-- WordMatchVerbsEndScreen.kt   (WordMatchVerbsEndContent composable)
+             |       |   |   |-- model/
+             |       |   |   |   |-- WordMatchQuestion.kt
+             |       |   |   |   `-- WordMatchGameState.kt
+             |       |   |   |-- util/DistractorGenerator.kt
+             |       |   |   `-- viewmodel/WordMatchVerbsViewModel.kt
+             |       |   `-- lettersoup/             <- Letter Soup mini-game (Phase 7.3+)
+             |       |       |-- LetterSoupLevelScreen.kt
+             |       |       |-- LetterSoupGameScreen.kt
+             |       |       |-- LetterSoupEndScreen.kt
+             |       |       |-- model/
+             |       |       |   |-- LetterSoupBoard.kt
+             |       |       |   |-- LetterSoupCell.kt
+             |       |       |   |-- LetterSoupGameState.kt
+             |       |       |   `-- LetterSoupWord.kt
+             |       |       |-- util/
+             |       |       |   |-- BoardGenerator.kt
+             |       |       |   |-- EnglishLetterFrequency.kt
+             |       |       |   `-- LetterPalette.kt
+             |       |       `-- viewmodel/LetterSoupViewModel.kt
             |       |-- navigation/                  <- Destination + BottomNavItem
              |       |-- progress/
              |       |   |-- ProgressScreen.kt         <- 8 per-category cards + global XP
@@ -369,13 +396,32 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 6.5    |   Done     | Per-category progression: `category_progress` table, XP grant + hybrid gate      |
 | 6.6    |   Done     | Words screen: 8 type chips + sort row, in-place feedback colours on the game    |
 | 7      |  Beta      | World map (replaces Test tab), persistent hearts and coins on `user_profile`   |
-| 7.1    |  In progress | SRS review scheduling, settings UI, search + filters, other mini-games        |
-| 7.2    |  In progress | Audio foundation: SFX on mini-game events, settings volume hooked in live    |
+| 7.1    |  Done     | Settings hub (rename + sound sliders) + dictionary expansions                 |
+| 7.2    |  Done     | Audio foundation: SFX on mini-game events, settings volume hooked in live    |
+| 7.3    |  Done     | `SoundPool`-backed SFX + custom `correct_sound.mp3` + Letter Soup mini-game  |
+| 7.4    |  Beta      | Dev toggle + WORLD mode in both mini-games, 10-level dictionary re-bucket    |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7.4 - World-mode dev toggle + 10-level dictionary re-bucket
+
+- **World-mode toggle on both mini-games** — `ModeToggleButton` in the top-right of `WordMatchVerbsGameScreen` and `LetterSoupGameScreen`. Flip between `NORMAL` and `WORLD` (or `HintMode.WORLD`) at any time; the toggle restarts the active run in the new mode without navigating away.
+- **`Word Match Verbs` world mode** — 3 lives, 10-second per-question countdown, two `50/50` help items and two `+5s` time-boost items. Wrong answers and time-outs each cost a life; when lives reach zero the run ends with `outOfLives = true` instead of running through every question. The `dev/MAX_TIME_REMAINING_MS` cap stops boost chains from pinning a question open forever.
+- **`Letter Soup` world mode** — 5-minute per-run countdown, two location-hint uses and two English-hint uses (the dedicated player-inventory system is out of scope for the beta; the counts are hard-coded caps surfaced through `locationHintsRemaining` / `englishHintsRemaining`). `WorldModeTimerBar` sits above the HUD row; turning red in the final 30 s. Hint buttons carry an `X / Y` counter and disable themselves when the inventory hits zero. Game-over is immediate when the countdown hits zero (`Finished.timedOut = true`).
+- **`WordMatchAskType.THIRD_PERSON` removed** — the form was too predictable from the base verb. The game now alternates between `PAST_SIMPLE` and `PAST_PARTICIPLE`.
+- **Dictionary re-bucketed to 10 levels (every category)** — `tools/redistribute_levels.py` sorts each section file by word length (alphabetical tiebreaker) and assigns `level = ceil((i + 1) * 10 / n)` so every level is populated in every category. **Entry count unchanged at 794**; per-entry content untouched. `DictionarySeeder.CORE_DICTIONARY_VERSION` bumped 13 → 14 so existing installs re-seed automatically. Total XP to unlock everything per category scales from 250 to 500 (10 × `XP_MIN_PER_LEVEL`).
+- Both screens gate the toggle behind `private const val DEV_MODE_TOGGLE_ENABLED = true`. Set it to `false` to hide the toggle without touching anything else; delete the `if (...) ModeToggleButton(...)` block plus the `currentHintMode` / `currentMode` `StateFlow` to remove the feature entirely.
+
+### Phase 7.3 - SoundPool-backed SFX + Letter Soup mini-game
+
+- **`SoundEffectPlayer` rewritten with `SoundPool`** — the previous `ToneGenerator`-based implementation was gated by the system notification-stream volume, which made the Settings Effects slider useless. `SoundPool.Builder().setMaxStreams(4).setAudioAttributes(USAGE_GAME, CONTENT_TYPE_SONIFICATION).build()` plus a single loaded asset lets `setVolume(left, right)` apply per playback and ignore the OS gate. `SoundKey.Correct` now points at `R.raw.correct_sound` (the new `correct_sound.mp3` the user dropped into `app/src/main/res/raw/`); `Wrong` was removed because the user asked for one-shot feedback only.
+- **New `res/raw/correct_sound.mp3`** — the first binary asset shipped with the APK. Plays on every successful answer in both mini-games.
+- **New `ui/games/lettersoup/` package** — second playable mini-game, gated by `category_progress.LETTER_SOUP`. `LetterSoupLevelScreen` mirrors `WordMatchVerbsLevelScreen` (one card per level 1..10, dimmed past `unlockedLevel`). `LetterSoupGameScreen` renders the auto-scaling 8×8 / 10×10 grid, an always-visible Spanish translations list above it, and two hint buttons (`💡` location, `🔤` English). `BoardGenerator` places up to 5 words with one wrong letter each; the player taps the wrong-letter cell, taps the correct letter in the soup, and the swap is evaluated. The board never resets mid-run; the run ends when every placement is fixed. `LetterPalette` produces 26 distinct background hues (HSL evenly distributed) so each letter cell stands out. `EnglishLetterFrequency` fills the soup with the canonical English letter-frequency table (E=13, T=9, A=8, …). `LetterSoupEndContent` mirrors the Word Match Verbs end-of-run panel with score + "Play again" / "Back to games".
+- **DAO: `WordDao.getCoreWordsByLengthAndLevel(level, min, max)` + `maxCoreLevelByLength(min, max)`** — the per-level pool the Letter Soup generator and level selector both query. Filters `source = 'core'`, `level = :level`, `LENGTH(word) BETWEEN :min AND :max`.
+- **XP gating: `LetterSoupViewModel.tryUnlockLetterSoupLevel`** — pure-XP gate (no learned-percentage requirement because Letter Soup is a game, not a study tool). Caps the new unlocked level at the highest dictionary level available for the mini-game.
 
 ### Phase 7.2 - Audio foundation (correct-answer SFX)
 

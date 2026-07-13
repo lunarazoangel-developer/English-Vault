@@ -14,6 +14,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.englishvault.ui.components.AppBottomBar
 import com.example.englishvault.ui.games.GamesScreen
+import com.example.englishvault.ui.games.lettersoup.LetterSoupGameScreen
+import com.example.englishvault.ui.games.lettersoup.LetterSoupLevelScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsGameScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsLevelScreen
 import com.example.englishvault.ui.navigation.Destination
@@ -76,6 +78,9 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                 GamesScreen(
                     onOpenWordMatchVerbs = {
                         navController.navigate(Destination.WordMatchVerbsLevel.route)
+                    },
+                    onOpenLetterSoup = {
+                        navController.navigate(Destination.LetterSoupLevel.route)
                     }
                 )
             }
@@ -166,6 +171,39 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                 val level = backStackEntry.arguments
                     ?.getInt(Destination.WordMatchVerbsPlay.ARG_LEVEL) ?: 1
                 WordMatchVerbsGameScreen(
+                    level = level,
+                    onBack = { navController.popBackStack() },
+                    onExitToGames = {
+                        navController.popBackStack(
+                            route = Destination.Games.route,
+                            inclusive = false
+                        )
+                    }
+                )
+            }
+            // endregion
+
+            // region: Letter Soup mini-game
+            composable(Destination.LetterSoupLevel.route) {
+                LetterSoupLevelScreen(
+                    onBack = { navController.popBackStack() },
+                    onLevelChosen = { level ->
+                        navController.navigate(Destination.LetterSoupPlay.buildRoute(level))
+                    }
+                )
+            }
+            composable(
+                route = Destination.LetterSoupPlay.route,
+                arguments = listOf(
+                    navArgument(Destination.LetterSoupPlay.ARG_LEVEL) {
+                        type = NavType.IntType
+                        defaultValue = 1
+                    }
+                )
+            ) { backStackEntry ->
+                val level = backStackEntry.arguments
+                    ?.getInt(Destination.LetterSoupPlay.ARG_LEVEL) ?: 1
+                LetterSoupGameScreen(
                     level = level,
                     onBack = { navController.popBackStack() },
                     onExitToGames = {
