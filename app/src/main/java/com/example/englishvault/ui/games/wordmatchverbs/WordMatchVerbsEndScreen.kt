@@ -27,6 +27,8 @@ import androidx.compose.ui.unit.dp
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchError
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
+import com.example.englishvault.ui.words.WordTypeFilter
+import data.database.entities.Skill
 
 /**
  * Results panel for a finished Word Match Verbs run. Rendered in
@@ -68,6 +70,10 @@ fun WordMatchVerbsEndContent(
         )
 
         ScoreCard(correct = state.correctCount, total = state.totalQuestions)
+
+        XpSummaryCard(
+            correctXpByCategory = state.correctXpByCategory
+        )
 
         if (state.errors.isNotEmpty()) {
             Text(
@@ -191,5 +197,132 @@ private fun ErrorRow(error: WordMatchError) {
                 color = MaterialTheme.colorScheme.onErrorContainer
             )
         }
+    }
+}
+
+/**
+ * Card summarising how much XP the run earned, broken down by
+ * grammatical category and by skill.
+ *
+ * - **Category** rows list every bucket the run credited (each
+ *   bucket key is a `WordTypeFilter.name` literal). Each row shows
+ *   the localised category label and the XP earned.
+ * - **Skill** row is a single entry — the run's total XP credited
+ *   to [Skill.READING] (Word Match Verbs is a reading activity).
+ * - When the run earned zero XP, only an empty-state message is
+ *   shown.
+ */
+@Composable
+private fun XpSummaryCard(correctXpByCategory: Map<String, Int>) {
+    val totalXp = correctXpByCategory.values.sum()
+    if (totalXp <= 0) {
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(20.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        ) {
+            Text(
+                text = stringResource(id = R.string.game_end_xp_no_xp),
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(20.dp)
+            )
+        }
+        return
+    }
+
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+        )
+    ) {
+        Column(modifier = Modifier.padding(20.dp)) {
+            Text(
+                text = stringResource(id = R.string.game_end_xp_summary_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = stringResource(id = R.string.game_end_xp_category_label),
+                style = MaterialTheme.typography.labelSmall,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.75f)
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            correctXpByCategory.entries
+                .filter { it.value > 0 }
+                .sortedByDescending { it.value }
+                .forEach { (key, xp) ->
+                    XpRow(
+                        label = categoryLabel(key),
+                        xp = xp
+                    )
+                }
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = stringResource(id = R.string.game_end_xp_skill_label),
+                style = MaterialTheme.typography.labelSmall,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.75f)
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            XpRow(
+                label = Skill.READING.labelRes,
+                xp = totalXp
+            )
+        }
+    }
+}
+
+/**
+ * Resolves a [WordTypeFilter] from its stable [name] key, returning
+ * the matching entry's string-resource id (`@StringRes Int`) when
+ * found, or `null` otherwise. The composable caller is responsible
+ * for turning the id into a `String` via [stringResource] so this
+ * helper stays free of the `@Composable` annotation and is safe to
+ * call from non-Composable scope.
+ */
+private fun categoryLabel(key: String): Int? {
+    val match = WordTypeFilter.entries.firstOrNull { it.name == key }
+    return match?.labelRes
+}
+
+/**
+ * Single "Label: +X XP" row inside [XpSummaryCard]. Uses the
+ * [R.string.game_end_xp_row_format] format string. When [label] is a
+ * known `@StringRes`, the resource is resolved via [stringResource];
+ * otherwise the raw string is used so an unknown bucket key does not
+ * crash the end screen.
+ */
+@Composable
+private fun XpRow(label: Int?, xp: Int) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = if (label != null) {
+                stringResource(
+                    id = R.string.game_end_xp_row_format,
+                    stringResource(id = label),
+                    xp
+                )
+            } else {
+                stringResource(
+                    id = R.string.game_end_xp_row_format,
+                    "unknown",
+                    xp
+                )
+            },
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.SemiBold
+        )
     }
 }

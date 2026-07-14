@@ -57,6 +57,9 @@ import com.example.englishvault.R
  * "Memory Cards" entry and routes to the Letter Soup mini-game via
  * [onOpenLetterSoup].
  *
+ * Phase 7.5: the "Listening" card becomes interactive and routes to
+ * the Listening mini-game via [onOpenListening].
+ *
  * Each card shows a colored icon, the game name, a short description
  * and a difficulty chip.
  */
@@ -64,6 +67,7 @@ import com.example.englishvault.R
 fun GamesScreen(
     onOpenWordMatchVerbs: () -> Unit,
     onOpenLetterSoup: () -> Unit,
+    onOpenListening: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     // region: Mock games catalogue — wire to real sources in Phase 3
@@ -94,11 +98,11 @@ fun GamesScreen(
         ),
         GameItem(
             name = "Listening",
-            description = "Hear a word and type what you understood.",
+            description = "Hear a word and pick the correct spelling.",
             icon = Icons.Filled.Headphones,
             color = MaterialTheme.colorScheme.primary,
             difficulty = DifficultyLevel.MEDIUM,
-            isInteractive = false
+            isInteractive = true
         ),
         GameItem(
             name = "Fill the Blank",
@@ -153,6 +157,7 @@ fun GamesScreen(
                         when (game.name) {
                             "Word Match Verbs" -> onOpenWordMatchVerbs()
                             "Letter Soup" -> onOpenLetterSoup()
+                            "Listening" -> onOpenListening()
                         }
                     }
                 )

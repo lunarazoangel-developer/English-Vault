@@ -31,6 +31,17 @@
     <string name="progress_category_need_pct">Need %1$d%% learned at this level</string>
     <string name="progress_category_need_both">Need %1$d more XP and %2$d%% learned</string>
     <string name="progress_category_maxed">Max level reached</string>
+
+    <!-- Skills section (Phase 7.6) -->
+    <string name="progress_skills_title">Skills</string>
+    <string name="skill_listening">Listening</string>
+    <string name="skill_speaking">Speaking</string>
+    <string name="skill_reading">Reading</string>
+    <string name="skill_writing">Writing</string>
+    <string name="skill_grammar">Grammar</string>
+    <string name="progress_skill_cycle_format">Cycle %1$d</string>
+    <string name="progress_skill_xp_in_cycle_format">%1$d / %2$d XP</string>
+    <string name="progress_skill_xp_total_format">%1$d XP</string>
     <!-- endregion -->
 
     <!-- region: Settings (Phase 7.1) -->
@@ -191,6 +202,11 @@
     <string name="game_wordmatch_perfect">Perfect score — nothing to review!</string>
     <string name="game_wordmatch_error_user_format">You picked: %1$s</string>
     <string name="game_wordmatch_error_correct_format">Correct: %1$s</string>
+    <string name="game_end_xp_summary_title">XP earned this run</string>
+    <string name="game_end_xp_category_label">Category</string>
+    <string name="game_end_xp_skill_label">Skill</string>
+    <string name="game_end_xp_no_xp">No XP earned this run</string>
+    <string name="game_end_xp_row_format">%1$s: +%2$d XP</string>
     <string name="game_wordmatch_play_again">Play again</string>
     <string name="game_wordmatch_back_games">Back to games</string>
     <string name="game_wordmatch_back">Back</string>
@@ -237,5 +253,38 @@
     <string name="game_lettersoup_world_hints_format">%1$d/%2$d</string>
     <string name="game_lettersoup_world_timeout">Time\'s up!</string>
     <string name="game_lettersoup_world_dev_toggle_cd">Toggle world mode (dev)</string>
+    <!-- endregion -->
+
+    <!-- region: Listening mini-game (Phase 7.5) -->
+    <string name="game_listening_title">Listening</string>
+    <string name="game_listening_choose_level">Hear a word and pick its spelling.</string>
+    <string name="game_listening_level_format">Level %1$d</string>
+    <string name="game_listening_to_play_format">%1$d to play</string>
+    <string name="game_listening_header">Listening — Level %1$d</string>
+    <string name="game_listening_listen_prompt">Tap to hear the word</string>
+    <string name="game_listening_listen_button">Listen</string>
+    <string name="game_listening_progress">%1$d / %2$d</string>
+    <string name="game_listening_correct">Correct!</string>
+    <string name="game_listening_wrong_short">Wrong</string>
+    <string name="game_listening_no_words">No words to listen to at this level — come back after unlocking more content!</string>
+    <string name="game_listening_game_over">Game over!</string>
+    <string name="game_listening_score_format">%1$d / %2$d correct</string>
+    <string name="game_listening_errors_title">Words you missed</string>
+    <string name="game_listening_perfect">Perfect score — nothing to review!</string>
+    <string name="game_listening_error_user_format">You picked: %1$s</string>
+    <string name="game_listening_error_correct_format">Correct: %1$s</string>
+    <string name="game_listening_play_again">Play again</string>
+    <string name="game_listening_back_games">Back to games</string>
+    <string name="game_listening_back">Back</string>
+    <string name="game_listening_loading_title">Listening</string>
+    <string name="game_listening_loading_subtitle">Loading words…</string>
+    <string name="game_listening_level_locked">Locked</string>
+    <string name="game_listening_level_locked_hint">Earn XP at the previous level to unlock</string>
+    <!-- World mode (Phase 7.5) -->
+    <string name="game_listening_world_lives_format">%1$d lives</string>
+    <string name="game_listening_world_timeout">Time\'s up!</string>
+    <string name="game_listening_world_relisten_cd">Re-listen hint</string>
+    <string name="game_listening_world_help_cd">Use 50/50 hint</string>
+    <string name="game_listening_world_dev_toggle_cd">Toggle world mode (dev)</string>
     <!-- endregion -->
 </resources>

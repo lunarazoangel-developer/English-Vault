@@ -115,6 +115,28 @@ interface WordDao {
     suspend fun getCoreWordsForGame(level: Int): List<WordEntity>
 
     /**
+     * One-shot list of core words at [level] regardless of grammatical
+     * type.
+     *
+     * Unlike [getCoreWordsForGame], this query does NOT require
+     * `forms IS NOT NULL` and does NOT filter by `status` — the
+     * Listening mini-game uses it to draw words of any category
+     * (nouns, adjectives, verbs, …) and reuses already-learned
+     * entries as distractors so the distractor pool stays large.
+     *
+     * Returned alphabetically so the playthrough order is stable.
+     */
+    @Query(
+        """
+        SELECT * FROM words_view
+        WHERE source = 'core'
+          AND level = :level
+        ORDER BY word ASC
+        """
+    )
+    suspend fun getCoreWordsAtLevel(level: Int): List<WordEntity>
+
+    /**
      * One-shot list of core words at [level] whose length (in
      * characters) sits between [min] and [max] inclusive.
      *

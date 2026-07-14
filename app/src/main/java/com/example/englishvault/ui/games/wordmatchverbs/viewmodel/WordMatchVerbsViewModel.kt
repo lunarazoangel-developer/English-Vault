@@ -19,9 +19,11 @@ import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchQuestion
 import com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.database.UserLevel
@@ -80,6 +82,7 @@ class WordMatchVerbsViewModel @Inject constructor(
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
     private val userProfileDao: UserProfileDao,
+    private val skillProgressDao: SkillProgressDao,
     private val soundEffectPlayer: SoundEffectPlayer
 ) : ViewModel() {
 
@@ -351,12 +354,14 @@ class WordMatchVerbsViewModel @Inject constructor(
                 for ((categoryKey, xp) in state.correctXpByCategory) {
                     tryUnlockCategory(categoryKey, xp)
                 }
+                grantSkillXp(state.correctXpByCategory)
                 _gameState.value = WordMatchGameState.Finished(
                     totalQuestions = state.questions.size,
                     correctCount = state.correctCount,
                     errors = state.errors,
                     mode = state.mode,
-                    outOfLives = outOfLives
+                    outOfLives = outOfLives,
+                    correctXpByCategory = state.correctXpByCategory
                 )
             }
             return
@@ -464,6 +469,16 @@ class WordMatchVerbsViewModel @Inject constructor(
         val typeLiteral = category.type ?: return
         val maxLevel = wordDao.maxLevelByType(typeLiteral, category.regular)
             .coerceAtLeast(1)
+        // Defensive seed: ensures the row exists before
+        // [grantXpAndMaybeUnlock] runs its `update(...)`. Without this,
+        // an install that for any reason lacks the row (e.g. a very
+        // old pre-migration install, a wiped table, or a key that
+        // migration MIGRATION_6_7 missed) would silently drop every
+        // XP grant because Room's @Update does not insert missing
+        // rows. Mirrors the same `seedIfMissing` pattern already used
+        // by [ListeningViewModel.grantPerCategoryXp] and
+        // [LetterSoupViewModel.grantPerCategoryXp].
+        categoryProgressDao.seedIfMissing(categoryKey)
         val progress = categoryProgressDao.get(categoryKey)
             ?: CategoryProgressEntity.initial(categoryKey)
 
@@ -533,6 +548,20 @@ class WordMatchVerbsViewModel @Inject constructor(
         } else {
             WordTypeFilter.ADJECTIVES
         }
+    }
+
+    /**
+     * Atomically credits the run's total XP to the [Skill.READING]
+     * row in `skill_progress`. Word Match Verbs is a reading
+     * activity — the player reads the verb and recognises its
+     * inflected form — so the entire run counts toward READING.
+     *
+     * No-op when the run earned zero XP.
+     */
+    private suspend fun grantSkillXp(correctXpByCategory: Map<String, Int>) {
+        val totalXp = correctXpByCategory.values.sum()
+        if (totalXp <= 0) return
+        skillProgressDao.grantXp(Skill.READING.key, totalXp)
     }
 
     override fun onCleared() {

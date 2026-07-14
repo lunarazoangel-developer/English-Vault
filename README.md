@@ -28,15 +28,16 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 ### Available now
 
 - **Offline dictionary** seeded from `assets/dictionary/` — eight per-type section files (`verbs_irregular.json`, `verbs_regular.json`, `interjections.json`, `nouns.json`, `adjectives.json`, `adverbs.json`, `prepositions.json`, `conjunctions.json`) totalling **hundreds of entries** with bilingual examples tagged by CEFR level. `assets/dictionary/README.md` acts as the section index.
-- **Room storage v8** with four artefacts:
+- **Room storage v10** with five artefacts:
   - `core_words` — dictionary entries seeded from the `assets/dictionary/` section files. Conceptually read-only; the user can only update its user-state columns (`favorite`, `status`, `level`, `notes`, …) via the dual-table DAO pattern.
   - `user_words` — entries the learner added through the form. Fully mutable.
   - `words_view` — `UNION ALL` of both tables, exposed as the read-only `WordEntity` data class so the UI consumes a single model regardless of origin.
   - `user_profile` — single-row table for global XP, streak, daily goal, display name, dictionary seed version and the player's persistent hearts and coins counters.
   - `category_progress` — one row per tracked grammatical category (`VERBS_REGULAR`, `ADJECTIVES`, …) holding cumulative XP, unlocked level and XP-since-last-promotion. Drives the per-category progression system on the Progress screen.
+  - `skill_progress` — one row per language skill (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`) holding cumulative XP. Drives the Skill Progress bars on the Progress screen. Schema bump v9 → v10 via `MIGRATION_9_10`.
 - **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
-- **Hilt DI graph** wiring `AppDatabase`, three DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
-- **Seven versioned migrations** that keep every previous install alive:
+- **Hilt DI graph** wiring `AppDatabase`, four DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`, `SkillProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
+- **Nine versioned migrations** that keep every previous install alive:
   - `MIGRATION_1_2` — adds the `user_profile` table.
   - `MIGRATION_2_3` — recreates `words` with `AUTOINCREMENT` ids.
   - `MIGRATION_3_4` — splits `words` into `core_words` + `user_words` + `words_view`.
@@ -44,6 +45,8 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
   - `MIGRATION_5_6` — replaces the boolean `learned` column with a tri-state `status` enum and adds a `level: Int` to both word tables.
   - `MIGRATION_6_7` — adds `category_progress` and seeds one row per tracked category.
   - `MIGRATION_7_8` — adds the persistent `hearts` and `coins` counters to `user_profile` so the World map HUD can render the player's gamified state.
+  - `MIGRATION_8_9` — adds the music and effects volume sliders to `user_profile` so the Settings screen can persist preferences before the audio engine ships.
+  - `MIGRATION_9_10` — adds the `skill_progress` table and seeds one row per `Skill` (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`).
 - **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumping `CORE_DICTIONARY_VERSION` in code triggers an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) — reused by both the global XP card and the per-category levels.
 - **Per-category progression (Phase 4.6)** — eight parallel tracks. Correct answers in the mini-game grant XP per category. Advancing to the next level requires a hybrid gate: at least `XP_MIN_PER_LEVEL` XP earned at the current level **and** at least `LEARNED_PCT_REQUIRED` of the words at that level marked `LEARNED`. The DAO wraps each grant + promotion in a single transaction.
@@ -57,7 +60,9 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Tri-state learning progress** — every word carries a `LearningStatus` (`NOT_LEARNED` / `ALMOST` / `LEARNED`) with a dedicated status menu button on every card. Picking a status persists immediately via the dual-table DAO.
 - **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once.
 - **Progress screen** — `ProgressViewModel` exposes the global profile, level / xp slice, daily-goal estimate, streak and one `CategoryProgressUi` per tracked grammatical category. Each per-category card carries its own level (1..N), an XP bar, a learned-percentage bar and a hybrid-gate status message.
-- **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple, 3rd person or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`.
+- **Skill Progress section (Phase 7.6)** — a new "Skills" block sits between the daily-goal card and "Progress by category" and renders five infinite progress bars (Listening / Speaking / Reading / Writing / Grammar) as a 2-column × 3-row grid (2 + 2 + 1). Each card carries the skill icon, the cumulative XP, an optional `Cycle N` chip and a cyclic `LinearProgressIndicator` that fills to 1000 XP and resets. There is no level cap and no gating — the bars are a "how am I doing" measure. Backed by the new `skill_progress` table (schema v10, `MIGRATION_9_10`) and the `Skill` enum. Mini-games grant XP to their matching skill on every run: Word Match Verbs and Letter Soup → `READING`; Listening → `LISTENING`. Speaking and Grammar stay at `0 XP` until a future mini-game exercises them.
+- **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`. The end-of-run screen renders an **XP summary card** (Phase 7.10) showing per-category XP earned plus the total XP credited to the `READING` skill.
+- **Listening mini-game (Phase 7.5)** — third playable mini-game, gated by `category_progress.LISTENING`. Reachable from **Games → Listening**. Each question picks a random core word and asks the device's `TextToSpeech` engine to pronounce it via `audio/TtsPlayer` (`@Singleton`, lazy init on first use). The player picks the correct spelling from four options; the correct option is revealed with a blue check, the wrong pick with a red X. WORLD mode adds 3 lives, a 10-second per-question countdown, 2 re-listens and a 50/50 hint item. End-of-run summary reuses the Word Match Verbs / Letter Soup XP-grant pipeline so per-category XP and `LISTENING` skill XP both persist.
 - **World map (Phase 7, beta)** — Super Mario Bros-inspired level selector rendered as a single Canvas. The map is 2200 dp wide so the user must scroll horizontally to discover all 10 nodes, which trace an almost-straight path across a grass-and-sky scene. A branching dirt path leads to a small shop drawn from primitive shapes, a castle with two stone towers and a yellow flag stands on the last waypoint, and five clouds float in the sky band. A HUD in the header shows the player's persistent hearts and coins (read live from `UserProfileEntity` through `WorldViewModel`). Tapping the next waypoint advances the protagonist with a smooth `Animatable` interpolation.
 - **Settings hub (Phase 7.1)** — reachable from the Progress screen via the greeting button (tap "Hello, Name" to open). Two sections: **Profile** (rename the user in a dedicated sub-screen with form validation) and **Sound** (music and effects volume sliders in `[0.0, 1.0]`, both persisted via Room; music is wired as a placeholder until the audio engine lands). The schema bump v8 → v9 brings `musicVolume` and `effectsVolume` columns to `user_profile` via `MIGRATION_8_9` without data loss.
 - **Audio foundation (Phase 7.2)** — `audio/SoundEffectPlayer` plays short SFX on game events, currently backed by `ToneGenerator` so the app ships zero audio assets. WordMatchVerbs plays a positive beep (`TONE_PROP_ACK`, 300 ms) when the user picks the correct answer, and the volume reacts live to the **Effects** slider in Settings because the VM observes `user_profile.effectsVolume` through a `StateFlow`. `SoundKey` already declares `Wrong` and `Victory` placeholders so the wrong-answer / end-of-run sounds are a one-line addition when the team is ready.
@@ -72,7 +77,8 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Custom audio assets** — drop `sfx_correct.ogg` / `sfx_wrong.ogg` / `sfx_victory.ogg` / `bgm_world.ogg` / `bgm_game.ogg` into `res/raw/` and swap `ToneGenerator` for `SoundPool` (`SoundEffectPlayer`'s public API stays the same).
 - **Background music** — `MediaPlayer` reading the music slider live, looped per-screen (World map + mini-games only).
 - **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7.1).
-- **Other mini-games** — Speed Quiz, Memory Cards, Listening, Fill the Blank, Translation Race (Phase 7.1).
+- **Other mini-games** — Speed Quiz, Memory Cards, Translation Race, plus **Speaking** and **Grammar** mini-games that feed the empty skill bars (Phase 7.1+).
+- **Marking-words reactive feedback** — `wordDao.getAllWords()` is a view over `core_words` UNION `user_words`. When a user changes a word's status from the Words screen, Room's invalidation tracker for the view can be flaky; the `ProgressViewModel.categoryProgress` flow now runs eagerly to mitigate this. Future iterations may switch to per-table flows (`observeCoreWords` / `observeUserWords`) if the view-level invalidation remains unreliable.
 - **More user settings** — theme mode, daily goal editor, reminder time (Phase 7.1).
 - **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7.1).
 - **Shop economy wiring** — connect the World shop to `addCoins` / `addHearts` so spending coins actually buys lives (Phase 7.1).
@@ -133,18 +139,20 @@ English Vault follows a clean **offline-first** pipeline plus an MVVM-flavoured 
    +----------+----------+
               |  List<CoreWordEntity>
               v
-    +-------------------------------------------------------+
-    | data/database  (AppDatabase v8)                       |
-    |   +- CoreWordEntity   -> core_words  (AUTOINCREMENT)   |
-    |   +- UserWordEntity   -> user_words  (AUTOINCREMENT)   |
-    |   +- WordEntity       -> words_view  (@DatabaseView)   |
-    |   +- UserProfileEntity -> user_profile (+ version,     |
-    |   |                       hearts, coins)               |
-    |   +- CategoryProgressEntity -> category_progress       |
-    |   +- WordDao                                            |
-    |   +- UserProfileDao                                     |
-    |   +- CategoryProgressDao                                |
-    |   +- 5 TypeConverters                                   |
++-------------------------------------------------------+
+     | data/database  (AppDatabase v10)                      |
+     |   +- CoreWordEntity   -> core_words  (AUTOINCREMENT)   |
+     |   +- UserWordEntity   -> user_words  (AUTOINCREMENT)   |
+     |   +- WordEntity       -> words_view  (@DatabaseView)   |
+     |   +- UserProfileEntity -> user_profile (+ version,     |
+     |   |                       hearts, coins, volumes)      |
+     |   +- CategoryProgressEntity -> category_progress       |
+     |   +- SkillProgressEntity -> skill_progress            |
+     |   +- WordDao                                            |
+     |   +- UserProfileDao                                     |
+     |   +- CategoryProgressDao                                |
+     |   +- SkillProgressDao                                   |
+     |   +- 5 TypeConverters                                   |
     +----------+--------------------------------------------+
                |  Flow<List<WordEntity>> via words_view
                v
@@ -405,6 +413,79 @@ The generated APK lives under `app/build/outputs/apk/`.
 ---
 
 ## Changelog
+
+### Phase 7.13 - Skill XP grant hardened with `seedIfMissing` at DAO level
+
+- **`SkillProgressDao.grantXp` now wraps a raw `@Query` with a defensive `seedIfMissing`**, mirroring the Phase 7.11 fix for `category_progress`. Without this, an install that for any reason lacked the row (very old pre-migration install, a wiped table, or a path that bypassed `MIGRATION_9_10`) silently dropped every skill XP grant because Room's `@Update` only touches existing rows.
+- The raw `@Query` is renamed `grantXpInternal`; the default `grantXp` (the only public entry point callers should use) seeds the row first and then delegates to `grantXpInternal`. Signature stays the same so the three mini-game VMs need zero changes.
+- The XP summary added in Phase 7.10 makes the silent failure visible: the summary card on the Word Match Verbs end screen now reliably reflects the run's skill XP. After a 10-question run the Reading card on the Progress screen actually moves from `0 XP` to its new value.
+
+### Phase 7.12 - ProgressScreen `categoryProgress` flow switched to `Eagerly`
+
+- **`ProgressViewModel.categoryProgress` now uses `SharingStarted.Eagerly`** instead of `SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS)`. With `WhileSubscribed`, the upstream was cancelled 5 s after the user left the Progress tab and re-subscribed on return — but the re-subscription wasn't always re-firing Room's invalidation on `words_view` (a `UNION ALL` over `core_words` + `user_words`), which left the learned bar stale when the user marked words from the Words tab.
+- `Eagerly` keeps the upstream alive for the whole `viewModelScope` lifetime, so any write — game XP grant, word status change, `skill_progress` grant — propagates immediately. Other ProgressViewModel flows still use `WhileSubscribed`; the `skills` flow was already `Eagerly`.
+- Minimal cost: a few extra Room Flow collectors alive while the ProgressViewModel is in scope (the entire app session for users who ever visited the Progress tab). Acceptable for an offline-first vocabulary trainer.
+
+### Phase 7.11 - Defensive `seedIfMissing` in Word Match Verbs grant
+
+- **`WordMatchVerbsViewModel.tryUnlockCategory` now calls `categoryProgressDao.seedIfMissing(categoryKey)`** before reading the row. Without this, an install that for any reason lacked the row (very old pre-migration installs, a wiped table, or any path that bypassed `MIGRATION_6_7`) would silently drop every XP grant because Room's `@Update` only touches existing rows.
+- The XP summary added in Phase 7.10 made the silent failure visible (the summary showed the run's XP but the Progress screen never moved). This fix closes the loop: the run's XP is now actually persisted to `category_progress`, so the next time the Progress screen reads the row, the XP bar / learned bar reflect the new totals.
+- The same `seedIfMissing` pattern was already used by `ListeningViewModel.grantPerCategoryXp` and `LetterSoupViewModel.grantPerCategoryXp`. Word Match Verbs is now consistent with them.
+
+### Phase 7.10 - XP summary at the end of Word Match Verbs
+
+- **New "XP earned this run" card on the Word Match Verbs end screen.** Renders the XP the run credited, broken down by grammatical category (e.g. `Verbs Regular: +50 XP`, `Nouns: +20 XP`) and by skill (`Reading: +70 XP`). When the run earned zero XP the card collapses to an empty-state message.
+- **`WordMatchGameState.Finished` gains a `correctXpByCategory` field** so the end screen can render the breakdown. The VM already accumulated the per-category XP during the run via `submitAnswer`; this change only forwards it through the `Finished` state so the UI can read it.
+- **Diagnostic value:** if the user sees the XP breakdown at end-of-run but not on the Progress screen, the bug is in the Progress UI display (Phase 7.9 already aligned the card to `unlockedLevel`). If they don't see XP at the end screen either, the bug is in the grant pipeline itself.
+- **Only Word Match Verbs is wired in this phase** — Listening and Letter Soup carry the same data but their end screens were not updated. Can be replicated later.
+
+### Phase 7.9 - Category card level aligned with the hybrid gate
+
+- **Category card now uses `CategoryProgressEntity.unlockedLevel` for both the level chip and the learned-bar bucket**, instead of `UserLevel.levelFromXp(xpTotal).coerceIn(1, maxLevel)` (the XP-derived "rank"). Previously the two diverged: earning enough XP for level 2 (100 XP) made `derivedLevel = 2` while `unlockedLevel` stayed at 1 because the hybrid gate (50 XP + 80% learned) wasn't met. The learned bar then filtered at `level == 2` and showed 0% even when the user had marked level-1 words as LEARNED — those words were never counted because the bucket was at the wrong level.
+- Aligning the displayed level with `unlockedLevel` keeps the card in sync with what `tryUnlockCategory` / `grantPerCategoryXp` actually advance. Marking a level-1 word as LEARNED now updates the learned bar immediately; the bar fills toward 80% and the level chip climbs when the gate passes.
+- **Only `ProgressViewModel.buildCategoryProgress` is touched** — the data layer, DAOs, mini-game VMs and gating logic were already correct (they all operated on `unlockedLevel`).
+
+### Phase 7.8 - Category XP bar uses promotion cycle
+
+- **XP bar in `CategoryProgressCard` now reflects the current promotion cycle** instead of the cumulative level curve. Previously the bar was driven by `UserLevel.levelProgress(row.xpTotal)` which derives a quadratic range per level (`0..100` at level 1, `0..300` at level 2, …). After a promotion the bar would immediately look almost empty because the next threshold was far away.
+- The bar now uses `row.xpSinceLevelUp` (resets to zero every time `categoryProgressDao.grantXpAndMaybeUnlock` promotes the category) divided by `CategoryGating.XP_MIN_PER_LEVEL` (50). The bar fills from `0 / 50` to `50 / 50` and resets to `0 / 50` on the next promotion — same rhythm as the gate message ("Need X more XP at this level") and matches the user's mental model.
+- **No schema / DAO / mini-game changes** — only `ProgressViewModel.buildCategoryProgress` swaps two lines. The `xpIntoLevel` / `xpRequired` fields on `CategoryProgressUi` are kept (same names) so the UI continues to consume them unchanged.
+
+### Phase 7.7 - Mini-game XP grants wired to per-category + per-skill
+
+- **Per-category grants now fire for every mini-game** —
+  `WordMatchVerbsViewModel`, `LetterSoupViewModel` and
+  `ListeningViewModel` all accumulate XP keyed by
+  `WordTypeFilter.name` (verbs regular / irregular, nouns, …)
+  and grant each non-zero bucket to its dedicated row in
+  `category_progress` at end-of-run. The previous Letter Soup
+  behaviour (single `LETTER_SOUP` bucket only) and the previous
+  Listening behaviour (XP accumulated but never granted) are both
+  fixed.
+- **Skill grants added to all three mini-games** — each correct
+  answer credits the run's total XP to a row in `skill_progress`
+  via the new `SkillProgressDao.grantXp(key, amount)` method.
+  Current mapping: `WordMatchVerbs` → READING,
+  `LetterSoup` → READING, `Listening` → LISTENING. Speaking and
+  Grammar stay at `0 XP` until future mini-games exercise them.
+- **Listening and Letter Soup keep their single-bucket gating**
+  — the `CATEGORY_KEY="LISTENING"` and `CATEGORY_KEY="LETTER_SOUP"`
+  rows still drive level unlock for those games (they have no
+  per-word learned status, so the XP-only rule applies). Each
+  correct answer credits BOTH the grammatical bucket and the
+  single bucket.
+- **No DAO / schema / UI changes** — only the three VMs were
+  touched (one constructor param + one end-of-run call each, plus
+  the per-category loop inlined from `WordMatchVerbsViewModel`'s
+  existing pattern).
+
+### Phase 7.6 - Skill Progress section (Listening / Speaking / Reading / Writing / Grammar)
+
+- **New `skill_progress` table** — one row per language skill holding cumulative XP. Schema bump v9 → v10 via `MIGRATION_9_10`, which creates the table and seeds five rows (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`) so the UI never observes a missing key. Coexists with `category_progress` and `user_profile.totalXp` without touching either.
+- **`Skill` enum + `SkillProgressDao`** — single source of truth for the five skills, each carrying a stable `key` (DB-persisted), a `@StringRes labelRes`, and a Material icon (`Headphones`, `Mic`, `MenuBook`, `Edit`, `Spellcheck`). The DAO exposes `observeAll()`, `get(key)`, `seedIfMissing(key)`, `seedAll(keys)` and `grantXp(key, amount)`.
+- **New "Skills" section on the Progress screen** — rendered between the daily-goal card and "Progress by category" as a 3-column grid of `SkillCard`s (5 cards → 3 in the first row, 2 in the second). Each card shows the skill icon + name, the total XP as the headline number, an optional `Cycle N` chip once the user has completed at least one cycle, and a cyclic `LinearProgressIndicator` that fills to 1000 XP and resets to zero at each cycle boundary. There is no level cap and no gating — the bars are an "infinite" progress measure, like the user requested.
+- **`SkillProgressUi` + `ProgressViewModel.skills`** — the ViewModel exposes a `StateFlow<List<SkillProgressUi>>` derived from `SkillProgressDao.observeAll()` and the canonical `Skill.ALL` order (Listening → Speaking → Reading → Writing → Grammar).
+- **Mini-game XP grant to skills is NOT wired yet.** Each skill starts at `0 XP`. Mapping which mini-game credits which skill is deferred to a follow-up phase so this change stays scoped to the data + UI layer.
 
 ### Phase 7.4 - World-mode dev toggle + 10-level dictionary re-bucket
 

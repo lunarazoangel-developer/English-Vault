@@ -15,10 +15,13 @@ import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Co
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.WORLD_GAME_TIME_MS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
 import com.example.englishvault.ui.games.lettersoup.util.BoardGenerator
+import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.game.CategoryGating
@@ -66,6 +69,7 @@ class LetterSoupViewModel @Inject constructor(
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
     private val userProfileDao: UserProfileDao,
+    private val skillProgressDao: SkillProgressDao,
     private val soundEffectPlayer: SoundEffectPlayer
 ) : ViewModel() {
 
@@ -289,9 +293,23 @@ class LetterSoupViewModel @Inject constructor(
             boardSize = state.board.boardSize
         )
         val xpByCategory = state.xpByCategory.toMutableMap()
-        fixedNow.forEach { _ ->
+        fixedNow.forEach { word ->
+            // Credit BOTH the grammatical category of the fixed word
+            // (drives the per-category progress bar on Progress) AND
+            // the single [CATEGORY_KEY] bucket (drives the Letter
+            // Soup level unlock gating). The category is resolved
+            // through [wordLookup] which maps the upper-cased word
+            // text back to its dictionary [WordEntity].
+            val entity = wordLookup[word.original]
+            val grammaticalKey = entity?.let { classifyWordSafely(it).name }
+            if (grammaticalKey != null) {
+                xpByCategory[grammaticalKey] =
+                    (xpByCategory[grammaticalKey] ?: 0) +
+                        CategoryGating.XP_PER_CORRECT_ANSWER
+            }
             xpByCategory[CATEGORY_KEY] =
-                (xpByCategory[CATEGORY_KEY] ?: 0) + CategoryGating.XP_PER_CORRECT_ANSWER
+                (xpByCategory[CATEGORY_KEY] ?: 0) +
+                    CategoryGating.XP_PER_CORRECT_ANSWER
         }
 
         val newWordsFixed = state.wordsFixed + fixedNow.size
@@ -433,10 +451,9 @@ class LetterSoupViewModel @Inject constructor(
     /**
      * Persists the run's per-category XP via the same DAO call the
      * Word Match Verbs VM uses, then transitions to the finished
-     * state. The Letter Soup category has its own promotion rule
-     * (XP-only — see [tryUnlockLetterSoupLevel]) which differs from
-     * the verb / noun gating because Letter Soup has no per-word
-     * "learned" status.
+     * state. Letter Soup has no per-word "learned" status, so it
+     * satisfies the XP-only rule (no learned-percentage
+     * requirement).
      */
     private suspend fun grantXpAndFinish(
         level: Int,
@@ -447,10 +464,8 @@ class LetterSoupViewModel @Inject constructor(
         mode: HintMode,
         timedOut: Boolean
     ) {
-        val xp = xpByCategory[CATEGORY_KEY] ?: 0
-        if (xp > 0) {
-            tryUnlockLetterSoupLevel(currentLevel = level, xpToGrant = xp)
-        }
+        grantPerCategoryXp(xpByCategory)
+        grantSkillXp(xpByCategory)
         cancelWorldTimer()
         _gameState.value = LetterSoupGameState.Finished(
             level = level,
@@ -519,35 +534,116 @@ class LetterSoupViewModel @Inject constructor(
     }
 
     /**
-     * Promotes the Letter Soup `unlockedLevel` when the player has
-     * earned at least [CategoryGating.XP_MIN_PER_LEVEL] XP at the
-     * current level. There is no learned-percentage requirement
-     * because Letter Soup is a game, not a study tool — players earn
-     * XP by playing, and XP alone gates progression.
+     * Iterates [xpByCategory] and grants each non-zero bucket to
+     * the matching row in `category_progress`. Two kinds of buckets
+     * exist in the map:
      *
-     * Caps the new unlocked level at the highest dictionary level
-     * available for the mini-game (see [maxLetterSoupLevel]).
+     *  - **Grammatical buckets** keyed by `WordTypeFilter.name`
+     *    (e.g. `"VERBS_REGULAR"`, `"NOUNS"`) — each grants XP to
+     *    its dedicated `category_progress` row so the per-category
+     *    progress bar on the Progress screen fills up.
+     *  - **[CATEGORY_KEY] bucket** keyed by `"LETTER_SOUP"` — a
+     *    single synthetic row that drives the Letter Soup level
+     *    unlock gating via [maxUnlockedLetterSoupLevel]. Letter
+     *    Soup is a game (no per-word "learned" status), so it
+     *    satisfies the XP-only rule (no learned-percentage
+     *    requirement).
+     *
+     * Unknown buckets are skipped defensively so a future category
+     * change cannot crash the grant.
      */
-    private suspend fun tryUnlockLetterSoupLevel(currentLevel: Int, xpToGrant: Int) {
+    private suspend fun grantPerCategoryXp(xpByCategory: Map<String, Int>) {
+        if (xpByCategory.isEmpty()) return
+        for ((categoryKey, xp) in xpByCategory) {
+            if (xp <= 0) continue
+            if (categoryKey == CATEGORY_KEY) {
+                grantLetterSoupLevelXp(xp)
+                continue
+            }
+            val category = WordTypeFilter.entries.firstOrNull { it.name == categoryKey }
+                ?: continue
+            val typeLiteral = category.type ?: continue
+            val categoryMaxLevel = wordDao.maxLevelByType(typeLiteral, category.regular)
+                .coerceAtLeast(1)
+            categoryProgressDao.seedIfMissing(categoryKey)
+            val progress = categoryProgressDao.get(categoryKey)
+                ?: CategoryProgressEntity.initial(categoryKey)
+
+            val currentLevel = progress.unlockedLevel.coerceAtMost(categoryMaxLevel)
+            val nextLevel = (currentLevel + 1).coerceAtMost(categoryMaxLevel)
+            val newXpSince = progress.xpSinceLevelUp + xp
+            val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
+                nextLevel > currentLevel
+
+            categoryProgressDao.grantXpAndMaybeUnlock(
+                categoryKey = categoryKey,
+                amount = xp,
+                meetsXp = shouldUnlock,
+                meetsLearnedPct = true,
+                targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
+            )
+        }
+    }
+
+    /**
+     * Promotes the single [CATEGORY_KEY] Letter Soup bucket when
+     * the player has earned at least [CategoryGating.XP_MIN_PER_LEVEL]
+     * XP at the current level. Caps the new unlocked level at the
+     * highest dictionary level available for the mini-game (see
+     * [maxLetterSoupLevel]).
+     */
+    private suspend fun grantLetterSoupLevelXp(xpToGrant: Int) {
+        if (xpToGrant <= 0) return
+        val maxLevel = maxLetterSoupLevel()
         categoryProgressDao.seedIfMissing(CATEGORY_KEY)
         val progress = categoryProgressDao.get(CATEGORY_KEY)
             ?: CategoryProgressEntity.initial(CATEGORY_KEY)
-        val maxLevel = maxLetterSoupLevel()
 
+        val currentLevel = progress.unlockedLevel.coerceAtMost(maxLevel)
+        val nextLevel = (currentLevel + 1).coerceAtMost(maxLevel)
         val newXpSince = progress.xpSinceLevelUp + xpToGrant
-        val meetsXp = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL
-        val targetUnlocked = (currentLevel + 1).coerceAtMost(maxLevel)
-        val shouldUnlock = meetsXp && targetUnlocked > progress.unlockedLevel
+        val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
+            nextLevel > currentLevel
 
         categoryProgressDao.grantXpAndMaybeUnlock(
             categoryKey = CATEGORY_KEY,
             amount = xpToGrant,
             meetsXp = shouldUnlock,
-            // Letter Soup has no "learned" status — always satisfy
-            // the learned-percentage gate so the XP-only rule applies.
             meetsLearnedPct = true,
-            targetUnlockedLevel = if (shouldUnlock) targetUnlocked else progress.unlockedLevel
+            targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
         )
+    }
+
+    /**
+     * Atomically credits the run's total XP to the [Skill.READING]
+     * row in `skill_progress`. Letter Soup is a reading activity
+     * — the player reads letters on the board and unscrambles them
+     * into the target word — so the entire run counts toward
+     * READING.
+     *
+     * No-op when the run earned zero XP.
+     */
+    private suspend fun grantSkillXp(xpByCategory: Map<String, Int>) {
+        val totalXp = xpByCategory.values.sum()
+        if (totalXp <= 0) return
+        skillProgressDao.grantXp(Skill.READING.key, totalXp)
+    }
+
+    /**
+     * Maps a [WordEntity] to its [WordTypeFilter] bucket. Mirrors
+     * the helper used by `WordMatchVerbsViewModel` and
+     * `ListeningViewModel` so all mini-games credit the same
+     * category row for the same word.
+     */
+    private fun classifyWordSafely(word: WordEntity): WordTypeFilter {
+        val tracked = WordTypeFilter.TRACKED.firstOrNull { it.matches(word) }
+        if (tracked != null) return tracked
+        return if (word.type == "verb") {
+            if (word.regular == false) WordTypeFilter.VERBS_IRREGULAR
+            else WordTypeFilter.VERBS_REGULAR
+        } else {
+            WordTypeFilter.ADJECTIVES
+        }
     }
 
     /**

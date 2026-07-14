@@ -44,7 +44,9 @@ import com.example.englishvault.R
 import com.example.englishvault.ui.components.SectionHeader
 import com.example.englishvault.ui.progress.viewmodel.CategoryProgressUi
 import com.example.englishvault.ui.progress.viewmodel.ProgressViewModel
+import com.example.englishvault.ui.progress.viewmodel.SkillProgressUi
 import com.example.englishvault.ui.progress.viewmodel.XpProgress
+import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 
 /**
@@ -80,6 +82,7 @@ fun ProgressScreen(
     val xp by viewModel.xp.collectAsState()
     val dailyXp by viewModel.dailyXp.collectAsState()
     val categories by viewModel.categoryProgress.collectAsState()
+    val skills by viewModel.skills.collectAsState()
 
     val greetingName = profile?.name
         ?: stringResource(id = R.string.progress_default_name)
@@ -134,6 +137,10 @@ fun ProgressScreen(
             dailyXp = dailyXp,
             dailyGoalXp = profile?.dailyGoalXp ?: UserProfileEntity.DEFAULT_DAILY_GOAL
         )
+
+        SectionHeader(title = stringResource(id = R.string.progress_skills_title))
+
+        SkillsGrid(skills = skills)
 
         SectionHeader(title = stringResource(id = R.string.progress_your_path))
 
@@ -295,6 +302,116 @@ private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
                     style = MaterialTheme.typography.bodyMedium
                 )
             }
+        }
+    }
+}
+
+/**
+ * 2-column grid of [SkillCard]s, one per language skill
+ * (Listening, Speaking, Reading, Writing, Grammar). Built from
+ * [Row]s chunked by 2 instead of a lazy grid because the count is
+ * fixed at five and the parent column already scrolls vertically —
+ * nesting a lazy grid inside a scrollable parent breaks layout in
+ * Compose, and [FlowRow] does not expose child `weight` modifiers.
+ *
+ * 5 cards → 2 + 2 + 1: Listening & Speaking on row 1, Reading &
+ * Writing on row 2, Grammar alone on row 3. The cards stay wider
+ * and less cramped than a 3-column layout.
+ */
+@Composable
+private fun SkillsGrid(skills: List<SkillProgressUi>) {
+    val rows = Skill.ALL.chunked(2)
+    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        rows.forEach { rowSkills ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                rowSkills.forEach { skill ->
+                    val ui = skills.firstOrNull { it.skill == skill }
+                        ?: SkillProgressUi.empty(skill)
+                    SkillCard(ui = ui, modifier = Modifier.weight(1f))
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Single skill tile. Shows the skill icon and name, the headline
+ * XP number, an optional "Cycle N" chip once the user has
+ * completed at least one cycle, and a cyclic linear progress bar
+ * that fills up to [SkillProgressUi.cycleSize] (1000 XP by default)
+ * before resetting to zero. There is no level cap — the bar is a
+ * soft "chunking" indicator, not a level gate.
+ */
+@Composable
+private fun SkillCard(ui: SkillProgressUi, modifier: Modifier = Modifier) {
+    Card(
+        modifier = modifier,
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = ui.skill.icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(28.dp),
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    text = stringResource(id = ui.skill.labelRes),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = stringResource(
+                    id = R.string.progress_skill_xp_total_format,
+                    ui.xpTotal
+                ),
+                style = MaterialTheme.typography.headlineSmall,
+                fontWeight = FontWeight.ExtraBold,
+                color = MaterialTheme.colorScheme.primary
+            )
+            if (ui.cycleIndex > 0) {
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(
+                    text = stringResource(
+                        id = R.string.progress_skill_cycle_format,
+                        ui.cycleIndex
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+            Spacer(modifier = Modifier.height(8.dp))
+            LinearProgressIndicator(
+                progress = { ui.progressFraction.coerceIn(0f, 1f) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(8.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                color = MaterialTheme.colorScheme.primary,
+                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
+                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = stringResource(
+                    id = R.string.progress_skill_xp_in_cycle_format,
+                    ui.xpInCycle,
+                    ui.cycleSize
+                ),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
     }
 }

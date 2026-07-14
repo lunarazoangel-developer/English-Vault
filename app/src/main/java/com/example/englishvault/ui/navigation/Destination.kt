@@ -54,6 +54,21 @@ sealed class Destination(val route: String) {
     }
     // endregion
 
+    // region: Listening mini-game (Phase 7.5)
+    /** Level selector. Mirrors [WordMatchVerbsLevel]. */
+    data object ListeningLevel : Destination("games/listening/level")
+
+    /**
+     * Active game. Carries the chosen [level] in the route. The
+     * finished state is rendered in place inside this same
+     * destination, so there is no separate "end" route.
+     */
+    data object ListeningPlay : Destination("games/listening/play?level={level}") {
+        const val ARG_LEVEL: String = "level"
+        fun buildRoute(level: Int): String = "games/listening/play?level=$level"
+    }
+    // endregion
+
     // region: Settings (Phase 7.1)
     /** Settings hub — profile + sound. Reachable from the Progress
      *  screen via the greeting button. */

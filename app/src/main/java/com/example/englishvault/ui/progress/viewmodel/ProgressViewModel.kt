@@ -5,12 +5,15 @@ import androidx.lifecycle.viewModelScope
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.UserLevel
 import data.database.dao.CategoryProgressDao
+import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
 import data.database.entities.Difficulty
 import data.database.entities.LearningStatus
 import data.database.entities.ProgressStats
+import data.database.entities.Skill
+import data.database.entities.SkillProgressEntity
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.game.CategoryGating
@@ -45,7 +48,8 @@ import kotlinx.coroutines.flow.stateIn
 class ProgressViewModel @Inject constructor(
     private val userProfileDao: UserProfileDao,
     private val wordDao: WordDao,
-    private val categoryProgressDao: CategoryProgressDao
+    private val categoryProgressDao: CategoryProgressDao,
+    private val skillProgressDao: SkillProgressDao
 ) : ViewModel() {
 
     // region: Profile / stats
@@ -123,7 +127,15 @@ class ProgressViewModel @Inject constructor(
         }
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+        // Eagerly keeps the upstream alive at all times so that
+        // writes from other tabs (game XP grants, word status
+        // changes) propagate to this StateFlow immediately, regardless
+        // of whether the Progress screen is currently composed.
+        // WhileSubscribed(5000) was cancelling the upstream when the
+        // user navigated to Games, and the re-subscription was not
+        // always re-firing the underlying Room invalidation on the
+        // `words_view` UNION ALL — leaving the learned bar stale.
+        started = SharingStarted.Eagerly,
         initialValue = CategoryGating.TRACKED_CATEGORIES.map {
             CategoryProgressUi.empty(it)
         }
@@ -148,24 +160,45 @@ class ProgressViewModel @Inject constructor(
             ?.coerceAtLeast(1)
             ?: 1
 
-        val derivedLevel = UserLevel.levelFromXp(row.xpTotal)
-            .coerceIn(1, maxLevel)
+        // The card's level chip and learned-bar bucket use
+        // [CategoryProgressEntity.unlockedLevel] — the level the
+        // player has actually earned via the hybrid gate (50 XP +
+        // 80% of words at the current level marked LEARNED). The
+        // XP-derived level (`UserLevel.levelFromXp(xpTotal)`) can
+        // race ahead of [unlockedLevel] when the player has
+        // enough XP but not enough learned words, which used to
+        // make the learned bar appear stuck at 0% (the bucket was
+        // filtering at the wrong level). Using [unlockedLevel]
+        // keeps the displayed level, the XP bar's promotion
+        // cycle and the learned bar's bucket all in sync with
+        // what [tryUnlockCategory] / [grantPerCategoryXp] actually
+        // advance.
+        val currentLevel = row.unlockedLevel.coerceIn(1, maxLevel)
 
-        val (xpInto, xpRequired) = UserLevel.levelProgress(row.xpTotal)
-            .let { (into, required) -> into to required.coerceAtLeast(1) }
+        // XP bar is driven by the current promotion cycle, not the
+        // cumulative level curve. [xpSinceLevelUp] resets to zero
+        // every time [grantXpAndMaybeUnlock] promotes the
+        // category, so the bar fills from 0 to XP_MIN_PER_LEVEL and
+        // restarts when the next level unlocks. This matches the
+        // gate message ("Need X more XP at this level") and the
+        // user's mental model — the cumulative model looked empty
+        // right after a promotion because the next threshold is far
+        // away (e.g. 300 XP at level 2).
+        val xpInto = row.xpSinceLevelUp
+        val xpRequired = CategoryGating.XP_MIN_PER_LEVEL
 
-        val bucket = words.filter { filter.matches(it) && it.level == derivedLevel }
+        val bucket = words.filter { filter.matches(it) && it.level == currentLevel }
         val totalAtLevel = bucket.size
         val learnedAtLevel = bucket.count { it.status == LearningStatus.LEARNED }
         val learnedPct = if (totalAtLevel == 0) 0f else learnedAtLevel.toFloat() / totalAtLevel
 
         val meetsXp = row.xpSinceLevelUp >= CategoryGating.XP_MIN_PER_LEVEL
         val meetsLearnedPct = learnedPct >= CategoryGating.LEARNED_PCT_REQUIRED
-        val atMaxLevel = derivedLevel >= maxLevel
+        val atMaxLevel = currentLevel >= maxLevel
 
         return CategoryProgressUi(
             filter = filter,
-            currentLevel = derivedLevel,
+            currentLevel = currentLevel,
             maxLevel = maxLevel,
             xpIntoLevel = xpInto,
             xpRequired = xpRequired,
@@ -179,6 +212,35 @@ class ProgressViewModel @Inject constructor(
             locked = atMaxLevel
         )
     }
+    // endregion
+
+    // region: Skill progression (Phase 7.6)
+    /**
+     * Four [SkillProgressUi] entries — one per [Skill] — in the
+     * canonical order defined by [Skill.ALL] (Listening → Speaking →
+     * Reading → Writing). Each entry is projected from the matching
+     * row in `skill_progress`, or from an empty placeholder when the
+     * row is missing (defensive only — `MIGRATION_9_10` seeds all
+     * four rows so a missing row would indicate a bug).
+     *
+     * The bars are intentionally "infinite": the visible fill grows
+     * toward [SkillProgressUi.cycleSize] and resets to zero on each
+     * cycle boundary, with [SkillProgressUi.cycleIndex] ticking up
+     * so the user can see how many full cycles they have completed.
+     */
+    val skills: StateFlow<List<SkillProgressUi>> = skillProgressDao.observeAll()
+        .map { rows ->
+            Skill.ALL.map { skill ->
+                val row = rows.firstOrNull { it.skillKey == skill.key }
+                    ?: SkillProgressEntity.initial(skill.key)
+                SkillProgressUi(skill = skill, xpTotal = row.xpTotal)
+            }
+        }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+            initialValue = Skill.ALL.map { SkillProgressUi.empty(it) }
+        )
     // endregion
 
     // region: Legacy Difficulty buckets (kept for callers; not rendered)

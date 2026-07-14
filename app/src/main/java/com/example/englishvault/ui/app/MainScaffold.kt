@@ -16,6 +16,8 @@ import com.example.englishvault.ui.components.AppBottomBar
 import com.example.englishvault.ui.games.GamesScreen
 import com.example.englishvault.ui.games.lettersoup.LetterSoupGameScreen
 import com.example.englishvault.ui.games.lettersoup.LetterSoupLevelScreen
+import com.example.englishvault.ui.games.listening.ListeningGameScreen
+import com.example.englishvault.ui.games.listening.ListeningLevelScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsGameScreen
 import com.example.englishvault.ui.games.wordmatchverbs.WordMatchVerbsLevelScreen
 import com.example.englishvault.ui.navigation.Destination
@@ -81,6 +83,9 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                     },
                     onOpenLetterSoup = {
                         navController.navigate(Destination.LetterSoupLevel.route)
+                    },
+                    onOpenListening = {
+                        navController.navigate(Destination.ListeningLevel.route)
                     }
                 )
             }
@@ -204,6 +209,39 @@ fun MainScaffold(modifier: Modifier = Modifier) {
                 val level = backStackEntry.arguments
                     ?.getInt(Destination.LetterSoupPlay.ARG_LEVEL) ?: 1
                 LetterSoupGameScreen(
+                    level = level,
+                    onBack = { navController.popBackStack() },
+                    onExitToGames = {
+                        navController.popBackStack(
+                            route = Destination.Games.route,
+                            inclusive = false
+                        )
+                    }
+                )
+            }
+            // endregion
+
+            // region: Listening mini-game (Phase 7.5)
+            composable(Destination.ListeningLevel.route) {
+                ListeningLevelScreen(
+                    onBack = { navController.popBackStack() },
+                    onLevelChosen = { level ->
+                        navController.navigate(Destination.ListeningPlay.buildRoute(level))
+                    }
+                )
+            }
+            composable(
+                route = Destination.ListeningPlay.route,
+                arguments = listOf(
+                    navArgument(Destination.ListeningPlay.ARG_LEVEL) {
+                        type = NavType.IntType
+                        defaultValue = 1
+                    }
+                )
+            ) { backStackEntry ->
+                val level = backStackEntry.arguments
+                    ?.getInt(Destination.ListeningPlay.ARG_LEVEL) ?: 1
+                ListeningGameScreen(
                     level = level,
                     onBack = { navController.popBackStack() },
                     onExitToGames = {

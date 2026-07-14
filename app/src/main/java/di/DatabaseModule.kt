@@ -10,6 +10,7 @@ import dagger.hilt.components.SingletonComponent
 import data.database.AppDatabase
 import data.database.Migrations
 import data.database.dao.CategoryProgressDao
+import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import javax.inject.Singleton
@@ -52,7 +53,8 @@ object DatabaseModule {
             Migrations.MIGRATION_5_6,
             Migrations.MIGRATION_6_7,
             Migrations.MIGRATION_7_8,
-            Migrations.MIGRATION_8_9
+            Migrations.MIGRATION_8_9,
+            Migrations.MIGRATION_9_10
         )
         .build()
     // endregion
@@ -68,5 +70,9 @@ object DatabaseModule {
     @Provides
     fun provideCategoryProgressDao(database: AppDatabase): CategoryProgressDao =
         database.categoryProgressDao()
+
+    @Provides
+    fun provideSkillProgressDao(database: AppDatabase): SkillProgressDao =
+        database.skillProgressDao()
     // endregion
 }

@@ -109,7 +109,20 @@ sealed class WordMatchGameState {
          * because every question was answered. Lets the end screen
          * render a "Out of lives" headline in world mode.
          */
-        val outOfLives: Boolean = false
+        val outOfLives: Boolean = false,
+        /**
+         * XP earned per grammatical bucket during this run, keyed
+         * by `WordTypeFilter.name` (e.g. `"VERBS_REGULAR"`,
+         * `"NOUNS"`). Each correct answer contributes
+         * [CategoryGating.XP_PER_CORRECT_ANSWER] to the bucket of
+         * the question's category.
+         *
+         * Carried on [Finished] so the end screen can render an
+         * explicit "XP earned this run" summary — a debugging aid
+         * that doubles as visible feedback when the player wants to
+         * know which category the run credited.
+         */
+        val correctXpByCategory: Map<String, Int> = emptyMap()
     ) : WordMatchGameState()
 
     companion object {
@@ -142,5 +155,10 @@ sealed class WordMatchGameState {
  * The mode is held both by the ViewModel (for the dev toggle) and
  * on every [WordMatchGameState.InProgress] / [Finished] (so the UI
  * can branch on it without re-reading the VM).
+ *
+ * Re-exported from [com.example.englishvault.ui.games.common.GameMode]
+ * so existing imports keep working without a global rename. The
+ * canonical declaration lives in the `common` package so the
+ * Listening mini-game can share the same enum.
  */
-enum class GameMode { NORMAL, WORLD }
+typealias GameMode = com.example.englishvault.ui.games.common.GameMode

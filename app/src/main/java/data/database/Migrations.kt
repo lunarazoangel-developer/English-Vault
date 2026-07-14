@@ -455,4 +455,51 @@ object Migrations {
             )
         }
     }
+
+    /**
+     * Phase 7.6 — introduces the `skill_progress` table that holds
+     * one row per language skill (Listening, Speaking, Reading,
+     * Writing) with the cumulative XP earned in each.
+     *
+     * The schema is created fresh (`CREATE TABLE IF NOT EXISTS`) so
+     * the migration is a no-op for installs that already have the
+     * table from a previous (development) install. Initial rows are
+     * inserted with `INSERT OR IGNORE` so re-running the migration
+     * never duplicates or overwrites data.
+     *
+     * The list of skill keys must stay in sync with
+     * `data.database.entities.Skill`. Hardcoding the keys here keeps
+     * the migration file standalone and Room-friendly (it can only
+     * read SQL, not Kotlin constants).
+     */
+    val MIGRATION_9_10: Migration = object : Migration(9, 10) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `skill_progress` (
+                    `skillKey` TEXT NOT NULL PRIMARY KEY,
+                    `xpTotal` INTEGER NOT NULL DEFAULT 0,
+                    `updatedAt` INTEGER NOT NULL DEFAULT 0
+                )
+                """.trimIndent()
+            )
+
+            // Seed one row per skill. The literal list mirrors
+            // `Skill.ALL` so the UI never observes a missing key.
+            val skillKeys = listOf(
+                "LISTENING",
+                "SPEAKING",
+                "READING",
+                "WRITING",
+                "GRAMMAR"
+            )
+            for (key in skillKeys) {
+                db.execSQL(
+                    "INSERT OR IGNORE INTO `skill_progress` " +
+                        "(`skillKey`, `xpTotal`, `updatedAt`) " +
+                        "VALUES ('$key', 0, ${System.currentTimeMillis()})"
+                )
+            }
+        }
+    }
 }

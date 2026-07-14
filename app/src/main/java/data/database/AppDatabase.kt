@@ -9,10 +9,12 @@ import data.database.converters.FormsConverter
 import data.database.converters.ListStringConverter
 import data.database.converters.PronunciationConverter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
 import data.database.entities.CoreWordEntity
+import data.database.entities.SkillProgressEntity
 import data.database.entities.UserProfileEntity
 import data.database.entities.UserWordEntity
 import data.database.entities.WordEntity
@@ -30,22 +32,26 @@ import data.database.entities.WordEntity
  *    daily goal counters introduced in Phase 3.
  *  - `category_progress` — one row per tracked grammatical category
  *    holding XP and unlocked-level counters introduced in Phase 4.6.
+ *  - `skill_progress` — one row per language skill (Listening,
+ *    Speaking, Reading, Writing) holding cumulative XP introduced in
+ *    Phase 7.6.
  *
  * The schema is wired through Hilt in `DatabaseModule`, which provides
  * all DAOs and registers the migrations that take the database from
- * version 1 to version 9.
+ * version 1 to version 10.
  */
 @Database(
     entities = [
         CoreWordEntity::class,
         UserWordEntity::class,
         UserProfileEntity::class,
-        CategoryProgressEntity::class
+        CategoryProgressEntity::class,
+        SkillProgressEntity::class
     ],
     views = [
         WordEntity::class
     ],
-    version = 9,
+    version = 10,
     exportSchema = false
 )
 @TypeConverters(
@@ -64,6 +70,9 @@ abstract class AppDatabase : RoomDatabase() {
 
     /** DAO for the per-category progression table (`category_progress`). */
     abstract fun categoryProgressDao(): CategoryProgressDao
+
+    /** DAO for the four-skill progression table (`skill_progress`). */
+    abstract fun skillProgressDao(): SkillProgressDao
 
     companion object {
         /** Filename used by `Room.databaseBuilder` to create the SQLite file. */
