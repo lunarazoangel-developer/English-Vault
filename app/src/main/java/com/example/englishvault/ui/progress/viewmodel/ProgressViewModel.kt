@@ -17,13 +17,17 @@ import data.database.entities.SkillProgressEntity
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.game.CategoryGating
+import data.game.PromotionEvent
+import data.game.PromotionNotifier
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 /**
  * ViewModel for the Progress screen.
@@ -49,7 +53,8 @@ class ProgressViewModel @Inject constructor(
     private val userProfileDao: UserProfileDao,
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
-    private val skillProgressDao: SkillProgressDao
+    private val skillProgressDao: SkillProgressDao,
+    private val promotionNotifier: PromotionNotifier
 ) : ViewModel() {
 
     // region: Profile / stats
@@ -266,6 +271,41 @@ class ProgressViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
             initialValue = emptyList()
         )
+    // endregion
+
+    // region: Level-up celebration
+    /**
+     * One-shot holder for the most recent [PromotionEvent]. The
+     * Progress screen renders [com.example.englishvault.ui.common.LevelUpCelebrationOverlay]
+     * when this is non-`null` and calls [consumePromotionEvent] after
+     * the dismissal animation to clear it.
+     *
+     * The internal [MutableStateFlow] is filled by a coroutine that
+     * subscribes to [PromotionNotifier.events]. Each emission
+     * overwrites the previous value so a rapid double-promotion (e.g.
+     * two categories unlocking on the same XP grant) only shows the
+     * last one — earlier ones are intentionally dropped because the
+     * UI is single-overlay.
+     */
+    private val _promotionEvent = MutableStateFlow<PromotionEvent?>(null)
+    val promotionEvent: StateFlow<PromotionEvent?> = _promotionEvent
+
+    init {
+        viewModelScope.launch {
+            promotionNotifier.events.collect { event ->
+                _promotionEvent.value = event
+            }
+        }
+    }
+
+    /**
+     * Clears [promotionEvent] after the Progress screen has rendered
+     * the celebration. Safe to call when the value is already `null`
+     * (idempotent).
+     */
+    fun consumePromotionEvent() {
+        _promotionEvent.value = null
+    }
     // endregion
 
     companion object {

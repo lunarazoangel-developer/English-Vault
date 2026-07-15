@@ -28,6 +28,10 @@ import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.database.UserLevel
 import data.game.CategoryGating
+import data.game.PromotionEvent
+import data.game.PromotionGate
+import data.game.PromotionNotifier
+import data.game.PromotionOutcome
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.Job
@@ -83,7 +87,8 @@ class WordMatchVerbsViewModel @Inject constructor(
     private val categoryProgressDao: CategoryProgressDao,
     private val userProfileDao: UserProfileDao,
     private val skillProgressDao: SkillProgressDao,
-    private val soundEffectPlayer: SoundEffectPlayer
+    private val soundEffectPlayer: SoundEffectPlayer,
+    private val promotionNotifier: PromotionNotifier
 ) : ViewModel() {
 
     /**
@@ -461,50 +466,21 @@ class WordMatchVerbsViewModel @Inject constructor(
      * `xpSinceLevelUp` to zero (handled atomically by the DAO).
      */
     private suspend fun tryUnlockCategory(categoryKey: String, xpToGrant: Int) {
-        val category = WordTypeFilter.entries.firstOrNull { it.name == categoryKey }
-            ?: return
-        // ALL and MINE carry null type/regular and are not tracked by
-        // the progression system — skip them defensively even if a
-        // bug ever pushes their key into the XP map.
-        val typeLiteral = category.type ?: return
-        val maxLevel = wordDao.maxLevelByType(typeLiteral, category.regular)
-            .coerceAtLeast(1)
-        // Defensive seed: ensures the row exists before
-        // [grantXpAndMaybeUnlock] runs its `update(...)`. Without this,
-        // an install that for any reason lacks the row (e.g. a very
-        // old pre-migration install, a wiped table, or a key that
-        // migration MIGRATION_6_7 missed) would silently drop every
-        // XP grant because Room's @Update does not insert missing
-        // rows. Mirrors the same `seedIfMissing` pattern already used
-        // by [ListeningViewModel.grantPerCategoryXp] and
-        // [LetterSoupViewModel.grantPerCategoryXp].
-        categoryProgressDao.seedIfMissing(categoryKey)
-        val progress = categoryProgressDao.get(categoryKey)
-            ?: CategoryProgressEntity.initial(categoryKey)
-
-        val currentLevel = progress.unlockedLevel.coerceAtMost(maxLevel)
-        val nextLevel = (currentLevel + 1).coerceAtMost(maxLevel)
-
-        val xpAfter = progress.xpSinceLevelUp + xpToGrant
-        val totalAtLevel = wordDao.countWordsAt(typeLiteral, category.regular, currentLevel)
-        val learnedAtLevel = wordDao.countLearnedAt(typeLiteral, category.regular, currentLevel)
-        val learnedPct = if (totalAtLevel == 0) 1f else learnedAtLevel.toFloat() / totalAtLevel
-
-        val meetsXp = xpAfter >= CategoryGating.XP_MIN_PER_LEVEL
-        val meetsLearnedPct = learnedPct >= CategoryGating.LEARNED_PCT_REQUIRED
-        val shouldUnlock = nextLevel > currentLevel && meetsXp && meetsLearnedPct
-
-        categoryProgressDao.grantXpAndMaybeUnlock(
+        val outcome = PromotionGate.evaluate(
             categoryKey = categoryKey,
             amount = xpToGrant,
-            meetsXp = shouldUnlock,
-            meetsLearnedPct = shouldUnlock,
-            targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
+            wordDao = wordDao,
+            categoryProgressDao = categoryProgressDao
         )
-
-        @Suppress("UNUSED_VARIABLE")
-        val derivedLevel = UserLevel.levelFromXp(progress.xpTotal + xpToGrant)
-            .coerceAtMost(maxLevel)
+        if (outcome is PromotionOutcome.Promoted) {
+            promotionNotifier.emit(
+                PromotionEvent(
+                    categoryKey = categoryKey,
+                    previousLevel = outcome.previousLevel,
+                    newLevel = outcome.newLevel
+                )
+            )
+        }
     }
 
     /**

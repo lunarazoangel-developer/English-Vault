@@ -106,5 +106,17 @@ enum class WordTypeFilter(
             PREPOSITIONS,
             INTERJECTIONS
         )
+
+        /**
+         * Nullable variant of [classify]. Returns `null` when the
+         * word does not belong to any tracked grammatical bucket
+         * (e.g. a user-added row with an unrecognised type, or
+         * `MINE` itself for a user-added row without a grammatical
+         * category). Use this from call sites that need to
+         * short-circuit when the category is unknown — for example,
+         * the promotion gate in [data.game.PromotionGate].
+         */
+        fun classifyOrNull(word: WordEntity): WordTypeFilter? =
+            entries.firstOrNull { it != ALL && it != MINE && it.matches(word) }
     }
 }

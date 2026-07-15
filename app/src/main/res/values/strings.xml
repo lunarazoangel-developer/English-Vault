@@ -126,12 +126,17 @@
     <string name="words_empty_mine">Tap + to add your first word.</string>
     <!-- endregion -->
 
+    <!-- region: Words search field -->
+    <string name="words_search_hint">Search words, translations, tags…</string>
+    <string name="words_search_clear_cd">Clear search</string>
+    <!-- endregion -->
+
     <!-- region: Words sort options -->
     <string name="words_sort_label">Sort:</string>
     <string name="words_sort_alpha_asc">A → Z</string>
     <string name="words_sort_alpha_desc">Z → A</string>
-    <string name="words_sort_level_asc">Level 1 → 5</string>
-    <string name="words_sort_level_desc">Level 5 → 1</string>
+    <string name="words_sort_level_asc">ASC</string>
+    <string name="words_sort_level_desc">DESC</string>
     <!-- endregion -->
 
     <!-- region: Word badges -->
@@ -266,6 +271,11 @@
     <string name="game_listening_progress">%1$d / %2$d</string>
     <string name="game_listening_correct">Correct!</string>
     <string name="game_listening_wrong_short">Wrong</string>
+
+    <!-- region: Level-up celebration overlay -->
+    <string name="level_up_title">Level up!</string>
+    <string name="level_up_message">%1$s — Level %2$d unlocked</string>
+    <!-- endregion -->
     <string name="game_listening_no_words">No words to listen to at this level — come back after unlocking more content!</string>
     <string name="game_listening_game_over">Game over!</string>
     <string name="game_listening_score_format">%1$d / %2$d correct</string>

@@ -2,11 +2,17 @@ package com.example.englishvault.ui.words.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.englishvault.ui.words.WordTypeFilter
+import data.database.dao.CategoryProgressDao
 import data.database.dao.WordDao
 import data.database.entities.LearningStatus
 import data.database.entities.WordEntity
 import data.database.entities.isUserAdded
 import data.database.entities.toUserEntity
+import data.game.PromotionEvent
+import data.game.PromotionGate
+import data.game.PromotionNotifier
+import data.game.PromotionOutcome
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
@@ -28,12 +34,19 @@ import kotlinx.coroutines.launch
  *  - Inserts always tag the new word with [WordEntity.SOURCE_USER] so
  *    the schema invariant "every user-added row has source='user'"
  *    holds without the caller having to remember.
+ *  - Status changes to [LearningStatus.LEARNED] re-evaluate the
+ *    promotion gate for the word's category via
+ *    [PromotionGate.evaluate]. This is what allows a learner to
+ *    unlock the next level by working through their vocabulary
+ *    list — they do not have to play a mini-game first.
  *
  * Obtained from Compose via `hiltViewModel()`.
  */
 @HiltViewModel
 class WordListViewModel @Inject constructor(
-    private val wordDao: WordDao
+    private val wordDao: WordDao,
+    private val categoryProgressDao: CategoryProgressDao,
+    private val promotionNotifier: PromotionNotifier
 ) : ViewModel() {
 
     /**
@@ -66,11 +79,40 @@ class WordListViewModel @Inject constructor(
 
     /**
      * Promotes the [LearningStatus] of any word (core or user-added)
-     * through the dual-table DAO. Available on every card so the
-     * learner can mark progress even on dictionary entries.
+     * through the dual-table DAO and, on the `→LEARNED` transition,
+     * re-evaluates the hybrid promotion gate for the word's
+     * grammatical category via [PromotionGate.evaluate].
+     *
+     * The promotion gate accepts `amount = 0` for this path — we are
+     * not granting XP for the manual mark, only re-checking whether
+     * the (XP + learned percentage) requirements are already met.
+     * If they are, the category is promoted and a [PromotionEvent]
+     * is broadcast on [promotionNotifier] so any listening screen
+     * (currently the Progress dashboard) can celebrate the unlock.
      */
     fun setStatus(id: Int, status: LearningStatus) {
-        viewModelScope.launch { wordDao.setStatus(id, status) }
+        viewModelScope.launch {
+            val previous = wordDao.getWordById(id) ?: return@launch
+            wordDao.setStatus(id, status)
+            if (status != LearningStatus.LEARNED) return@launch
+            if (previous.status == LearningStatus.LEARNED) return@launch
+            val category = WordTypeFilter.classifyOrNull(previous) ?: return@launch
+            val outcome = PromotionGate.evaluate(
+                categoryKey = category.name,
+                amount = 0,
+                wordDao = wordDao,
+                categoryProgressDao = categoryProgressDao
+            )
+            if (outcome is PromotionOutcome.Promoted) {
+                promotionNotifier.emit(
+                    PromotionEvent(
+                        categoryKey = category.name,
+                        previousLevel = outcome.previousLevel,
+                        newLevel = outcome.newLevel
+                    )
+                )
+            }
+        }
     }
 
     /**

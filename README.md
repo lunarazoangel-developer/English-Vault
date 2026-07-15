@@ -50,15 +50,21 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumping `CORE_DICTIONARY_VERSION` in code triggers an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) — reused by both the global XP card and the per-category levels.
 - **Per-category progression (Phase 4.6)** — eight parallel tracks. Correct answers in the mini-game grant XP per category. Advancing to the next level requires a hybrid gate: at least `XP_MIN_PER_LEVEL` XP earned at the current level **and** at least `LEARNED_PCT_REQUIRED` of the words at that level marked `LEARNED`. The DAO wraps each grant + promotion in a single transaction.
+- **Centralised promotion gate (Phase 7.14)** — every call site that mutates `category_progress.unlockedLevel` for a grammatical category now goes through `data/game/PromotionGate.evaluate(...)` so the strict "XP + learned percentage" rule is enforced uniformly. The previous Letter Soup and Listening paths silently bypassed the learned-percentage check by hardcoding `meetsLearnedPct = true`; centralisation removed that inconsistency.
+- **Manual LEARNED triggers the gate (Phase 7.14)** — when the user marks a word as `LEARNED` from the Words screen, `WordListViewModel.setStatus` re-evaluates the gate for the word's grammatical category with `amount = 0` (no XP granted for the manual mark, just a re-check). If the gate fires, a `PromotionEvent` is broadcast on `data/game/PromotionNotifier` and the Progress screen shows the celebration overlay. Marking as `LEARNED` is no longer purely cosmetic — it can unlock the next level on its own.
+- **Level-up celebration overlay (Phase 7.14)** — a full-screen `Box` over the Progress dashboard that renders a `KonfettiView` burst (2 s emitter, 120 max particles, four-color palette) plus a Material 3 badge "Adjectives — Level 2 unlocked" scaled in with `animateFloatAsState` (0.6 → 1.0 over 360 ms). Auto-dismisses after 2.5 s and calls `viewModel.consumePromotionEvent()` so the overlay never replays on configuration change.
+- **Process-wide event bus (Phase 7.14)** — `data/game/PromotionNotifier` is a `@Singleton` Hilt component holding a `MutableSharedFlow<PromotionEvent>` (`replay = 0`, `extraBufferCapacity = 8`). Late subscribers do not receive stale events; only emissions produced while a screen is composed are visible. The Words screen, the three mini-game VMs and any future emitter wire up via constructor injection.
 - **Bottom navigation shell** with four tabs: Progress, World, Games, Words. The Test tab was replaced by a beta SMB-style World map that turns the level selector into a horizontal scrolling journey, complete with a 10-node path, a branching shop and a castle finale.
 - **Words screen wired to Room** via `WordListViewModel` (`@HiltViewModel`, `StateFlow`). Create + Delete persist.
 - **Eight type-filter chips** on the Words screen — regular verbs, irregular verbs, adjectives, adverbs, nouns, conjunctions, prepositions, interjections — plus `All` and `Mine`, in a horizontally-scrollable row.
-- **Live sort row** — A-Z, Z-A, level ascending, level descending — combined with the type filter and persisted across rotations via `rememberSaveable`.
+- **Live sort row** — A-Z, Z-A, level ascending (`ASC`), level descending (`DESC`) — combined with the type filter and persisted across rotations via `rememberSaveable`. **Default sort is `ASC` (level 1 → max)** so newly-marked words bubble up to the bottom of the visible list as the user progresses through a level.
+- **Paginated word list (Phase 7.14)** — the Words screen renders the first **20** cards (`PAGE_SIZE`) and grows by another 20 whenever the last visible item is within 4 of the rendered end (`LOAD_AHEAD_THRESHOLD`). Implementation uses `LazyListState` + `snapshotFlow` so the trigger reacts to every scroll tick (a plain `LaunchedEffect` keyed on `listState` only runs when one of its captured values changes, and none do during scroll — that was the original bug). Changing the type filter, sort order or search query resets the page window to 20 and scrolls back to the top so the user always starts at the head of the freshly-narrowed list.
+- **Debounced free-text search (Phase 7.14)** — `OutlinedTextField` below the sort row with a leading magnifying-glass icon and a trailing `✕` clear button. Input is captured into a raw `searchQuery` state for a responsive field, then copied into `debouncedQuery` 300 ms after the last keystroke (`SEARCH_DEBOUNCE_MILLIS`) so the filter pipeline only recomputes when the user pauses. The search matches against the word, its translation, its category tags and its word tags (case-insensitive substring).
 - **Read-only defaults** — `core_words` rows show a Dictionary badge (Material `MenuBook` icon) and have no edit / delete affordances; `user_words` rows show a Mine badge (Material `Person` icon) plus edit / delete icons. The `WordListViewModel` re-checks `isUserAdded()` before any delete so the invariant holds even if the UI regresses.
 - **Rich expandable cards** — each card collapses by default to the header + badges and expands in place (with smooth animation and per-card state persisted via `rememberSaveable`) to reveal pronunciation, verb forms, examples with CEFR badges, synonyms, antonyms, tags and category.
 - **Live tab counts** — every chip in the Words screen shows the number of words matching its filter.
 - **Tri-state learning progress** — every word carries a `LearningStatus` (`NOT_LEARNED` / `ALMOST` / `LEARNED`) with a dedicated status menu button on every card. Picking a status persists immediately via the dual-table DAO.
-- **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once.
+- **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once. The level chip on every card renders in the compact `L5` form (no "Level" prefix) so it never clips on narrow screens.
 - **Progress screen** — `ProgressViewModel` exposes the global profile, level / xp slice, daily-goal estimate, streak and one `CategoryProgressUi` per tracked grammatical category. Each per-category card carries its own level (1..N), an XP bar, a learned-percentage bar and a hybrid-gate status message.
 - **Skill Progress section (Phase 7.6)** — a new "Skills" block sits between the daily-goal card and "Progress by category" and renders five infinite progress bars (Listening / Speaking / Reading / Writing / Grammar) as a 2-column × 3-row grid (2 + 2 + 1). Each card carries the skill icon, the cumulative XP, an optional `Cycle N` chip and a cyclic `LinearProgressIndicator` that fills to 1000 XP and resets. There is no level cap and no gating — the bars are a "how am I doing" measure. Backed by the new `skill_progress` table (schema v10, `MIGRATION_9_10`) and the `Skill` enum. Mini-games grant XP to their matching skill on every run: Word Match Verbs and Letter Soup → `READING`; Listening → `LISTENING`. Speaking and Grammar stay at `0 XP` until a future mini-game exercises them.
 - **Word Match Verbs mini-game** — tap a level card to start a run of up to 20 randomly-picked questions; each asks about the past simple or past participle of one verb at the chosen level. Distractors come from `DistractorGenerator` (vowel swaps + phonetically close consonants). When the user picks wrong the correct answer is revealed with a blue check while their pick gets a red X. At end of run the per-category XP grant fires, the hybrid gate is evaluated, and the next level unlocks automatically when both requirements are met. The level selector dims cards beyond the player's current `unlockedLevel`. The end-of-run screen renders an **XP summary card** (Phase 7.10) showing per-category XP earned plus the total XP credited to the `READING` skill.
@@ -78,9 +84,8 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Background music** — `MediaPlayer` reading the music slider live, looped per-screen (World map + mini-games only).
 - **SRS-based review scheduling** powered by `lastReview` / `nextReview` fields (Phase 7.1).
 - **Other mini-games** — Speed Quiz, Memory Cards, Translation Race, plus **Speaking** and **Grammar** mini-games that feed the empty skill bars (Phase 7.1+).
-- **Marking-words reactive feedback** — `wordDao.getAllWords()` is a view over `core_words` UNION `user_words`. When a user changes a word's status from the Words screen, Room's invalidation tracker for the view can be flaky; the `ProgressViewModel.categoryProgress` flow now runs eagerly to mitigate this. Future iterations may switch to per-table flows (`observeCoreWords` / `observeUserWords`) if the view-level invalidation remains unreliable.
 - **More user settings** — theme mode, daily goal editor, reminder time (Phase 7.1).
-- **Search + filters** inside the Words screen (search bar, difficulty / category chips) (Phase 7.1).
+- **Difficulty / category chips** inside the Words screen — currently the screen exposes type chips (regular / irregular verbs, adjectives, …) and a sort row, plus the new free-text search (Phase 7.14). A separate difficulty filter (Easy / Medium / Hard) and a learning-status filter (Not learned / Almost / Learned) are queued for a follow-up phase.
 - **Shop economy wiring** — connect the World shop to `addCoins` / `addHearts` so spending coins actually buys lives (Phase 7.1).
 - **Cloud sync / backup** (Phase 8).
 
@@ -112,6 +117,7 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 | Build        | Gradle 9.x, AGP 8.11.1, KSP 2.2.0-2.0.2           |
 | Min SDK      | 28 (Android 9)                                      |
 | Target SDK   | 36 (Android 16)                                     |
+| Celebration  | `nl.dionsegijn:konfetti-compose` 2.0.5              |
 
 ---
 
@@ -267,6 +273,7 @@ EnglishVault/
             |   `-- ui/
             |       |-- app/MainScaffold.kt          <- bottom nav + NavHost
             |       |-- components/                  <- AppBottomBar, PrimaryButton, SectionHeader
+             |       |   `-- LevelUpCelebration.kt    <- KonfettiView + Material badge overlay (Phase 7.14)
 |       |-- games/
              |       |   |-- GamesScreen.kt
              |       |   |-- wordmatchverbs/          <- Word Match Verbs mini-game
@@ -325,8 +332,10 @@ EnglishVault/
                 |   |   |-- UserProfileEntity.kt
                 |   |   `-- ProgressStats.kt
                 |   `-- converters/                  <- 5 type converters
-                |-- game/
-                |   `-- CategoryGating.kt            <- XP thresholds, learned %, tracked categories
+|-- game/
+                 |   |-- CategoryGating.kt            <- XP thresholds, learned %, tracked categories
+                 |   |-- PromotionGate.kt             <- centralised hybrid gate (Phase 7.14)
+                 |   `-- PromotionNotifier.kt         <- @Singleton SharedFlow<PromotionEvent> bus (Phase 7.14)
                 |-- json/
                 |   |-- dto/WordDto.kt               <- +level field
                 |   `-- loader/JsonLoader.kt
@@ -408,11 +417,27 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 7.2    |  Done     | Audio foundation: SFX on mini-game events, settings volume hooked in live    |
 | 7.3    |  Done     | `SoundPool`-backed SFX + custom `correct_sound.mp3` + Letter Soup mini-game  |
 | 7.4    |  Beta      | Dev toggle + WORLD mode in both mini-games, 10-level dictionary re-bucket    |
+| 7.14   |  Done     | Words pagination + debounced search + level-up celebration + centralised gate   |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7.14 - Words search + pagination, level-up centralisation, celebration overlay
+
+- **Words screen pagination (infinite scroll, 20 cards per page).** The list starts with `PAGE_SIZE = 20` cards and grows by another 20 whenever the last visible item is within `LOAD_AHEAD_THRESHOLD = 4` of the rendered end. The trigger is wired with `LazyListState` + `snapshotFlow { layoutInfo }` — a plain `LaunchedEffect` keyed on `listState` never re-fires during scroll because none of its captured values change. `LaunchedEffect(selectedType, sortOrder, debouncedQuery)` resets `visibleCount` to 20 and `scrollToItem(0)` whenever the user changes a filter or query, so the user always starts at the head of the freshly-narrowed list.
+- **Debounced free-text search.** `OutlinedTextField` below the sort row with a leading `Icons.Filled.Search` and a trailing `✕` clear button (visible only when the query is non-empty). `searchQuery` is updated on every keystroke for a responsive field; `debouncedQuery` lags by `SEARCH_DEBOUNCE_MILLIS = 300 ms` and is what the filter pipeline reads. The match is a case-insensitive substring against `word`, `translation`, `category` and `tags`. New strings `words_search_hint` and `words_search_clear_cd`.
+- **LevelChip shortened to `L5`.** `WordCard.LevelChip` now renders `"L$level"` instead of `R.string.words_level_badge` ("Level %1$d") so the chip never clips on narrow screens. The string resource is left in `strings.xml` as a harmless orphan.
+- **Sort options renamed.** The two level sort chips now read `ASC` / `DESC` instead of `Level 1 → 5` / `Level 5 → 1` (`words_sort_level_asc`, `words_sort_level_desc`). Default sort is `SortOrder.LEVEL_ASC` so newly-marked words bubble up as the user advances through a level.
+- **`PromotionGate` centralises the hybrid gate.** New `data/game/PromotionGate.kt` exposes a single `evaluate(categoryKey, amount, wordDao, categoryProgressDao)` that reads the row, computes `meetsXp` + `meetsLearnedPct` + `targetUnlockedLevel`, calls `grantXpAndMaybeUnlock` and returns a `PromotionOutcome` (`Skipped` / `Held` / `Promoted(previousLevel, newLevel)`). Every grammatical-category call site now goes through this helper, removing the previous inconsistency where `LetterSoupViewModel.grantPerCategoryXp` and `ListeningViewModel.grantPerCategoryXp` hardcoded `meetsLearnedPct = true`. The synthetic buckets `LETTER_SOUP` and `LISTENING` keep their XP-only gate because they are not tied to per-word learned status — they are routed to their dedicated `grant*LevelXp` helpers inside the same VMs and stay out of `PromotionGate`.
+- **`PromotionNotifier` — process-wide SharedFlow bus.** New `data/game/PromotionNotifier.kt` is a `@Singleton` that exposes a `SharedFlow<PromotionEvent>` with `replay = 0` and `extraBufferCapacity = 8`. Every call site that observes a `PromotionOutcome.Promoted` (Words screen, three mini-game VMs) emits a `PromotionEvent(categoryKey, previousLevel, newLevel, timestamp)` so any listening screen can render a celebration. Late subscribers do not replay past events.
+- **Manual LEARNED re-evaluates the gate.** `WordListViewModel.setStatus` now reads the previous word via the new `WordDao.getWordById(id)` one-shot, and on the `→LEARNED` transition calls `PromotionGate.evaluate(categoryKey, amount = 0, …)`. No XP is granted for the manual mark (per the design request), but the gate fires immediately when the user reaches the XP + learned-percentage threshold by hand, the category is promoted, and a `PromotionEvent` is broadcast so the celebration runs even when no mini-game has been played yet.
+- **Level-up celebration overlay.** New `ui/common/LevelUpCelebration.kt` wraps `nl.dionsegijn:konfetti.compose:2.0.5`'s `KonfettiView` (2 s emitter, 120 max particles, four-color palette `0xfce18a 0xff726d 0xb48def 0xf4306d`) plus a Material 3 badge with the category name and the new level, scaled in with `animateFloatAsState(0.6 → 1.0, 360 ms)`. The whole overlay is wrapped in `AnimatedVisibility` with a semi-transparent black backdrop, sits in a `Box` over the Progress screen so it covers every other composable, auto-dismisses after 2.5 s and calls `ProgressViewModel.consumePromotionEvent()` so it never replays on configuration change.
+- **`ProgressViewModel` exposes the bus as a StateFlow.** New `promotionEvent: StateFlow<PromotionEvent?>` driven by a `viewModelScope.launch { promotionNotifier.events.collect { … } }` subscriber. The host composable reads it with `collectAsState` and passes it to `LevelUpCelebrationOverlay`. New `consumePromotionEvent()` setter clears the StateFlow after the celebration finishes.
+- **WordDAO: `getWordById(id)` one-shot.** New `suspend fun getWordById(id: Int): WordEntity?` backed by `SELECT * FROM words_view WHERE id = :id LIMIT 1`. Used by `WordListViewModel.setStatus` to fetch the row before mutating its `status`.
+- **`WordTypeFilter.classifyOrNull(word)`** — nullable variant of `classify(word)` returning `null` when the word belongs to no tracked grammatical bucket. Lives in the `companion object` so it can be called as `WordTypeFilter.classifyOrNull(word)` from non-instance contexts (notably `PromotionGate`).
+- **Tech stack: `nl.dionsegijn:konfetti-compose` 2.0.5** added to `gradle/libs.versions.toml` and `app/build.gradle.kts`.
 
 ### Phase 7.13 - Skill XP grant hardened with `seedIfMissing` at DAO level
 

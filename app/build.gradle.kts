@@ -84,6 +84,9 @@ dependencies {
     // JSON
     implementation(libs.gson)
 
+    // Celebration overlay (level-up confetti)
+    implementation(libs.konfetti)
+
     // Unit Tests
     testImplementation(libs.junit)
 

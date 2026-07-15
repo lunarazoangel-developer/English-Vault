@@ -424,7 +424,7 @@ private fun LevelChip(level: Int) {
         onClick = {},
         label = {
             Text(
-                text = stringResource(id = R.string.words_level_badge, level),
+                text = "L$level",
                 style = MaterialTheme.typography.labelSmall,
                 fontWeight = FontWeight.SemiBold
             )

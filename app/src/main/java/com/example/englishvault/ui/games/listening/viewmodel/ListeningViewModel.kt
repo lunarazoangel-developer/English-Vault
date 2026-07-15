@@ -28,6 +28,10 @@ import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.game.CategoryGating
+import data.game.PromotionEvent
+import data.game.PromotionGate
+import data.game.PromotionNotifier
+import data.game.PromotionOutcome
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.Job
@@ -103,7 +107,8 @@ class ListeningViewModel @Inject constructor(
     private val userProfileDao: UserProfileDao,
     private val skillProgressDao: SkillProgressDao,
     private val soundEffectPlayer: SoundEffectPlayer,
-    private val ttsPlayer: TtsPlayer
+    private val ttsPlayer: TtsPlayer,
+    private val promotionNotifier: PromotionNotifier
 ) : ViewModel() {
 
     /**
@@ -482,31 +487,28 @@ class ListeningViewModel @Inject constructor(
         for ((categoryKey, xp) in correctXpByCategory) {
             if (xp <= 0) continue
             if (categoryKey == CATEGORY_KEY) {
+                // Synthetic Listening bucket keeps its own single-gate
+                // (XP only) progression; the hybrid gate does not
+                // apply here because the bucket is not tied to the
+                // per-word learned percentage.
                 grantListeningLevelXp(xp)
                 continue
             }
-            val category = WordTypeFilter.entries.firstOrNull { it.name == categoryKey }
-                ?: continue
-            val typeLiteral = category.type ?: continue
-            val categoryMaxLevel = wordDao.maxLevelByType(typeLiteral, category.regular)
-                .coerceAtLeast(1)
-            categoryProgressDao.seedIfMissing(categoryKey)
-            val progress = categoryProgressDao.get(categoryKey)
-                ?: CategoryProgressEntity.initial(categoryKey)
-
-            val currentLevel = progress.unlockedLevel.coerceAtMost(categoryMaxLevel)
-            val nextLevel = (currentLevel + 1).coerceAtMost(categoryMaxLevel)
-            val newXpSince = progress.xpSinceLevelUp + xp
-            val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
-                nextLevel > currentLevel
-
-            categoryProgressDao.grantXpAndMaybeUnlock(
+            val outcome = PromotionGate.evaluate(
                 categoryKey = categoryKey,
                 amount = xp,
-                meetsXp = shouldUnlock,
-                meetsLearnedPct = true,
-                targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
+                wordDao = wordDao,
+                categoryProgressDao = categoryProgressDao
             )
+            if (outcome is PromotionOutcome.Promoted) {
+                promotionNotifier.emit(
+                    PromotionEvent(
+                        categoryKey = categoryKey,
+                        previousLevel = outcome.previousLevel,
+                        newLevel = outcome.newLevel
+                    )
+                )
+            }
         }
     }
 

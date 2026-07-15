@@ -13,17 +13,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -33,6 +39,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.SnapshotStateMap
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,6 +52,9 @@ import com.example.englishvault.ui.words.components.WordCard
 import com.example.englishvault.ui.words.viewmodel.WordListViewModel
 import data.database.entities.WordEntity
 import data.database.entities.isUserAdded
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.collectLatest
 
 /**
  * Words screen â€” list of vocabulary entries with add / edit / delete
@@ -68,6 +78,14 @@ import data.database.entities.isUserAdded
  *    (enum entries are stable as long as the file is not refactored
  *    mid-session).
  *
+ * Pagination and search: the list is paged through [PAGE_SIZE] cards
+ * at a time and grows by the same amount as the user scrolls near
+ * the rendered end. A debounced [OutlinedTextField] below the sort
+ * row filters by free-text match against the word, its translation,
+ * its category and its tags. The page window resets whenever the
+ * type filter, sort order or debounced search query changes so the
+ * user always starts at the top of the freshly-narrowed list.
+ *
  * Default / seeded entries (`source == "core"`) are read-only:
  *  - The screen never displays edit or delete controls for them.
  *  - The ViewModel also re-checks [WordEntity.isUserAdded] before
@@ -87,8 +105,31 @@ fun WordListScreen(
     val words by viewModel.allWords.collectAsState()
 
     var selectedType by rememberSaveable { mutableStateOf(WordsTabFilter.ALL) }
-    var sortOrder by rememberSaveable { mutableStateOf(SortOrder.ALPHABETICAL_ASC) }
+    var sortOrder by rememberSaveable { mutableStateOf(SortOrder.LEVEL_ASC) }
     var wordPendingDelete by remember { mutableStateOf<WordEntity?>(null) }
+
+    // Search input is captured immediately so the field stays
+    // responsive, but the actual filter is applied against the
+    // debounced value to avoid re-running the filter on every
+    // keystroke.
+    var searchQuery by rememberSaveable { mutableStateOf("") }
+    var debouncedQuery by remember { mutableStateOf("") }
+    LaunchedEffect(searchQuery) {
+        delay(SEARCH_DEBOUNCE_MILLIS)
+        debouncedQuery = searchQuery
+    }
+
+    // Pagination state. The list shows [PAGE_SIZE] cards at a time and
+    // grows by [PAGE_SIZE] as the user scrolls near the end. Reset
+    // back to [PAGE_SIZE] whenever the filter, sort order or search
+    // query changes so the user always starts at the top of the
+    // freshly-narrowed list.
+    val listState = rememberLazyListState()
+    var visibleCount by remember { mutableStateOf(PAGE_SIZE) }
+    LaunchedEffect(selectedType, sortOrder, debouncedQuery) {
+        visibleCount = PAGE_SIZE
+        listState.scrollToItem(0)
+    }
 
     // Per-card expansion state. Keyed by `WordEntity.id` so core and
     // user rows track their own state. Persists across configuration
@@ -100,12 +141,22 @@ fun WordListScreen(
         mutableStateMapOf<Int, Boolean>()
     }
 
-    // Filter + sort in a single derivedStateOf so the UI only
-    // recomposes when either the source data, the type filter or the
-    // sort order changes.
-    val displayedWords by remember(words, selectedType, sortOrder) {
+    // Filter + search + sort in a single derivedStateOf so the UI only
+    // recomposes when the source data, the type filter, the debounced
+    // search query or the sort order changes.
+    val displayedWords by remember(words, selectedType, sortOrder, debouncedQuery) {
         derivedStateOf {
-            val filtered = words.filter { selectedType.type.matches(it) }
+            val needle = debouncedQuery.trim().lowercase()
+            val filtered = words.filter { word ->
+                selectedType.type.matches(word) &&
+                    (
+                        needle.isEmpty() ||
+                            word.word.lowercase().contains(needle) ||
+                            word.translation.lowercase().contains(needle) ||
+                            (word.category?.any { it.lowercase().contains(needle) } == true) ||
+                            (word.tags?.any { it.lowercase().contains(needle) } == true)
+                        )
+            }
             sortOrder.apply(filtered)
         }
     }
@@ -115,6 +166,37 @@ fun WordListScreen(
         }
     }
 
+    // Infinite-scroll trigger: when the last visible item gets within
+    // [LOAD_AHEAD_THRESHOLD] cards of the rendered end, grow the
+    // visible window by one page. We compare against the LazyColumn's
+    // own `totalItemsCount` (headers + currently-rendered cards)
+    // rather than the filtered word list because `visibleItemsInfo`
+    // indexes the full LazyColumn — headers and cards alike — so a
+    // direct comparison against `displayedWords.size` always misses
+    // the threshold.
+    //
+    // Wrapped in [snapshotFlow] so the collector re-runs on every
+    // scroll tick — a plain `LaunchedEffect` keyed on [listState]
+    // would only fire when one of its captured values changes, and
+    // none of them do while the user is just dragging.
+    LaunchedEffect(listState) {
+        snapshotFlow {
+            val info = listState.layoutInfo
+            val lastVisible = info.visibleItemsInfo.lastOrNull()?.index ?: -1
+            lastVisible to info.totalItemsCount
+        }
+            .distinctUntilChanged()
+            .collectLatest { (lastVisible, totalRendered) ->
+                val totalCards = displayedWords.size
+                if (totalRendered > 0 &&
+                    lastVisible >= totalRendered - LOAD_AHEAD_THRESHOLD &&
+                    visibleCount < totalCards
+                ) {
+                    visibleCount = (visibleCount + PAGE_SIZE).coerceAtMost(totalCards)
+                }
+            }
+    }
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -122,6 +204,7 @@ fun WordListScreen(
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
+            state = listState,
             contentPadding = PaddingValues(
                 start = 16.dp,
                 end = 16.dp,
@@ -161,12 +244,24 @@ fun WordListScreen(
                 Spacer(modifier = Modifier.height(4.dp))
             }
 
+            item {
+                SearchField(
+                    query = searchQuery,
+                    onQueryChange = { searchQuery = it },
+                    onClear = { searchQuery = "" }
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+            }
+
             if (displayedWords.isEmpty()) {
                 item {
                     EmptyState(message = stringResource(id = selectedType.emptyMessageRes))
                 }
             } else {
-                items(displayedWords, key = { it.id }) { word ->
+                items(
+                    items = displayedWords.take(visibleCount),
+                    key = { it.id }
+                ) { word ->
                     WordCard(
                         entity = word,
                         expanded = expandedIds[word.id] == true,
@@ -416,4 +511,72 @@ private val ExpansionSaver: Saver<SnapshotStateMap<Int, Boolean>, Any> =
             map
         }
     )
+// endregion
+
+// region: Search field
+/**
+ * Single-line text input that filters the word list. Captures every
+ * keystroke into [onQueryChange] so the field stays responsive; the
+ * parent is responsible for debouncing before applying the filter to
+ * the underlying data set.
+ *
+ * Renders a leading magnifying-glass icon and a trailing clear button
+ * (only when [query] is non-empty) so the user can wipe the search in
+ * one tap without backspacing the whole query.
+ */
+@Composable
+private fun SearchField(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    onClear: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = onQueryChange,
+        modifier = modifier.fillMaxWidth(),
+        singleLine = true,
+        placeholder = { Text(text = stringResource(id = R.string.words_search_hint)) },
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Filled.Search,
+                contentDescription = null
+            )
+        },
+        trailingIcon = {
+            if (query.isNotEmpty()) {
+                IconButton(onClick = onClear) {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        contentDescription = stringResource(id = R.string.words_search_clear_cd)
+                    )
+                }
+            }
+        }
+    )
+}
+// endregion
+
+// region: Constants
+/**
+ * Initial and incremental page size for the paged word list. Every
+ * time the user nears the rendered end of the list, the visible
+ * window grows by [PAGE_SIZE] cards.
+ */
+private const val PAGE_SIZE: Int = 20
+
+/**
+ * Time the search input is debounced before its value reaches the
+ * filter pipeline. Keeps the list from recomputing on every
+ * keystroke.
+ */
+private const val SEARCH_DEBOUNCE_MILLIS: Long = 300
+
+/**
+ * When the last visible item index is within this distance of the
+ * rendered end, the visible window grows by one page. Slightly
+ * larger than zero so the next page starts loading before the user
+ * actually reaches the bottom.
+ */
+private const val LOAD_AHEAD_THRESHOLD: Int = 4
 // endregion

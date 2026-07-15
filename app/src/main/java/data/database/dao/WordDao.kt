@@ -74,6 +74,21 @@ interface WordDao {
     fun getAllWords(): Flow<List<WordEntity>>
 
     /**
+     * One-shot lookup of any word (core or user) by id.
+     *
+     * Used by the Words screen to fetch the row that is about to be
+     * mutated so the promotion gate can decide whether the new
+     * status triggers a level-up. The id space is unique per table
+     * but the same id can appear in both `core_words` and
+     * `user_words`, so this query picks whichever row owns it (and
+     * returns `null` if no row does).
+     *
+     * @return The persisted word, or `null` if no row matches.
+     */
+    @Query("SELECT * FROM words_view WHERE id = :id LIMIT 1")
+    suspend fun getWordById(id: Int): WordEntity?
+
+    /**
      * One-shot lookup of a single user-added word by its id.
      *
      * Used by the word form to load an existing row when the user

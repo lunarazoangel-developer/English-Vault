@@ -41,6 +41,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
+import com.example.englishvault.ui.common.LevelUpCelebrationOverlay
 import com.example.englishvault.ui.components.SectionHeader
 import com.example.englishvault.ui.progress.viewmodel.CategoryProgressUi
 import com.example.englishvault.ui.progress.viewmodel.ProgressViewModel
@@ -83,18 +84,24 @@ fun ProgressScreen(
     val dailyXp by viewModel.dailyXp.collectAsState()
     val categories by viewModel.categoryProgress.collectAsState()
     val skills by viewModel.skills.collectAsState()
+    val promotionEvent by viewModel.promotionEvent.collectAsState()
 
     val greetingName = profile?.name
         ?: stringResource(id = R.string.progress_default_name)
 
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .verticalScroll(rememberScrollState())
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
+    // Wrap the whole dashboard in a Box so the level-up overlay can
+    // sit on top of every other composable. The overlay covers the
+    // full screen (semi-transparent backdrop + confetti + badge) so
+    // it needs to ignore the parent padding.
+    Box(modifier = modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .verticalScroll(rememberScrollState())
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -148,7 +155,13 @@ fun ProgressScreen(
             CategoryProgressCard(ui = ui)
         }
 
-        Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(24.dp))
+        }
+
+        LevelUpCelebrationOverlay(
+            event = promotionEvent,
+            onConsumed = { viewModel.consumePromotionEvent() }
+        )
     }
 }
 
