@@ -2,20 +2,20 @@ package com.example.englishvault.ui.games.lettersoup.model
 
 /**
  * A single Letter Soup board: the grid of letters plus the metadata
- * describing the two active target words on it.
+ * describing the target words on it.
  *
- * The board is **immutable** — every swap rebuilds a fresh instance
- * with the updated cell values. The `placements` list therefore
- * always matches the on-screen layout; the UI never has to reconcile
- * two sources of truth.
+ * The board is **immutable** — every state change (selection update,
+ * found flag flip) rebuilds a fresh instance with the updated cell
+ * values. The `placements` list therefore always matches the on-screen
+ * layout; the UI never has to reconcile two sources of truth.
  *
  * @property cells `[row][col]` array of letters currently displayed on
  *   the board. Always `boardSize × boardSize`.
- * @property placements Up to two active words; `fixed = true` after
- *   the player swaps the wrong letter away.
- * @property boardSize Side length of the grid — `8` for the standard
- *   case, `10` when the longest word in the placement set has 9 or
- *   more characters. The UI uses this to switch between layouts.
+ * @property placements Target words hidden in the grid. `fixed = true`
+ *   after the player underlines the entire word.
+ * @property boardSize Side length of the grid. Always
+ *   [DEFAULT_BOARD_SIZE] (12) for the standard mini-game; the
+ *   word-search layout no longer auto-scales.
  */
 data class LetterSoupBoard(
     val cells: List<List<Char>>,
@@ -23,37 +23,36 @@ data class LetterSoupBoard(
     val boardSize: Int
 ) {
 
-    companion object {
-        /** Side length of the default grid. */
-        const val DEFAULT_BOARD_SIZE: Int = 8
-
-        /** Side length used when words are too long for the default. */
-        const val EXTENDED_BOARD_SIZE: Int = 10
-
-        /** Word length threshold that triggers the extended board. */
-        const val EXTENDED_THRESHOLD: Int = 9
-    }
-
     /** Letter at ([row], [col]). Throws on out-of-range access. */
     operator fun get(row: Int, col: Int): Char = cells[row][col]
 
     /**
      * Returns the [LetterSoupCell] role for the cell at ([row], [col]).
+     *
+     * The role is computed against the caller-supplied [selectedCells]
+     * (so this composable function stays pure) and the placement list.
      * Out-of-range queries return [LetterSoupCell.Soup] so the UI can
      * render guards without try/catch noise.
+     *
+     * Order of checks:
+     *  1. Active selection → [LetterSoupCell.InSelection].
+     *  2. Found placement → [LetterSoupCell.WordFixed].
+     *  3. Otherwise → [LetterSoupCell.Soup].
      */
-    fun roleAt(row: Int, col: Int): LetterSoupCell {
+    fun roleAt(
+        row: Int,
+        col: Int,
+        selectedCells: List<Pair<Int, Int>> = emptyList()
+    ): LetterSoupCell {
         if (row !in 0 until boardSize || col !in 0 until boardSize) {
             return LetterSoupCell.Soup
         }
+        if (selectedCells.contains(row to col)) {
+            return LetterSoupCell.InSelection
+        }
         placements.forEach { word ->
-            val idx = word.cells().indexOf(row to col)
-            if (idx >= 0) {
-                return when {
-                    word.fixed -> LetterSoupCell.WordFixed
-                    idx == word.wrongIndex -> LetterSoupCell.WordWrong
-                    else -> LetterSoupCell.WordCorrect
-                }
+            if (word.fixed && row to col in word.cells()) {
+                return LetterSoupCell.WordFixed
             }
         }
         return LetterSoupCell.Soup
@@ -63,15 +62,27 @@ data class LetterSoupBoard(
     fun hasActiveWords(): Boolean = placements.any { !it.fixed }
 
     /**
-     * Returns the placements that the player has successfully fixed
-     * (i.e. their wrong letter has been swapped away).
+     * Returns the placements that the player has successfully found.
      */
     fun fixedPlacements(): List<LetterSoupWord> = placements.filter { it.fixed }
 
     /**
-     * Returns the first active placement that still carries a wrong
-     * letter. `null` when every active word is already correct.
+     * `true` when the cell at ([row], [col]) belongs to a placement
+     * the player has already found. Used by the UI to render the
+     * green "found" border independently of the role lookup.
      */
-    fun firstActiveWithWrong(): LetterSoupWord? =
-        placements.firstOrNull { !it.fixed && it.wrongIndex >= 0 }
+    fun isFoundAt(row: Int, col: Int): Boolean =
+        placements.any { it.fixed && (row to col) in it.cells() }
+
+    /**
+     * Returns the first placement that is still hidden (not fixed).
+     * `null` when every placement has been found.
+     */
+    fun firstUnfixedPlacement(): LetterSoupWord? =
+        placements.firstOrNull { !it.fixed }
+
+    companion object {
+        /** Side length of the grid. The mini-game always uses 12×12. */
+        const val DEFAULT_BOARD_SIZE: Int = 12
+    }
 }

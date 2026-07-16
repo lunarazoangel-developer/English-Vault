@@ -67,7 +67,15 @@ data class UserProfileEntity(
      * will multiply their base gain by this factor. Defaults to full
      * volume.
      */
-    val effectsVolume: Float = DEFAULT_VOLUME
+    val effectsVolume: Float = DEFAULT_VOLUME,
+    /**
+     * Active theme mode. One of [THEME_MODE_DARK] / [THEME_MODE_LIGHT].
+     * Read by `MainActivity` to decide whether to apply the dark or
+     * the light color scheme at the root of the Compose tree.
+     * Defaults to dark so a fresh install lands in the design we are
+     * actively iterating on.
+     */
+    val themeMode: String = DEFAULT_THEME_MODE
 ) {
     companion object {
         /** Fixed primary key — single-user schema. */
@@ -84,5 +92,14 @@ data class UserProfileEntity(
 
         /** Default volume for both music and effects. */
         const val DEFAULT_VOLUME: Float = 1.0f
+
+        /** Persisted value for the dark color scheme. */
+        const val THEME_MODE_DARK: String = "DARK"
+
+        /** Persisted value for the light color scheme. */
+        const val THEME_MODE_LIGHT: String = "LIGHT"
+
+        /** Theme mode applied to a fresh install (see [themeMode]). */
+        const val DEFAULT_THEME_MODE: String = THEME_MODE_DARK
     }
 }

@@ -58,6 +58,12 @@
     <string name="settings_edit_name_hint">Enter your name</string>
     <string name="settings_edit_name_save">Save</string>
     <string name="settings_edit_name_empty_error">Name cannot be empty</string>
+    <!-- region: Settings / Appearance (Phase 8.x) -->
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_theme_label">Theme</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_hint">Switches the app between the dark and the light color scheme. Your choice is saved automatically.</string>
     <!-- endregion -->
 
     <!-- region: Word Match Verbs level lock (Phase 4.6) -->

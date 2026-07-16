@@ -38,6 +38,11 @@ enum class WordMatchAskType(val promptResId: Int) {
  * One round of the Word Match Verbs game.
  *
  * @property baseWord The verb in its dictionary base form.
+ * @property translation The Spanish (learner-L1) translation of
+ *   [baseWord]. Surfaced under the prompt in the gameplay screen so
+ *   the player sees the meaning of the verb while picking a
+ *   conjugation; the answer options remain untranslated to preserve
+ *   the recognition task.
  * @property wordId The id of the underlying [data.database.entities.WordEntity]
  *   in `core_words` (the only source Word Match Verbs draws from).
  *   Required by the auto-marking pipeline
@@ -47,9 +52,10 @@ enum class WordMatchAskType(val promptResId: Int) {
  *   every correct answer without a redundant lookup by text.
  * @property askType Which conjugation the player must pick.
  * @property correctAnswer The expected answer string.
- * @property options Three strings shown as multiple-choice buttons.
- *   Always includes [correctAnswer]; the other two are misspellings
- *   produced by [com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator].
+ * @property options Four strings shown as multiple-choice buttons.
+ *   Always includes [correctAnswer]; the other three are misspellings
+ *   or invented-verb distractors produced by
+ *   [com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator].
  * @property category The grammatical category bucket this verb
  *   belongs to (regular verbs / irregular verbs / …). Used by the
  *   ViewModel to credit XP to the right per-category progress row.
@@ -59,6 +65,7 @@ enum class WordMatchAskType(val promptResId: Int) {
  */
 data class WordMatchQuestion(
     val baseWord: String,
+    val translation: String,
     val wordId: Int,
     val askType: WordMatchAskType,
     val correctAnswer: String,

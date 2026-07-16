@@ -12,22 +12,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocalFireDepartment
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ProgressIndicatorDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -37,12 +28,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.common.LevelUpCelebrationOverlay
-import com.example.englishvault.ui.components.SectionHeader
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.ArcadePalette
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
+import com.example.englishvault.ui.progress.arcade.components.ArcadeCard
+import com.example.englishvault.ui.progress.arcade.components.ArcadeChip
+import com.example.englishvault.ui.progress.arcade.components.ArcadeIconButton
+import com.example.englishvault.ui.progress.arcade.components.ArcadeLabel
+import com.example.englishvault.ui.progress.arcade.components.ArcadeProgressBar
 import com.example.englishvault.ui.progress.viewmodel.CategoryProgressUi
 import com.example.englishvault.ui.progress.viewmodel.ProgressViewModel
 import com.example.englishvault.ui.progress.viewmodel.SkillProgressUi
@@ -51,26 +49,31 @@ import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 
 /**
- * Progress dashboard.
+ * Progress dashboard, redesigned in the arcade style.
  *
- * Wires the screen to Room through [ProgressViewModel]. Every counter
- * and derived value (level, XP slice, daily goal, streak, per-category
- * progression) is a [kotlinx.coroutines.flow.StateFlow] so the UI
- * updates reactively when the underlying tables change.
+ * Phase 8.x: the active [ArcadePalette] (dark or light) is read from
+ * [LocalArcadePalette] and applied to the whole screen. The
+ * surrounding M3 theme is flipped independently by
+ * [com.example.englishvault.ui.theme.EnglishVaultTheme] so the rest
+ * of the app (Words, Games, World, Settings) follows the user's
+ * dark / light choice while this screen mirrors the same choice
+ * in the arcade language.
  *
- * Phase 4.6 layout:
- *  - Greeting + header (`Your progress`)
- *  - Streak banner
- *  - Global XP card (legacy `user_profile.totalXp`)
- *  - Daily goal card
- *  - "Progress by category" — eight [CategoryProgressCard]s in the
- *    canonical [com.example.englishvault.ui.words.WordTypeFilter.TRACKED]
- *    order, each showing the per-category level, XP bar, learned bar
- *    and the hybrid-gate status.
+ * Layout (top to bottom):
+ *  1. Greeting row with the player name + a 3D settings icon
+ *     that opens the Settings screen.
+ *  2. Big "Your progress" headline in the display font.
+ *  3. Streak banner — gold-accented card.
+ *  4. Level + XP card — pink-accented.
+ *  5. Daily goal card — cyan-accented with a percentage chip.
+ *  6. Skills grid (2 columns) — each card with a rotating accent.
+ *  7. Category progress list — one card per tracked grammatical
+ *     bucket, bordered with the category color.
  *
- * Phase 7.1: the greeting row is now tappable and surfaces a
- * `Settings` icon on the right. Tapping it navigates to the Settings
- * hub via [onOpenSettings] (wired by `MainScaffold`).
+ * Overlay:
+ *  - The level-up celebration overlay still uses the standard M3
+ *    styling; it sits on top of everything else and ignores the
+ *    arcade background.
  */
 @Composable
 fun ProgressScreen(
@@ -78,6 +81,7 @@ fun ProgressScreen(
     modifier: Modifier = Modifier,
     viewModel: ProgressViewModel = hiltViewModel()
 ) {
+    val palette = LocalArcadePalette.current
     val profile by viewModel.profile.collectAsState()
     val stats by viewModel.stats.collectAsState()
     val xp by viewModel.xp.collectAsState()
@@ -89,71 +93,44 @@ fun ProgressScreen(
     val greetingName = profile?.name
         ?: stringResource(id = R.string.progress_default_name)
 
-    // Wrap the whole dashboard in a Box so the level-up overlay can
-    // sit on top of every other composable. The overlay covers the
-    // full screen (semi-transparent backdrop + confetti + badge) so
-    // it needs to ignore the parent padding.
     Box(modifier = modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(palette.background)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable(
-                    onClick = onOpenSettings,
-                    role = Role.Button
-                )
-                .padding(vertical = 4.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = stringResource(id = R.string.progress_greeting, greetingName),
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.weight(1f)
+            GreetingRow(
+                name = greetingName,
+                onSettingsClick = onOpenSettings
             )
-            Icon(
-                imageVector = Icons.Filled.Settings,
-                contentDescription = stringResource(
-                    id = R.string.progress_greeting_settings_cd
-                ),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
+
+            Headline(text = stringResource(id = R.string.progress_title))
+
+            StreakBanner(days = profile?.streakDays ?: 0)
+
+            LevelXpCard(
+                xp = xp,
+                totalWords = stats.totalWords,
+                learnedWords = stats.learnedWords
             )
-        }
-        Text(
-            text = stringResource(id = R.string.progress_title),
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold
-        )
 
-        StreakBanner(days = profile?.streakDays ?: 0)
+            DailyGoalCard(
+                dailyXp = dailyXp,
+                dailyGoalXp = profile?.dailyGoalXp ?: UserProfileEntity.DEFAULT_DAILY_GOAL
+            )
 
-        XpCard(
-            xp = xp,
-            totalWords = stats.totalWords,
-            learnedWords = stats.learnedWords
-        )
+            SectionHeader(text = stringResource(id = R.string.progress_skills_title))
 
-        DailyGoalCard(
-            dailyXp = dailyXp,
-            dailyGoalXp = profile?.dailyGoalXp ?: UserProfileEntity.DEFAULT_DAILY_GOAL
-        )
+            SkillsGrid(skills = skills)
 
-        SectionHeader(title = stringResource(id = R.string.progress_skills_title))
+            SectionHeader(text = stringResource(id = R.string.progress_your_path))
 
-        SkillsGrid(skills = skills)
-
-        SectionHeader(title = stringResource(id = R.string.progress_your_path))
-
-        categories.forEach { ui ->
-            CategoryProgressCard(ui = ui)
-        }
+            categories.forEach { ui ->
+                CategoryProgressCard(ui = ui)
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
         }
@@ -165,76 +142,141 @@ fun ProgressScreen(
     }
 }
 
+/**
+ * Greeting row: the player name (left, weight 1) and a 3D settings
+ * icon (right) that opens the Settings hub. The whole row is
+ * tappable so the user has a generous hit target; the icon itself
+ * also reacts to taps.
+ */
+@Composable
+private fun GreetingRow(name: String, onSettingsClick: () -> Unit) {
+    val palette = LocalArcadePalette.current
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onSettingsClick, role = Role.Button)
+            .padding(vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(id = R.string.progress_greeting, name),
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Display,
+            fontWeight = ArcadeFonts.DisplayWeight,
+            fontSize = 18.sp,
+            letterSpacing = 1.sp,
+            modifier = Modifier.weight(1f)
+        )
+        ArcadeIconButton(
+            onClick = onSettingsClick,
+            color = palette.secondary,
+            shadow = palette.shadowOf(palette.secondary)
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Settings,
+                contentDescription = stringResource(
+                    id = R.string.progress_greeting_settings_cd
+                ),
+                tint = palette.ink
+            )
+        }
+    }
+}
+
+/** Section header rendered in the display font, all caps. */
+@Composable
+private fun Headline(text: String) {
+    val palette = LocalArcadePalette.current
+    Text(
+        text = text.uppercase(),
+        color = palette.textMain,
+        fontFamily = ArcadeFonts.Display,
+        fontWeight = ArcadeFonts.DisplayWeight,
+        fontSize = 22.sp,
+        letterSpacing = 2.sp
+    )
+}
+
+/** In-card section header — same look as [Headline] but smaller. */
+@Composable
+private fun SectionHeader(text: String) {
+    val palette = LocalArcadePalette.current
+    Spacer(modifier = Modifier.height(6.dp))
+    Text(
+        text = text.uppercase(),
+        color = palette.textMain,
+        fontFamily = ArcadeFonts.Display,
+        fontWeight = ArcadeFonts.DisplayWeight,
+        fontSize = 16.sp,
+        letterSpacing = 2.sp
+    )
+}
+
+/**
+ * Streak banner: gold-accented card with a fire icon inside a
+ * gold circle. The day count is the headline; the supporting line
+ * keeps a friendly tone.
+ */
 @Composable
 private fun StreakBanner(days: Int) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.tertiary,
-            contentColor = MaterialTheme.colorScheme.onTertiary
-        )
-    ) {
+    val palette = LocalArcadePalette.current
+    ArcadeCard(accent = palette.highlight) {
         Row(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier
                     .size(56.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.onTertiary.copy(alpha = 0.2f)),
+                    .background(palette.highlight),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Filled.LocalFireDepartment,
                     contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onTertiary,
+                    tint = palette.ink,
                     modifier = Modifier.size(32.dp)
                 )
             }
-            Spacer(modifier = Modifier.width(16.dp))
+            Spacer(modifier = Modifier.size(16.dp))
             Column {
                 Text(
                     text = stringResource(id = R.string.progress_streak_days, days),
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.ExtraBold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 22.sp
                 )
-                Text(
-                    text = "Keep it going!",
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                ArcadeLabel(text = "Keep it going!")
             }
         }
     }
 }
 
 /**
- * XP card with the level number as the headline and a linear bar that
- * shows progress into the next level. Numbers above the bar are the
- * absolute slice ("320 / 500 XP to Level 5").
+ * Level + XP card. The level number is the headline; below it the
+ * XP bar fills with the primary color and a small caption names
+ * the level-up threshold. The bottom line shows total words
+ * learned.
  */
 @Composable
-private fun XpCard(
+private fun LevelXpCard(
     xp: XpProgress,
     totalWords: Int,
     learnedWords: Int
 ) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
-        )
-    ) {
-        Column(modifier = Modifier.padding(20.dp)) {
+    val palette = LocalArcadePalette.current
+    ArcadeCard(accent = palette.primary) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Text(
                 text = stringResource(id = R.string.progress_xp_label, xp.level),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.ExtraBold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 28.sp
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(2.dp))
             Text(
                 text = stringResource(
                     id = R.string.progress_xp_to_next,
@@ -242,97 +284,86 @@ private fun XpCard(
                     xp.xpRequired,
                     xp.nextLevel
                 ),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 10.sp,
+                letterSpacing = 1.sp
             )
-            Spacer(modifier = Modifier.height(12.dp))
-            LinearProgressIndicator(
-                progress = {
-                    if (xp.xpRequired <= 0) 0f
-                    else (xp.xpIntoLevel.toFloat() / xp.xpRequired).coerceIn(0f, 1f)
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(12.dp)
-                    .clip(RoundedCornerShape(12.dp)),
-                color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.15f),
-                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            Spacer(modifier = Modifier.height(10.dp))
+            ArcadeProgressBar(
+                fraction = if (xp.xpRequired <= 0) 0f
+                else (xp.xpIntoLevel.toFloat() / xp.xpRequired).coerceIn(0f, 1f),
+                color = palette.primary
             )
-            Spacer(modifier = Modifier.height(12.dp))
-            Text(
-                text = "$learnedWords / $totalWords words learned",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.75f)
-            )
+            Spacer(modifier = Modifier.height(10.dp))
+            ArcadeLabel(text = "$learnedWords / $totalWords words learned")
         }
     }
 }
 
+/**
+ * Daily goal card. Cyan-accented. The percentage is rendered as a
+ * big pixel-font number on a solid cyan chip so the player sees
+ * the progress at a glance even when scrolling fast.
+ */
 @Composable
 private fun DailyGoalCard(dailyXp: Int, dailyGoalXp: Int) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.secondary,
-            contentColor = MaterialTheme.colorScheme.onSecondary
-        )
-    ) {
+    val palette = LocalArcadePalette.current
+    ArcadeCard(accent = palette.secondary) {
         Row(
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            val progressFraction = if (dailyGoalXp <= 0) 0f
+            val fraction = if (dailyGoalXp <= 0) 0f
                 else (dailyXp.toFloat() / dailyGoalXp).coerceIn(0f, 1f)
             Box(
                 modifier = Modifier
                     .size(72.dp)
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.onSecondary.copy(alpha = 0.2f)),
+                    .background(palette.secondary),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "${(progressFraction * 100).toInt()}%",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSecondary
+                    text = "${(fraction * 100).toInt()}%",
+                    color = palette.ink,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 18.sp
                 )
             }
-            Spacer(modifier = Modifier.width(16.dp))
-            Column {
+            Spacer(modifier = Modifier.size(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(id = R.string.progress_daily_goal),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 16.sp
                 )
-                Text(
+                Spacer(modifier = Modifier.height(2.dp))
+                ArcadeLabel(
                     text = stringResource(
                         id = R.string.progress_daily_goal_value,
                         dailyXp,
                         dailyGoalXp
-                    ),
-                    style = MaterialTheme.typography.bodyMedium
+                    )
                 )
+                Spacer(modifier = Modifier.height(8.dp))
+                ArcadeProgressBar(fraction = fraction, color = palette.secondary)
             }
         }
     }
 }
 
 /**
- * 2-column grid of [SkillCard]s, one per language skill
- * (Listening, Speaking, Reading, Writing, Grammar). Built from
- * [Row]s chunked by 2 instead of a lazy grid because the count is
- * fixed at five and the parent column already scrolls vertically —
- * nesting a lazy grid inside a scrollable parent breaks layout in
- * Compose, and [FlowRow] does not expose child `weight` modifiers.
- *
- * 5 cards → 2 + 2 + 1: Listening & Speaking on row 1, Reading &
- * Writing on row 2, Grammar alone on row 3. The cards stay wider
- * and less cramped than a 3-column layout.
+ * 2-column grid of [SkillTile]s. The accent color rotates through
+ * the four primary/secondary/highlight/success slots so each card
+ * is visually distinct on the dark background.
  */
 @Composable
 private fun SkillsGrid(skills: List<SkillProgressUi>) {
+    val palette = LocalArcadePalette.current
     val rows = Skill.ALL.chunked(2)
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         rows.forEach { rowSkills ->
@@ -340,10 +371,15 @@ private fun SkillsGrid(skills: List<SkillProgressUi>) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                rowSkills.forEach { skill ->
+                rowSkills.forEachIndexed { columnIndex, skill ->
+                    val absoluteIndex = rows.indexOf(rowSkills) * 2 + columnIndex
                     val ui = skills.firstOrNull { it.skill == skill }
                         ?: SkillProgressUi.empty(skill)
-                    SkillCard(ui = ui, modifier = Modifier.weight(1f))
+                    SkillTile(
+                        ui = ui,
+                        accent = palette.skillAccent(absoluteIndex),
+                        modifier = Modifier.weight(1f)
+                    )
                 }
             }
         }
@@ -351,36 +387,41 @@ private fun SkillsGrid(skills: List<SkillProgressUi>) {
 }
 
 /**
- * Single skill tile. Shows the skill icon and name, the headline
- * XP number, an optional "Cycle N" chip once the user has
- * completed at least one cycle, and a cyclic linear progress bar
- * that fills up to [SkillProgressUi.cycleSize] (1000 XP by default)
- * before resetting to zero. There is no level cap — the bar is a
- * soft "chunking" indicator, not a level gate.
+ * One skill tile. Shows the skill icon, the XP headline, a cycle
+ * chip when the user has completed at least one cycle, and the
+ * fill bar.
  */
 @Composable
-private fun SkillCard(ui: SkillProgressUi, modifier: Modifier = Modifier) {
-    Card(
-        modifier = modifier,
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+private fun SkillTile(
+    ui: SkillProgressUi,
+    accent: androidx.compose.ui.graphics.Color,
+    modifier: Modifier = Modifier
+) {
+    val palette = LocalArcadePalette.current
+    ArcadeCard(modifier = modifier, accent = accent) {
+        Column {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = ui.skill.icon,
-                    contentDescription = null,
-                    modifier = Modifier.size(28.dp),
-                    tint = MaterialTheme.colorScheme.primary
-                )
-                Spacer(modifier = Modifier.width(10.dp))
+                Box(
+                    modifier = Modifier
+                        .size(36.dp)
+                        .clip(CircleShape)
+                        .background(accent),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = ui.skill.icon,
+                        contentDescription = null,
+                        tint = palette.ink,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.size(8.dp))
                 Text(
                     text = stringResource(id = ui.skill.labelRes),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 14.sp
                 )
             }
             Spacer(modifier = Modifier.height(8.dp))
@@ -389,67 +430,50 @@ private fun SkillCard(ui: SkillProgressUi, modifier: Modifier = Modifier) {
                     id = R.string.progress_skill_xp_total_format,
                     ui.xpTotal
                 ),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.ExtraBold,
-                color = MaterialTheme.colorScheme.primary
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 22.sp
             )
             if (ui.cycleIndex > 0) {
                 Spacer(modifier = Modifier.height(2.dp))
-                Text(
+                ArcadeLabel(
                     text = stringResource(
                         id = R.string.progress_skill_cycle_format,
                         ui.cycleIndex
-                    ),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 )
             }
             Spacer(modifier = Modifier.height(8.dp))
-            LinearProgressIndicator(
-                progress = { ui.progressFraction.coerceIn(0f, 1f) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(8.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-                color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
-                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            ArcadeProgressBar(
+                fraction = ui.progressFraction.coerceIn(0f, 1f),
+                color = accent
             )
             Spacer(modifier = Modifier.height(4.dp))
-            Text(
+            ArcadeLabel(
                 text = stringResource(
                     id = R.string.progress_skill_xp_in_cycle_format,
                     ui.xpInCycle,
                     ui.cycleSize
-                ),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             )
         }
     }
 }
 
 /**
- * One row in the "Progress by category" list. Carries:
- *  - The category name and a chip with the level (e.g. `Level 2 / 5`).
- *  - An XP bar driven by [CategoryProgressUi.xpIntoLevel] /
- *    [CategoryProgressUi.xpRequired].
- *  - A learned bar showing `learned / total` and the percentage.
- *  - A status line that switches between "Ready to level up!",
- *    "Max level reached", or a "Need X XP / Y% learned" message
- *    reflecting the hybrid gate.
+ * One row in the "Progress by category" list. Header: category
+ * name + an `ArcadeChip` with `Level X / Y`. Body: two
+ * `ArcadeProgressBar`s — XP (accent color) and learned (success
+ * green). Footer: a small status line that reflects the hybrid
+ * gate.
  */
 @Composable
 private fun CategoryProgressCard(ui: CategoryProgressUi) {
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            // Header: category name + level chip
+    val palette = LocalArcadePalette.current
+    val accent = palette.categoryColor(ui.filter)
+    ArcadeCard(accent = accent) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
@@ -457,60 +481,44 @@ private fun CategoryProgressCard(ui: CategoryProgressUi) {
             ) {
                 Text(
                     text = stringResource(id = ui.filter.labelRes),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 16.sp,
                     modifier = Modifier.weight(1f)
                 )
-                AssistChip(
-                    onClick = { /* read-only chip */ },
-                    enabled = false,
-                    label = {
-                        Text(
-                            text = stringResource(
-                                id = R.string.progress_category_level_format,
-                                ui.currentLevel,
-                                ui.maxLevel
-                            ),
-                            style = MaterialTheme.typography.labelMedium
-                        )
-                    },
-                    colors = AssistChipDefaults.assistChipColors(
-                        disabledContainerColor = MaterialTheme.colorScheme.primaryContainer,
-                        disabledLabelColor = MaterialTheme.colorScheme.onPrimaryContainer
+                ArcadeChip(
+                    text = stringResource(
+                        id = R.string.progress_category_level_format,
+                        ui.currentLevel,
+                        ui.maxLevel
                     )
                 )
             }
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // XP bar
             Text(
                 text = stringResource(
                     id = R.string.progress_category_xp_format,
                     ui.xpIntoLevel,
                     ui.xpRequired
                 ),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 9.sp,
+                letterSpacing = 1.sp
             )
             Spacer(modifier = Modifier.height(4.dp))
-            LinearProgressIndicator(
-                progress = {
-                    if (ui.xpRequired <= 0) 0f
-                    else (ui.xpIntoLevel.toFloat() / ui.xpRequired).coerceIn(0f, 1f)
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(8.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-                color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
-                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            ArcadeProgressBar(
+                fraction = if (ui.xpRequired <= 0) 0f
+                else (ui.xpIntoLevel.toFloat() / ui.xpRequired).coerceIn(0f, 1f),
+                color = accent
             )
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Learned bar
             val learnedPctInt = (ui.learnedPct * 100).toInt()
             Text(
                 text = stringResource(
@@ -519,24 +527,20 @@ private fun CategoryProgressCard(ui: CategoryProgressUi) {
                     ui.totalCount,
                     learnedPctInt
                 ),
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 9.sp,
+                letterSpacing = 1.sp
             )
             Spacer(modifier = Modifier.height(4.dp))
-            LinearProgressIndicator(
-                progress = { ui.learnedPct.coerceIn(0f, 1f) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(8.dp)
-                    .clip(RoundedCornerShape(8.dp)),
-                color = MaterialTheme.colorScheme.tertiary,
-                trackColor = MaterialTheme.colorScheme.outline.copy(alpha = 0.25f),
-                strokeCap = ProgressIndicatorDefaults.LinearStrokeCap
+            ArcadeProgressBar(
+                fraction = ui.learnedPct.coerceIn(0f, 1f),
+                color = palette.success
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Gate status
             val statusText: String? = when {
                 ui.locked -> stringResource(id = R.string.progress_category_maxed)
                 ui.canUnlockNext -> stringResource(id = R.string.progress_category_ready)
@@ -557,13 +561,19 @@ private fun CategoryProgressCard(ui: CategoryProgressUi) {
             if (statusText != null) {
                 Text(
                     text = statusText,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = when {
-                        ui.locked -> MaterialTheme.colorScheme.primary
-                        ui.canUnlockNext -> MaterialTheme.colorScheme.primary
-                        else -> MaterialTheme.colorScheme.onSurfaceVariant
+                    color = if (ui.canUnlockNext || ui.locked) {
+                        palette.success
+                    } else {
+                        palette.textDim
                     },
-                    fontWeight = if (ui.canUnlockNext || ui.locked) FontWeight.Bold else FontWeight.Normal
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = if (ui.canUnlockNext || ui.locked) {
+                        ArcadeFonts.PixelWeight
+                    } else {
+                        ArcadeFonts.BodyWeight
+                    },
+                    fontSize = 9.sp,
+                    letterSpacing = 1.sp
                 )
             }
         }

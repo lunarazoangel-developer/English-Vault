@@ -540,4 +540,25 @@ object Migrations {
             db.execSQL("CREATE VIEW `words_view` AS $WORDS_VIEW_BODY")
         }
     }
+
+    /**
+     * Phase 8.x — theme toggle.
+     *
+     * Adds the `themeMode` column to `user_profile` so the Settings
+     * screen can persist the user's choice between the dark and the
+     * light color scheme. Defaults to `'DARK'` (the design the app
+     * is currently being iterated on) so existing installs land in
+     * dark mode after the upgrade.
+     *
+     * Allowed values are kept in [data.database.entities.UserProfileEntity]:
+     * `THEME_MODE_DARK` and `THEME_MODE_LIGHT`. The DAO accepts any
+     * string but the Settings UI only writes those two.
+     */
+    val MIGRATION_11_12: Migration = object : Migration(11, 12) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `user_profile` ADD COLUMN `themeMode` TEXT NOT NULL DEFAULT 'DARK'"
+            )
+        }
+    }
 }

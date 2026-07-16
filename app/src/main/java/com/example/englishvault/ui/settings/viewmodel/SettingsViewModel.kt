@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -19,9 +20,9 @@ import kotlinx.coroutines.launch
  * dedicated DAO method so the writes remain atomic and the schema
  * stays the single source of truth.
  *
- * Phase 7.1: only the profile name and the music / effects volume
- * sliders are exposed. Future settings (theme, daily goal, reminder
- * time) will hang off the same VM without breaking callers.
+ * Phase 7.1: profile name and music / effects volume sliders.
+ * Phase 8.x: theme mode (dark / light) is also exposed here so the
+ * Settings screen can toggle it and `MainActivity` can react.
  */
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
@@ -34,6 +35,19 @@ class SettingsViewModel @Inject constructor(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
             initialValue = null
+        )
+
+    /**
+     * Active theme mode derived from the profile. Defaults to
+     * [UserProfileEntity.DEFAULT_THEME_MODE] (dark) until the seed
+     * has produced a real row.
+     */
+    val themeMode: StateFlow<String> = profile
+        .map { it?.themeMode ?: UserProfileEntity.DEFAULT_THEME_MODE }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
+            initialValue = UserProfileEntity.DEFAULT_THEME_MODE
         )
 
     /**
@@ -59,6 +73,22 @@ class SettingsViewModel @Inject constructor(
     fun updateEffectsVolume(volume: Float) {
         viewModelScope.launch {
             userProfileDao.updateEffectsVolume(volume.coerceIn(0f, 1f))
+        }
+    }
+
+    /**
+     * Persists the theme mode. Values other than the two constants on
+     * [UserProfileEntity] are silently ignored so a misbehaving caller
+     * cannot put the app in an invalid state.
+     */
+    fun setThemeMode(mode: String) {
+        val sanitized = when (mode) {
+            UserProfileEntity.THEME_MODE_DARK -> UserProfileEntity.THEME_MODE_DARK
+            UserProfileEntity.THEME_MODE_LIGHT -> UserProfileEntity.THEME_MODE_LIGHT
+            else -> return
+        }
+        viewModelScope.launch {
+            userProfileDao.updateThemeMode(sanitized)
         }
     }
 

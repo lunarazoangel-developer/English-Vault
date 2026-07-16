@@ -10,7 +10,6 @@ import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.CATEGORY_KEY
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.INITIAL_ENGLISH_HINTS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.INITIAL_LOCATION_HINTS
-import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.MAX_MOVES
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.TIMER_TICK_MS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.WORLD_GAME_TIME_MS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
@@ -21,7 +20,6 @@ import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
-import data.database.entities.LearningStatus
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
@@ -33,6 +31,7 @@ import data.game.PromotionNotifier
 import data.game.PromotionOutcome
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.math.max
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -49,8 +48,9 @@ import kotlinx.coroutines.launch
  * ## Modes (Phase 7.4)
  *
  * Two modes are supported:
- *  - [HintMode.NORMAL]: unlimited hints, no time limit. The
- *    behaviour from earlier phases.
+ *  - [HintMode.NORMAL]: unlimited hints, no time limit. The classic
+ *    word-search experience: the player takes as long as they need
+ *    to find every word.
  *  - [HintMode.WORLD]: a 5-minute countdown, two location hints and
  *    two English-translation hints. The dedicated inventory system
  *    is out of scope for the beta, so the inventories are
@@ -61,14 +61,24 @@ import kotlinx.coroutines.launch
  * immediately restarts the run at the same level so the new mode
  * is applied without navigating away.
  *
- * ## Level filter
+ * ## Mechanic (Phase 8.x — word search rewrite)
+ *
+ * The mini-game is a classic word search: the player underlines
+ * letters by tapping cells, builds a chain of king-move adjacent
+ * cells, and commits the selection by tapping the first cell of the
+ * chain again. A successful commit fixes the placement; a failed
+ * commit flashes the cells red briefly. There is no move budget.
+ *
+ * ## Level filter & word pool
  *
  * Every word that ends up on the board originates from
- * `wordDao.getCoreWordsByLengthAndLevel(level, MIN, MAX)` — the DAO
- * query already constrains rows by `level = :level`, so the pool,
- * the placements, the translations list and the hint targets all
- * stay inside the chosen level. No other code path introduces
- * words from other levels into the run.
+ * `wordDao.getCoreWordsByLengthAndLevel(level, MIN, MAX)`. The DAO
+ * query already constrains rows by `level = :level`. The VM then
+ * drops every row whose `type` is `verb` so the pool, the
+ * placements, the translations list and the hint targets stay
+ * inside the chosen level and **never include verbs** (regular or
+ * irregular). No other code path introduces words from other
+ * categories into the run.
  */
 @HiltViewModel
 class LetterSoupViewModel @Inject constructor(
@@ -124,19 +134,22 @@ class LetterSoupViewModel @Inject constructor(
     val gameState: StateFlow<LetterSoupGameState> = _gameState.asStateFlow()
 
     /**
-     * Highest level that has any core words of an eligible length
-     * (currently 3..10 characters). Drives the number of cards the
-     * level selector renders.
+     * Highest level that has any non-verb core words of an eligible
+     * length (currently 3..12 characters). Drives the number of
+     * cards the level selector renders.
      */
     suspend fun maxLetterSoupLevel(): Int =
-        wordDao.maxCoreLevelByLength(MIN_WORD_LENGTH, MAX_WORD_LENGTH).coerceAtLeast(1)
+        wordDao.maxCoreLevelByLength(MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+            .let { raw -> raw.coerceAtLeast(1) }
 
     /**
      * Number of words eligible for play at [level] — the count shown
-     * on each level card.
+     * on each level card. Counts **only non-verb** rows so the level
+     * selector never offers a level that cannot host a board.
      */
     suspend fun wordsAtLevel(level: Int): Int =
-        wordDao.getCoreWordsByLengthAndLevel(level, MIN_WORD_LENGTH, MAX_WORD_LENGTH).size
+        wordDao.getCoreWordsByLengthAndLevel(level, MIN_WORD_LENGTH, MAX_WORD_LENGTH)
+            .count { it.type != VERB_TYPE }
 
     /**
      * Highest Letter Soup level the player can currently access.
@@ -162,10 +175,6 @@ class LetterSoupViewModel @Inject constructor(
             HintMode.NORMAL -> HintMode.WORLD
             HintMode.WORLD -> HintMode.NORMAL
         }
-        // Apply the new mode to the current level right away. If no
-        // run has been seeded yet, `currentLevel` is still its
-        // default (`1`); tapping the toggle before startGame just
-        // flips the flag for the upcoming run.
         cancelWorldTimer()
         startGame(currentLevel)
     }
@@ -181,25 +190,27 @@ class LetterSoupViewModel @Inject constructor(
      *    `0` defaults — hints are unlimited and the timer never
      *    ticks.
      *
-     * **Level filter guarantee**: every word that ends up on the
+     * **Verb exclusion guarantee**: every word that ends up on the
      * board comes from
-     * `wordDao.getCoreWordsByLengthAndLevel(level, MIN, MAX)`. The
-     * DAO query constrains rows by `level = :level`, so the
+     * `wordDao.getCoreWordsByLengthAndLevel(level, MIN, MAX)` and
+     * additionally passes an in-memory `type != "verb"` filter. The
      * translations list, the word-lookup and the placements stay
-     * inside the chosen level even after swaps or hint reveals.
+     * inside the chosen level and inside the non-verb category set
+     * even after hint reveals.
      */
     fun startGame(level: Int) {
         currentLevel = level
         cancelWorldTimer()
         viewModelScope.launch {
             _gameState.value = LetterSoupGameState.Loading
-            val entities = wordDao.getCoreWordsByLengthAndLevel(
+            val raw = wordDao.getCoreWordsByLengthAndLevel(
                 level = level,
                 min = MIN_WORD_LENGTH,
                 max = MAX_WORD_LENGTH
             )
-            wordLookup = entities.associateBy { it.word.uppercase() }
+            val entities = raw.filter { it.type != VERB_TYPE }
 
+            wordLookup = entities.associateBy { it.word.uppercase() }
             val pool = entities.map { it.word.uppercase() }
             val translations = entities.associate { it.word.uppercase() to it.translation }
             val wordIds = entities.associate { it.word.uppercase() to it.id }
@@ -217,7 +228,6 @@ class LetterSoupViewModel @Inject constructor(
             _gameState.value = LetterSoupGameState.InProgress(
                 level = level,
                 board = board,
-                movesLeft = MAX_MOVES,
                 wordsFixed = 0,
                 wordsToWin = board.placements.size,
                 xpByCategory = emptyMap(),
@@ -233,87 +243,108 @@ class LetterSoupViewModel @Inject constructor(
     }
 
     /**
-     * Handles a tap on the cell at ([row], [col]). Three branches:
-     *  - Nothing selected → mark the cell as selected.
-     *  - Tapped the already-selected cell → deselect (free move).
-     *  - Tapped a different cell → try the swap.
+     * Handles a tap on the cell at ([row], [col]) following the
+     * word-search input model:
+     *
+     *  1. **No active selection** → start a new chain with this
+     *     cell. Any pending flash is cleared so the visual
+     *     feedback of the previous commit does not linger.
+     *  2. **The cell is the LAST one in the current selection
+     *     (with 2+ cells)** → commit. This is the primary commit
+     *     gesture: the player underlines from start to end, then
+     *     taps the end of the chain to submit. It is the most
+     *     intuitive model and the one most classic word searches
+     *     use.
+     *  3. **The cell is the FIRST one in the current selection
+     *     (with 2+ cells)** → also commit. Kept as an alternative
+     *     so the player has two ways to submit, whichever they
+     *     reach for first.
+     *  4. **The cell is already in the current selection (middle
+     *     of the chain)** → truncate the chain to that cell,
+     *     acting as a backspace. Useful when the player
+     *     mis-underlined a letter and wants to back up.
+     *  5. **The cell is king-move adjacent to the last cell in the
+     *     current selection** → extend the chain by one.
+     *  6. **Anything else** → ignore the tap. The player has to
+     *     commit or backspace before starting a new chain from a
+     *     non-adjacent cell.
+     *
+     * Note: taps are **never blocked** by the wrong / found flash.
+     * The flash is purely a transient visual cue; the player can
+     * start a new selection immediately after a commit without
+     * waiting for the flash to clear. This is what makes the
+     * interaction feel responsive on a 12×12 board where the cells
+     * are small.
      */
-    fun tapCell(row: Int, col: Int) {
+    fun onCellTapped(row: Int, col: Int) {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
-        val role = state.board.roleAt(row, col)
-        if (role == com.example.englishvault.ui.games.lettersoup.model.LetterSoupCell.WordFixed) {
-            return
-        }
-        when (state.selectedCell) {
-            null -> {
-                _gameState.value = state.copy(selectedCell = row to col)
-            }
-            (row to col) -> {
-                _gameState.value = state.copy(selectedCell = null)
-            }
-            else -> attemptSwap(state, row to col)
-        }
-    }
+        val tapped = row to col
+        val current = state.selectedCells
 
-    /**
-     * Resolves a swap between the previously-selected cell and
-     * [target]. If the swap converts any placement into its correct
-     * form, the placement is flagged `fixed` and XP is awarded.
-     * Otherwise the move budget is decremented and the swap pair is
-     * returned to the UI for a brief red flash.
-     */
-    private fun attemptSwap(
-        state: LetterSoupGameState.InProgress,
-        target: Pair<Int, Int>
-    ) {
-        val source = state.selectedCell ?: return
-        val cells = state.board.cells.map { it.toMutableList() }.toMutableList()
-        val (r1, c1) = source
-        val (r2, c2) = target
-        val tmp = cells[r1][c1]
-        cells[r1][c1] = cells[r2][c2]
-        cells[r2][c2] = tmp
-
-        val swapped = LetterSoupBoard(
-            cells = cells,
-            placements = state.board.placements,
-            boardSize = state.board.boardSize
-        )
-        val fixedNow = swapped.placements
-            .filter { !it.fixed }
-            .filter { word -> isCorrect(word, swapped) }
-
-        if (fixedNow.isEmpty()) {
+        if (current.isEmpty()) {
+            // Starting a new selection always clears the flash so
+            // the previous commit's red / green tint does not bleed
+            // into the new chain.
             _gameState.value = state.copy(
-                selectedCell = null,
-                movesLeft = (state.movesLeft - 1).coerceAtLeast(0),
-                lastSwapFailedCells = listOf(source, target),
-                lastFixedWord = null,
-                isLocationHintRevealed = false,
-                isEnglishHintRevealed = false
+                selectedCells = listOf(tapped),
+                wrongFlashCells = emptyList(),
+                lastFoundWord = null
             )
             return
         }
-
-        // Success path.
-        val updatedPlacements = swapped.placements.map { word ->
-            if (fixedNow.any { it === word }) word.copy(fixed = true) else word
+        if (current.size >= 2) {
+            if (current.last() == tapped || current.first() == tapped) {
+                commitSelection(state)
+                return
+            }
         }
-        val boardWithFixedWords = LetterSoupBoard(
-            cells = cells,
-            placements = updatedPlacements,
-            boardSize = state.board.boardSize
-        )
-        val xpByCategory = state.xpByCategory.toMutableMap()
-        fixedNow.forEach { word ->
-            // Credit BOTH the grammatical category of the fixed word
-            // (drives the per-category progress bar on Progress) AND
-            // the single [CATEGORY_KEY] bucket (drives the Letter
-            // Soup level unlock gating). The category is resolved
-            // through [wordLookup] which maps the upper-cased word
-            // text back to its dictionary [WordEntity].
-            val entity = wordLookup[word.original]
+        val existingIndex = current.indexOf(tapped)
+        if (existingIndex >= 0) {
+            _gameState.value = state.copy(selectedCells = current.take(existingIndex + 1))
+            return
+        }
+        val last = current.last()
+        if (isKingMoveAdjacent(last, tapped)) {
+            _gameState.value = state.copy(selectedCells = current + tapped)
+        }
+        // else: ignore
+    }
+
+    /**
+     * `true` when [a] and [b] are king-move adjacent (8 directions,
+     * each axis at most 1 step away). This is the rule every
+     * classic word-search follows for extending a chain.
+     */
+    private fun isKingMoveAdjacent(a: Pair<Int, Int>, b: Pair<Int, Int>): Boolean {
+        val dr = kotlin.math.abs(a.first - b.first)
+        val dc = kotlin.math.abs(a.second - b.second)
+        return max(dr, dc) == 1
+    }
+
+    /**
+     * Reads the current selection in order and looks for an unfound
+     * placement whose `original` matches the read string or its
+     * reverse. On a hit, marks the placement `fixed`, grants XP and
+     * plays the correct SFX. On a miss, flashes the selected cells
+     * red briefly.
+     */
+    private fun commitSelection(state: LetterSoupGameState.InProgress) {
+        val current = state.selectedCells
+        if (current.isEmpty()) return
+        val candidate = current.joinToString("") { (r, c) -> state.board[r, c].toString() }
+        val reversed = candidate.reversed()
+        val match = state.board.placements
+            .firstOrNull { !it.fixed && (it.original.equals(candidate, ignoreCase = true) ||
+                it.original.equals(reversed, ignoreCase = true)) }
+
+        if (match != null) {
+            val updatedPlacements = state.board.placements.map { word ->
+                if (word === match) word.copy(fixed = true) else word
+            }
+            val newBoard = state.board.copy(placements = updatedPlacements)
+            val entity = wordLookup[match.original]
             val grammaticalKey = entity?.let { classifyWordSafely(it).name }
+            val xpByCategory = state.xpByCategory.toMutableMap()
             if (grammaticalKey != null) {
                 xpByCategory[grammaticalKey] =
                     (xpByCategory[grammaticalKey] ?: 0) +
@@ -322,65 +353,54 @@ class LetterSoupViewModel @Inject constructor(
             xpByCategory[CATEGORY_KEY] =
                 (xpByCategory[CATEGORY_KEY] ?: 0) +
                     CategoryGating.XP_PER_CORRECT_ANSWER
-        }
 
-        val newWordsFixed = state.wordsFixed + fixedNow.size
-        val lastFixed = fixedNow.firstOrNull()
-        val isWin = newWordsFixed >= state.wordsToWin
-        if (isWin) {
+            val newWordsFixed = state.wordsFixed + 1
+            val isWin = newWordsFixed >= state.wordsToWin
             _gameState.value = state.copy(
-                board = boardWithFixedWords,
+                board = newBoard,
                 wordsFixed = newWordsFixed,
-                selectedCell = null,
+                selectedCells = emptyList(),
                 xpByCategory = xpByCategory,
-                lastFixedWord = lastFixed,
-                lastSwapFailedCells = emptyList(),
-                isLocationHintRevealed = false,
+                lastFoundWord = match,
+                wrongFlashCells = emptyList(),
+                highlightedPlacement = null,
                 isEnglishHintRevealed = false
             )
-            viewModelScope.launch {
-                soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
-                applyAutoStatus(fixedNow)
-                grantXpAndFinish(
-                    level = state.level,
-                    won = true,
-                    wordsFixed = newWordsFixed,
-                    wordsToWin = state.wordsToWin,
-                    xpByCategory = xpByCategory,
-                    mode = state.mode,
-                    timedOut = false
-                )
+            if (isWin) {
+                viewModelScope.launch {
+                    soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+                    applyAutoStatus(listOf(match))
+                    grantXpAndFinish(
+                        level = state.level,
+                        won = true,
+                        wordsFixed = newWordsFixed,
+                        wordsToWin = state.wordsToWin,
+                        xpByCategory = xpByCategory,
+                        mode = state.mode,
+                        timedOut = false
+                    )
+                }
+            } else {
+                viewModelScope.launch {
+                    soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+                    applyAutoStatus(listOf(match))
+                }
             }
             return
         }
 
         _gameState.value = state.copy(
-            board = boardWithFixedWords,
-            wordsFixed = newWordsFixed,
-            selectedCell = null,
-            xpByCategory = xpByCategory,
-            lastFixedWord = lastFixed,
-            lastSwapFailedCells = emptyList(),
-            isLocationHintRevealed = false,
-            isEnglishHintRevealed = false
+            wrongFlashCells = current,
+            selectedCells = emptyList(),
+            lastFoundWord = null
         )
-
-        viewModelScope.launch {
-            soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
-            applyAutoStatus(fixedNow)
-        }
     }
 
     /**
-     * Phase 7.15 — auto-marking fan-out for the placements that
-     * were just fixed by the player's swap. Bumps
+     * Phase 7.15 — auto-marking fan-out for the placements the
+     * player has just found. Bumps
      * [WordEntity.consecutiveCorrect] on each underlying row and
      * re-evaluates its [LearningStatus] via [AutoStatusEvaluator].
-     *
-     * Only correct events are mapped to auto-marks: a failed swap
-     * (the branch above that decrements `movesLeft`) is not a
-     * knowledge failure for a specific word, just a missed move,
-     * so the racha stays intact.
      *
      * Placements with `wordId <= 0` (defensive fallback when the
      * board generator could not resolve a dictionary id) are
@@ -389,11 +409,11 @@ class LetterSoupViewModel @Inject constructor(
      * Errors are swallowed: a failed write should not crash the
      * game flow.
      */
-    private fun applyAutoStatus(fixedPlacements: List<LetterSoupWord>) {
+    private fun applyAutoStatus(foundPlacements: List<LetterSoupWord>) {
         viewModelScope.launch {
             runCatching {
                 val now = System.currentTimeMillis()
-                for (placement in fixedPlacements) {
+                for (placement in foundPlacements) {
                     val wordId = placement.wordId
                     if (wordId <= 0) continue
                     val previous = wordDao.getWordById(wordId) ?: continue
@@ -412,9 +432,10 @@ class LetterSoupViewModel @Inject constructor(
     }
 
     /**
-     * Reveals the wrong-letter cell on the active placement — the UI
-     * marks it with the ❌ badge + pulse for
-     * [LetterSoupGameState.HINT_TIMEOUT_MS].
+     * Reveals the trajectory of one unfound word on the board. The
+     * UI keeps every cell of the chosen placement tinted for
+     * [LetterSoupGameState.HINT_TIMEOUT_MS] so the player can see
+     * the path of the word and read it off the grid.
      *
      * In [HintMode.WORLD] the reveal consumes one
      * [LetterSoupGameState.INITIAL_LOCATION_HINTS] use; the call is
@@ -422,7 +443,7 @@ class LetterSoupViewModel @Inject constructor(
      */
     fun revealLocationHint() {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
-        if (state.board.firstActiveWithWrong() == null) return
+        val target = state.board.firstUnfixedPlacement() ?: return
         if (state.mode == HintMode.WORLD && state.locationHintsRemaining <= 0) return
         val newRemaining = if (state.mode == HintMode.WORLD) {
             (state.locationHintsRemaining - 1).coerceAtLeast(0)
@@ -430,14 +451,14 @@ class LetterSoupViewModel @Inject constructor(
             state.locationHintsRemaining
         }
         _gameState.value = state.copy(
-            isLocationHintRevealed = true,
+            highlightedPlacement = target,
             locationHintsRemaining = newRemaining
         )
     }
 
     /**
-     * Reveals the English word for the active placement inline in the
-     * always-visible translations list for
+     * Reveals the English word for the active placement inline in
+     * the always-visible translations list for
      * [LetterSoupGameState.HINT_TIMEOUT_MS].
      *
      * In [HintMode.WORLD] the reveal consumes one
@@ -446,7 +467,7 @@ class LetterSoupViewModel @Inject constructor(
      */
     fun revealEnglishHint() {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
-        if (state.board.firstActiveWithWrong() == null) return
+        if (state.board.firstUnfixedPlacement() == null) return
         if (state.mode == HintMode.WORLD && state.englishHintsRemaining <= 0) return
         val newRemaining = if (state.mode == HintMode.WORLD) {
             (state.englishHintsRemaining - 1).coerceAtLeast(0)
@@ -460,42 +481,28 @@ class LetterSoupViewModel @Inject constructor(
     }
 
     /**
-     * Called by the UI after the brief "fixed word" or "failed swap"
-     * animation has been on screen long enough to read. Clears the
-     * transient flags and — when the move budget has been exhausted —
-     * transitions to [LetterSoupGameState.Finished] with `won = false`.
+     * Clears the transient `wrongFlashCells` / `lastFoundWord`
+     * markers once the UI has had a chance to animate them. Called
+     * by the play screen after
+     * [LetterSoupGameState.WRONG_FLASH_TIMEOUT_MS].
      */
-    fun acknowledgeAnimation() {
+    fun acknowledgeFlash() {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
-        if (state.lastSwapFailedCells.isEmpty() && state.lastFixedWord == null) return
-        if (state.lastSwapFailedCells.isNotEmpty() && state.movesLeft <= 0) {
-            viewModelScope.launch {
-                grantXpAndFinish(
-                    level = state.level,
-                    won = false,
-                    wordsFixed = state.wordsFixed,
-                    wordsToWin = state.wordsToWin,
-                    xpByCategory = state.xpByCategory,
-                    mode = state.mode,
-                    timedOut = false
-                )
-            }
-            return
-        }
+        if (state.wrongFlashCells.isEmpty() && state.lastFoundWord == null) return
         _gameState.value = state.copy(
-            lastSwapFailedCells = emptyList(),
-            lastFixedWord = null
+            wrongFlashCells = emptyList(),
+            lastFoundWord = null
         )
     }
 
-    /** Called by the UI when the location hint timeout expires. */
+    /** Called by the UI when the location-hint timeout expires. */
     fun acknowledgeLocationHint() {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
-        if (!state.isLocationHintRevealed) return
-        _gameState.value = state.copy(isLocationHintRevealed = false)
+        if (state.highlightedPlacement == null) return
+        _gameState.value = state.copy(highlightedPlacement = null)
     }
 
-    /** Called by the UI when the English hint timeout expires. */
+    /** Called by the UI when the English-hint timeout expires. */
     fun acknowledgeEnglishHint() {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
         if (!state.isEnglishHintRevealed) return
@@ -650,18 +657,18 @@ class LetterSoupViewModel @Inject constructor(
         val progress = categoryProgressDao.get(CATEGORY_KEY)
             ?: CategoryProgressEntity.initial(CATEGORY_KEY)
 
-        val currentLevel = progress.unlockedLevel.coerceAtMost(maxLevel)
-        val nextLevel = (currentLevel + 1).coerceAtMost(maxLevel)
+        val unlocked = progress.unlockedLevel.coerceAtMost(maxLevel)
+        val nextLevel = (unlocked + 1).coerceAtMost(maxLevel)
         val newXpSince = progress.xpSinceLevelUp + xpToGrant
         val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
-            nextLevel > currentLevel
+            nextLevel > unlocked
 
         categoryProgressDao.grantXpAndMaybeUnlock(
             categoryKey = CATEGORY_KEY,
             amount = xpToGrant,
             meetsXp = shouldUnlock,
             meetsLearnedPct = true,
-            targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
+            targetUnlockedLevel = if (shouldUnlock) nextLevel else unlocked
         )
     }
 
@@ -697,19 +704,6 @@ class LetterSoupViewModel @Inject constructor(
         }
     }
 
-    /**
-     * `true` when every cell the [word] occupies currently holds its
-     * expected letter from the dictionary form.
-     */
-    private fun isCorrect(word: LetterSoupWord, board: LetterSoupBoard): Boolean {
-        val cells = word.cells()
-        for (i in cells.indices) {
-            val (r, c) = cells[i]
-            if (board[r, c] != word.original[i]) return false
-        }
-        return true
-    }
-
     override fun onCleared() {
         super.onCleared()
         cancelWorldTimer()
@@ -720,11 +714,13 @@ class LetterSoupViewModel @Inject constructor(
         const val MIN_WORD_LENGTH: Int = 3
 
         /**
-         * Longest word we are willing to host. With a 10×10 extended
-         * board any word up to 10 characters fits horizontally or
-         * vertically. Longer words are silently dropped by the DAO
-         * length filter.
+         * Longest word we are willing to host. Matches the standard
+         * 12×12 board so any word that fits horizontally, vertically
+         * or diagonally can be placed without overflow.
          */
-        const val MAX_WORD_LENGTH: Int = 10
+        const val MAX_WORD_LENGTH: Int = 12
+
+        /** Type literal used to filter verbs out of the pool. */
+        const val VERB_TYPE: String = "verb"
     }
 }

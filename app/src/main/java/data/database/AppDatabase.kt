@@ -51,7 +51,7 @@ import data.database.entities.WordEntity
     views = [
         WordEntity::class
     ],
-    version = 11,
+    version = 12,
     exportSchema = false
 )
 @TypeConverters(

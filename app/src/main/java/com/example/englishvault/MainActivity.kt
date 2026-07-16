@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.example.englishvault.ui.app.MainScaffold
 import com.example.englishvault.ui.theme.EnglishVaultTheme
 import data.database.dao.UserProfileDao
@@ -22,6 +24,8 @@ import javax.inject.Inject
  *      - Default user profile → Room (only when the profile row is empty).
  *      - Core dictionary → Room (only when the bundled version is
  *        newer than the stored one, see [DictionarySeeder]).
+ *  - Read the persisted `user_profile.themeMode` and feed it to the
+ *    theme so the dark / light choice survives restarts.
  *  - Delegate all UI to [MainScaffold] which owns the bottom navigation
  *    and every screen.
  *
@@ -39,7 +43,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            EnglishVaultTheme {
+            // Reads the persisted theme mode and folds it into the
+            // Compose tree. While the first emission is in flight
+            // (initial value from the seed) we fall back to dark
+            // mode — matches the default the user will see on a
+            // fresh install.
+            val profile by userProfileDao.observeProfile()
+                .collectAsState(initial = UserProfileEntity())
+            val themeMode = profile?.themeMode
+                ?: UserProfileEntity.DEFAULT_THEME_MODE
+            val isDark = themeMode == UserProfileEntity.THEME_MODE_DARK
+
+            EnglishVaultTheme(darkTheme = isDark) {
                 // region: One-time database bootstrap
                 LaunchedEffect(Unit) {
                     // Phase 3: create the default user profile if missing.
@@ -57,7 +72,7 @@ class MainActivity : ComponentActivity() {
                 }
                 // endregion
 
-                MainScaffold()
+                MainScaffold(themeMode = themeMode)
             }
         }
     }

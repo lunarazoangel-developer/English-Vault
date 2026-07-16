@@ -132,6 +132,19 @@ interface UserProfileDao {
         volume: Float,
         id: Int = UserProfileEntity.SINGLE_USER_ID
     ): Int
+
+    /**
+     * Persists the user's choice of color scheme. Allowed values are
+     * [UserProfileEntity.THEME_MODE_DARK] and
+     * [UserProfileEntity.THEME_MODE_LIGHT] — the Settings UI is the
+     * only writer and constrains the input, so the DAO does not
+     * re-validate.
+     */
+    @Query("UPDATE user_profile SET themeMode = :mode WHERE id = :id")
+    suspend fun updateThemeMode(
+        mode: String,
+        id: Int = UserProfileEntity.SINGLE_USER_ID
+    ): Int
     // endregion
 
     // region: Maintenance

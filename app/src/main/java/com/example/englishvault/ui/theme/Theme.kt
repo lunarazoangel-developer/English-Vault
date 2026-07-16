@@ -1,8 +1,6 @@
 package com.example.englishvault.ui.theme
 
-import android.app.Activity
 import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -17,6 +15,11 @@ import androidx.compose.ui.platform.LocalContext
  * Uses the Duolingo-inspired blue palette defined in [Color.kt]. Dynamic
  * color is disabled by default so the brand identity stays consistent
  * across devices; pass `dynamicColor = true` to opt-in to Material You.
+ *
+ * Phase 8.x: the dark / light decision is no longer driven by the
+ * system setting. The caller (`MainActivity`) is expected to read the
+ * persisted preference from `user_profile.themeMode` and pass it in
+ * through [darkTheme].
  */
 
 // region: Color schemes
@@ -65,14 +68,16 @@ private val LightColorScheme = lightColorScheme(
  * Root theme composable. Wrap your screen content with this so typography,
  * colors and shapes are consistent across the app.
  *
- * @param darkTheme Whether to apply the dark color scheme.
+ * @param darkTheme Whether to apply the dark color scheme. The caller
+ *   is expected to source this from the persisted `user_profile.themeMode`
+ *   so the user's choice survives restarts.
  * @param dynamicColor When true, uses Material You on Android 12+.
  *   Defaults to false to preserve the English Vault brand colors.
  * @param content The composable hierarchy that will receive the theme.
  */
 @Composable
 fun EnglishVaultTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean,
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {

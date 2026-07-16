@@ -1,10 +1,5 @@
 package com.example.englishvault.ui.games.lettersoup
 
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,7 +20,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Cancel
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Lightbulb
 import androidx.compose.material.icons.filled.Public
@@ -60,6 +54,7 @@ import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Co
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.INITIAL_ENGLISH_HINTS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.INITIAL_LOCATION_HINTS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.WORLD_GAME_TIME_MS
+import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Companion.WRONG_FLASH_TIMEOUT_MS
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
 import com.example.englishvault.ui.games.lettersoup.util.LetterPalette
 import com.example.englishvault.ui.games.lettersoup.viewmodel.LetterSoupViewModel
@@ -80,12 +75,12 @@ private const val DEV_MODE_TOGGLE_ENABLED: Boolean = true
  * enters composition. Renders one of three bodies depending on
  * [LetterSoupGameState]:
  *  - [LetterSoupGameState.Loading] — branded loading panel.
- *  - [LetterSoupGameState.InProgress] — top HUD with the move budget,
- *    words fixed and the two hint buttons; the always-visible
- *    translations list; the auto-scaling 8×8 / 10×10 grid; and a
- *    brief "fixed word" / "failed swap" flash. World-mode runs
- *    additionally show a 5-minute countdown bar and `X / Y`
- *    counters on the hint buttons.
+ *  - [LetterSoupGameState.InProgress] — top HUD with the words
+ *    fixed counter and the two hint buttons; the always-visible
+ *    translations list; the 12×12 grid; and brief red / green
+ *    flashes after each commit. World-mode runs additionally show
+ *    a 5-minute countdown bar and `remaining / max` counters on the
+ *    hint buttons.
  *  - [LetterSoupGameState.Finished] — the end-of-run panel rendered
  *    in place via [LetterSoupEndContent].
  */
@@ -140,8 +135,8 @@ fun LetterSoupGameScreen(
             is LetterSoupGameState.Loading -> BrandedLoadingPanel()
             is LetterSoupGameState.InProgress -> InProgressBody(
                 state = s,
-                onTap = viewModel::tapCell,
-                onAnimationAck = viewModel::acknowledgeAnimation,
+                onCellTapped = viewModel::onCellTapped,
+                onFlashAck = viewModel::acknowledgeFlash,
                 onLocationHint = viewModel::revealLocationHint,
                 onEnglishHint = viewModel::revealEnglishHint,
                 onLocationHintAck = viewModel::acknowledgeLocationHint,
@@ -190,21 +185,21 @@ private fun BrandedLoadingPanel() {
 @Composable
 private fun InProgressBody(
     state: LetterSoupGameState.InProgress,
-    onTap: (Int, Int) -> Unit,
-    onAnimationAck: () -> Unit,
+    onCellTapped: (Int, Int) -> Unit,
+    onFlashAck: () -> Unit,
     onLocationHint: () -> Unit,
     onEnglishHint: () -> Unit,
     onLocationHintAck: () -> Unit,
     onEnglishHintAck: () -> Unit
 ) {
-    LaunchedEffect(state.lastSwapFailedCells, state.lastFixedWord) {
-        if (state.lastSwapFailedCells.isNotEmpty() || state.lastFixedWord != null) {
-            delay(600)
-            onAnimationAck()
+    LaunchedEffect(state.wrongFlashCells, state.lastFoundWord) {
+        if (state.wrongFlashCells.isNotEmpty() || state.lastFoundWord != null) {
+            delay(WRONG_FLASH_TIMEOUT_MS)
+            onFlashAck()
         }
     }
-    LaunchedEffect(state.isLocationHintRevealed) {
-        if (state.isLocationHintRevealed) {
+    LaunchedEffect(state.highlightedPlacement) {
+        if (state.highlightedPlacement != null) {
             delay(HINT_TIMEOUT_MS)
             onLocationHintAck()
         }
@@ -215,8 +210,6 @@ private fun InProgressBody(
             onEnglishHintAck()
         }
     }
-
-    val activeWrong = state.board.firstActiveWithWrong()
 
     Column(
         modifier = Modifier
@@ -237,12 +230,12 @@ private fun InProgressBody(
         TranslationsList(
             placements = state.board.placements,
             isEnglishHintRevealed = state.isEnglishHintRevealed,
-            activeWrongWord = activeWrong
+            activeUnfixedWord = state.firstUnfixed
         )
 
         BoardGrid(
             state = state,
-            onTap = onTap
+            onTap = onCellTapped
         )
 
         Spacer(modifier = Modifier.height(4.dp))
@@ -328,12 +321,6 @@ private fun HudRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        HudChip(
-            label = stringResource(id = R.string.game_lettersoup_moves_format, state.movesLeft),
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            modifier = Modifier.weight(1f)
-        )
         HudChip(
             label = stringResource(
                 id = R.string.game_lettersoup_words_format,
@@ -439,16 +426,16 @@ private fun HudChip(
  *
  * Each placement contributes one chip. The chip shows the Spanish
  * translation by default; when the player taps the English hint
- * button, the chip belonging to the active placement temporarily
- * swaps its text for the English word. Fixed words stay on the list
- * with a ✓ badge and a muted background.
+ * button, the chip belonging to the first unfixed placement
+ * temporarily swaps its text for the English word. Found placements
+ * stay on the list with a ✓ badge and a muted background.
  */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun TranslationsList(
     placements: List<LetterSoupWord>,
     isEnglishHintRevealed: Boolean,
-    activeWrongWord: LetterSoupWord?
+    activeUnfixedWord: LetterSoupWord?
 ) {
     FlowRow(
         modifier = Modifier.fillMaxWidth(),
@@ -456,7 +443,7 @@ private fun TranslationsList(
         verticalArrangement = Arrangement.spacedBy(6.dp)
     ) {
         placements.forEach { word ->
-            val showEnglish = isEnglishHintRevealed && word === activeWrongWord
+            val showEnglish = isEnglishHintRevealed && word === activeUnfixedWord
             TranslationChip(
                 translation = word.translation ?: "—",
                 englishWord = word.original,
@@ -517,6 +504,9 @@ private fun BoardGrid(
     onTap: (Int, Int) -> Unit
 ) {
     val boardSize = state.board.boardSize
+    val selectedCells = state.selectedCells
+    val wrongFlash = state.wrongFlashCells
+    val highlight = state.highlightedPlacement?.cells()?.toSet() ?: emptySet()
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxWidth()
@@ -534,14 +524,22 @@ private fun BoardGrid(
                     horizontalArrangement = Arrangement.spacedBy(2.dp)
                 ) {
                     for (col in 0 until boardSize) {
+                        val role = state.board.roleAt(row, col, selectedCells)
+                        val isJustFixed = state.lastFoundWord?.cells()?.contains(row to col) == true
+                        val isInSelection = role == LetterSoupCell.InSelection
+                        val isLastSelected = isInSelection &&
+                            selectedCells.size >= 2 &&
+                            (row to col) == selectedCells.last()
+                        val isWrongFlash = (row to col) in wrongFlash
+                        val isHighlighted = (row to col) in highlight
                         LetterCell(
                             letter = state.board[row, col],
-                            role = state.board.roleAt(row, col),
-                            isSelected = state.selectedCell == row to col,
-                            isFailedSwap = (row to col) in state.lastSwapFailedCells,
-                            isJustFixed = state.lastFixedWord?.cells()?.contains(row to col) == true,
-                            showWrongMarker = state.isLocationHintRevealed &&
-                                state.board.roleAt(row, col) == LetterSoupCell.WordWrong,
+                            role = role,
+                            isInSelection = isInSelection,
+                            isLastSelected = isLastSelected,
+                            isWrongFlash = isWrongFlash,
+                            isJustFixed = isJustFixed,
+                            isHighlighted = isHighlighted,
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxSize()
@@ -558,37 +556,30 @@ private fun BoardGrid(
 private fun LetterCell(
     letter: Char,
     role: LetterSoupCell,
-    isSelected: Boolean,
-    isFailedSwap: Boolean,
+    isInSelection: Boolean,
+    isLastSelected: Boolean,
+    isWrongFlash: Boolean,
     isJustFixed: Boolean,
-    showWrongMarker: Boolean,
+    isHighlighted: Boolean,
     modifier: Modifier = Modifier
 ) {
     val background = LetterPalette.backgroundFor(letter)
-    val isWordCell = role != LetterSoupCell.Soup
-
-    val transition = rememberInfiniteTransition(label = "wrong-letter-pulse")
-    val pulseAlpha by transition.animateFloat(
-        initialValue = 0.4f,
-        targetValue = 1.0f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 900),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "wrong-letter-alpha"
-    )
+    val isFixed = role == LetterSoupCell.WordFixed
 
     val borderColor = when {
-        isFailedSwap -> Color(0xFFFF3B30)
+        isWrongFlash -> Color(0xFFFF3B30)
         isJustFixed -> Color(0xFF34C759)
-        isSelected -> MaterialTheme.colorScheme.primary
-        isWordCell -> Color.White
+        isLastSelected -> Color(0xFFFF3D00)
+        isInSelection -> Color(0xFFFFB300)
+        isHighlighted -> Color(0xFFFFB300)
+        isFixed -> Color(0xFF34C759)
         else -> Color.Transparent
     }
     val borderWidth = when {
-        isFailedSwap || isJustFixed -> 3.dp
-        isSelected -> 3.dp
-        isWordCell -> 2.dp
+        isWrongFlash || isJustFixed -> 3.dp
+        isLastSelected -> 4.dp
+        isInSelection || isHighlighted -> 3.dp
+        isFixed -> 2.dp
         else -> 0.dp
     }
 
@@ -605,24 +596,6 @@ private fun LetterCell(
             fontWeight = FontWeight.ExtraBold,
             color = LetterPalette.letterForeground
         )
-        if (showWrongMarker) {
-            Box(
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(2.dp)
-                    .size(14.dp)
-                    .clip(RoundedCornerShape(50))
-                    .background(Color(0xFFFF3B30).copy(alpha = pulseAlpha)),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Cancel,
-                    contentDescription = stringResource(id = R.string.game_lettersoup_wrong_letter_cd),
-                    tint = Color.White,
-                    modifier = Modifier.size(12.dp)
-                )
-            }
-        }
     }
 }
 

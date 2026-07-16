@@ -80,7 +80,7 @@ private const val DEV_MODE_TOGGLE_ENABLED: Boolean = true
  *    a full-screen branded loading panel with the app's blue
  *    gradient so the user never sees a plain "Loading…" flash.
  *  - [WordMatchGameState.InProgress] — the verb + question prompt
- *    and three option cards, with a transient ✗ / ✓ overlay that
+ *    and four option cards, with a transient ✗ / ✓ overlay that
  *    auto-advances after a short delay. World-mode runs additionally
  *    show lives, a countdown timer, and the help / boost item
  *    buttons.
@@ -319,6 +319,16 @@ private fun InProgressState(
                     fontWeight = FontWeight.ExtraBold,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
+                if (question.translation.isNotBlank()) {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    Text(
+                        text = question.translation,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer
+                            .copy(alpha = 0.75f)
+                    )
+                }
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(id = question.askType.promptResId),
@@ -337,7 +347,7 @@ private fun InProgressState(
             }
         }
 
-        // Three option cards.
+        // Four option cards.
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(bottom = 32.dp)

@@ -18,17 +18,14 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
@@ -41,28 +38,42 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
-import com.example.englishvault.ui.components.SectionHeader
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
+import com.example.englishvault.ui.progress.arcade.components.ArcadeCard
+import com.example.englishvault.ui.progress.arcade.components.ArcadeLabel
 import com.example.englishvault.ui.settings.viewmodel.SettingsViewModel
 import data.database.entities.UserProfileEntity
 
 /**
- * Settings hub.
+ * Settings hub, redesigned in the arcade style.
  *
- * Two sections, both backed by the same [SettingsViewModel] so the
- * sliders stay in sync with `user_profile`:
+ * Three sections, all backed by the same [SettingsViewModel] so the
+ * sliders and the theme picker stay in sync with `user_profile`:
  *  - **Profile**: a single tappable row that navigates to the
  *    "Change name" sub-screen, showing the current display name as a
- *    secondary line.
+ *    secondary line. Card accent: gold (premium / identity).
+ *  - **Appearance**: two pill buttons that toggle the persisted
+ *    `user_profile.themeMode` between dark and light. The change
+ *    is applied live at the root of the Compose tree. Card accent:
+ *    pink (visual identity).
  *  - **Sound**: two [Slider]s for music and effects volume in
- *    `[0.0, 1.0]`. The music slider ships as a placeholder because
- *    the audio engine is not wired yet — a small "coming soon" hint
- *    under it makes the future intent explicit.
+ *    `[0.0, 1.0]`. The music slider ships as a placeholder
+ *    because the audio engine is not wired yet. Card accent: cyan
+ *    (controls).
+ *
+ * The screen reads the active [com.example.englishvault.ui.progress.arcade.ArcadePalette]
+ * from [LocalArcadePalette] so it adapts to the user's light /
+ * dark choice at the same time as the Progress screen and the
+ * rest of the arcade-aware UI.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,30 +83,40 @@ fun SettingsScreen(
     modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
+    val palette = LocalArcadePalette.current
     val profile by viewModel.profile.collectAsState()
+    val themeMode by viewModel.themeMode.collectAsState()
 
     Scaffold(
         modifier = modifier,
+        containerColor = palette.background,
         topBar = {
             TopAppBar(
                 title = {
                     Text(
                         text = stringResource(id = R.string.settings_title),
-                        fontWeight = FontWeight.Bold
+                        color = palette.textMain,
+                        fontFamily = ArcadeFonts.Display,
+                        fontWeight = ArcadeFonts.DisplayWeight,
+                        fontSize = 20.sp,
+                        letterSpacing = 1.sp
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                             contentDescription = stringResource(
                                 id = R.string.settings_back
-                            )
+                            ),
+                            tint = palette.textMain
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
+                    containerColor = palette.surface,
+                    titleContentColor = palette.textMain,
+                    navigationIconContentColor = palette.textMain
                 )
             )
         }
@@ -103,7 +124,7 @@ fun SettingsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(palette.background)
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp, vertical = 8.dp),
@@ -113,6 +134,11 @@ fun SettingsScreen(
                 currentName = profile?.name
                     ?: UserProfileEntity.DEFAULT_NAME,
                 onClick = onEditName
+            )
+
+            AppearanceSection(
+                themeMode = themeMode,
+                onThemeModeChange = viewModel::setThemeMode
             )
 
             SoundSection(
@@ -134,42 +160,149 @@ private fun ProfileSection(
     currentName: String,
     onClick: () -> Unit
 ) {
-    SectionHeader(title = stringResource(id = R.string.settings_section_profile))
+    val palette = LocalArcadePalette.current
+    ArcadeSectionTitle(text = stringResource(id = R.string.settings_section_profile))
 
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
-    ) {
+    ArcadeCard(accent = palette.highlight) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 16.dp),
+                .clickable(onClick = onClick)
+                .padding(vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            SettingsIconBadge(icon = Icons.Filled.Person)
+            SettingsIconBadge(
+                icon = Icons.Filled.Person,
+                container = palette.highlight,
+                content = palette.ink
+            )
             Spacer(modifier = Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(id = R.string.settings_change_name),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 16.sp
                 )
-                Text(
-                    text = currentName,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                Spacer(modifier = Modifier.height(2.dp))
+                ArcadeLabel(text = currentName)
             }
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant
+                tint = palette.textDim
+            )
+        }
+    }
+}
+
+@Composable
+private fun AppearanceSection(
+    themeMode: String,
+    onThemeModeChange: (String) -> Unit
+) {
+    val palette = LocalArcadePalette.current
+    ArcadeSectionTitle(text = stringResource(id = R.string.settings_section_appearance))
+
+    ArcadeCard(accent = palette.primary) {
+        Column {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SettingsIconBadge(
+                    icon = Icons.Filled.DarkMode,
+                    container = palette.primary,
+                    content = palette.ink
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = stringResource(id = R.string.settings_theme_label),
+                        color = palette.textMain,
+                        fontFamily = ArcadeFonts.Display,
+                        fontWeight = ArcadeFonts.DisplayWeight,
+                        fontSize = 16.sp
+                    )
+                    Spacer(modifier = Modifier.height(2.dp))
+                    ArcadeLabel(text = stringResource(id = R.string.settings_theme_hint))
+                }
+            }
+            Spacer(modifier = Modifier.height(14.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                ThemePillButton(
+                    label = stringResource(id = R.string.settings_theme_dark),
+                    selected = themeMode == UserProfileEntity.THEME_MODE_DARK,
+                    onClick = {
+                        onThemeModeChange(UserProfileEntity.THEME_MODE_DARK)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+                ThemePillButton(
+                    label = stringResource(id = R.string.settings_theme_light),
+                    selected = themeMode == UserProfileEntity.THEME_MODE_LIGHT,
+                    onClick = {
+                        onThemeModeChange(UserProfileEntity.THEME_MODE_LIGHT)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Pill button used by the theme picker. Flat (no shadow), solid
+ * fill when selected, surface-dark when not. Stays in the same
+ * arcade family as [com.example.englishvault.ui.progress.arcade.components.ArcadeChip]
+ * but uses display font and a slightly bigger pill because it is
+ * the primary affordance of the Appearance section.
+ *
+ * Renders as two stacked `Box`es so the active variant gets a
+ * subtle inner border that reads as a "depressed" chip — the inner
+ * box fills with the background color, leaving a 2 dp rim of the
+ * outer container around it. The inactive variant hides the inner
+ * rim and stays flat.
+ */
+@Composable
+private fun ThemePillButton(
+    label: String,
+    selected: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val palette = LocalArcadePalette.current
+    val container = if (selected) palette.primary else palette.surfaceDark
+    val content = if (selected) palette.ink else palette.textDim
+    Box(
+        modifier = modifier
+            .height(48.dp)
+            .clip(RoundedCornerShape(999.dp))
+            .background(container)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 2.dp, vertical = 2.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(44.dp)
+                .clip(RoundedCornerShape(999.dp))
+                .background(if (selected) palette.primary else palette.surface)
+                .padding(horizontal = 16.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = label,
+                color = content,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 14.sp,
+                letterSpacing = 1.sp
             )
         }
     }
@@ -182,22 +315,18 @@ private fun SoundSection(
     onMusicVolumeChange: (Float) -> Unit,
     onEffectsVolumeChange: (Float) -> Unit
 ) {
-    SectionHeader(title = stringResource(id = R.string.settings_section_sound))
+    val palette = LocalArcadePalette.current
+    ArcadeSectionTitle(text = stringResource(id = R.string.settings_section_sound))
 
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        )
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+    ArcadeCard(accent = palette.secondary) {
+        Column {
             VolumeSlider(
                 icon = Icons.Filled.MusicNote,
                 label = stringResource(id = R.string.settings_sound_music),
                 hint = stringResource(id = R.string.settings_sound_music_hint),
                 value = musicVolume,
-                onValueChange = onMusicVolumeChange
+                onValueChange = onMusicVolumeChange,
+                iconContainer = palette.secondary
             )
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -207,7 +336,8 @@ private fun SoundSection(
                 label = stringResource(id = R.string.settings_sound_effects),
                 hint = null,
                 value = effectsVolume,
-                onValueChange = onEffectsVolumeChange
+                onValueChange = onEffectsVolumeChange,
+                iconContainer = palette.secondary
             )
         }
     }
@@ -219,26 +349,32 @@ private fun VolumeSlider(
     label: String,
     hint: String?,
     value: Float,
-    onValueChange: (Float) -> Unit
+    onValueChange: (Float) -> Unit,
+    iconContainer: Color
 ) {
+    val palette = LocalArcadePalette.current
     Column(modifier = Modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            SettingsIconBadge(icon = icon)
+            SettingsIconBadge(
+                icon = icon,
+                container = iconContainer,
+                content = palette.ink
+            )
             Spacer(modifier = Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = label,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 16.sp
                 )
-                Text(
+                Spacer(modifier = Modifier.height(2.dp))
+                ArcadeLabel(
                     text = stringResource(
                         id = R.string.settings_sound_volume_format,
                         (value * 100).toInt()
-                    ),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 )
             }
         }
@@ -247,35 +383,58 @@ private fun VolumeSlider(
             onValueChange = onValueChange,
             modifier = Modifier.fillMaxWidth(),
             colors = SliderDefaults.colors(
-                thumbColor = MaterialTheme.colorScheme.primary,
-                activeTrackColor = MaterialTheme.colorScheme.primary,
-                inactiveTrackColor = MaterialTheme.colorScheme.outlineVariant
+                thumbColor = palette.ink,
+                activeTrackColor = palette.primary,
+                inactiveTrackColor = palette.border
             )
         )
         if (hint != null) {
-            Text(
-                text = hint,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
+            Spacer(modifier = Modifier.height(4.dp))
+            ArcadeLabel(text = hint)
         }
     }
 }
 
+/**
+ * Circle badge holding the section's icon. Solid color background
+ * matching the section's accent, dark ink icon, 40 dp.
+ */
 @Composable
-private fun SettingsIconBadge(icon: ImageVector) {
+private fun SettingsIconBadge(
+    icon: ImageVector,
+    container: Color,
+    content: Color
+) {
     Box(
         modifier = Modifier
             .size(40.dp)
             .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.primaryContainer),
+            .background(container),
         contentAlignment = Alignment.Center
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = MaterialTheme.colorScheme.onPrimaryContainer,
+            tint = content,
             modifier = Modifier.size(22.dp)
         )
     }
+}
+
+/**
+ * Section header for the arcade settings — same look as
+ * `ProgressScreen.SectionHeader` so the two screens feel like the
+ * same family.
+ */
+@Composable
+private fun ArcadeSectionTitle(text: String) {
+    val palette = LocalArcadePalette.current
+    Text(
+        text = text.uppercase(),
+        color = palette.textMain,
+        fontFamily = ArcadeFonts.Display,
+        fontWeight = ArcadeFonts.DisplayWeight,
+        fontSize = 14.sp,
+        letterSpacing = 2.sp
+    )
 }

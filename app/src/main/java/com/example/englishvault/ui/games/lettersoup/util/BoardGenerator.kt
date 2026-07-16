@@ -1,9 +1,7 @@
 package com.example.englishvault.ui.games.lettersoup.util
 
+import com.example.englishvault.ui.games.lettersoup.model.Direction
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupBoard
-import com.example.englishvault.ui.games.lettersoup.model.LetterSoupBoard.Companion.DEFAULT_BOARD_SIZE
-import com.example.englishvault.ui.games.lettersoup.model.LetterSoupBoard.Companion.EXTENDED_BOARD_SIZE
-import com.example.englishvault.ui.games.lettersoup.model.LetterSoupBoard.Companion.EXTENDED_THRESHOLD
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
 import kotlin.random.Random
@@ -15,12 +13,17 @@ import kotlin.random.Random
  * whose lengths all fit on the board. Callers filter by length via
  * `WordDao.getCoreWordsByLengthAndLevel(level, MIN, MAX)`.
  *
- * Output: a fully populated [LetterSoupBoard] with up to two target
- * words placed horizontally or vertically, one random letter per word
- * replaced by a soup letter so the player can hunt for the correct
- * replacement, and every remaining cell filled with a weighted random
- * letter. The board side length auto-scales to 10 when any candidate
- * word has 9+ characters.
+ * Output: a fully populated [LetterSoupBoard] with up to
+ * [LetterSoupGameState.TARGET_PLACEMENTS] target words placed in any
+ * of the eight supported directions (horizontal, vertical, two
+ * diagonals, and each in reverse), allowing cells to be **shared**
+ * between placements when the overlapping letter matches.
+ *
+ * The board side length is fixed at
+ * [LetterSoupBoard.DEFAULT_BOARD_SIZE] (12) — the word-search layout
+ * no longer auto-scales. Every remaining cell is filled with a
+ * weighted random letter from [EnglishLetterFrequency] so the soup
+ * feels like natural English.
  *
  * The function is deterministic given a [random] instance, which lets
  * tests and previews pin specific layouts. Production callers should
@@ -29,18 +32,17 @@ import kotlin.random.Random
  */
 object BoardGenerator {
 
-    /** Probability of placing a word horizontally (vs vertically). */
-    private const val HORIZONTAL_PROBABILITY: Double = 0.75
-
     /** Max placement attempts per word before giving up on it. */
-    private const val MAX_PLACEMENT_ATTEMPTS: Int = 100
+    private const val MAX_PLACEMENT_ATTEMPTS: Int = 400
 
     /**
      * Builds a board from [pool]. Returns `null` when the pool is
      * empty (the caller should fall back to an empty / error state in
-     * that case). Returns a board with **one** placement if the second
-     * candidate could not fit on the board after [MAX_PLACEMENT_ATTEMPTS]
-     * tries — a partially empty board is still playable.
+     * that case). Returns a board with fewer placements than
+     * [LetterSoupGameState.TARGET_PLACEMENTS] when one of the
+     * candidate words could not fit on the board after
+     * [MAX_PLACEMENT_ATTEMPTS] tries — a partially full board is
+     * still playable.
      *
      * @param pool Upper-cased words to choose from.
      * @param translations Lookup from upper-cased word to its Spanish
@@ -71,31 +73,20 @@ object BoardGenerator {
             .distinct()
         if (sanitized.isEmpty()) return null
 
+        val boardSize = LetterSoupBoard.DEFAULT_BOARD_SIZE
         val chosen = sanitized.shuffled(random).take(LetterSoupGameState.TARGET_PLACEMENTS)
-        val boardSize = computeBoardSize(chosen)
-
         val cells = Array(boardSize) { arrayOfNulls<Char>(boardSize) }
         val placements = mutableListOf<LetterSoupWord>()
 
         for (word in chosen) {
             val placement = tryPlace(word, cells, boardSize, random) ?: continue
-            val wrongIndex = (0 until word.length).random(random)
             for (i in word.indices) {
-                val letter = if (i == wrongIndex) {
-                    EnglishLetterFrequency.pickDifferentFrom(word[i], random)
-                } else {
-                    word[i]
-                }
-                if (placement.horizontal) {
-                    cells[placement.row][placement.col + i] = letter
-                } else {
-                    cells[placement.row + i][placement.col] = letter
-                }
+                val (r, c) = placement.cells()[i]
+                cells[r][c] = word[i]
             }
             placements.add(
                 placement.copy(
                     wordId = wordIds[word] ?: 0,
-                    wrongIndex = wrongIndex,
                     translation = translations[word]
                 )
             )
@@ -116,20 +107,14 @@ object BoardGenerator {
     }
 
     /**
-     * Picks the right side length for the chosen words. Anything up to
-     * 8 chars uses the default 8×8 grid; 9+ chars forces the 10×10
-     * extended layout so the longest word always fits.
-     */
-    private fun computeBoardSize(words: List<String>): Int {
-        val longest = words.maxOfOrNull { it.length } ?: 0
-        return if (longest >= EXTENDED_THRESHOLD) EXTENDED_BOARD_SIZE else DEFAULT_BOARD_SIZE
-    }
-
-    /**
-     * Attempts to find an empty rectangle of size `word.length` on
-     * the [cells] grid, respecting the [HORIZONTAL_PROBABILITY] axis
-     * bias. Returns `null` if no position fits after
+     * Attempts to find an anchor + direction that fits [word] on the
+     * [cells] grid. Returns `null` if no position fits after
      * [MAX_PLACEMENT_ATTEMPTS] tries.
+     *
+     * Overlap is **allowed**: a cell already populated with the same
+     * letter is treated as a free match. A cell populated with a
+     * different letter blocks the placement, since the chain would
+     * visually disagree with the target word.
      */
     private fun tryPlace(
         word: String,
@@ -139,41 +124,50 @@ object BoardGenerator {
     ): LetterSoupWord? {
         if (word.length > boardSize) return null
 
+        val direction = Direction.ALL.random(random)
+        // Valid anchor range: every cell of the word must lie inside
+        // the [0, boardSize) square. The anchor itself is the first
+        // letter; the last letter sits at
+        // (row + (length - 1) * dRow, col + (length - 1) * dCol).
+        val rowMin = if (direction.dRow < 0) -(direction.dRow) * (word.length - 1) else 0
+        val rowMax = if (direction.dRow > 0) boardSize - direction.dRow * (word.length - 1) - 1
+            else boardSize - 1
+        val colMin = if (direction.dCol < 0) -(direction.dCol) * (word.length - 1) else 0
+        val colMax = if (direction.dCol > 0) boardSize - direction.dCol * (word.length - 1) - 1
+            else boardSize - 1
+        if (rowMin > rowMax || colMin > colMax) return null
+
         repeat(MAX_PLACEMENT_ATTEMPTS) {
-            val horizontal = random.nextDouble() < HORIZONTAL_PROBABILITY
-            val row: Int
-            val col: Int
-            if (horizontal) {
-                row = random.nextInt(boardSize)
-                col = random.nextInt(boardSize - word.length + 1)
-            } else {
-                row = random.nextInt(boardSize - word.length + 1)
-                col = random.nextInt(boardSize)
-            }
-            if (canPlace(word, row, col, horizontal, cells)) {
+            val row = random.nextInt(rowMin, rowMax + 1)
+            val col = random.nextInt(colMin, colMax + 1)
+            if (canPlace(word, row, col, direction, cells)) {
                 return LetterSoupWord(
                     original = word,
                     row = row,
                     col = col,
-                    horizontal = horizontal
+                    direction = direction
                 )
             }
         }
         return null
     }
 
-    /** `true` when the rectangle described by ([row], [col], [horizontal], word length) is empty. */
+    /**
+     * `true` when the chain described by ([row], [col], [direction],
+     * word length) is empty or only overlaps with matching letters.
+     */
     private fun canPlace(
         word: String,
         row: Int,
         col: Int,
-        horizontal: Boolean,
+        direction: Direction,
         cells: Array<Array<Char?>>
     ): Boolean {
         for (i in word.indices) {
-            val r = if (horizontal) row else row + i
-            val c = if (horizontal) col + i else col
-            if (cells[r][c] != null) return false
+            val r = row + direction.dRow * i
+            val c = col + direction.dCol * i
+            val existing = cells[r][c]
+            if (existing != null && existing != word[i]) return false
         }
         return true
     }

@@ -152,6 +152,15 @@ class WordMatchVerbsViewModel @Inject constructor(
 
         /** How often the world-mode timer ticks the countdown. */
         const val TIMER_TICK_MS: Long = 100L
+
+        /**
+         * How many of the wrong options a single 50/50 help item
+         * hides. The four-option layout (one correct + three
+         * distractors) lets the player keep their first use to drop
+         * the field to two visible cards (one correct, one wrong);
+         * a second use is naturally a no-op.
+         */
+        const val HIDE_PER_HELP: Int = 2
     }
 
     private val _gameState = MutableStateFlow<WordMatchGameState>(WordMatchGameState.Loading)
@@ -173,17 +182,25 @@ class WordMatchVerbsViewModel @Inject constructor(
     /**
      * Highest verb level the player can currently access.
      *
-     * The game mixes regular and irregular verbs at every level,
-     * so a level is considered unlocked if either verb category
-     * has unlocked it. Returns `1` on a fresh install (no rows
-     * yet seeded means both default to `unlockedLevel = 1`).
+     * The game mixes regular and irregular verbs at every level, so a
+     * level is considered unlocked only when **both** verb categories
+     * have unlocked it. Each category progresses independently (see
+     * [data.game.PromotionGate]) but this game gates the selector on
+     * the lower of the two — moving on to level N requires
+     * `VERBS_REGULAR.unlockedLevel >= N` **and**
+     * `VERBS_IRREGULAR.unlockedLevel >= N`. This prevents the player
+     * from skipping ahead on one category while the other still has
+     * unmastered words at the current level.
+     *
+     * Returns `1` on a fresh install (no rows yet seeded means both
+     * default to `unlockedLevel = 1`).
      */
     suspend fun maxUnlockedVerbLevel(): Int {
         val reg = categoryProgressDao.get(WordTypeFilter.VERBS_REGULAR.name)
             ?.unlockedLevel ?: CategoryGating.DEFAULT_UNLOCKED_LEVEL
         val irreg = categoryProgressDao.get(WordTypeFilter.VERBS_IRREGULAR.name)
             ?.unlockedLevel ?: CategoryGating.DEFAULT_UNLOCKED_LEVEL
-        return maxOf(reg, irreg)
+        return minOf(reg, irreg)
     }
 
     /**
@@ -438,10 +455,14 @@ class WordMatchVerbsViewModel @Inject constructor(
     }
 
     /**
-     * Consumes one 50/50 help item: hides two incorrect options for
-     * the current question. No-op outside [GameMode.WORLD] or when
-     * the inventory is empty / the question has already been
-     * answered.
+     * Consumes one 50/50 help item: hides two of the three incorrect
+     * options for the current question. With the standard four-option
+     * layout (one correct + three distractors) the first use leaves
+     * the correct answer plus one distractor visible; a second use is
+     * a no-op because no more wrong options need to be removed.
+     *
+     * No-op outside [GameMode.WORLD] or when the inventory is empty /
+     * the question has already been answered.
      */
     fun useHelpItem() {
         val state = _gameState.value as? WordMatchGameState.InProgress ?: return
@@ -449,11 +470,13 @@ class WordMatchVerbsViewModel @Inject constructor(
         if (state.helpItems <= 0) return
         if (state.lastAnswer != null) return
         val question = state.currentQuestion ?: return
+        val remaining = (HIDE_PER_HELP - state.eliminatedOptions.size)
+            .coerceAtLeast(0)
         val wrongs = state.eliminatedOptions +
             question.options
                 .filter { !it.equals(question.correctAnswer, ignoreCase = true) }
                 .shuffled()
-                .take(2 - state.eliminatedOptions.size.coerceAtMost(2))
+                .take(remaining)
                 .toSet()
         _gameState.value = state.copy(
             helpItems = state.helpItems - 1,
@@ -540,12 +563,14 @@ class WordMatchVerbsViewModel @Inject constructor(
     /**
      * Builds a single question from [word]: picks a random form
      * (PAST_SIMPLE or PAST_PARTICIPLE after the Phase 7.4 cleanup),
-     * resolves the correct answer and pairs it with two distractor
-     * misspellings. The three options are shuffled so the correct
-     * answer is not always in the same slot. The verb's
-     * [WordTypeFilter] bucket and progression level are stamped on
-     * the question so the gameplay loop can credit the right
-     * category without re-querying Room. The underlying `wordId` is
+     * resolves the correct answer and pairs it with three distractor
+     * misspellings — or, more often, **invented verb forms** produced
+     * by [DistractorGenerator]'s regularisation / irregularisation
+     * strategies. The four options are shuffled so the correct answer
+     * is not always in the same slot. The verb's [WordTypeFilter]
+     * bucket and progression level are stamped on the question so the
+     * gameplay loop can credit the right category without re-querying
+     * Room. The underlying `wordId` is
      * also stamped so the auto-marking pipeline can update the row's
      * `consecutiveCorrect` counter on every correct answer without a
      * redundant lookup by text.
@@ -553,10 +578,20 @@ class WordMatchVerbsViewModel @Inject constructor(
     private fun buildQuestion(word: WordEntity): WordMatchQuestion {
         val askType = WordMatchAskType.random()
         val correct = askType.correctAnswer(word)
-        val distractors = DistractorGenerator.generate(correct, count = 2)
+        val otherForm = when (askType) {
+            WordMatchAskType.PAST_SIMPLE -> word.forms?.pastParticiple
+            WordMatchAskType.PAST_PARTICIPLE -> word.forms?.pastSimple
+        }
+        val distractors = DistractorGenerator.generate(
+            correct = correct,
+            count = 3,
+            baseWord = word.word,
+            otherValidForm = otherForm
+        )
         val allOptions = (listOf(correct) + distractors).shuffled()
         return WordMatchQuestion(
             baseWord = word.word,
+            translation = word.translation,
             wordId = word.id,
             askType = askType,
             correctAnswer = correct,
