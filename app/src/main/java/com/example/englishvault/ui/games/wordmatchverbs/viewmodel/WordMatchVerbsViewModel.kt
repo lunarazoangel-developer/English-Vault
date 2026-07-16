@@ -23,10 +23,12 @@ import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.LearningStatus
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
 import data.database.UserLevel
+import data.game.AutoStatusEvaluator
 import data.game.CategoryGating
 import data.game.PromotionEvent
 import data.game.PromotionGate
@@ -269,6 +271,24 @@ class WordMatchVerbsViewModel @Inject constructor(
      * transitions to [WordMatchGameState.Finished] with
      * `outOfLives = true`.
      *
+     * ## Auto-marking (Phase 7.15)
+     *
+     * After the state mutation, [applyAutoStatus] runs in a
+     * dedicated `viewModelScope.launch` so the auto pipeline does
+     * not block the UI. The flow:
+     *
+     *  - On a correct answer, the word's `consecutiveCorrect` counter
+     *    is bumped by one and `lastReview` is updated to "now".
+     *  - On a wrong answer, the counter resets to `0` and
+     *    `lastReview` is updated.
+     *  - [AutoStatusEvaluator.nextStatus] is then called with the
+     *    *current* status (read from the row, which may have been
+     *    manually set by the user) and the new counter. The
+     *    evaluator returns either the same status or a strictly
+     *    higher one — a manual `LEARNED` therefore survives a wrong
+     *    answer, and a manual `NOT_LEARNED` can be re-promoted by
+     *    subsequent correct answers.
+     *
      * Does NOT advance to the next question — the screen calls
      * [acknowledgeAnswer] after the brief feedback delay.
      */
@@ -310,6 +330,40 @@ class WordMatchVerbsViewModel @Inject constructor(
 
         if (isCorrect) {
             soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+        }
+
+        applyAutoStatus(question.wordId, isCorrect)
+    }
+
+    /**
+     * Updates [WordEntity.consecutiveCorrect] for the word behind the
+     * current question and re-evaluates its
+     * [data.database.entities.LearningStatus] via
+     * [AutoStatusEvaluator]. The status write is a no-op when the
+     * evaluator returns the same value, so no spurious Room
+     * invalidations are fired when the counter is still under the
+     * promotion threshold.
+     *
+     * Runs on [viewModelScope] so the play screen never blocks on
+     * Room IO. Errors are swallowed defensively: a failed write
+     * should not crash the game flow.
+     */
+    private fun applyAutoStatus(wordId: Int, isCorrect: Boolean) {
+        if (wordId <= 0) return
+        viewModelScope.launch {
+            runCatching {
+                val previous = wordDao.getWordById(wordId) ?: return@launch
+                val now = System.currentTimeMillis()
+                val newCount = if (isCorrect) previous.consecutiveCorrect + 1 else 0
+                wordDao.setConsecutiveCorrect(wordId, newCount, now)
+                val promoted = AutoStatusEvaluator.nextStatus(
+                    current = previous.status,
+                    consecutiveCorrect = newCount
+                )
+                if (promoted != previous.status) {
+                    wordDao.setStatus(wordId, promoted)
+                }
+            }
         }
     }
 
@@ -491,7 +545,10 @@ class WordMatchVerbsViewModel @Inject constructor(
      * answer is not always in the same slot. The verb's
      * [WordTypeFilter] bucket and progression level are stamped on
      * the question so the gameplay loop can credit the right
-     * category without re-querying Room.
+     * category without re-querying Room. The underlying `wordId` is
+     * also stamped so the auto-marking pipeline can update the row's
+     * `consecutiveCorrect` counter on every correct answer without a
+     * redundant lookup by text.
      */
     private fun buildQuestion(word: WordEntity): WordMatchQuestion {
         val askType = WordMatchAskType.random()
@@ -500,6 +557,7 @@ class WordMatchVerbsViewModel @Inject constructor(
         val allOptions = (listOf(correct) + distractors).shuffled()
         return WordMatchQuestion(
             baseWord = word.word,
+            wordId = word.id,
             askType = askType,
             correctAnswer = correct,
             options = allOptions,

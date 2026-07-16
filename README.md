@@ -28,16 +28,14 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 ### Available now
 
 - **Offline dictionary** seeded from `assets/dictionary/` — eight per-type section files (`verbs_irregular.json`, `verbs_regular.json`, `interjections.json`, `nouns.json`, `adjectives.json`, `adverbs.json`, `prepositions.json`, `conjunctions.json`) totalling **hundreds of entries** with bilingual examples tagged by CEFR level. `assets/dictionary/README.md` acts as the section index.
-- **Room storage v10** with five artefacts:
+- **Room storage v11** with five artefacts:
   - `core_words` — dictionary entries seeded from the `assets/dictionary/` section files. Conceptually read-only; the user can only update its user-state columns (`favorite`, `status`, `level`, `notes`, …) via the dual-table DAO pattern.
   - `user_words` — entries the learner added through the form. Fully mutable.
   - `words_view` — `UNION ALL` of both tables, exposed as the read-only `WordEntity` data class so the UI consumes a single model regardless of origin.
   - `user_profile` — single-row table for global XP, streak, daily goal, display name, dictionary seed version and the player's persistent hearts and coins counters.
   - `category_progress` — one row per tracked grammatical category (`VERBS_REGULAR`, `ADJECTIVES`, …) holding cumulative XP, unlocked level and XP-since-last-promotion. Drives the per-category progression system on the Progress screen.
   - `skill_progress` — one row per language skill (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`) holding cumulative XP. Drives the Skill Progress bars on the Progress screen. Schema bump v9 → v10 via `MIGRATION_9_10`.
-- **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
-- **Hilt DI graph** wiring `AppDatabase`, four DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`, `SkillProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
-- **Nine versioned migrations** that keep every previous install alive:
+- **Ten versioned migrations** that keep every previous install alive:
   - `MIGRATION_1_2` — adds the `user_profile` table.
   - `MIGRATION_2_3` — recreates `words` with `AUTOINCREMENT` ids.
   - `MIGRATION_3_4` — splits `words` into `core_words` + `user_words` + `words_view`.
@@ -47,6 +45,9 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
   - `MIGRATION_7_8` — adds the persistent `hearts` and `coins` counters to `user_profile` so the World map HUD can render the player's gamified state.
   - `MIGRATION_8_9` — adds the music and effects volume sliders to `user_profile` so the Settings screen can persist preferences before the audio engine ships.
   - `MIGRATION_9_10` — adds the `skill_progress` table and seeds one row per `Skill` (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`).
+  - `MIGRATION_10_11` — adds the `consecutiveCorrect` counter to `core_words` and `user_words` and recreates `words_view` with the new column so the auto-marking pipeline (Phase 7.15) can persist each word's running racha.
+- **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
+- **Hilt DI graph** wiring `AppDatabase`, four DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`, `SkillProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
 - **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumping `CORE_DICTIONARY_VERSION` in code triggers an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) — reused by both the global XP card and the per-category levels.
 - **Per-category progression (Phase 4.6)** — eight parallel tracks. Correct answers in the mini-game grant XP per category. Advancing to the next level requires a hybrid gate: at least `XP_MIN_PER_LEVEL` XP earned at the current level **and** at least `LEARNED_PCT_REQUIRED` of the words at that level marked `LEARNED`. The DAO wraps each grant + promotion in a single transaction.
@@ -64,6 +65,7 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 - **Rich expandable cards** — each card collapses by default to the header + badges and expands in place (with smooth animation and per-card state persisted via `rememberSaveable`) to reveal pronunciation, verb forms, examples with CEFR badges, synonyms, antonyms, tags and category.
 - **Live tab counts** — every chip in the Words screen shows the number of words matching its filter.
 - **Tri-state learning progress** — every word carries a `LearningStatus` (`NOT_LEARNED` / `ALMOST` / `LEARNED`) with a dedicated status menu button on every card. Picking a status persists immediately via the dual-table DAO.
+- **Auto-marcado por mini-juegos (Phase 7.15)** — cada respuesta correcta en cualquier mini-juego (Word Match Verbs, Listening, Letter Soup) sube automáticamente el `LearningStatus` de la palabra: `consecutiveCorrect >= 1` → `ALMOST`, `>= 3` → `LEARNED`. Las respuestas incorrectas resetean el contador a `0`. El botón manual de la card sigue funcionando con cualquier dirección — un `LEARNED` puesto a mano nunca se pierde por un fallo en un mini-juego, y un `NOT_LEARNED` marcado por el usuario puede volver a promocionarse con nuevos aciertos. Implementado por `data/game/AutoStatusEvaluator.kt` (helper puro con la regla "solo promueve, nunca degrada") + `WordDao.setConsecutiveCorrect` dual-table + un hook de `submitAnswer` en cada uno de los tres ViewModels de mini-juego. Schema bump v10 → v11 vía `MIGRATION_10_11`.
 - **Word progression levels** — both core and user words have an independent `level: Int` that gates availability in mini-games, so the learner is never overwhelmed by the whole dictionary at once. The level chip on every card renders in the compact `L5` form (no "Level" prefix) so it never clips on narrow screens.
 - **Progress screen** — `ProgressViewModel` exposes the global profile, level / xp slice, daily-goal estimate, streak and one `CategoryProgressUi` per tracked grammatical category. Each per-category card carries its own level (1..N), an XP bar, a learned-percentage bar and a hybrid-gate status message.
 - **Skill Progress section (Phase 7.6)** — a new "Skills" block sits between the daily-goal card and "Progress by category" and renders five infinite progress bars (Listening / Speaking / Reading / Writing / Grammar) as a 2-column × 3-row grid (2 + 2 + 1). Each card carries the skill icon, the cumulative XP, an optional `Cycle N` chip and a cyclic `LinearProgressIndicator` that fills to 1000 XP and resets. There is no level cap and no gating — the bars are a "how am I doing" measure. Backed by the new `skill_progress` table (schema v10, `MIGRATION_9_10`) and the `Skill` enum. Mini-games grant XP to their matching skill on every run: Word Match Verbs and Letter Soup → `READING`; Listening → `LISTENING`. Speaking and Grammar stay at `0 XP` until a future mini-game exercises them.
@@ -320,22 +322,23 @@ EnglishVault/
                 |   |-- UserLevel.kt                 <- XP/Level pure math (global + per-category)
                 |   |-- dao/
                 |   |   |-- WordDao.kt                <- dual-table updates, game queries, per-category counts
-                |   |   |-- UserProfileDao.kt
-                |   |   `-- CategoryProgressDao.kt    <- per-category XP / unlocked level
-                |   |-- entities/
-                |   |   |-- CoreWordEntity.kt         <- @Entity(core_words), status + level
-                |   |   |-- UserWordEntity.kt         <- @Entity(user_words), status + level
-                |   |   |-- WordEntity.kt             <- @DatabaseView(words_view)
-                |   |   |-- CategoryProgressEntity.kt <- @Entity(category_progress)
-                |   |   |-- LearningStatus.kt         <- enum: NOT_LEARNED / ALMOST / LEARNED
-                |   |   |-- WordMappers.kt            <- toUserEntity() / toCoreEntity()
-                |   |   |-- UserProfileEntity.kt
-                |   |   `-- ProgressStats.kt
-                |   `-- converters/                  <- 5 type converters
+                 |   |   |-- UserProfileDao.kt
+                 |   |   `-- CategoryProgressDao.kt    <- per-category XP / unlocked level
+                 |   |-- entities/
+                 |   |   |-- CoreWordEntity.kt         <- @Entity(core_words), status + level + consecutiveCorrect
+                 |   |   |-- UserWordEntity.kt         <- @Entity(user_words), status + level + consecutiveCorrect
+                 |   |   |-- WordEntity.kt             <- @DatabaseView(words_view)
+                 |   |   |-- CategoryProgressEntity.kt <- @Entity(category_progress)
+                 |   |   |-- LearningStatus.kt         <- enum: NOT_LEARNED / ALMOST / LEARNED + ordinal helper
+                 |   |   |-- WordMappers.kt            <- toUserEntity() / toCoreEntity()
+                 |   |   |-- UserProfileEntity.kt
+                 |   |   `-- ProgressStats.kt
+                 |   `-- converters/                  <- 5 type converters
 |-- game/
                  |   |-- CategoryGating.kt            <- XP thresholds, learned %, tracked categories
                  |   |-- PromotionGate.kt             <- centralised hybrid gate (Phase 7.14)
-                 |   `-- PromotionNotifier.kt         <- @Singleton SharedFlow<PromotionEvent> bus (Phase 7.14)
+                 |   |-- PromotionNotifier.kt         <- @Singleton SharedFlow<PromotionEvent> bus (Phase 7.14)
+                 |   `-- AutoStatusEvaluator.kt       <- consecutive-correct → LearningStatus (Phase 7.15)
                 |-- json/
                 |   |-- dto/WordDto.kt               <- +level field
                 |   `-- loader/JsonLoader.kt
@@ -418,11 +421,27 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 7.3    |  Done     | `SoundPool`-backed SFX + custom `correct_sound.mp3` + Letter Soup mini-game  |
 | 7.4    |  Beta      | Dev toggle + WORLD mode in both mini-games, 10-level dictionary re-bucket    |
 | 7.14   |  Done     | Words pagination + debounced search + level-up celebration + centralised gate   |
+| 7.15   |  Done     | Auto-marcado de `LearningStatus` desde mini-juegos (racha de aciertos consecutivos) |
 | 8      |  Planned   | Cloud sync, user accounts, multi-device                                        |
 
 ---
 
 ## Changelog
+
+### Phase 7.15 - Auto-marcado de palabras desde mini-juegos
+
+- **Esquema bump v10 → v11 (`MIGRATION_10_11`).** Nueva columna `consecutiveCorrect INTEGER NOT NULL DEFAULT 0` en `core_words` y `user_words`, y `words_view` recreado para proyectarla. Sin pérdida de datos: la columna tiene `DEFAULT 0`, así que cada fila existente conserva su `status` actual y la racha arranca vacía hasta que el usuario juega un mini-juego.
+- **`WordDao.setConsecutiveCorrect(id, value, timestamp)`** — nuevo método dual-table (par `setConsecutiveCorrectCore` / `setConsecutiveCorrectUser`) que actualiza la racha + `lastReview` en una sola escritura. El caller decide el `value` (incremento o reset); el DAO nunca interpreta.
+- **`data/game/AutoStatusEvaluator.kt`** — helper puro que mapea `(LearningStatus actual, consecutiveCorrect)` a un `LearningStatus` candidato con la regla "solo promueve, nunca degrada":
+  - `consecutiveCorrect >= 3` → candidato `LEARNED`.
+  - `consecutiveCorrect >= 1` → candidato `ALMOST`.
+  - si no → candidato = `current`.
+  - resultado = `LearningStatus.max(current, candidato)` (un `LEARNED` manual sobrevive a cualquier reset de racha; un `NOT_LEARNED` manual puede re-promocionarse con nuevos aciertos).
+- **`LearningStatus.Companion.max(a, b)`** — comparador ordinal (`LEARNED > ALMOST > NOT_LEARNED`) usado por el evaluator y expuesto como util privado del companion.
+- **Modelos de pregunta enriquecidos.** `WordMatchQuestion`, `ListeningQuestion` y `LetterSoupWord` ahora llevan un `wordId: Int` para que el VM de cada mini-juego pueda escribir sobre la fila exacta sin un lookup extra por texto. `BoardGenerator.generate` acepta un nuevo `wordIds: Map<String, Int>` que se estampa a cada `LetterSoupWord` durante la colocación.
+- **Hooks en los tres ViewModels de mini-juego.** Cada `submitAnswer` (Word Match Verbs, Listening) llama a un `applyAutoStatus(wordId, isCorrect)` que bumpea/resetea `consecutiveCorrect` y, si el evaluator devuelve un status mayor, persiste el `LearningStatus` vía `wordDao.setStatus`. En `LetterSoupViewModel` el hook vive en `attemptSwap` y se dispara por cada placement fijado (el swap fallido NO resetea la racha porque no es un fallo de conocimiento por palabra). Todas las escrituras van dentro de un `viewModelScope.launch { runCatching { … } }` para no bloquear la UI ni crashear el juego si Room falla.
+- **Botón manual intacto.** `WordListViewModel.setStatus` y `WordCard.StatusMenuButton` no se tocan. La regla "solo promueve" garantiza que un `LEARNED` puesto a mano sobrevive a cualquier cantidad de respuestas incorrectas en mini-juegos; un `NOT_LEARNED` marcado manualmente vuelve a promocionarse cuando el usuario acumule nuevos aciertos consecutivos.
+- **Sin cambios de UI.** El `Flow<List<WordEntity>>` re-emite cuando cualquier campo cambia, así que el ícono del status menu en `WordCard` cambia de color en cuanto la promoción se persiste. La sección "Available now" del README ahora menciona el comportamiento junto a "Tri-state learning progress".
 
 ### Phase 7.14 - Words search + pagination, level-up centralisation, celebration overlay
 

@@ -276,6 +276,37 @@ interface WordDao {
     suspend fun setNextReview(id: Int, nextReview: Long?): Int =
         setNextReviewCore(id, nextReview) + setNextReviewUser(id, nextReview)
 
+    @Query("UPDATE core_words SET consecutiveCorrect = :value, lastReview = :timestamp WHERE id = :id")
+    suspend fun setConsecutiveCorrectCore(id: Int, value: Int, timestamp: Long): Int
+
+    @Query("UPDATE user_words SET consecutiveCorrect = :value, lastReview = :timestamp WHERE id = :id")
+    suspend fun setConsecutiveCorrectUser(id: Int, value: Int, timestamp: Long): Int
+
+    /**
+     * Backs the auto-marking feature: every correct mini-game answer
+     * bumps [WordEntity.consecutiveCorrect] on the underlying row;
+     * every wrong answer (or the end of a Letter Soup run without a
+     * fix) resets it to `0`. [data.game.AutoStatusEvaluator] then maps
+     * the new counter to a [LearningStatus] (`>=1 → ALMOST`,
+     * `>=3 → LEARNED`) without ever downgrading a manual mark.
+     *
+     * `lastReview` is updated at the same time so the existing
+     * "last reviewed" copy on the Words screen stays accurate. The
+     * `reviewCount` column is intentionally left untouched — that
+     * counter is reserved for the future spaced-repetition scheduler
+     * (see README §SRS-based review scheduling).
+     *
+     * @param id Row id (auto-incremented in `core_words` or
+     *   `user_words`).
+     * @param value New value of the consecutive-correct counter. The
+     *   caller decides whether to bump (`previous + 1`) or reset
+     *   (`0`); the DAO never clamps or interprets the value.
+     * @param timestamp Epoch millis to write into `lastReview`.
+     */
+    suspend fun setConsecutiveCorrect(id: Int, value: Int, timestamp: Long): Int =
+        setConsecutiveCorrectCore(id, value, timestamp) +
+            setConsecutiveCorrectUser(id, value, timestamp)
+
     @Query("UPDATE core_words SET notes = :notes WHERE id = :id")
     suspend fun setNotesCore(id: Int, notes: String): Int
 

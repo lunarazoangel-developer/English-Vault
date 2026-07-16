@@ -27,5 +27,33 @@ enum class LearningStatus {
          */
         fun fromStringOrDefault(value: String?): LearningStatus =
             value?.let { runCatching { valueOf(it) }.getOrNull() } ?: NOT_LEARNED
+
+        /**
+         * Monotonic rank used by [data.game.AutoStatusEvaluator] to
+         * implement the "auto system only promotes, never degrades"
+         * rule without a manual ordering lookup at every call site.
+         *
+         * `LEARNED (2) > ALMOST (1) > NOT_LEARNED (0)` — so picking the
+         * higher ordinal between the current and the candidate status
+         * keeps any manual mark (including a manual `LEARNED`) intact
+         * when the auto system tries to "promote" a word whose
+         * consecutive-correct counter has not yet reached the next
+         * threshold.
+         */
+        private val LearningStatus.ordinalValue: Int
+            get() = when (this) {
+                NOT_LEARNED -> 0
+                ALMOST -> 1
+                LEARNED -> 2
+            }
+
+        /**
+         * Returns whichever of [a] or [b] is the higher learning
+         * status. Used by the auto-status pipeline so a manual mark
+         * can never be silently downgraded by a subsequent
+         * mini-game event.
+         */
+        fun max(a: LearningStatus, b: LearningStatus): LearningStatus =
+            if (a.ordinalValue >= b.ordinalValue) a else b
     }
 }

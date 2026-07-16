@@ -6,6 +6,15 @@ package com.example.englishvault.ui.games.lettersoup.model
  * @property original The dictionary word the placement represents,
  *   upper-cased. Compared against the live cells to know whether a
  *   swap has just fixed the word.
+ * @property wordId The id of the underlying
+ *   [data.database.entities.WordEntity] in `core_words`. Required by
+ *   the auto-marking pipeline
+ *   ([data.game.AutoStatusEvaluator] + [data.database.dao.WordDao.setConsecutiveCorrect])
+ *   so the VM can persist `consecutiveCorrect` and (when applicable)
+ *   promote the word's [data.database.entities.LearningStatus] every
+ *   time the player fixes the placement. `0` when the id could not
+ *   be resolved (defensive fallback for any future board that
+ *   carries synthetic words).
  * @property row Top-left row of the placement on the board (inclusive).
  * @property col Top-left column of the placement on the board (inclusive).
  * @property horizontal `true` when the word runs left-to-right
@@ -23,6 +32,7 @@ package com.example.englishvault.ui.games.lettersoup.model
  */
 data class LetterSoupWord(
     val original: String,
+    val wordId: Int = 0,
     val row: Int,
     val col: Int,
     val horizontal: Boolean,

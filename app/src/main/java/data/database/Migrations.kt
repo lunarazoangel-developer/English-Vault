@@ -502,4 +502,42 @@ object Migrations {
             }
         }
     }
+
+    /**
+     * Phase 7.15 — adds the `consecutiveCorrect` counter to both
+     * `core_words` and `user_words`. Drives the auto-marking
+     * feature: every correct answer in a mini-game bumps this
+     * counter on the corresponding `WordEntity`, every wrong
+     * answer resets it to `0`, and
+     * [data.game.AutoStatusEvaluator] maps the value to a
+     * [data.database.entities.LearningStatus] (`>=1 → ALMOST`,
+     * `>=3 → LEARNED`) without ever downgrading a manual mark.
+     *
+     * `lastReview` is also touched by the same DAO write so the
+     * existing "last reviewed N hours ago" copy on the Words
+     * screen keeps reflecting actual mini-game activity.
+     *
+     * The column defaults to `0` so every existing row keeps its
+     * current `status` — the auto system simply has nothing to
+     * evaluate until the user plays a mini-game.
+     *
+     * The `words_view` is dropped and recreated so the new column
+     * is projectable from the view (Room's `Schema` validator
+     * would otherwise complain about the projection list not
+     * matching the entity). The new SQL is the same string the
+     * `@DatabaseView` annotation now declares on `WordEntity` —
+     * see [data.database.entities.WORDS_VIEW_BODY].
+     */
+    val MIGRATION_10_11: Migration = object : Migration(10, 11) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                "ALTER TABLE `core_words` ADD COLUMN `consecutiveCorrect` INTEGER NOT NULL DEFAULT 0"
+            )
+            db.execSQL(
+                "ALTER TABLE `user_words` ADD COLUMN `consecutiveCorrect` INTEGER NOT NULL DEFAULT 0"
+            )
+            db.execSQL("DROP VIEW IF EXISTS `words_view`")
+            db.execSQL("CREATE VIEW `words_view` AS $WORDS_VIEW_BODY")
+        }
+    }
 }

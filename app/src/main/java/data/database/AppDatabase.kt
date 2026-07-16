@@ -38,7 +38,7 @@ import data.database.entities.WordEntity
  *
  * The schema is wired through Hilt in `DatabaseModule`, which provides
  * all DAOs and registers the migrations that take the database from
- * version 1 to version 10.
+ * version 1 to version 11.
  */
 @Database(
     entities = [
@@ -51,7 +51,7 @@ import data.database.entities.WordEntity
     views = [
         WordEntity::class
     ],
-    version = 10,
+    version = 11,
     exportSchema = false
 )
 @TypeConverters(

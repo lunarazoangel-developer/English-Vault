@@ -24,9 +24,11 @@ import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.LearningStatus
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
+import data.game.AutoStatusEvaluator
 import data.game.CategoryGating
 import data.game.PromotionEvent
 import data.game.PromotionGate
@@ -283,6 +285,17 @@ class ListeningViewModel @Inject constructor(
      * transitions to [ListeningGameState.Finished] with
      * `outOfLives = true`.
      *
+     * ## Auto-marking (Phase 7.15)
+     *
+     * Mirrors [com.example.englishvault.ui.games.wordmatchverbs.viewmodel.WordMatchVerbsViewModel.submitAnswer]:
+     * after the state mutation, [applyAutoStatus] bumps
+     * [WordEntity.consecutiveCorrect] for the source word on every
+     * correct answer (or resets it to `0` on a wrong one) and
+     * re-evaluates its [LearningStatus] through
+     * [AutoStatusEvaluator]. The evaluator never downgrades a
+     * manual mark, so a `LEARNED` set from the Words screen
+     * survives any number of wrong answers.
+     *
      * Does NOT advance to the next question — the screen calls
      * [acknowledgeAnswer] after the brief feedback delay.
      */
@@ -331,6 +344,38 @@ class ListeningViewModel @Inject constructor(
 
         if (isCorrect) {
             soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+        }
+
+        applyAutoStatus(question.wordId, isCorrect)
+    }
+
+    /**
+     * Updates [WordEntity.consecutiveCorrect] for the source word
+     * and re-evaluates its [LearningStatus] via
+     * [AutoStatusEvaluator]. Same contract as the Word Match Verbs
+     * counterpart: runs on [viewModelScope] so the play screen
+     * never blocks on Room IO, and the status write is skipped when
+     * the evaluator returns the same value.
+     *
+     * Errors are swallowed defensively: a failed write should not
+     * crash the game flow.
+     */
+    private fun applyAutoStatus(wordId: Int, isCorrect: Boolean) {
+        if (wordId <= 0) return
+        viewModelScope.launch {
+            runCatching {
+                val previous = wordDao.getWordById(wordId) ?: return@launch
+                val now = System.currentTimeMillis()
+                val newCount = if (isCorrect) previous.consecutiveCorrect + 1 else 0
+                wordDao.setConsecutiveCorrect(wordId, newCount, now)
+                val promoted = AutoStatusEvaluator.nextStatus(
+                    current = previous.status,
+                    consecutiveCorrect = newCount
+                )
+                if (promoted != previous.status) {
+                    wordDao.setStatus(wordId, promoted)
+                }
+            }
         }
     }
 
@@ -570,7 +615,10 @@ class ListeningViewModel @Inject constructor(
      * [DistractorGenerator] misspellings, falling back to other
      * dictionary words when the misspellings duplicate the correct
      * answer or each other) and shuffles the four options so the
-     * correct answer is not always in the same slot.
+     * correct answer is not always in the same slot. The source
+     * word's id is stamped on the question so the auto-marking
+     * pipeline can persist `consecutiveCorrect` on every correct
+     * answer without a redundant lookup by text.
      */
     private fun buildQuestion(targetWord: WordEntity, pool: List<String>): ListeningQuestion {
         val target = targetWord.word
@@ -586,6 +634,7 @@ class ListeningViewModel @Inject constructor(
         val options = (listOf(target) + distractors).shuffled()
         return ListeningQuestion(
             targetWord = target,
+            wordId = targetWord.id,
             options = options,
             correctAnswer = target,
             category = classifyWordSafely(targetWord),

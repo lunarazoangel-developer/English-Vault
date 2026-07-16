@@ -58,5 +58,13 @@ data class CoreWordEntity(
     val reviewCount: Int = 0,
     val lastReview: Long? = null,
     val nextReview: Long? = null,
+    /**
+     * Counter that backs the auto-marking feature: bumps on every
+     * correct answer in a mini-game and resets to `0` on a wrong one.
+     * [com.example.englishvault.data.game.AutoStatusEvaluator] maps the
+     * value to a [LearningStatus] (without ever downgrading a manual
+     * mark). See [WordDao.setConsecutiveCorrect].
+     */
+    val consecutiveCorrect: Int = 0,
     val customDifficulty: Difficulty? = null
 )

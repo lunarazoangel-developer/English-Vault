@@ -21,9 +21,11 @@ import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.LearningStatus
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
 import data.database.entities.WordEntity
+import data.game.AutoStatusEvaluator
 import data.game.CategoryGating
 import data.game.PromotionEvent
 import data.game.PromotionGate
@@ -200,8 +202,13 @@ class LetterSoupViewModel @Inject constructor(
 
             val pool = entities.map { it.word.uppercase() }
             val translations = entities.associate { it.word.uppercase() to it.translation }
+            val wordIds = entities.associate { it.word.uppercase() to it.id }
 
-            val board = BoardGenerator.generate(pool, translations)
+            val board = BoardGenerator.generate(
+                pool = pool,
+                translations = translations,
+                wordIds = wordIds
+            )
             if (board == null) {
                 _gameState.value = LetterSoupGameState.Loading
                 return@launch
@@ -333,6 +340,7 @@ class LetterSoupViewModel @Inject constructor(
             )
             viewModelScope.launch {
                 soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+                applyAutoStatus(fixedNow)
                 grantXpAndFinish(
                     level = state.level,
                     won = true,
@@ -359,6 +367,47 @@ class LetterSoupViewModel @Inject constructor(
 
         viewModelScope.launch {
             soundEffectPlayer.play(SoundKey.Correct, effectsVolume.value)
+            applyAutoStatus(fixedNow)
+        }
+    }
+
+    /**
+     * Phase 7.15 — auto-marking fan-out for the placements that
+     * were just fixed by the player's swap. Bumps
+     * [WordEntity.consecutiveCorrect] on each underlying row and
+     * re-evaluates its [LearningStatus] via [AutoStatusEvaluator].
+     *
+     * Only correct events are mapped to auto-marks: a failed swap
+     * (the branch above that decrements `movesLeft`) is not a
+     * knowledge failure for a specific word, just a missed move,
+     * so the racha stays intact.
+     *
+     * Placements with `wordId <= 0` (defensive fallback when the
+     * board generator could not resolve a dictionary id) are
+     * silently skipped.
+     *
+     * Errors are swallowed: a failed write should not crash the
+     * game flow.
+     */
+    private fun applyAutoStatus(fixedPlacements: List<LetterSoupWord>) {
+        viewModelScope.launch {
+            runCatching {
+                val now = System.currentTimeMillis()
+                for (placement in fixedPlacements) {
+                    val wordId = placement.wordId
+                    if (wordId <= 0) continue
+                    val previous = wordDao.getWordById(wordId) ?: continue
+                    val newCount = previous.consecutiveCorrect + 1
+                    wordDao.setConsecutiveCorrect(wordId, newCount, now)
+                    val promoted = AutoStatusEvaluator.nextStatus(
+                        current = previous.status,
+                        consecutiveCorrect = newCount
+                    )
+                    if (promoted != previous.status) {
+                        wordDao.setStatus(wordId, promoted)
+                    }
+                }
+            }
         }
     }
 

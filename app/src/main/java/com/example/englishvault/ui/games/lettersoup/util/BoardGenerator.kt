@@ -45,11 +45,19 @@ object BoardGenerator {
      * @param pool Upper-cased words to choose from.
      * @param translations Lookup from upper-cased word to its Spanish
      *   translation. Missing entries fall back to `null`.
+     * @param wordIds Lookup from upper-cased word to its
+     *   [data.database.entities.WordEntity.id]. Required by the
+     *   auto-marking pipeline so the VM can persist
+     *   `consecutiveCorrect` on every fixed placement. Missing entries
+     *   fall back to `0`, which makes the placement invisible to the
+     *   auto pipeline (see [LetterSoupWord.wordId] and the `> 0`
+     *   guard in `LetterSoupViewModel.applyAutoStatus`).
      * @param random RNG source — pass a seeded `Random` for tests.
      */
     fun generate(
         pool: List<String>,
         translations: Map<String, String?> = emptyMap(),
+        wordIds: Map<String, Int> = emptyMap(),
         random: Random = Random.Default
     ): LetterSoupBoard? {
         if (pool.isEmpty()) return null
@@ -86,6 +94,7 @@ object BoardGenerator {
             }
             placements.add(
                 placement.copy(
+                    wordId = wordIds[word] ?: 0,
                     wrongIndex = wrongIndex,
                     translation = translations[word]
                 )

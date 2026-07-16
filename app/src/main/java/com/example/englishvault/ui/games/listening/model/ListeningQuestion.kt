@@ -15,6 +15,13 @@ import com.example.englishvault.ui.words.WordTypeFilter
  * @property targetWord The English word the device pronounces. Also
  *   the source of truth for the canonical spelling — comparison is
  *   case-insensitive.
+ * @property wordId The id of the underlying
+ *   [data.database.entities.WordEntity] in `core_words`. Required by
+ *   the auto-marking pipeline
+ *   ([data.game.AutoStatusEvaluator] + [data.database.dao.WordDao.setConsecutiveCorrect])
+ *   so the VM can persist `consecutiveCorrect` and (when applicable)
+ *   promote the word's [data.database.entities.LearningStatus] on
+ *   every correct answer without a redundant lookup by text.
  * @property options The four candidate spellings shown to the player.
  *   Contains exactly one entry equal (case-insensitive) to
  *   [targetWord] / [correctAnswer].
@@ -31,6 +38,7 @@ import com.example.englishvault.ui.words.WordTypeFilter
  */
 data class ListeningQuestion(
     val targetWord: String,
+    val wordId: Int,
     val options: List<String>,
     val correctAnswer: String,
     val category: WordTypeFilter,

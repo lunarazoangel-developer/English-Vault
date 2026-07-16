@@ -38,6 +38,13 @@ enum class WordMatchAskType(val promptResId: Int) {
  * One round of the Word Match Verbs game.
  *
  * @property baseWord The verb in its dictionary base form.
+ * @property wordId The id of the underlying [data.database.entities.WordEntity]
+ *   in `core_words` (the only source Word Match Verbs draws from).
+ *   Required by the auto-marking pipeline
+ *   ([data.game.AutoStatusEvaluator] + [data.database.dao.WordDao.setConsecutiveCorrect])
+ *   so the VM can persist `consecutiveCorrect` and (when applicable)
+ *   promote the word's [data.database.entities.LearningStatus] on
+ *   every correct answer without a redundant lookup by text.
  * @property askType Which conjugation the player must pick.
  * @property correctAnswer The expected answer string.
  * @property options Three strings shown as multiple-choice buttons.
@@ -52,6 +59,7 @@ enum class WordMatchAskType(val promptResId: Int) {
  */
 data class WordMatchQuestion(
     val baseWord: String,
+    val wordId: Int,
     val askType: WordMatchAskType,
     val correctAnswer: String,
     val options: List<String>,
