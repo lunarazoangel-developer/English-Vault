@@ -37,7 +37,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -50,14 +49,16 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.common.GameMode
 import com.example.englishvault.ui.games.listening.model.ListeningGameState
 import com.example.englishvault.ui.games.listening.model.ListeningGameState.Companion.QUESTION_TIME_MS
 import com.example.englishvault.ui.games.listening.viewmodel.ListeningViewModel
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 import kotlinx.coroutines.delay
 
 /**
@@ -78,7 +79,7 @@ private const val DEV_MODE_TOGGLE_ENABLED: Boolean = true
  * the VM on first composition. Renders one of three bodies
  * depending on the [ListeningGameState]:
  *  - [ListeningGameState.Loading] / [ListeningGameState.Empty] —
- *    a full-screen branded loading panel with the app's blue
+ *    a full-screen branded loading panel with the app's pink
  *    gradient so the user never sees a plain "Loading…" flash.
  *  - [ListeningGameState.InProgress] — the giant 🔊 Listen button
  *    at the top, four option cards below it, and the WORLD-mode
@@ -89,6 +90,10 @@ private const val DEV_MODE_TOGGLE_ENABLED: Boolean = true
  *  - [ListeningGameState.Finished] — the results panel rendered
  *    in place (see [ListeningEndContent]); "Play again" resets
  *    the VM and "Back to games" hands control back to the parent.
+ *
+ * Renders end-to-end against the arcade palette (reads
+ * [LocalArcadePalette] at the screen root) so the screen flips
+ * between dark and light with the rest of the UI.
  */
 @Composable
 fun ListeningGameScreen(
@@ -100,6 +105,7 @@ fun ListeningGameScreen(
 ) {
     val state by viewModel.gameState.collectAsState()
     val mode by viewModel.currentMode.collectAsState()
+    val palette = LocalArcadePalette.current
 
     // Seed the VM exactly once per level. Re-runs of the same level
     // (via "Play again") call `viewModel.startGame(level)` directly
@@ -132,7 +138,7 @@ fun ListeningGameScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
     ) {
         Row(
             modifier = Modifier
@@ -144,13 +150,15 @@ fun ListeningGameScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(id = R.string.game_listening_back),
-                    tint = MaterialTheme.colorScheme.onBackground
+                    tint = palette.textMain
                 )
             }
             Text(
                 text = stringResource(id = R.string.game_listening_header, level),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp,
                 modifier = Modifier.weight(1f)
             )
             if (DEV_MODE_TOGGLE_ENABLED) {
@@ -186,6 +194,7 @@ fun ListeningGameScreen(
  */
 @Composable
 private fun ModeToggleButton(mode: GameMode, onClick: () -> Unit) {
+    val palette = LocalArcadePalette.current
     IconButton(onClick = onClick) {
         Icon(
             imageVector = if (mode == GameMode.WORLD) {
@@ -196,17 +205,14 @@ private fun ModeToggleButton(mode: GameMode, onClick: () -> Unit) {
             contentDescription = stringResource(
                 id = R.string.game_listening_world_dev_toggle_cd
             ),
-            tint = if (mode == GameMode.WORLD) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.onBackground
-            }
+            tint = if (mode == GameMode.WORLD) palette.primary else palette.textMain
         )
     }
 }
 
 @Composable
 private fun BrandedLoadingPanel() {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -219,19 +225,22 @@ private fun BrandedLoadingPanel() {
         ) {
             Text(
                 text = stringResource(id = R.string.game_listening_loading_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 26.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_listening_loading_subtitle),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.8f)
+                color = palette.ink.copy(alpha = 0.78f),
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
             Spacer(modifier = Modifier.height(32.dp))
             androidx.compose.material3.CircularProgressIndicator(
-                color = Color.White,
+                color = palette.ink,
                 strokeWidth = 4.dp,
                 modifier = Modifier.size(48.dp)
             )
@@ -241,6 +250,7 @@ private fun BrandedLoadingPanel() {
 
 @Composable
 private fun BrandedEmptyPanel() {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -254,27 +264,38 @@ private fun BrandedEmptyPanel() {
         ) {
             Text(
                 text = stringResource(id = R.string.game_listening_loading_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 26.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_listening_no_words),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.8f)
+                color = palette.ink.copy(alpha = 0.78f),
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
 }
 
+/**
+ * Vertical brand gradient used for the loading and empty panels.
+ * Reads the live [LocalArcadePalette] so the gradient swaps between
+ * the dark and light variants with the rest of the UI.
+ */
 @Composable
-private fun BrandedGradient(): Brush = Brush.verticalGradient(
-    colors = listOf(
-        MaterialTheme.colorScheme.primary,
-        MaterialTheme.colorScheme.primary.copy(alpha = 0.72f)
+private fun BrandedGradient(): Brush {
+    val palette = LocalArcadePalette.current
+    return Brush.verticalGradient(
+        colors = listOf(
+            palette.primary,
+            palette.primary.copy(alpha = 0.72f)
+        )
     )
-)
+}
 
 @Composable
 private fun InProgressState(
@@ -284,6 +305,7 @@ private fun InProgressState(
     onUseHelp: () -> Unit
 ) {
     val question = state.currentQuestion ?: return
+    val palette = LocalArcadePalette.current
 
     Column(
         modifier = Modifier
@@ -297,8 +319,10 @@ private fun InProgressState(
                 state.currentIndex + 1,
                 state.totalQuestions
             ),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 12.sp
         )
 
         if (state.mode == GameMode.WORLD) {
@@ -313,7 +337,7 @@ private fun InProgressState(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer
+                containerColor = palette.primary.copy(alpha = 0.18f)
             )
         ) {
             Column(
@@ -324,16 +348,18 @@ private fun InProgressState(
             ) {
                 Text(
                     text = stringResource(id = R.string.game_listening_listen_prompt),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 18.sp
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 FilledIconButton(
                     onClick = onListen,
                     modifier = Modifier.size(96.dp),
                     colors = IconButtonDefaults.filledIconButtonColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        contentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = palette.primary,
+                        contentColor = palette.ink
                     )
                 ) {
                     Icon(
@@ -347,17 +373,19 @@ private fun InProgressState(
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(id = R.string.game_listening_listen_button),
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 12.sp
                 )
                 if (state.timedOut) {
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
                         text = stringResource(id = R.string.game_listening_world_timeout),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color(0xFFFF3B30),
-                        fontWeight = FontWeight.SemiBold
+                        color = palette.error,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 12.sp
                     )
                 }
             }
@@ -392,6 +420,7 @@ private fun WorldModeHud(
     state: ListeningGameState.InProgress,
     onUseHelp: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     val fraction = if (QUESTION_TIME_MS <= 0L) 0f
         else state.timeRemainingMs.toFloat() / QUESTION_TIME_MS.toFloat()
     val urgent = state.timeRemainingMs in 1..3_000L
@@ -402,9 +431,8 @@ private fun WorldModeHud(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp),
-            color = if (urgent) MaterialTheme.colorScheme.error
-                else MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant
+            color = if (urgent) palette.error else palette.primary,
+            trackColor = palette.surfaceDark
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -431,11 +459,12 @@ private fun WorldModeHud(
 
 @Composable
 private fun LivesChip(lives: Int, modifier: Modifier = Modifier) {
+    val palette = LocalArcadePalette.current
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.errorContainer
+            containerColor = palette.error.copy(alpha = 0.18f)
         )
     ) {
         Row(
@@ -447,8 +476,8 @@ private fun LivesChip(lives: Int, modifier: Modifier = Modifier) {
                 Icon(
                     imageVector = if (filled) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
                     contentDescription = null,
-                    tint = if (filled) MaterialTheme.colorScheme.error
-                        else MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.4f),
+                    tint = if (filled) palette.error
+                        else palette.error.copy(alpha = 0.35f),
                     modifier = Modifier.size(20.dp)
                 )
                 if (index < 2) Spacer(modifier = Modifier.size(2.dp))
@@ -456,9 +485,10 @@ private fun LivesChip(lives: Int, modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.size(8.dp))
             Text(
                 text = stringResource(id = R.string.game_listening_world_lives_format, lives),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onErrorContainer
+                color = palette.error,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
@@ -472,12 +502,13 @@ private fun ItemButton(
     contentDescription: String,
     onClick: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     FilledIconButton(
         onClick = onClick,
         enabled = enabled,
         colors = IconButtonDefaults.filledIconButtonColors(
-            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+            containerColor = palette.highlight.copy(alpha = 0.22f),
+            contentColor = palette.textMain
         )
     ) {
         Row(
@@ -488,8 +519,10 @@ private fun ItemButton(
             Icon(imageVector = icon, contentDescription = contentDescription)
             Text(
                 text = label,
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Bold
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
@@ -501,10 +534,10 @@ private fun ItemButton(
  * icon without doing the comparison itself.
  *
  * Four states keep the colour and icon unambiguous when the player
- * answers wrong: a red X marks the option they picked; a blue check
- * highlights the correct answer they missed so the learner can see
- * at a glance which one was right. Distractors that were neither
- * picked nor correct stay neutral.
+ * answers wrong: a green check marks the option they picked when
+ * correct; a cyan check highlights the correct answer they missed;
+ * a red X marks the option they picked when wrong. Distractors that
+ * were neither picked nor correct stay neutral.
  */
 private sealed class OptionFeedback {
     object Neutral : OptionFeedback()
@@ -514,7 +547,10 @@ private sealed class OptionFeedback {
 }
 
 @Composable
-private fun feedbackFor(option: String, state: ListeningGameState.InProgress): OptionFeedback {
+private fun feedbackFor(
+    option: String,
+    state: ListeningGameState.InProgress
+): OptionFeedback {
     val answer = state.lastAnswer ?: return OptionFeedback.Neutral
     val correctAnswer = state.currentQuestion?.correctAnswer ?: ""
     val isThisCorrect = option.equals(correctAnswer, ignoreCase = true)
@@ -528,11 +564,11 @@ private fun feedbackFor(option: String, state: ListeningGameState.InProgress): O
     }
 }
 
-private fun OptionFeedback.tint(container: Color): Color = when (this) {
-    is OptionFeedback.CorrectPicked -> Color(0xFF34C759)
-    is OptionFeedback.RevealedCorrect -> Color(0xFF1E88E5)
-    is OptionFeedback.WrongPicked -> Color(0xFFFF3B30)
-    OptionFeedback.Neutral -> container
+private fun OptionFeedback.tint(palette: com.example.englishvault.ui.progress.arcade.ArcadePalette): Color = when (this) {
+    is OptionFeedback.CorrectPicked -> palette.success
+    is OptionFeedback.RevealedCorrect -> palette.secondary
+    is OptionFeedback.WrongPicked -> palette.error
+    OptionFeedback.Neutral -> palette.surface
 }
 
 @Composable
@@ -543,8 +579,8 @@ private fun OptionCard(
     eliminated: Boolean,
     onClick: () -> Unit
 ) {
-    val baseContainer = MaterialTheme.colorScheme.surface
-    val containerColor = feedback.tint(baseContainer)
+    val palette = LocalArcadePalette.current
+    val containerColor = feedback.tint(palette)
         .copy(alpha = if (feedback is OptionFeedback.Neutral) 1f else 0.18f)
     Card(
         modifier = Modifier
@@ -562,13 +598,14 @@ private fun OptionCard(
         ) {
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
                 color = if (eliminated) {
-                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                    palette.textMain.copy(alpha = 0.35f)
                 } else {
-                    MaterialTheme.colorScheme.onSurface
+                    palette.textMain
                 },
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp,
                 modifier = Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(8.dp))
@@ -581,7 +618,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
                     contentDescription = stringResource(id = R.string.game_listening_correct),
-                    tint = Color(0xFF34C759)
+                    tint = palette.success
                 )
             }
             AnimatedVisibility(
@@ -592,7 +629,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
                     contentDescription = stringResource(id = R.string.game_listening_correct),
-                    tint = Color(0xFF1E88E5)
+                    tint = palette.secondary
                 )
             }
             AnimatedVisibility(
@@ -603,7 +640,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.Cancel,
                     contentDescription = stringResource(id = R.string.game_listening_wrong_short),
-                    tint = Color(0xFFFF3B30)
+                    tint = palette.error
                 )
             }
         }

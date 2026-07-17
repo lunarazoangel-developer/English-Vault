@@ -2,29 +2,30 @@
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -43,11 +44,14 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.SnapshotStateMap
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 import com.example.englishvault.ui.words.components.WordCard
 import com.example.englishvault.ui.words.viewmodel.WordListViewModel
 import data.database.entities.WordEntity
@@ -57,7 +61,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.collectLatest
 
 /**
- * Words screen â€” list of vocabulary entries with add / edit / delete
+ * Words screen — list of vocabulary entries with add / edit / delete
  * actions and rich detail on tap.
  *
  * Phase 4: data flows from Room through [WordListViewModel] and the
@@ -68,15 +72,23 @@ import kotlinx.coroutines.flow.collectLatest
  * which rows the user can edit.
  *
  * Phase 4.6: the top of the screen exposes two filter rows.
- *  - The first row is a horizontally-scrollable list of [FilterChip]s
+ *  - The first row is a horizontally-scrollable list of filter chips
  *    that group words by grammatical type (or origin for "Mine").
  *  - The second row chooses the sort order for the visible list
- *    (alphabetical Aâ†’Z / Zâ†’A or by progression level ascending /
+ *    (alphabetical A→Z / Z→A or by progression level ascending /
  *    descending).
  *  - Both selections are screen-local state persisted across
  *    configuration changes via `rememberSaveable` using their ordinal
  *    (enum entries are stable as long as the file is not refactored
  *    mid-session).
+ *
+ * Phase 7.x: the screen renders end-to-end against the arcade palette
+ * (reads [LocalArcadePalette] at the root). The FAB, type / sort chips
+ * and search field all share the same palette so the screen flips
+ * between dark and light with the rest of the UI. The card's per-row
+ * 🔊 button also drives a `speakingText` reflection so the row
+ * currently being pronounced can tint its button green via the
+ * [WordCard.speakingIsThisWord] flag.
  *
  * Pagination and search: the list is paged through [PAGE_SIZE] cards
  * at a time and grows by the same amount as the user scrolls near
@@ -102,7 +114,9 @@ fun WordListScreen(
     modifier: Modifier = Modifier,
     viewModel: WordListViewModel = hiltViewModel()
 ) {
+    val palette = LocalArcadePalette.current
     val words by viewModel.allWords.collectAsState()
+    val speakingText by viewModel.speakingText.collectAsState()
 
     var selectedType by rememberSaveable { mutableStateOf(WordsTabFilter.ALL) }
     var sortOrder by rememberSaveable { mutableStateOf(SortOrder.LEVEL_ASC) }
@@ -200,7 +214,7 @@ fun WordListScreen(
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
     ) {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -216,14 +230,18 @@ fun WordListScreen(
             item {
                 Text(
                     text = stringResource(id = R.string.words_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 22.sp
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = stringResource(id = R.string.words_subtitle),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = palette.textDim,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 11.sp
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }
@@ -271,6 +289,8 @@ fun WordListScreen(
                         onCycleStatus = { status ->
                             viewModel.setStatus(word.id, status)
                         },
+                        onSpeak = { viewModel.speakWord(it) },
+                        isSpeaking = { speakingText == it },
                         onEdit = { onEditWord(word.id) },
                         onDelete = { wordPendingDelete = word }
                     )
@@ -283,8 +303,8 @@ fun WordListScreen(
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(24.dp),
-            containerColor = MaterialTheme.colorScheme.primary,
-            contentColor = MaterialTheme.colorScheme.onPrimary,
+            containerColor = palette.highlight,
+            contentColor = palette.ink,
             icon = {
                 Icon(
                     imageVector = Icons.Filled.Add,
@@ -294,7 +314,10 @@ fun WordListScreen(
             text = {
                 Text(
                     text = stringResource(id = R.string.words_fab_add),
-                    fontWeight = FontWeight.Bold
+                    color = palette.ink,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 12.sp
                 )
             }
         )
@@ -303,8 +326,24 @@ fun WordListScreen(
     wordPendingDelete?.let { target ->
         AlertDialog(
             onDismissRequest = { wordPendingDelete = null },
-            title = { Text(stringResource(id = R.string.words_delete_title)) },
-            text = { Text(stringResource(id = R.string.words_delete_message)) },
+            title = {
+                Text(
+                    text = stringResource(id = R.string.words_delete_title),
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 18.sp
+                )
+            },
+            text = {
+                Text(
+                    text = stringResource(id = R.string.words_delete_message),
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 12.sp
+                )
+            },
             confirmButton = {
                 TextButton(onClick = {
                     // Delegate to the VM so the gate on user-owned rows
@@ -314,15 +353,25 @@ fun WordListScreen(
                 }) {
                     Text(
                         text = stringResource(id = R.string.words_delete_confirm),
-                        color = MaterialTheme.colorScheme.error
+                        color = palette.error,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 12.sp
                     )
                 }
             },
             dismissButton = {
                 TextButton(onClick = { wordPendingDelete = null }) {
-                    Text(stringResource(id = R.string.words_delete_cancel))
+                    Text(
+                        text = stringResource(id = R.string.words_delete_cancel),
+                        color = palette.textMain,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 12.sp
+                    )
                 }
-            }
+            },
+            containerColor = palette.surface
         )
     }
 }
@@ -351,10 +400,13 @@ private enum class WordsTabFilter(
 }
 
 /**
- * Horizontally-scrollable row of [FilterChip]s, one per
+ * Horizontally-scrollable row of arcade chips, one per
  * [WordTypeFilter]. The chip label carries the live count of words
  * that match its filter so the user can see the dictionary split at a
  * glance.
+ *
+ * Each chip's tint comes from the arcade category palette so the
+ * grammatical bucket reads as its own colour even at a glance.
  *
  * @param selected Currently active filter.
  * @param counts Per-filter entry totals, computed in a single pass
@@ -378,25 +430,86 @@ private fun TypeFilterRow(
             // Disable empty buckets (except ALL) so the user is not
             // tempted to tap into a guaranteed-empty list.
             val enabled = count > 0 || filter == WordsTabFilter.ALL
-            FilterChip(
+            ArcadeFilterChip(
+                label = "${stringResource(id = filter.labelRes)} ($count)",
+                accent = accentForFilter(filter),
                 selected = filter == selected,
-                onClick = { if (enabled) onSelect(filter) },
                 enabled = enabled,
-                label = {
-                    Text(
-                        text = "${stringResource(id = filter.labelRes)} ($count)",
-                        maxLines = 1
-                    )
-                },
-                colors = FilterChipDefaults.filterChipColors()
+                onClick = { if (enabled) onSelect(filter) }
             )
         }
+    }
+}
+
+/**
+ * Picks the arcade accent for a [WordsTabFilter].
+ *
+ * `categoryColor()` maps the pseudo-buckets `ALL` and `MINE` to the
+ * generic `surfaceDark` so they look like "no category" — which works
+ * fine for neutral surfaces but leaves the `ALL` chip looking dull
+ * next to the vivid grammatical chips. We override those two here so
+ * every chip carries its own identity:
+ *  - **ALL**     → `palette.highlight` (gold) — the "show everything"
+ *    entry deserves the most eye-catching accent so the player always
+ *    knows where to reset the filter.
+ *  - **MINE**    → `palette.success`  (green) — reads as "growth /
+ *    personal library" and mirrors the per-row user-badge accent on
+ *    the cards.
+ *  - everything else falls through to the canonical category colour.
+ */
+@Composable
+private fun accentForFilter(filter: WordsTabFilter): androidx.compose.ui.graphics.Color {
+    val palette = LocalArcadePalette.current
+    return when (filter) {
+        WordsTabFilter.ALL -> palette.highlight
+        WordsTabFilter.MINE -> palette.success
+        else -> palette.categoryColor(filter.type)
+    }
+}
+
+/**
+ * Arcade-style filter chip. Tint comes from the live arcade palette
+ * so the chip flips with the rest of the UI; the [accent] colour lets
+ * each filter carry its own hue (driven by [ArcadePalette.categoryColor]).
+ *
+ * Selected chips flip to their accent colour as the background; idle
+ * chips stay on `palette.surface` with a coloured text + border so the
+ * accent still reads at a glance.
+ */
+@Composable
+private fun ArcadeFilterChip(
+    label: String,
+    accent: androidx.compose.ui.graphics.Color,
+    selected: Boolean,
+    enabled: Boolean,
+    onClick: () -> Unit
+) {
+    val palette = LocalArcadePalette.current
+    val containerColor = if (selected) accent else palette.surface
+    val contentColor = if (selected) palette.ink else accent
+    val borderColor = if (enabled) accent else palette.border
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(999.dp))
+            .background(if (enabled) containerColor else palette.surfaceDark)
+            .clickable(enabled = enabled, onClick = onClick)
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = label,
+            color = if (enabled) contentColor else palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 10.sp
+        )
     }
 }
 
 /** Renders the empty state shown when the current filter has no matches. */
 @Composable
 private fun EmptyState(message: String) {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -405,8 +518,10 @@ private fun EmptyState(message: String) {
     ) {
         Text(
             text = message,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+            color = palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 12.sp
         )
     }
 }
@@ -441,7 +556,7 @@ private enum class SortOrder(val labelRes: Int) {
 }
 
 /**
- * Row of [FilterChip]s that selects the [SortOrder]. Placed
+ * Row of arcade chips that selects the [SortOrder]. Placed
  * immediately under the type-filter row so it is always reachable
  * without an extra tap.
  *
@@ -454,15 +569,17 @@ private fun SortRow(
     onSelect: (SortOrder) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    androidx.compose.foundation.layout.Row(
+    val palette = LocalArcadePalette.current
+    Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
             text = stringResource(id = R.string.words_sort_label),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            fontWeight = FontWeight.SemiBold
+            color = palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 10.sp
         )
         Spacer(modifier = Modifier.padding(horizontal = 4.dp))
         LazyRow(
@@ -470,15 +587,12 @@ private fun SortRow(
             contentPadding = PaddingValues(end = 8.dp)
         ) {
             items(SortOrder.entries, key = { it.name }) { order ->
-                FilterChip(
+                ArcadeFilterChip(
+                    label = stringResource(id = order.labelRes),
+                    accent = palette.secondary,
                     selected = order == selected,
-                    onClick = { onSelect(order) },
-                    label = {
-                        Text(
-                            text = stringResource(id = order.labelRes),
-                            maxLines = 1
-                        )
-                    }
+                    enabled = true,
+                    onClick = { onSelect(order) }
                 )
             }
         }
@@ -491,12 +605,12 @@ private fun SortRow(
  * Custom Saver that flattens a `SnapshotStateMap<Int, Boolean>` into
  * a `List<Int>` so it can survive configuration changes via
  * `rememberSaveable`. The list alternates `[id, value(0|1), id, value,
- * â€¦]` so we can reconstruct the map without an extra delimiter.
+ * …]` so we can reconstruct the map without an extra delimiter.
  */
 private val ExpansionSaver: Saver<SnapshotStateMap<Int, Boolean>, Any> =
     Saver(
         save = { stateMap ->
-            // Bundle-friendly flat list: [id1, value1, id2, value2, â€¦]
+            // Bundle-friendly flat list: [id1, value1, id2, value2, …]
             stateMap.flatMap { (id, value) -> listOf(id, if (value) 1 else 0) }
         },
         restore = { saved ->
@@ -522,7 +636,8 @@ private val ExpansionSaver: Saver<SnapshotStateMap<Int, Boolean>, Any> =
  *
  * Renders a leading magnifying-glass icon and a trailing clear button
  * (only when [query] is non-empty) so the user can wipe the search in
- * one tap without backspacing the whole query.
+ * one tap without backspacing the whole query. Colours come from the
+ * arcade palette so the field stays on-brand in both themes.
  */
 @Composable
 private fun SearchField(
@@ -531,16 +646,26 @@ private fun SearchField(
     onClear: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val palette = LocalArcadePalette.current
     OutlinedTextField(
         value = query,
         onValueChange = onQueryChange,
         modifier = modifier.fillMaxWidth(),
         singleLine = true,
-        placeholder = { Text(text = stringResource(id = R.string.words_search_hint)) },
+        placeholder = {
+            Text(
+                text = stringResource(id = R.string.words_search_hint),
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
+            )
+        },
         leadingIcon = {
             Icon(
                 imageVector = Icons.Filled.Search,
-                contentDescription = null
+                contentDescription = null,
+                tint = palette.textDim
             )
         },
         trailingIcon = {
@@ -548,7 +673,8 @@ private fun SearchField(
                 IconButton(onClick = onClear) {
                     Icon(
                         imageVector = Icons.Filled.Close,
-                        contentDescription = stringResource(id = R.string.words_search_clear_cd)
+                        contentDescription = stringResource(id = R.string.words_search_clear_cd),
+                        tint = palette.textDim
                     )
                 }
             }

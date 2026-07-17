@@ -2,7 +2,8 @@ package com.example.englishvault.ui.games.lettersoup
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -32,19 +33,21 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.lettersoup.model.HintMode
@@ -58,6 +61,8 @@ import com.example.englishvault.ui.games.lettersoup.model.LetterSoupGameState.Co
 import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
 import com.example.englishvault.ui.games.lettersoup.util.LetterPalette
 import com.example.englishvault.ui.games.lettersoup.viewmodel.LetterSoupViewModel
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 import kotlinx.coroutines.delay
 
 /**
@@ -94,6 +99,7 @@ fun LetterSoupGameScreen(
 ) {
     val state by viewModel.gameState.collectAsState()
     val hintMode by viewModel.currentHintMode.collectAsState()
+    val palette = LocalArcadePalette.current
 
     LaunchedEffect(level) {
         viewModel.startGame(level)
@@ -102,7 +108,7 @@ fun LetterSoupGameScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
     ) {
         Row(
             modifier = Modifier
@@ -114,13 +120,15 @@ fun LetterSoupGameScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(id = R.string.game_lettersoup_back),
-                    tint = MaterialTheme.colorScheme.onBackground
+                    tint = palette.textMain
                 )
             }
             Text(
                 text = stringResource(id = R.string.game_lettersoup_header, level),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp,
                 modifier = Modifier.weight(1f)
             )
             if (DEV_MODE_TOGGLE_ENABLED) {
@@ -136,6 +144,8 @@ fun LetterSoupGameScreen(
             is LetterSoupGameState.InProgress -> InProgressBody(
                 state = s,
                 onCellTapped = viewModel::onCellTapped,
+                onExtendSelection = viewModel::extendSelection,
+                onCommitDrag = viewModel::commitSelectionFromDrag,
                 onFlashAck = viewModel::acknowledgeFlash,
                 onLocationHint = viewModel::revealLocationHint,
                 onEnglishHint = viewModel::revealEnglishHint,
@@ -156,10 +166,11 @@ fun LetterSoupGameScreen(
 
 @Composable
 private fun BrandedLoadingPanel() {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primary),
+            .background(palette.primary),
         contentAlignment = Alignment.Center
     ) {
         Column(
@@ -168,15 +179,18 @@ private fun BrandedLoadingPanel() {
         ) {
             Text(
                 text = stringResource(id = R.string.game_lettersoup_loading_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 26.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_lettersoup_loading_subtitle),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.8f)
+                color = palette.ink.copy(alpha = 0.78f),
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
@@ -186,6 +200,8 @@ private fun BrandedLoadingPanel() {
 private fun InProgressBody(
     state: LetterSoupGameState.InProgress,
     onCellTapped: (Int, Int) -> Unit,
+    onExtendSelection: (Int, Int) -> Unit,
+    onCommitDrag: () -> Unit,
     onFlashAck: () -> Unit,
     onLocationHint: () -> Unit,
     onEnglishHint: () -> Unit,
@@ -235,7 +251,9 @@ private fun InProgressBody(
 
         BoardGrid(
             state = state,
-            onTap = onCellTapped
+            onTap = onCellTapped,
+            onExtend = onExtendSelection,
+            onCommit = onCommitDrag
         )
 
         Spacer(modifier = Modifier.height(4.dp))
@@ -253,6 +271,7 @@ private fun InProgressBody(
  */
 @Composable
 private fun ModeToggleButton(mode: HintMode, onClick: () -> Unit) {
+    val palette = LocalArcadePalette.current
     IconButton(onClick = onClick) {
         Icon(
             imageVector = if (mode == HintMode.WORLD) {
@@ -264,9 +283,9 @@ private fun ModeToggleButton(mode: HintMode, onClick: () -> Unit) {
                 id = R.string.game_lettersoup_world_dev_toggle_cd
             ),
             tint = if (mode == HintMode.WORLD) {
-                MaterialTheme.colorScheme.primary
+                palette.primary
             } else {
-                MaterialTheme.colorScheme.onBackground
+                palette.textMain
             }
         )
     }
@@ -279,6 +298,7 @@ private fun ModeToggleButton(mode: HintMode, onClick: () -> Unit) {
  */
 @Composable
 private fun WorldModeTimerBar(timeRemainingMs: Long) {
+    val palette = LocalArcadePalette.current
     val fraction = if (WORLD_GAME_TIME_MS <= 0L) 0f
         else timeRemainingMs.toFloat() / WORLD_GAME_TIME_MS.toFloat()
     val urgent = timeRemainingMs in 1..30_000L
@@ -292,9 +312,8 @@ private fun WorldModeTimerBar(timeRemainingMs: Long) {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp),
-            color = if (urgent) MaterialTheme.colorScheme.error
-                else MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant
+            color = if (urgent) palette.error else palette.primary,
+            trackColor = palette.surfaceDark
         )
         Text(
             text = stringResource(
@@ -302,10 +321,10 @@ private fun WorldModeTimerBar(timeRemainingMs: Long) {
                 minutes.toInt(),
                 seconds.toInt()
             ),
-            style = MaterialTheme.typography.labelLarge,
-            fontWeight = FontWeight.SemiBold,
-            color = if (urgent) MaterialTheme.colorScheme.error
-                else MaterialTheme.colorScheme.onSurfaceVariant
+            color = if (urgent) palette.error else palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 12.sp
         )
     }
 }
@@ -316,6 +335,7 @@ private fun HudRow(
     onLocationHint: () -> Unit,
     onEnglishHint: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
@@ -327,8 +347,8 @@ private fun HudRow(
                 state.wordsFixed,
                 state.wordsToWin
             ),
-            containerColor = MaterialTheme.colorScheme.secondaryContainer,
-            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            containerColor = palette.secondary.copy(alpha = 0.18f),
+            contentColor = palette.textMain,
             modifier = Modifier.weight(1f)
         )
         HintButton(
@@ -368,12 +388,13 @@ private fun HintButton(
     enabled: Boolean,
     onClick: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     FilledIconButton(
         onClick = onClick,
         enabled = enabled,
         colors = IconButtonDefaults.filledIconButtonColors(
-            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+            containerColor = palette.highlight.copy(alpha = 0.22f),
+            contentColor = palette.textMain
         )
     ) {
         if (showCounter) {
@@ -389,8 +410,10 @@ private fun HintButton(
                         remaining,
                         max
                     ),
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Bold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 9.sp
                 )
             }
         } else {
@@ -413,9 +436,10 @@ private fun HudChip(
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
             color = contentColor,
+            fontFamily = ArcadeFonts.Display,
+            fontWeight = ArcadeFonts.DisplayWeight,
+            fontSize = 14.sp,
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)
         )
     }
@@ -461,15 +485,16 @@ private fun TranslationChip(
     showEnglish: Boolean,
     fixed: Boolean
 ) {
+    val palette = LocalArcadePalette.current
     val containerColor = when {
-        showEnglish -> MaterialTheme.colorScheme.tertiary
-        fixed -> MaterialTheme.colorScheme.surfaceVariant
-        else -> MaterialTheme.colorScheme.primaryContainer
+        showEnglish -> palette.highlight
+        fixed -> palette.surfaceDark
+        else -> palette.primary.copy(alpha = 0.18f)
     }
     val contentColor = when {
-        showEnglish -> MaterialTheme.colorScheme.onTertiary
-        fixed -> MaterialTheme.colorScheme.onSurfaceVariant
-        else -> MaterialTheme.colorScheme.onPrimaryContainer
+        showEnglish -> palette.ink
+        fixed -> palette.textDim
+        else -> palette.textMain
     }
     Card(
         shape = RoundedCornerShape(50),
@@ -481,16 +506,17 @@ private fun TranslationChip(
         ) {
             Text(
                 text = if (showEnglish) englishWord else translation,
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.SemiBold,
-                color = contentColor
+                color = contentColor,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 11.sp
             )
             if (fixed) {
                 Spacer(modifier = Modifier.size(6.dp))
                 Icon(
                     imageVector = Icons.Filled.Check,
                     contentDescription = stringResource(id = R.string.game_lettersoup_fixed_word_cd),
-                    tint = Color(0xFF34C759),
+                    tint = palette.success,
                     modifier = Modifier.size(16.dp)
                 )
             }
@@ -501,7 +527,9 @@ private fun TranslationChip(
 @Composable
 private fun BoardGrid(
     state: LetterSoupGameState.InProgress,
-    onTap: (Int, Int) -> Unit
+    onTap: (Int, Int) -> Unit,
+    onExtend: (Int, Int) -> Unit,
+    onCommit: () -> Unit
 ) {
     val boardSize = state.board.boardSize
     val selectedCells = state.selectedCells
@@ -512,8 +540,51 @@ private fun BoardGrid(
             .fillMaxWidth()
             .aspectRatio(1f)
     ) {
+        val cellSide = constraints.maxWidth.toFloat() / boardSize
+        val cellSideState = rememberUpdatedState(cellSide)
+        val boardSizeState = rememberUpdatedState(boardSize)
+        val onExtendState = rememberUpdatedState(onExtend)
+        val onCommitState = rememberUpdatedState(onCommit)
+        val onTapState = rememberUpdatedState(onTap)
+
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .pointerInput(Unit) {
+                    fun hit(p: Offset): Pair<Int, Int>? {
+                        val bs = boardSizeState.value
+                        if (bs <= 0) return null
+                        val side = cellSideState.value
+                        val col = (p.x / side).toInt().coerceIn(0, bs - 1)
+                        val row = (p.y / side).toInt().coerceIn(0, bs - 1)
+                        return row to col
+                    }
+                    detectDragGestures(
+                        onDragStart = { offset ->
+                            hit(offset)?.let { onExtendState.value(it.first, it.second) }
+                        },
+                        onDrag = { change, _ ->
+                            change.consume()
+                            hit(change.position)?.let {
+                                onExtendState.value(it.first, it.second)
+                            }
+                        },
+                        onDragEnd = { onCommitState.value() },
+                        onDragCancel = { onCommitState.value() }
+                    )
+                }
+                .pointerInput(Unit) {
+                    val bs = boardSizeState.value
+                    if (bs <= 0) return@pointerInput
+                    val side = cellSideState.value
+                    detectTapGestures(
+                        onTap = { offset ->
+                            val col = (offset.x / side).toInt().coerceIn(0, bs - 1)
+                            val row = (offset.y / side).toInt().coerceIn(0, bs - 1)
+                            onTapState.value(row, col)
+                        }
+                    )
+                },
             verticalArrangement = Arrangement.spacedBy(2.dp)
         ) {
             for (row in 0 until boardSize) {
@@ -543,7 +614,6 @@ private fun BoardGrid(
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxSize()
-                                .clickable { onTap(row, col) }
                         )
                     }
                 }
@@ -563,16 +633,17 @@ private fun LetterCell(
     isHighlighted: Boolean,
     modifier: Modifier = Modifier
 ) {
+    val palette = LocalArcadePalette.current
     val background = LetterPalette.backgroundFor(letter)
     val isFixed = role == LetterSoupCell.WordFixed
 
     val borderColor = when {
-        isWrongFlash -> Color(0xFFFF3B30)
-        isJustFixed -> Color(0xFF34C759)
-        isLastSelected -> Color(0xFFFF3D00)
-        isInSelection -> Color(0xFFFFB300)
-        isHighlighted -> Color(0xFFFFB300)
-        isFixed -> Color(0xFF34C759)
+        isWrongFlash -> palette.error
+        isJustFixed -> palette.success
+        isLastSelected -> palette.error
+        isInSelection -> palette.highlight
+        isHighlighted -> palette.highlight
+        isFixed -> palette.success
         else -> Color.Transparent
     }
     val borderWidth = when {
@@ -592,26 +663,30 @@ private fun LetterCell(
     ) {
         Text(
             text = letter.toString(),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.ExtraBold,
-            color = LetterPalette.letterForeground
+            color = LetterPalette.letterForeground,
+            fontFamily = ArcadeFonts.Display,
+            fontWeight = ArcadeFonts.DisplayWeight,
+            fontSize = 16.sp
         )
     }
 }
 
 @Composable
 private fun HintCard() {
+    val palette = LocalArcadePalette.current
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+            containerColor = palette.surfaceDark
         )
     ) {
         Text(
             text = stringResource(id = R.string.game_lettersoup_hint),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = palette.textDim,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 11.sp,
             modifier = Modifier.padding(12.dp)
         )
     }

@@ -1,23 +1,27 @@
 ﻿package com.example.englishvault.ui.games.wordmatchverbs
 
+import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -36,8 +40,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -49,44 +53,46 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.wordmatchverbs.model.GameMode
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState.Companion.QUESTION_TIME_MS
+import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchQuestion
 import com.example.englishvault.ui.games.wordmatchverbs.viewmodel.WordMatchVerbsViewModel
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 import kotlinx.coroutines.delay
 
 /**
  * Master switch for the dev toggle button. Flip to `false` to hide
  * the icon and force every run into [GameMode.NORMAL]; flip to
  * `true` to bring the toggle back for manual QA / play-testing.
- *
- * Designed so the world-mode wiring can stay merged before the
- * full world-mode UX (inventory, lives persistence, etc.) ships —
- * flipping this constant hides the toggle without deleting code.
  */
 private const val DEV_MODE_TOGGLE_ENABLED: Boolean = true
 
 /**
  * Active gameplay screen for Word Match Verbs.
  *
- * Receives the chosen [level] as a navigation argument and seeds
- * the VM on first composition. Renders one of three bodies
- * depending on the [WordMatchGameState]:
- *  - [WordMatchGameState.Loading] / [WordMatchGameState.Empty] —
- *    a full-screen branded loading panel with the app's blue
- *    gradient so the user never sees a plain "Loading…" flash.
- *  - [WordMatchGameState.InProgress] — the verb + question prompt
- *    and four option cards, with a transient ✗ / ✓ overlay that
- *    auto-advances after a short delay. World-mode runs additionally
- *    show lives, a countdown timer, and the help / boost item
- *    buttons.
- *  - [WordMatchGameState.Finished] — the results panel rendered in
- *    place (see [WordMatchVerbsEndContent]); "Play again" resets the
- *    VM and "Back to games" hands control back to the parent.
+ * Phase 7.x redesign:
+ *  - Header shows a yellow "Level N" chip + a row of progress
+ *    squares that colour themselves as the player answers each
+ *    question. The numeric counter ("3 / 10") sits on the left of
+ *    the squares.
+ *  - The verb card and the four option cards are rendered as a
+ *    single `AnimatedContent` block that slides the current question
+ *    out to the left and the next one in from the right when
+ *    `state.currentIndex` advances.
+ *  - World mode HUD: timer bar (pink / red when urgent), lives chip
+ *    with bigger hearts on a neutral background, plus a cyan
+ *    50/50 button and a green +5s button so the two help items
+ *    read as distinct actions.
+ *
+ * Renders end-to-end against the arcade palette (reads
+ * [LocalArcadePalette] at the screen root).
  */
 @Composable
 fun WordMatchVerbsGameScreen(
@@ -98,18 +104,15 @@ fun WordMatchVerbsGameScreen(
 ) {
     val state by viewModel.gameState.collectAsState()
     val mode by viewModel.currentMode.collectAsState()
+    val palette = LocalArcadePalette.current
 
-    // Seed the VM exactly once per level. Re-runs of the same level
-    // (via "Play again") call `viewModel.startGame(level)` directly
-    // from the end content, which transitions the state through
-    // Loading → InProgress on its own.
     LaunchedEffect(level) {
         viewModel.startGame(level)
     }
 
-    // Auto-advance after the player answers. The delay gives them
-    // enough time to read the feedback overlay before the next
-    // question slides in.
+    // Auto-advance after the player answers. The 1.5s delay gives the
+    // feedback overlay enough time to be readable before the slide
+    // animation kicks in.
     LaunchedEffect(state) {
         val s = state
         if (s is WordMatchGameState.InProgress && s.lastAnswer != null) {
@@ -121,34 +124,15 @@ fun WordMatchVerbsGameScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
     ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp, vertical = 8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            IconButton(onClick = onBack) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(id = R.string.game_wordmatch_back),
-                    tint = MaterialTheme.colorScheme.onBackground
-                )
-            }
-            Text(
-                text = stringResource(id = R.string.game_wordmatch_header, level),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.weight(1f)
-            )
-            if (DEV_MODE_TOGGLE_ENABLED) {
-                ModeToggleButton(
-                    mode = mode,
-                    onClick = viewModel::toggleMode
-                )
-            }
-        }
+        // Header: [← back] [yellow Level chip] ... [mode toggle]
+        GameHeader(
+            level = level,
+            mode = mode,
+            onBack = onBack,
+            onToggleMode = viewModel::toggleMode
+        )
 
         when (val s = state) {
             is WordMatchGameState.Loading -> BrandedLoadingPanel()
@@ -169,34 +153,155 @@ fun WordMatchVerbsGameScreen(
 }
 
 /**
+ * Header row with three slots:
+ *  - Left: back arrow + the yellow "Level N" chip.
+ *  - Centre: empty `Spacer(weight=1f)` pushes the dev toggle right.
+ *  - Far right: dev mode toggle.
+ *
+ * The in-run progress (counter + squares) lives in the [InProgressState]
+ * body so it can flow below the header when the run has many
+ * questions — the squares wrap onto multiple lines via
+ * [FlowRow] without colliding with the chrome.
+ */
+@Composable
+private fun GameHeader(
+    level: Int,
+    mode: GameMode,
+    onBack: () -> Unit,
+    onToggleMode: () -> Unit
+) {
+    val palette = LocalArcadePalette.current
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        IconButton(onClick = onBack) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                contentDescription = stringResource(id = R.string.game_wordmatch_back),
+                tint = palette.textMain
+            )
+        }
+        // Yellow level chip — the "Level N" text is painted over the
+        // highlighted background so the dictionary progression number
+        // reads as its own badge.
+        Box(
+            modifier = Modifier
+                .clip(RoundedCornerShape(999.dp))
+                .background(palette.highlight)
+                .padding(horizontal = 14.dp, vertical = 6.dp)
+        ) {
+            Text(
+                text = stringResource(id = R.string.game_wordmatch_header, level),
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 14.sp
+            )
+        }
+        Spacer(modifier = Modifier.weight(1f))
+        if (DEV_MODE_TOGGLE_ENABLED) {
+            ModeToggleButton(mode = mode, onClick = onToggleMode)
+        }
+    }
+}
+
+/**
  * Dev-only icon that swaps [GameMode.NORMAL] ↔ [GameMode.WORLD].
- * Hidden when [DEV_MODE_TOGGLE_ENABLED] is `false`; remove the
- * call site in [WordMatchVerbsGameScreen] to delete the feature
- * entirely.
  */
 @Composable
 private fun ModeToggleButton(mode: GameMode, onClick: () -> Unit) {
+    val palette = LocalArcadePalette.current
     IconButton(onClick = onClick) {
         Icon(
-            imageVector = if (mode == GameMode.WORLD) {
-                Icons.Filled.Public
-            } else {
-                Icons.Filled.SportsEsports
-            },
+            imageVector = if (mode == GameMode.WORLD) Icons.Filled.Public
+            else Icons.Filled.SportsEsports,
             contentDescription = stringResource(
                 id = R.string.game_wordmatch_world_dev_toggle_cd
             ),
-            tint = if (mode == GameMode.WORLD) {
-                MaterialTheme.colorScheme.primary
-            } else {
-                MaterialTheme.colorScheme.onBackground
-            }
+            tint = if (mode == GameMode.WORLD) palette.primary else palette.textMain
         )
+    }
+}
+
+/**
+ * Flow of small 12×12 dp squares that surface in-run progress.
+ *
+ * Uses [FlowRow] so the squares wrap onto multiple lines when there
+ * are too many to fit horizontally — important for runs with 20+
+ * questions where a single row would overflow the screen. At
+ * `total ≤ ~12` (the typical short run) everything stays on one
+ * line; at `total = 20` it splits into two rows of ten; at `total
+ * = 30` into three rows of ten, etc.
+ *
+ * Each index below [currentIndex] renders as a coloured cell:
+ *  - green when the previous question was answered correctly (or no
+ *    feedback is available yet, e.g. on the first question)
+ *  - red when the last answered question was wrong
+ * The [currentIndex] cell is the active pink square with a 2 dp
+ * border; everything past it stays as the pending outline.
+ *
+ * Colours animate via [animateColorAsState] with a cubic-bezier ease
+ * so the row reads as "filling up" rather than snapping.
+ */
+@OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+@Composable
+private fun ProgressSquares(
+    total: Int,
+    currentIndex: Int,
+    lastAnswerWasCorrect: Boolean?
+) {
+    val palette = LocalArcadePalette.current
+    androidx.compose.foundation.layout.FlowRow(
+        modifier = Modifier
+            .height(14.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        maxItemsInEachRow = Int.MAX_VALUE
+    ) {
+        for (i in 0 until total) {
+            val target = when {
+                i < currentIndex ->
+                    if (lastAnswerWasCorrect != false) palette.success
+                    else palette.error
+                i == currentIndex -> palette.primary
+                else -> palette.surfaceDark
+            }
+            val animated by animateColorAsState(
+                targetValue = target,
+                animationSpec = tween(durationMillis = 280, easing = FastOutSlowInEasing),
+                label = "progress-square-$i"
+            )
+            val isActive = i == currentIndex
+            val isAnswered = i < currentIndex
+            Box(
+                modifier = Modifier
+                    .size(12.dp)
+                    .clip(RoundedCornerShape(3.dp))
+                    .background(animated)
+                    .then(
+                        if (isActive) Modifier.border(
+                            width = 2.dp,
+                            color = palette.ink.copy(alpha = 0.35f),
+                            shape = RoundedCornerShape(3.dp)
+                        )
+                        else if (!isAnswered) Modifier.border(
+                            width = 1.dp,
+                            color = palette.border,
+                            shape = RoundedCornerShape(3.dp)
+                        )
+                        else Modifier
+                    )
+            )
+        }
     }
 }
 
 @Composable
 private fun BrandedLoadingPanel() {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -209,19 +314,22 @@ private fun BrandedLoadingPanel() {
         ) {
             Text(
                 text = stringResource(id = R.string.game_wordmatch_loading_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 26.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_wordmatch_loading_subtitle),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.8f)
+                color = palette.ink.copy(alpha = 0.78f),
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
             Spacer(modifier = Modifier.height(32.dp))
             androidx.compose.material3.CircularProgressIndicator(
-                color = Color.White,
+                color = palette.ink,
                 strokeWidth = 4.dp,
                 modifier = Modifier.size(48.dp)
             )
@@ -231,6 +339,7 @@ private fun BrandedLoadingPanel() {
 
 @Composable
 private fun BrandedEmptyPanel() {
+    val palette = LocalArcadePalette.current
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -244,28 +353,41 @@ private fun BrandedEmptyPanel() {
         ) {
             Text(
                 text = stringResource(id = R.string.game_wordmatch_loading_title),
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.ExtraBold,
-                color = Color.White
+                color = palette.ink,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 26.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_wordmatch_no_words),
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.8f)
+                color = palette.ink.copy(alpha = 0.78f),
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
 }
 
 @Composable
-private fun BrandedGradient(): Brush = Brush.verticalGradient(
-    colors = listOf(
-        MaterialTheme.colorScheme.primary,
-        MaterialTheme.colorScheme.primary.copy(alpha = 0.72f)
+private fun BrandedGradient(): Brush {
+    val palette = LocalArcadePalette.current
+    return Brush.verticalGradient(
+        colors = listOf(
+            palette.primary,
+            palette.primary.copy(alpha = 0.72f)
+        )
     )
-)
+}
 
+/**
+ * Body of the in-progress run. Renders the WORLD-mode HUD (when
+ * applicable) and then the question + options block. The question
+ * block is wrapped in [AnimatedContent] keyed by
+ * `state.currentIndex` so each advance triggers a horizontal
+ * slide-out → slide-in transition between cards.
+ */
 @Composable
 private fun InProgressState(
     state: WordMatchGameState.InProgress,
@@ -273,22 +395,21 @@ private fun InProgressState(
     onUseHelp: () -> Unit,
     onUseTimeBoost: () -> Unit
 ) {
-    val question = state.currentQuestion ?: return
-
+    val palette = LocalArcadePalette.current
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Text(
-            text = stringResource(
-                id = R.string.game_wordmatch_progress,
-                state.currentIndex + 1,
-                state.totalQuestions
-            ),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
+        // In-run progress (counter + squares). Sits above the world-mode
+        // HUD so the player can see "you're on question 3 of 20" at a
+        // glance. FlowRow lets the squares wrap when the run has many
+        // questions so the row never collides with the header.
+        ProgressRow(
+            total = state.totalQuestions,
+            currentIndex = state.currentIndex,
+            lastAnswerWasCorrect = state.lastAnswer?.isCorrect
         )
 
         if (state.mode == GameMode.WORLD) {
@@ -299,12 +420,94 @@ private fun InProgressState(
             )
         }
 
-        // Verb + question prompt.
+        // Card stack: verb + 4 options animated as one block.
+        AnimatedContent(
+            targetState = state.currentIndex,
+            transitionSpec = {
+                val forward = targetState > initialState
+                val direction = if (forward) 1 else -1
+                (slideInHorizontally(
+                    animationSpec = tween(280, easing = FastOutSlowInEasing),
+                    initialOffsetX = { fullWidth -> fullWidth * direction }
+                ) + fadeIn(animationSpec = tween(220))) togetherWith
+                    (slideOutHorizontally(
+                        animationSpec = tween(280, easing = FastOutSlowInEasing),
+                        targetOffsetX = { fullWidth -> -fullWidth * direction }
+                    ) + fadeOut(animationSpec = tween(180)))
+            },
+            label = "question-card-flip"
+        ) { idx ->
+            val q = state.questions.getOrNull(idx) ?: return@AnimatedContent
+            QuestionCardStack(
+                question = q,
+                state = state,
+                onPicked = onPicked,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+    }
+}
+
+/**
+ * In-run progress row: numeric counter + row of squares that wrap
+ * onto multiple lines via [FlowRow] when there are too many to fit
+ * on one. Lives in the body (not the header) so a 20+ question run
+ * doesn't push the level chip off-screen.
+ */
+@Composable
+private fun ProgressRow(
+    total: Int,
+    currentIndex: Int,
+    lastAnswerWasCorrect: Boolean?
+) {
+    val palette = LocalArcadePalette.current
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        Text(
+            text = stringResource(
+                id = R.string.game_wordmatch_progress,
+                currentIndex + 1,
+                total
+            ),
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 13.sp
+        )
+        ProgressSquares(
+            total = total,
+            currentIndex = currentIndex,
+            lastAnswerWasCorrect = lastAnswerWasCorrect
+        )
+    }
+}
+
+/**
+ * Single question rendered as a "card stack": verb / translation /
+ * prompt at the top, four option cards below. Sits inside the
+ * [AnimatedContent] block so the whole stack slides on transitions.
+ */
+@Composable
+private fun QuestionCardStack(
+    question: WordMatchQuestion,
+    state: WordMatchGameState.InProgress,
+    onPicked: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val palette = LocalArcadePalette.current
+    Column(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        // Verb card.
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer
+                containerColor = palette.primary.copy(alpha = 0.18f)
             )
         ) {
             Column(
@@ -315,61 +518,61 @@ private fun InProgressState(
             ) {
                 Text(
                     text = question.baseWord,
-                    style = MaterialTheme.typography.headlineLarge,
-                    fontWeight = FontWeight.ExtraBold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 32.sp
                 )
                 if (question.translation.isNotBlank()) {
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = question.translation,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontStyle = androidx.compose.ui.text.font.FontStyle.Italic,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                            .copy(alpha = 0.75f)
+                        color = palette.textMain.copy(alpha = 0.78f),
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontStyle = FontStyle.Italic,
+                        fontSize = 13.sp
                     )
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = stringResource(id = question.askType.promptResId),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 16.sp
                 )
                 if (state.timedOut) {
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
                         text = stringResource(id = R.string.game_wordmatch_world_timeout),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color(0xFFFF3B30),
-                        fontWeight = FontWeight.SemiBold
+                        color = palette.error,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 12.sp
                     )
                 }
             }
         }
 
-        // Four option cards.
-        LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(12.dp),
-            contentPadding = PaddingValues(bottom = 32.dp)
-        ) {
-            items(question.options) { option ->
-                OptionCard(
-                    text = option,
-                    feedback = feedbackFor(option, state),
-                    enabled = state.lastAnswer == null && option !in state.eliminatedOptions,
-                    eliminated = option in state.eliminatedOptions,
-                    onClick = { onPicked(option) }
-                )
-            }
+        // Four option cards (no LazyColumn — the slide transition
+        // above swaps the entire block atomically).
+        question.options.forEach { option ->
+            OptionCard(
+                text = option,
+                feedback = feedbackFor(option, state),
+                enabled = state.lastAnswer == null && option !in state.eliminatedOptions,
+                eliminated = option in state.eliminatedOptions,
+                onClick = { onPicked(option) }
+            )
         }
     }
 }
 
 /**
- * World-mode HUD: lives chip, countdown bar, 50/50 button, +5s
- * button. Sits between the progress label and the verb card so
- * the player always sees both the timer and the lives count
- * without scrolling.
+ * World-mode HUD: timer bar + lives chip + 50/50 button + +5s
+ * button. Sits at the top of the in-progress body so the player
+ * always sees the timer and lives without scrolling.
  */
 @Composable
 private fun WorldModeHud(
@@ -377,6 +580,7 @@ private fun WorldModeHud(
     onUseHelp: () -> Unit,
     onUseTimeBoost: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     val fraction = if (QUESTION_TIME_MS <= 0L) 0f
         else state.timeRemainingMs.toFloat() / QUESTION_TIME_MS.toFloat()
     val urgent = state.timeRemainingMs in 1..3_000L
@@ -387,9 +591,8 @@ private fun WorldModeHud(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp),
-            color = if (urgent) MaterialTheme.colorScheme.error
-                else MaterialTheme.colorScheme.primary,
-            trackColor = MaterialTheme.colorScheme.surfaceVariant
+            color = if (urgent) palette.error else palette.primary,
+            trackColor = palette.surfaceDark
         )
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -397,16 +600,20 @@ private fun WorldModeHud(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             LivesChip(lives = state.lives, modifier = Modifier.weight(1f))
-            ItemButton(
+            // 50/50 — cyan accent ("smart move").
+            HelpItemButton(
                 label = "${state.helpItems}",
                 icon = Icons.Filled.Lightbulb,
+                containerColor = palette.secondary.copy(alpha = 0.22f),
                 enabled = state.helpItems > 0 && state.lastAnswer == null,
                 contentDescription = stringResource(id = R.string.game_wordmatch_world_help_cd),
                 onClick = onUseHelp
             )
-            ItemButton(
+            // +5 seconds — green accent ("boost").
+            HelpItemButton(
                 label = "${state.timeBoostItems}",
                 icon = Icons.Filled.Timer,
+                containerColor = palette.success.copy(alpha = 0.22f),
                 enabled = state.timeBoostItems > 0 &&
                     state.lastAnswer == null &&
                     state.timeRemainingMs > 0L,
@@ -417,14 +624,18 @@ private fun WorldModeHud(
     }
 }
 
+/**
+ * Lives chip with three hearts. Hearts are enlarged to 24 dp and
+ * the chip background drops the red tint so the icons themselves
+ * carry the colour.
+ */
 @Composable
 private fun LivesChip(lives: Int, modifier: Modifier = Modifier) {
+    val palette = LocalArcadePalette.current
     Card(
         modifier = modifier,
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.errorContainer
-        )
+        colors = CardDefaults.cardColors(containerColor = palette.surfaceDark)
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
@@ -435,37 +646,45 @@ private fun LivesChip(lives: Int, modifier: Modifier = Modifier) {
                 Icon(
                     imageVector = if (filled) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
                     contentDescription = null,
-                    tint = if (filled) MaterialTheme.colorScheme.error
-                        else MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.4f),
-                    modifier = Modifier.size(20.dp)
+                    tint = if (filled) palette.error
+                        else palette.error.copy(alpha = 0.20f),
+                    modifier = Modifier.size(24.dp)
                 )
                 if (index < 2) Spacer(modifier = Modifier.size(2.dp))
             }
             Spacer(modifier = Modifier.size(8.dp))
             Text(
                 text = stringResource(id = R.string.game_wordmatch_world_lives_format, lives),
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onErrorContainer
+                color = palette.error,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
 }
 
+/**
+ * Single help-item button (50/50 or +5s). The caller picks the
+ * accent colour so the two items read as different actions on the
+ * WORLD-mode HUD without the user having to memorise icons.
+ */
 @Composable
-private fun ItemButton(
+private fun HelpItemButton(
     label: String,
     icon: ImageVector,
+    containerColor: Color,
     enabled: Boolean,
     contentDescription: String,
     onClick: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     FilledIconButton(
         onClick = onClick,
         enabled = enabled,
         colors = IconButtonDefaults.filledIconButtonColors(
-            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+            containerColor = containerColor,
+            contentColor = palette.textMain
         )
     ) {
         Row(
@@ -476,8 +695,10 @@ private fun ItemButton(
             Icon(imageVector = icon, contentDescription = contentDescription)
             Text(
                 text = label,
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Bold
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 12.sp
             )
         }
     }
@@ -487,12 +708,6 @@ private fun ItemButton(
  * Visual feedback for a single option card. Returned as a sealed
  * type so the [OptionCard] composable can pick the right tint and
  * icon without doing the comparison itself.
- *
- * Four states keep the colour and icon unambiguous when the player
- * answers wrong: a red X marks the option they picked; a blue check
- * highlights the correct answer they missed so the learner can see
- * at a glance which one was right. Distractors that were neither
- * picked nor correct stay neutral.
  */
 private sealed class OptionFeedback {
     object Neutral : OptionFeedback()
@@ -516,11 +731,11 @@ private fun feedbackFor(option: String, state: WordMatchGameState.InProgress): O
     }
 }
 
-private fun OptionFeedback.tint(container: Color): Color = when (this) {
-    is OptionFeedback.CorrectPicked -> Color(0xFF34C759)
-    is OptionFeedback.RevealedCorrect -> Color(0xFF1E88E5)
-    is OptionFeedback.WrongPicked -> Color(0xFFFF3B30)
-    OptionFeedback.Neutral -> container
+private fun OptionFeedback.tint(palette: com.example.englishvault.ui.progress.arcade.ArcadePalette): Color = when (this) {
+    is OptionFeedback.CorrectPicked -> palette.success
+    is OptionFeedback.RevealedCorrect -> palette.secondary
+    is OptionFeedback.WrongPicked -> palette.error
+    OptionFeedback.Neutral -> palette.surface
 }
 
 @Composable
@@ -531,8 +746,8 @@ private fun OptionCard(
     eliminated: Boolean,
     onClick: () -> Unit
 ) {
-    val baseContainer = MaterialTheme.colorScheme.surface
-    val containerColor = feedback.tint(baseContainer)
+    val palette = LocalArcadePalette.current
+    val containerColor = feedback.tint(palette)
         .copy(alpha = if (feedback is OptionFeedback.Neutral) 1f else 0.18f)
     Card(
         modifier = Modifier
@@ -550,13 +765,14 @@ private fun OptionCard(
         ) {
             Text(
                 text = text,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
                 color = if (eliminated) {
-                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+                    palette.textMain.copy(alpha = 0.35f)
                 } else {
-                    MaterialTheme.colorScheme.onSurface
+                    palette.textMain
                 },
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp,
                 modifier = Modifier
                     .weight(1f)
                     .clip(RoundedCornerShape(8.dp))
@@ -569,7 +785,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
                     contentDescription = stringResource(id = R.string.game_wordmatch_correct),
-                    tint = Color(0xFF34C759)
+                    tint = palette.success
                 )
             }
             AnimatedVisibility(
@@ -580,7 +796,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.CheckCircle,
                     contentDescription = stringResource(id = R.string.game_wordmatch_correct),
-                    tint = Color(0xFF1E88E5)
+                    tint = palette.secondary
                 )
             }
             AnimatedVisibility(
@@ -591,7 +807,7 @@ private fun OptionCard(
                 Icon(
                     imageVector = Icons.Filled.Cancel,
                     contentDescription = stringResource(id = R.string.game_wordmatch_wrong_short),
-                    tint = Color(0xFFFF3B30)
+                    tint = palette.error
                 )
             }
         }

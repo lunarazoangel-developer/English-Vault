@@ -32,6 +32,9 @@ import com.example.englishvault.ui.words.WordTypeFilter
  * @property secondary Electric cyan. Secondary accents, controls.
  * @property highlight Gold. XP / streak / "premium" elements.
  * @property success Lime. Correct answers, success states.
+ * @property error Red. "Hard" difficulty, wrong-answer states, destructive
+ *   actions. Mirrors the Material 3 `error` token so a screen that
+ *   mixes arcade and Material widgets stays legible.
  * @property background Screen background.
  * @property surface Card / panel surface.
  * @property surfaceDark Secondary surface (chips, inactive items).
@@ -48,6 +51,7 @@ data class ArcadePalette(
     val secondary: Color,
     val highlight: Color,
     val success: Color,
+    val error: Color,
     val background: Color,
     val surface: Color,
     val surfaceDark: Color,
@@ -124,15 +128,16 @@ object ArcadePalettes {
         secondary = Color(0xFF00D4FF),
         highlight = Color(0xFFFFD700),
         success = Color(0xFF5FB878),
-        background = Color(0xFF0A0518),
-        surface = Color(0xFF1A0F3A),
-        surfaceDark = Color(0xFF2A1A4A),
-        border = Color(0xFF4A2A6A),
-        ink = Color(0xFF0A0518),
-        textMain = Color(0xFFFFF5E6),
-        textDim = Color(0xFF8A7DA0),
-        shadow = Color(0xFF050210),
-        switchOff = Color(0xFF050210)
+        error = Color(0xFFFFB4B4),
+        background = Color(0xFF0B1426),
+        surface = Color(0xFF16213D),
+        surfaceDark = Color(0xFF1F2D5A),
+        border = Color(0xFF324A7A),
+        ink = Color(0xFF0B1426),
+        textMain = Color(0xFFE6EDF7),
+        textDim = Color(0xFF8FA3C2),
+        shadow = Color(0xFF050B17),
+        switchOff = Color(0xFF050B17)
     )
 
     val Light: ArcadePalette = ArcadePalette(
@@ -140,15 +145,16 @@ object ArcadePalettes {
         secondary = Color(0xFF00D4FF),
         highlight = Color(0xFFFFD700),
         success = Color(0xFF5FB878),
-        background = Color(0xFFFFF5E6),
-        surface = Color(0xFFFFE9C7),
-        surfaceDark = Color(0xFFF0DDB8),
-        border = Color(0xFFC8B886),
-        ink = Color(0xFFFFF5E6),
-        textMain = Color(0xFF0A0518),
-        textDim = Color(0xFF5C4D6F),
-        shadow = Color(0xFF9D7F4F),
-        switchOff = Color(0xFFD4C7A8)
+        error = Color(0xFFFF4B4B),
+        background = Color(0xFFEEF4FB),
+        surface = Color(0xFFD9E6F4),
+        surfaceDark = Color(0xFFBCD3EA),
+        border = Color(0xFF7FA1C8),
+        ink = Color(0xFF0F2444),
+        textMain = Color(0xFF0F2444),
+        textDim = Color(0xFF5B7090),
+        shadow = Color(0xFF7390B5),
+        switchOff = Color(0xFFB5C8DD)
     )
 }
 

@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -31,6 +30,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.englishvault.R
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 import data.game.PromotionEvent
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.delay
@@ -105,6 +106,7 @@ fun LevelUpCelebrationOverlay(
  */
 @Composable
 private fun LevelUpBadge(event: PromotionEvent) {
+    val palette = LocalArcadePalette.current
     var visible by remember { mutableStateOf(false) }
     LaunchedEffect(event) {
         visible = true
@@ -118,15 +120,16 @@ private fun LevelUpBadge(event: PromotionEvent) {
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(24.dp))
-            .background(MaterialTheme.colorScheme.primaryContainer)
+            .background(palette.primary)
             .padding(horizontal = 28.dp, vertical = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = stringResource(id = R.string.level_up_title),
-            style = MaterialTheme.typography.titleLarge,
-            fontWeight = FontWeight.ExtraBold,
-            color = MaterialTheme.colorScheme.onPrimaryContainer
+            color = palette.ink,
+            fontFamily = ArcadeFonts.Display,
+            fontWeight = ArcadeFonts.DisplayWeight,
+            fontSize = 24.sp
         )
         Text(
             text = stringResource(
@@ -134,10 +137,10 @@ private fun LevelUpBadge(event: PromotionEvent) {
                 event.categoryKey.toCategoryLabel(),
                 event.newLevel
             ),
-            style = MaterialTheme.typography.bodyLarge,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onPrimaryContainer,
-            fontSize = 18.sp,
+            color = palette.ink,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 13.sp,
             modifier = Modifier.padding(top = 4.dp)
         )
     }
@@ -174,8 +177,12 @@ private fun String.toCategoryLabel(): String {
  *    stays visible in the middle.
  *  - Duration is just long enough for the badge to be readable but
  *    short enough to dismiss before the user gets impatient.
- *  - Palette uses the four ARGB colors from konfetti's reference
- *    example for high contrast on the dark backdrop.
+ *  - Palette mirrors the four arcade accents so the celebration
+ *    reads as part of the same brand identity as the rest of the
+ *    app: `highlight` (gold), `secondary` (cyan), `success` (lime)
+ *    and `primary` (pink). Konfetti's `colors` field takes ARGB
+ *    ints, so the Compose `Color` constants are spelled out here
+ *    instead of being read from the palette.
  */
 private fun buildParty(): Party = Party(
     speed = 0f,
@@ -183,7 +190,10 @@ private fun buildParty(): Party = Party(
     damping = 0.9f,
     spread = 360,
     colors = listOf(
-        0xfce18a, 0xff726d, 0xb48def, 0xf4306d
+        0xFFFFD700.toInt(),
+        0xFF00D4FF.toInt(),
+        0xFF5FB878.toInt(),
+        0xFFFF007A.toInt()
     ),
     emitter = Emitter(duration = 2_000, TimeUnit.MILLISECONDS).max(120),
     position = Position.Relative(0.5, 0.3)

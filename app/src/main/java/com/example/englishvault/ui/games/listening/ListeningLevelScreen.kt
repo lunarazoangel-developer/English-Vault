@@ -23,7 +23,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,12 +33,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.listening.viewmodel.ListeningViewModel
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
 
 /**
  * Level selector for the Listening mini-game.
@@ -50,8 +51,9 @@ import com.example.englishvault.ui.games.listening.viewmodel.ListeningViewModel
  *  - the player has not yet unlocked that level via the
  *    `LISTENING` `category_progress` row.
  *
- * Locked cards display a padlock icon and a short hint so the user
- * knows how to unlock them.
+ * Renders in the arcade palette so the screen stays on-brand with
+ * the rest of the UI: active cards swap to `palette.primary`,
+ * inactive / locked cards fall back to `palette.surfaceDark`.
  */
 @Composable
 fun ListeningLevelScreen(
@@ -60,6 +62,7 @@ fun ListeningLevelScreen(
     modifier: Modifier = Modifier,
     viewModel: ListeningViewModel = hiltViewModel()
 ) {
+    val palette = LocalArcadePalette.current
     var maxLevel by remember { mutableStateOf(1) }
     var unlockedLevel by remember { mutableStateOf(1) }
     val wordsPerLevel = remember { mutableStateOf<Map<Int, Int>>(emptyMap()) }
@@ -76,7 +79,7 @@ fun ListeningLevelScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
             .padding(horizontal = 16.dp)
     ) {
         Spacer(modifier = Modifier.height(16.dp))
@@ -85,19 +88,23 @@ fun ListeningLevelScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(id = R.string.game_listening_back),
-                    tint = MaterialTheme.colorScheme.onBackground
+                    tint = palette.textMain
                 )
             }
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(id = R.string.game_listening_title),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 22.sp
                 )
                 Text(
                     text = stringResource(id = R.string.game_listening_choose_level),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = palette.textDim,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 11.sp
                 )
             }
         }
@@ -133,16 +140,17 @@ private fun LevelCard(
     locked: Boolean,
     onClick: () -> Unit
 ) {
+    val palette = LocalArcadePalette.current
     val enabled = !locked && toPlay > 0
     val containerColor = when {
-        locked -> MaterialTheme.colorScheme.surfaceVariant
-        enabled -> MaterialTheme.colorScheme.primaryContainer
-        else -> MaterialTheme.colorScheme.surfaceVariant
+        locked -> palette.surfaceDark
+        enabled -> palette.primary
+        else -> palette.surfaceDark
     }
     val contentColor = when {
-        locked -> MaterialTheme.colorScheme.onSurfaceVariant
-        enabled -> MaterialTheme.colorScheme.onPrimaryContainer
-        else -> MaterialTheme.colorScheme.onSurfaceVariant
+        locked -> palette.textDim
+        enabled -> palette.ink
+        else -> palette.textDim
     }
 
     Card(
@@ -173,9 +181,10 @@ private fun LevelCard(
                     }
                     Text(
                         text = stringResource(id = R.string.game_listening_level_format, level),
-                        style = MaterialTheme.typography.titleLarge,
-                        fontWeight = FontWeight.ExtraBold,
-                        color = contentColor
+                        color = contentColor,
+                        fontFamily = ArcadeFonts.Display,
+                        fontWeight = ArcadeFonts.DisplayWeight,
+                        fontSize = 28.sp
                     )
                 }
                 Spacer(modifier = Modifier.height(4.dp))
@@ -185,8 +194,10 @@ private fun LevelCard(
                     } else {
                         stringResource(id = R.string.game_listening_to_play_format, toPlay)
                     },
-                    style = MaterialTheme.typography.bodyMedium,
                     color = contentColor,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 11.sp,
                     textAlign = TextAlign.Center
                 )
             }

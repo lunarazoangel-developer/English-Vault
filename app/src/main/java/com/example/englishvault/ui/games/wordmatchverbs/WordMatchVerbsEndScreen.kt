@@ -1,7 +1,10 @@
 ﻿package com.example.englishvault.ui.games.wordmatchverbs
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,22 +14,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.LinearProgressIndicator
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.englishvault.R
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchError
 import com.example.englishvault.ui.games.wordmatchverbs.model.WordMatchGameState
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
+import com.example.englishvault.ui.progress.arcade.components.ArcadeButton
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.entities.Skill
 
@@ -39,6 +43,12 @@ import data.database.entities.Skill
  * Shows the score ("X / Y correct"), the per-error breakdown so the
  * learner can see which words tripped them up, and a "Play again"
  * button that triggers a fresh run at the same level.
+ *
+ * Renders against the arcade palette: primary "Play again" uses
+ * [ArcadeButton]; secondary "Back to games" is the outlined variant
+ * declared at the bottom of this file; score, XP and error cards
+ * tint off the primary / highlight / error accents so they stay
+ * legible in both themes.
  *
  * @param state The finished game state straight from the VM.
  * @param onPlayAgain Invoked when the user wants to retry the same
@@ -55,18 +65,21 @@ fun WordMatchVerbsEndContent(
     onExit: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val palette = LocalArcadePalette.current
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.background)
+            .background(palette.background)
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Text(
             text = stringResource(id = R.string.game_wordmatch_game_over),
-            style = MaterialTheme.typography.headlineSmall,
-            fontWeight = FontWeight.Bold
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Display,
+            fontWeight = ArcadeFonts.DisplayWeight,
+            fontSize = 24.sp
         )
 
         ScoreCard(correct = state.correctCount, total = state.totalQuestions)
@@ -78,8 +91,10 @@ fun WordMatchVerbsEndContent(
         if (state.errors.isNotEmpty()) {
             Text(
                 text = stringResource(id = R.string.game_wordmatch_errors_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp
             )
             state.errors.forEach { error ->
                 ErrorRow(error = error)
@@ -87,41 +102,45 @@ fun WordMatchVerbsEndContent(
         } else {
             Text(
                 text = stringResource(id = R.string.game_wordmatch_perfect),
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.primary
+                color = palette.success,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 13.sp
             )
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Button(
+        ArcadeButton(
+            text = stringResource(id = R.string.game_wordmatch_play_again),
             onClick = onPlayAgain,
             modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(
-                text = stringResource(id = R.string.game_wordmatch_play_again),
-                fontWeight = FontWeight.SemiBold
-            )
-        }
-        OutlinedButton(
+        )
+        OutlinedArcadeButton(
+            text = stringResource(id = R.string.game_wordmatch_back_games),
             onClick = onExit,
             modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = stringResource(id = R.string.game_wordmatch_back_games))
-        }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
+/**
+ * Score card. Container tints off `palette.primary` so it pops
+ * without competing with the headline above; the progress bar
+ * carries the success accent so a perfect run reads as celebratory
+ * at a glance.
+ */
 @Composable
 private fun ScoreCard(correct: Int, total: Int) {
+    val palette = LocalArcadePalette.current
     val fraction = if (total <= 0) 0f else correct.toFloat() / total
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = palette.primary.copy(alpha = 0.18f)
         )
     ) {
         Column(
@@ -136,9 +155,10 @@ private fun ScoreCard(correct: Int, total: Int) {
                     correct,
                     total
                 ),
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.ExtraBold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 24.sp
             )
             Spacer(modifier = Modifier.height(12.dp))
             LinearProgressIndicator(
@@ -147,8 +167,8 @@ private fun ScoreCard(correct: Int, total: Int) {
                     .fillMaxWidth()
                     .height(12.dp)
                     .padding(horizontal = 8.dp),
-                color = MaterialTheme.colorScheme.primary,
-                trackColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.15f)
+                color = palette.success,
+                trackColor = palette.textMain.copy(alpha = 0.18f)
             )
         }
     }
@@ -156,26 +176,30 @@ private fun ScoreCard(correct: Int, total: Int) {
 
 @Composable
 private fun ErrorRow(error: WordMatchError) {
+    val palette = LocalArcadePalette.current
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.errorContainer
+            containerColor = palette.error.copy(alpha = 0.18f)
         )
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     text = error.question.baseWord,
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onErrorContainer
+                    color = palette.error,
+                    fontFamily = ArcadeFonts.Display,
+                    fontWeight = ArcadeFonts.DisplayWeight,
+                    fontSize = 15.sp
                 )
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
                     text = stringResource(id = error.question.askType.promptResId),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.75f)
+                    color = palette.error.copy(alpha = 0.78f),
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 10.sp
                 )
             }
             Spacer(modifier = Modifier.height(6.dp))
@@ -184,17 +208,20 @@ private fun ErrorRow(error: WordMatchError) {
                     id = R.string.game_wordmatch_error_user_format,
                     error.userPicked
                 ),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onErrorContainer
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 11.sp
             )
             Text(
                 text = stringResource(
                     id = R.string.game_wordmatch_error_correct_format,
                     error.question.correctAnswer
                 ),
-                style = MaterialTheme.typography.bodySmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onErrorContainer
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 11.sp
             )
         }
     }
@@ -214,20 +241,23 @@ private fun ErrorRow(error: WordMatchError) {
  */
 @Composable
 private fun XpSummaryCard(correctXpByCategory: Map<String, Int>) {
+    val palette = LocalArcadePalette.current
     val totalXp = correctXpByCategory.values.sum()
     if (totalXp <= 0) {
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                containerColor = palette.surfaceDark,
+                contentColor = palette.textDim
             )
         ) {
             Text(
                 text = stringResource(id = R.string.game_end_xp_no_xp),
-                style = MaterialTheme.typography.bodyMedium,
-                fontWeight = FontWeight.SemiBold,
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 11.sp,
                 modifier = Modifier.padding(20.dp)
             )
         }
@@ -238,22 +268,25 @@ private fun XpSummaryCard(correctXpByCategory: Map<String, Int>) {
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-            contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+            containerColor = palette.highlight.copy(alpha = 0.18f),
+            contentColor = palette.textMain
         )
     ) {
         Column(modifier = Modifier.padding(20.dp)) {
             Text(
                 text = stringResource(id = R.string.game_end_xp_summary_title),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
+                color = palette.textMain,
+                fontFamily = ArcadeFonts.Display,
+                fontWeight = ArcadeFonts.DisplayWeight,
+                fontSize = 16.sp
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_end_xp_category_label),
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.75f)
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 10.sp
             )
             Spacer(modifier = Modifier.height(4.dp))
             correctXpByCategory.entries
@@ -268,9 +301,10 @@ private fun XpSummaryCard(correctXpByCategory: Map<String, Int>) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = stringResource(id = R.string.game_end_xp_skill_label),
-                style = MaterialTheme.typography.labelSmall,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onTertiaryContainer.copy(alpha = 0.75f)
+                color = palette.textDim,
+                fontFamily = ArcadeFonts.Pixel,
+                fontWeight = ArcadeFonts.PixelWeight,
+                fontSize = 10.sp
             )
             Spacer(modifier = Modifier.height(4.dp))
             XpRow(
@@ -303,6 +337,7 @@ private fun categoryLabel(key: String): Int? {
  */
 @Composable
 private fun XpRow(label: Int?, xp: Int) {
+    val palette = LocalArcadePalette.current
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -321,8 +356,44 @@ private fun XpRow(label: Int?, xp: Int) {
                     xp
                 )
             },
-            style = MaterialTheme.typography.bodyMedium,
-            fontWeight = FontWeight.SemiBold
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 11.sp
+        )
+    }
+}
+
+/**
+ * Secondary arcade button (matching the helpers in
+ * [com.example.englishvault.ui.games.lettersoup.LetterSoupEndScreen]
+ * and
+ * [com.example.englishvault.ui.games.listening.ListeningEndContent]):
+ * surface fill, 2 dp border in `palette.border`, pixel-font label.
+ * Kept inline because only the three end screens consume it.
+ */
+@Composable
+private fun OutlinedArcadeButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val palette = LocalArcadePalette.current
+    Box(
+        modifier = modifier
+            .height(48.dp)
+            .clip(RoundedCornerShape(999.dp))
+            .background(palette.surface)
+            .border(width = 2.dp, color = palette.border, shape = RoundedCornerShape(999.dp))
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 12.sp
         )
     }
 }

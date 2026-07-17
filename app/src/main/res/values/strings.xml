@@ -179,6 +179,12 @@
     <!-- region: Word card accessibility -->
     <string name="words_card_expand">Show details</string>
     <string name="words_card_collapse">Hide details</string>
+    <string name="words_action_expand">Show details</string>
+    <string name="words_action_collapse">Hide details</string>
+    <string name="words_action_speak">Pronounce word</string>
+    <string name="words_action_speak_past">Pronounce past forms</string>
+    <string name="words_action_speak_form">Pronounce this form</string>
+    <string name="words_speak_unavailable">TTS engine not ready</string>
     <!-- endregion -->
 
     <!-- region: Word form (add/edit) -->
@@ -229,6 +235,7 @@
     <string name="game_wordmatch_world_help_cd">Use 50/50 hint</string>
     <string name="game_wordmatch_world_time_boost_cd">Use +5 seconds</string>
     <string name="game_wordmatch_world_dev_toggle_cd">Toggle world mode (dev)</string>
+    <string name="game_wordmatch_progress_squares_cd">Question progress</string>
     <!-- endregion -->
 
     <!-- region: Letter Soup mini-game -->
@@ -237,7 +244,7 @@
     <string name="game_lettersoup_header">Letter Soup — Level %1$d</string>
     <string name="game_lettersoup_moves_format">%1$d moves</string>
     <string name="game_lettersoup_words_format">%1$d / %2$d words</string>
-    <string name="game_lettersoup_hint">Tap any cell, then tap another to swap their letters. Use the 💡 buttons to reveal the wrong letter or its English form.</string>
+    <string name="game_lettersoup_hint">Drag your finger in a straight line across the letters to underline a word. Lift to confirm. Tap the first or last letter to commit early. Use the 💡 buttons to reveal the wrong letter or its English form.</string>
     <string name="game_lettersoup_hint_button">Hint</string>
     <string name="game_lettersoup_hint_location">Reveal the wrong letter</string>
     <string name="game_lettersoup_hint_english">Show the English word</string>

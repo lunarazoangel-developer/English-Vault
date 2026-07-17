@@ -16,9 +16,11 @@ import com.example.englishvault.ui.games.lettersoup.model.LetterSoupWord
 import com.example.englishvault.ui.games.lettersoup.util.BoardGenerator
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.GameCoveredWordsDao
 import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
+import data.database.entities.GameCoveredWordEntity
 import data.database.entities.CategoryProgressEntity
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
@@ -84,6 +86,7 @@ import kotlinx.coroutines.launch
 class LetterSoupViewModel @Inject constructor(
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
+    private val gameCoveredWordsDao: GameCoveredWordsDao,
     private val userProfileDao: UserProfileDao,
     private val skillProgressDao: SkillProgressDao,
     private val soundEffectPlayer: SoundEffectPlayer,
@@ -129,6 +132,15 @@ class LetterSoupViewModel @Inject constructor(
      * level-filtered query.
      */
     private var wordLookup: Map<String, WordEntity> = emptyMap()
+
+    /**
+     * Distinct `WordEntity.id` values the player has found in the
+     * current run. Deduplicated in memory so a re-found word
+     * (impossible under the current rules, but defensive) does not
+     * double-count. The buffer is flushed into `game_covered_words`
+     * at run end (see [persistRunCoverage]).
+     */
+    private val foundWordIds: MutableSet<Long> = mutableSetOf()
 
     private val _gameState = MutableStateFlow<LetterSoupGameState>(LetterSoupGameState.Loading)
     val gameState: StateFlow<LetterSoupGameState> = _gameState.asStateFlow()
@@ -201,6 +213,7 @@ class LetterSoupViewModel @Inject constructor(
     fun startGame(level: Int) {
         currentLevel = level
         cancelWorldTimer()
+        foundWordIds.clear()
         viewModelScope.launch {
             _gameState.value = LetterSoupGameState.Loading
             val raw = wordDao.getCoreWordsByLengthAndLevel(
@@ -244,47 +257,90 @@ class LetterSoupViewModel @Inject constructor(
 
     /**
      * Handles a tap on the cell at ([row], [col]) following the
-     * word-search input model:
+     * word-search input model.
      *
+     * This is the **explicit commit gesture** kept for accessibility
+     * and for players who prefer tap-based control: it routes the
+     * tap through [extendSelection] and, when the player taps the
+     * first or last cell of a chain with 2+ cells, commits the
+     * selection.
+     *
+     * Drag-style play goes through [extendSelection] +
+     * [commitSelectionFromDrag] instead, so the same chain logic is
+     * shared between input modalities.
+     *
+     * Rules (delegated to [extendSelection] then a final commit
+     * check):
      *  1. **No active selection** → start a new chain with this
-     *     cell. Any pending flash is cleared so the visual
-     *     feedback of the previous commit does not linger.
+     *     cell. Any pending flash is cleared so the visual feedback
+     *     of the previous commit does not linger.
      *  2. **The cell is the LAST one in the current selection
-     *     (with 2+ cells)** → commit. This is the primary commit
-     *     gesture: the player underlines from start to end, then
-     *     taps the end of the chain to submit. It is the most
-     *     intuitive model and the one most classic word searches
-     *     use.
+     *     (with 2+ cells)** → commit. The primary commit gesture
+     *     for tap-only play.
      *  3. **The cell is the FIRST one in the current selection
-     *     (with 2+ cells)** → also commit. Kept as an alternative
-     *     so the player has two ways to submit, whichever they
-     *     reach for first.
+     *     (with 2+ cells)** → also commit. Alternative commit
+     *     path so the player has two ways to submit.
      *  4. **The cell is already in the current selection (middle
      *     of the chain)** → truncate the chain to that cell,
-     *     acting as a backspace. Useful when the player
-     *     mis-underlined a letter and wants to back up.
+     *     acting as a backspace.
      *  5. **The cell is king-move adjacent to the last cell in the
      *     current selection** → extend the chain by one.
-     *  6. **Anything else** → ignore the tap. The player has to
-     *     commit or backspace before starting a new chain from a
-     *     non-adjacent cell.
-     *
-     * Note: taps are **never blocked** by the wrong / found flash.
-     * The flash is purely a transient visual cue; the player can
-     * start a new selection immediately after a commit without
-     * waiting for the flash to clear. This is what makes the
-     * interaction feel responsive on a 12×12 board where the cells
-     * are small.
+     *  6. **Anything else** → ignore the tap.
      */
     fun onCellTapped(row: Int, col: Int) {
         val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
         val tapped = row to col
         val current = state.selectedCells
 
+        if (current.size >= 2 &&
+            (current.last() == tapped || current.first() == tapped)
+        ) {
+            commitSelection(state)
+            return
+        }
+        extendSelection(row, col)
+    }
+
+    /**
+     * Extends (or starts) the selection so it ends on ([row], [col]).
+     * Used by both the tap path (via [onCellTapped]) and the drag
+     * path (called for every cell the finger crosses during a drag).
+     *
+     * **Straight-line rule.** Once the chain has 2+ cells the
+     * direction is locked to the unit vector from the second-last
+     * cell to the last cell (one of the 8 king-move directions
+     * reduced to its sign on each axis). Every subsequent cell must
+     * lie on the same line **and ahead of the last cell**. Cells
+     * that drift off the locked line are ignored so that the player
+     * never accidentally underlines a stray letter while dragging
+     * the finger through the board.
+     *
+     * Rules:
+     *  - **Empty selection** → start a new chain with this cell.
+     *    Any pending flash is cleared so the previous commit's
+     *    red / green tint does not bleed into the new chain.
+     *  - **1 cell in the selection** → accept any king-move
+     *    adjacent cell. The direction is *not* locked yet because
+     *    a single cell has no direction; the second cell locks it.
+     *  - **Cell is already in the current selection** → truncate the
+     *    chain to that cell, acting as a backspace. Useful for
+     *    tap-based play to undo a mis-underlined letter.
+     *  - **2+ cells in the selection AND the new cell lies on the
+     *    locked straight line, ahead of the last cell** → extend
+     *    the chain. If the finger jumped several cells along the
+     *    line (fast drag), every intermediate cell is added so the
+     *    underline stays continuous.
+     *  - **Anything else** (off-line or behind the last cell) →
+     *    ignore. The drag handler can keep firing this method for
+     *    every coordinate the finger crosses; the off-line ones
+     *    are silently dropped.
+     */
+    fun extendSelection(row: Int, col: Int) {
+        val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
+        val tapped = row to col
+        val current = state.selectedCells
+
         if (current.isEmpty()) {
-            // Starting a new selection always clears the flash so
-            // the previous commit's red / green tint does not bleed
-            // into the new chain.
             _gameState.value = state.copy(
                 selectedCells = listOf(tapped),
                 wrongFlashCells = emptyList(),
@@ -292,22 +348,71 @@ class LetterSoupViewModel @Inject constructor(
             )
             return
         }
-        if (current.size >= 2) {
-            if (current.last() == tapped || current.first() == tapped) {
-                commitSelection(state)
-                return
-            }
-        }
         val existingIndex = current.indexOf(tapped)
         if (existingIndex >= 0) {
-            _gameState.value = state.copy(selectedCells = current.take(existingIndex + 1))
+            _gameState.value = state.copy(
+                selectedCells = current.take(existingIndex + 1)
+            )
             return
         }
         val last = current.last()
-        if (isKingMoveAdjacent(last, tapped)) {
-            _gameState.value = state.copy(selectedCells = current + tapped)
+        if (current.size == 1) {
+            if (isKingMoveAdjacent(last, tapped)) {
+                _gameState.value = state.copy(selectedCells = current + tapped)
+            }
+            return
         }
-        // else: ignore
+        // current.size >= 2: direction is locked. The new cell must
+        // sit on the same straight line AND be strictly ahead of
+        // the last cell (dot product > 0 with the direction vector).
+        val prev = current[current.size - 2]
+        val dirRow = last.first - prev.first
+        val dirCol = last.second - prev.second
+        val aheadRow = row - last.first
+        val aheadCol = col - last.second
+        // Collinear: cross product == 0.
+        if (dirRow * aheadCol != dirCol * aheadRow) return
+        // Forward: dot product > 0.
+        if (dirRow * aheadRow + dirCol * aheadCol <= 0) return
+        // Walk from `last` towards `tapped` adding every cell on the
+        // way. Handles fast drags where the finger skipped cells.
+        val stepRow = dirRow.signOrZero()
+        val stepCol = dirCol.signOrZero()
+        val newCells = mutableListOf<Pair<Int, Int>>()
+        var r = last.first + stepRow
+        var c = last.second + stepCol
+        while (r != row || c != col) {
+            newCells.add(r to c)
+            r += stepRow
+            c += stepCol
+        }
+        newCells.add(tapped)
+        _gameState.value = state.copy(selectedCells = current + newCells)
+    }
+
+    /**
+     * Sign of an `Int` reduced to `{-1, 0, 1}`. Used to walk along
+     * the locked direction one cell at a time.
+     */
+    private fun Int.signOrZero(): Int = when {
+        this > 0 -> 1
+        this < 0 -> -1
+        else -> 0
+    }
+
+    /**
+     * Commits the in-progress selection as if the player lifted the
+     * finger after a drag. No-op when there is no live selection or
+     * when the run is not in progress; deliberately does **not**
+     * gate on `selectedCells.size >= 2` the way [onCellTapped] does,
+     * so a release after a one-cell drag still produces a clean
+     * (likely wrong) commit feedback flash instead of leaving a
+     * dangling cell on the board.
+     */
+    fun commitSelectionFromDrag() {
+        val state = _gameState.value as? LetterSoupGameState.InProgress ?: return
+        if (state.selectedCells.isEmpty()) return
+        commitSelection(state)
     }
 
     /**
@@ -343,6 +448,7 @@ class LetterSoupViewModel @Inject constructor(
             }
             val newBoard = state.board.copy(placements = updatedPlacements)
             val entity = wordLookup[match.original]
+            entity?.id?.let { id -> foundWordIds.add(id.toLong()) }
             val grammaticalKey = entity?.let { classifyWordSafely(it).name }
             val xpByCategory = state.xpByCategory.toMutableMap()
             if (grammaticalKey != null) {
@@ -525,7 +631,7 @@ class LetterSoupViewModel @Inject constructor(
         mode: HintMode,
         timedOut: Boolean
     ) {
-        grantPerCategoryXp(xpByCategory)
+        grantPerCategoryXp(level, xpByCategory)
         grantSkillXp(xpByCategory)
         cancelWorldTimer()
         _gameState.value = LetterSoupGameState.Finished(
@@ -605,24 +711,26 @@ class LetterSoupViewModel @Inject constructor(
      *    progress bar on the Progress screen fills up.
      *  - **[CATEGORY_KEY] bucket** keyed by `"LETTER_SOUP"` — a
      *    single synthetic row that drives the Letter Soup level
-     *    unlock gating via [maxUnlockedLetterSoupLevel]. Letter
-     *    Soup is a game (no per-word "learned" status), so it
-     *    satisfies the XP-only rule (no learned-percentage
-     *    requirement).
+     *    unlock gating via [maxUnlockedLetterSoupLevel]. The
+     *    synthetic bucket now uses the **same hybrid gate** as the
+     *    grammatical rows: XP ≥ [CategoryGating.XP_MIN_PER_LEVEL]
+     *    **and** ≥ [CategoryGating.LEARNED_PCT_REQUIRED] of the
+     *    words at the current level covered by the player (the
+     *    `foundWordIds` buffer persisted at the start of this
+     *    function).
      *
      * Unknown buckets are skipped defensively so a future category
      * change cannot crash the grant.
      */
-    private suspend fun grantPerCategoryXp(xpByCategory: Map<String, Int>) {
+    private suspend fun grantPerCategoryXp(level: Int, xpByCategory: Map<String, Int>) {
         if (xpByCategory.isEmpty()) return
         for ((categoryKey, xp) in xpByCategory) {
             if (xp <= 0) continue
             if (categoryKey == CATEGORY_KEY) {
-                // Synthetic Letter Soup bucket keeps its own
-                // single-gate (XP only) progression; the hybrid gate
-                // does not apply here because the bucket is not
-                // tied to the per-word learned percentage.
-                grantLetterSoupLevelXp(xp)
+                // Persist coverage BEFORE evaluating the gate so the
+                // COUNT(*) the gate reads includes this run's finds.
+                persistRunCoverage(level)
+                grantLetterSoupLevelXp(level, xp)
                 continue
             }
             val outcome = PromotionGate.evaluate(
@@ -644,13 +752,52 @@ class LetterSoupViewModel @Inject constructor(
     }
 
     /**
-     * Promotes the single [CATEGORY_KEY] Letter Soup bucket when
-     * the player has earned at least [CategoryGating.XP_MIN_PER_LEVEL]
-     * XP at the current level. Caps the new unlocked level at the
-     * highest dictionary level available for the mini-game (see
-     * [maxLetterSoupLevel]).
+     * Flushes the in-memory [foundWordIds] buffer into the
+     * `game_covered_words` table at [level]. Each `(wordId, level)`
+     * triple is inserted with `INSERT OR IGNORE`, so re-covering a
+     * word across multiple runs is a no-op at the SQL layer.
+     *
+     * No-op when the buffer is empty so a run the player abandons
+     * without finding anything does not produce a useless write.
+     * Errors are swallowed (matching [applyAutoStatus]) so a failed
+     * coverage write cannot crash the grant pipeline.
      */
-    private suspend fun grantLetterSoupLevelXp(xpToGrant: Int) {
+    private suspend fun persistRunCoverage(level: Int) {
+        if (foundWordIds.isEmpty()) return
+        runCatching {
+            val now = System.currentTimeMillis()
+            val rows = foundWordIds.map { wordId ->
+                GameCoveredWordEntity(
+                    categoryKey = CATEGORY_KEY,
+                    wordId = wordId,
+                    level = level,
+                    coveredAt = now
+                )
+            }
+            gameCoveredWordsDao.insertAll(rows)
+        }
+    }
+
+    /**
+     * Promotes the single [CATEGORY_KEY] Letter Soup bucket when
+     * **both** halves of the hybrid gate are satisfied at the
+     * current level:
+     *  - The player has earned at least
+     *    [CategoryGating.XP_MIN_PER_LEVEL] XP since the last
+     *    level-up.
+     *  - The player has covered at least
+     *    [CategoryGating.LEARNED_PCT_REQUIRED] of the
+     *    Letter-Soup-eligible words at [level] (see
+     *    [WordDao.countLetterSoupWordsAtLevel]).
+     *
+     * When the gate passes and a promotion fires, the coverage
+     * rows for the just-completed level are cleared so the next
+     * level starts with a fresh coverage counter.
+     *
+     * Caps the new unlocked level at the highest dictionary
+     * level available for the mini-game (see [maxLetterSoupLevel]).
+     */
+    private suspend fun grantLetterSoupLevelXp(level: Int, xpToGrant: Int) {
         if (xpToGrant <= 0) return
         val maxLevel = maxLetterSoupLevel()
         categoryProgressDao.seedIfMissing(CATEGORY_KEY)
@@ -660,16 +807,38 @@ class LetterSoupViewModel @Inject constructor(
         val unlocked = progress.unlockedLevel.coerceAtMost(maxLevel)
         val nextLevel = (unlocked + 1).coerceAtMost(maxLevel)
         val newXpSince = progress.xpSinceLevelUp + xpToGrant
-        val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
-            nextLevel > unlocked
+
+        val totalAtLevel = wordDao.countLetterSoupWordsAtLevel(
+            level = level,
+            min = MIN_WORD_LENGTH,
+            max = MAX_WORD_LENGTH
+        )
+        val coveredAtLevel = gameCoveredWordsDao.countCovered(CATEGORY_KEY, level)
+        val coveredPct = if (totalAtLevel == 0) {
+            // Nothing to cover at this level → treat the gate as
+            // already passed (degenerate case, e.g. level reset
+            // after a dictionary shrink).
+            1f
+        } else {
+            coveredAtLevel.toFloat() / totalAtLevel.toFloat()
+        }
+
+        val meetsXp = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL
+        val meetsLearnedPct = coveredPct >= CategoryGating.LEARNED_PCT_REQUIRED
+        val shouldUnlock = meetsXp && meetsLearnedPct && nextLevel > unlocked
 
         categoryProgressDao.grantXpAndMaybeUnlock(
             categoryKey = CATEGORY_KEY,
             amount = xpToGrant,
             meetsXp = shouldUnlock,
-            meetsLearnedPct = true,
+            meetsLearnedPct = shouldUnlock,
             targetUnlockedLevel = if (shouldUnlock) nextLevel else unlocked
         )
+        if (shouldUnlock) {
+            // Reset the coverage counter for the level the player
+            // just completed so the next level starts fresh.
+            gameCoveredWordsDao.clearLevel(CATEGORY_KEY, unlocked)
+        }
     }
 
     /**

@@ -534,4 +534,46 @@ interface WordDao {
     )
     suspend fun maxLevelByType(type: String, regular: Boolean?): Int
     // endregion
+
+    // region: Game-pool counts (Phase 7.x — synthetic-bucket hybrid gate)
+    /**
+     * Count of Letter Soup–eligible core words at [level]: the same
+     * pool [getCoreWordsByLengthAndLevel] returns (length within
+     * [min]..[max]) **minus** verbs (Letter Soup excludes them at
+     * the VM layer).
+     *
+     * Used as the denominator of the `LETTER_SOUP` synthetic
+     * bucket's hybrid promotion gate: the player must cover at
+     * least `LEARNED_PCT_REQUIRED` of the words returned by this
+     * query before unlocking the next level.
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM words_view
+        WHERE source = 'core'
+          AND level = :level
+          AND type != 'verb'
+          AND LENGTH(word) BETWEEN :min AND :max
+        """
+    )
+    suspend fun countLetterSoupWordsAtLevel(level: Int, min: Int, max: Int): Int
+
+    /**
+     * Count of Listening–eligible core words at [level]: every core
+     * word at the level regardless of grammatical type.
+     *
+     * Used as the denominator of the `LISTENING` synthetic bucket's
+     * hybrid promotion gate. The Listening pool deliberately
+     * includes verbs (the game picks any category) so the count
+     * diverges from [countLetterSoupWordsAtLevel].
+     */
+    @Query(
+        """
+        SELECT COUNT(*) FROM words_view
+        WHERE source = 'core'
+          AND level = :level
+        """
+    )
+    suspend fun countListeningWordsAtLevel(level: Int): Int
+    // endregion
 }

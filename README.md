@@ -28,14 +28,15 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
 ### Available now
 
 - **Offline dictionary** seeded from `assets/dictionary/` — eight per-type section files (`verbs_irregular.json`, `verbs_regular.json`, `interjections.json`, `nouns.json`, `adjectives.json`, `adverbs.json`, `prepositions.json`, `conjunctions.json`) totalling **hundreds of entries** with bilingual examples tagged by CEFR level. `assets/dictionary/README.md` acts as the section index.
-- **Room storage v11** with five artefacts:
+- **Room storage v13** with seven artefacts:
   - `core_words` — dictionary entries seeded from the `assets/dictionary/` section files. Conceptually read-only; the user can only update its user-state columns (`favorite`, `status`, `level`, `notes`, …) via the dual-table DAO pattern.
   - `user_words` — entries the learner added through the form. Fully mutable.
   - `words_view` — `UNION ALL` of both tables, exposed as the read-only `WordEntity` data class so the UI consumes a single model regardless of origin.
   - `user_profile` — single-row table for global XP, streak, daily goal, display name, dictionary seed version, the player's persistent hearts and coins counters, the music + effects volume sliders and the dark / light theme mode (Phase 8.2).
   - `category_progress` — one row per tracked grammatical category (`VERBS_REGULAR`, `ADJECTIVES`, …) holding cumulative XP, unlocked level and XP-since-last-promotion. Drives the per-category progression system on the Progress screen.
   - `skill_progress` — one row per language skill (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`) holding cumulative XP. Drives the Skill Progress bars on the Progress screen. Schema bump v9 → v10 via `MIGRATION_9_10`.
-- **Eleven versioned migrations** that keep every previous install alive:
+  - `game_covered_words` — one row per `(categoryKey, wordId, level)` triple the player has covered inside a synthetic mini-game bucket (`LETTER_SOUP`, `LISTENING`). Primary key is the triple so `INSERT OR IGNORE` dedupes coverage across runs. Feeds the coverage half of the Phase 8.5 hybrid gate on those buckets. Schema bump v12 → v13 via `MIGRATION_12_13`.
+- **Twelve versioned migrations** that keep every previous install alive:
   - `MIGRATION_1_2` — adds the `user_profile` table.
   - `MIGRATION_2_3` — recreates `words` with `AUTOINCREMENT` ids.
   - `MIGRATION_3_4` — splits `words` into `core_words` + `user_words` + `words_view`.
@@ -47,8 +48,9 @@ A Duolingo-inspired vocabulary app with streak tracking, per-category XP / level
   - `MIGRATION_9_10` — adds the `skill_progress` table and seeds one row per `Skill` (`LISTENING`, `SPEAKING`, `READING`, `WRITING`, `GRAMMAR`).
   - `MIGRATION_10_11` — adds the `consecutiveCorrect` counter to `core_words` and `user_words` and recreates `words_view` with the new column so the auto-marking pipeline (Phase 7.15) can persist each word's running racha.
   - `MIGRATION_11_12` — adds the `themeMode` column to `user_profile` so the Phase 8.2 dark / light toggle can persist across launches without data loss.
+  - `MIGRATION_12_13` — adds the `game_covered_words` table for the Phase 8.5 hybrid gate on `LETTER_SOUP` / `LISTENING` synthetic buckets.
 - **Five `TypeConverter`s** for nested objects (`Forms`, `Pronunciation`, `Example`) and string lists.
-- **Hilt DI graph** wiring `AppDatabase`, four DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`, `SkillProgressDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
+- **Hilt DI graph** wiring `AppDatabase`, five DAOs (`WordDao`, `UserProfileDao`, `CategoryProgressDao`, `SkillProgressDao`, `GameCoveredWordsDao`), `JsonLoader`, `WordMapper`, `DictionarySeeder` and the seed routine.
 - **Versioned seeding** via `DictionarySeeder` (`@Singleton`): bumping `CORE_DICTIONARY_VERSION` in code triggers an automatic re-import of the bundled JSON on next launch, without losing user-added words or learning state.
 - **Pure XP/Level math** in `data.database.UserLevel` (quadratic curve) — reused by both the global XP card and the per-category levels.
 - **Per-category progression (Phase 4.6)** — eight parallel tracks. Correct answers in the mini-game grant XP per category. Advancing to the next level requires a hybrid gate: at least `XP_MIN_PER_LEVEL` XP earned at the current level **and** at least `LEARNED_PCT_REQUIRED` of the words at that level marked `LEARNED`. The DAO wraps each grant + promotion in a single transaction.
@@ -150,7 +152,7 @@ English Vault follows a clean **offline-first** pipeline plus an MVVM-flavoured 
               |  List<CoreWordEntity>
               v
 +-------------------------------------------------------+
-     | data/database  (AppDatabase v10)                      |
+     | data/database  (AppDatabase v13)                      |
      |   +- CoreWordEntity   -> core_words  (AUTOINCREMENT)   |
      |   +- UserWordEntity   -> user_words  (AUTOINCREMENT)   |
      |   +- WordEntity       -> words_view  (@DatabaseView)   |
@@ -328,29 +330,30 @@ EnglishVault/
             |           |-- components/WordCard.kt   <- rich, expandable, status menu
             |           `-- viewmodel/WordListViewModel.kt   <- @HiltViewModel
             `-- data/
-                |-- database/
-                 |   |-- AppDatabase.kt               (v12)
-                 |   |-- Migrations.kt                <- 11 migrations (1->2 through 11->12; latest: MIGRATION_11_12 adds user_profile.themeMode, Phase 8.2)
-                |   |-- UserLevel.kt                 <- XP/Level pure math (global + per-category)
-                |   |-- dao/
-                |   |   |-- WordDao.kt                <- dual-table updates, game queries, per-category counts
-                 |   |   |-- UserProfileDao.kt
-                 |   |   `-- CategoryProgressDao.kt    <- per-category XP / unlocked level
-                 |   |-- entities/
-                 |   |   |-- CoreWordEntity.kt         <- @Entity(core_words), status + level + consecutiveCorrect
-                 |   |   |-- UserWordEntity.kt         <- @Entity(user_words), status + level + consecutiveCorrect
-                 |   |   |-- WordEntity.kt             <- @DatabaseView(words_view)
-                 |   |   |-- CategoryProgressEntity.kt <- @Entity(category_progress)
-                 |   |   |-- LearningStatus.kt         <- enum: NOT_LEARNED / ALMOST / LEARNED + ordinal helper
-                 |   |   |-- WordMappers.kt            <- toUserEntity() / toCoreEntity()
-                 |   |   |-- UserProfileEntity.kt
-                 |   |   `-- ProgressStats.kt
-                 |   `-- converters/                  <- 5 type converters
-|-- game/
-                 |   |-- CategoryGating.kt            <- XP thresholds, learned %, tracked categories
-                 |   |-- PromotionGate.kt             <- centralised hybrid gate (Phase 7.14)
-                 |   |-- PromotionNotifier.kt         <- @Singleton SharedFlow<PromotionEvent> bus (Phase 7.14)
-                 |   `-- AutoStatusEvaluator.kt       <- consecutive-correct → LearningStatus (Phase 7.15)
+|-- database/
+                  |   |-- AppDatabase.kt               (v13)
+                  |   |-- Migrations.kt                <- 12 migrations (1->2 through 12->13; latest: MIGRATION_12_13 adds game_covered_words for Phase 8.5 hybrid gate)
+                  |   |-- UserLevel.kt                 <- XP/Level pure math (global + per-category)
+                  |   |-- dao/
+                  |   |   |-- WordDao.kt                <- dual-table updates, game queries, per-category counts, LETTER_SOUP / LISTENING coverage pools (Phase 8.5)
+                  |   |   |-- UserProfileDao.kt
+                  |   |   `-- CategoryProgressDao.kt    <- per-category XP / unlocked level
+                  |   |-- entities/
+                  |   |   |-- CoreWordEntity.kt         <- @Entity(core_words), status + level + consecutiveCorrect
+                  |   |   |-- UserWordEntity.kt         <- @Entity(user_words), status + level + consecutiveCorrect
+                  |   |   |-- WordEntity.kt             <- @DatabaseView(words_view)
+                  |   |   |-- CategoryProgressEntity.kt <- @Entity(category_progress)
+                  |   |   |-- LearningStatus.kt         <- enum: NOT_LEARNED / ALMOST / LEARNED + ordinal helper
+                  |   |   |-- GameCoveredWordEntity.kt  <- @Entity(game_covered_words) coverage ledger for synthetic game buckets (Phase 8.5)
+                  |   |   |-- WordMappers.kt            <- toUserEntity() / toCoreEntity()
+                  |   |   |-- UserProfileEntity.kt
+                  |   |   `-- ProgressStats.kt
+                  |   `-- converters/                  <- 5 type converters
+                 |-- game/
+                  |   |-- CategoryGating.kt            <- XP thresholds, learned %, tracked categories
+                  |   |-- PromotionGate.kt             <- centralised hybrid gate (Phase 7.14)
+                  |   |-- PromotionNotifier.kt         <- @Singleton SharedFlow<PromotionEvent> bus (Phase 7.14)
+                  |   `-- AutoStatusEvaluator.kt       <- consecutive-correct → LearningStatus (Phase 7.15)
                 |-- json/
                 |   |-- dto/WordDto.kt               <- +level field
                 |   `-- loader/JsonLoader.kt
@@ -439,10 +442,30 @@ The generated APK lives under `app/build/outputs/apk/`.
 | 8.2    |  Done     | Persistent dark / light theme toggle persisted to `user_profile.themeMode`        |
 | 8.3    |  Done     | Word Match Verbs: symmetric verb-category unlock + 4 distractors + translation hint |
 | 8.4    |  Done     | Letter Soup: real word-search mechanic (8 directions + 12×12 + no-verbs pool + translation hint) |
+| 8.5    |  Done     | Synthetic-bucket hybrid gate: `game_covered_words` coverage ledger, drag-and-release Letter Soup cell selection, neutral Letter Soup palette, arcade-themed level selector for all three mini-games, icon-only bottom nav, TTS pronunciation on Words + past-form pronunciation for verbs, level-coloured chips |
 
 ---
 
 ## Changelog
+
+### Phase 8.5 - Synthetic-bucket hybrid gate + Words TTS + bottom-nav icon-only
+
+- **Hybrid promotion gate for `LETTER_SOUP` / `LISTENING`** — these synthetic mini-game buckets previously unlocked their next level after a single run (XP went straight to the bucket without any per-word coverage requirement). Phase 8.5 closes the same loophole that Phase 7.14 closed for the grammatical buckets: the user must now cover at least `LEARNED_PCT_REQUIRED` (80 %) of the eligible words at the current level **and** accumulate `XP_MIN_PER_LEVEL` (50) before the bucket advances. The coverage half is persisted in a new `game_covered_words` table keyed by `(categoryKey, wordId, level)`. Schema bump v12 → v13 via `MIGRATION_12_13`. Existing installs land with an empty coverage table, so the next unlock attempt after the upgrade will fail the gate and require real play rather than re-running the same level. The grammatical-bucket path is untouched (`PromotionGate.evaluate` still drives `VERBS_REGULAR`, `NOUNS`, …); the synthetic buckets are routed to their dedicated `grant*LevelXp` helpers inside the same VMs, which now also persist coverage via the new `GameCoveredWordsDao` and clear it on promotion.
+- **`GameCoveredWordEntity` + `GameCoveredWordsDao`** — `@Entity(tableName = "game_covered_words", primaryKeys = ["categoryKey", "wordId", "level"])`. The DAO exposes `insertAll(rows)`, `countCovered(categoryKey, level)`, `clearLevel(categoryKey, level)`. `INSERT OR IGNORE` deduplicates coverage across runs in O(1).
+- **`WordDao.countLetterSoupWordsAtLevel(level, min, max)` + `countListeningWordsAtLevel(level)`** — two new COUNT(\*) queries that produce the per-level denominators the synthetic gate compares against. Letter Soup's denominator excludes verbs (matching the existing pool filter); Listening's denominator is every core word at the level regardless of grammatical type. The phase 8.4 Letter Soup filter (`type != "verb"`) is now expressed entirely in Room SQL — the VM no longer filters in memory.
+- **`WordDao` coverage persistence** — `LetterSoupViewModel.commitSelection` and `ListeningViewModel.submitAnswer` capture the underlying `wordId` into a per-run buffer (`foundWordIds` / `correctWordIds`) and flush it into `game_covered_words` at end of run via a single `INSERT OR IGNORE` batch. `clearLevel(categoryKey, unlockedLevel)` fires inside the same `@Transaction` as the XP grant so a promotion also wipes the coverage ledger for the level the player just completed. The next level starts fresh.
+- **Letter Soup cell selection rewritten as drag-and-release.** The previous model required a re-tap on the first / last cell to commit; Phase 8.5 replaces it with `detectDragGestures` (start / drag / end / cancel) plus a `detectTapGestures` fallback for accessibility. The chain extends to any king-move-adjacent cell the finger crosses and locks to a straight line once two cells are committed — off-line or backward crossings are silently dropped, matching every classic word-search UX. The straight-line lock is enforced entirely inside `extendSelection` so any future input modality reuses the same rule. `commitSelectionFromDrag` accepts the lift-off event and applies it without requiring a 2-cell minimum, so a single-cell drag still gets a clean feedback flash instead of leaving a dangling selection.
+- **Letter Soup palette neutralised.** `LetterPalette.backgroundFor(letter)` now produces low-saturation (`~12 %`) high-lightness (`~92 %`) hues, so the board reads as a near-neutral cream surface with subtle per-letter tints instead of the previous rainbow grid. Letter glyphs flip to near-black (`#1B1B1B`) so they stay WCAG-AA legible. Borders + selection rings (`palette.error`, `palette.success`, `palette.highlight`) keep their vivid accents so the correct / wrong / hint states still pop.
+- **Arcade-themed mini-game level selectors.** All three `*LevelScreen`s (`WordMatchVerbsLevelScreen`, `LetterSoupLevelScreen`, `ListeningLevelScreen`) now render enabled cards with `palette.primary` fill + `palette.ink` text and locked / empty cards with `palette.surfaceDark` + `palette.textDim`. Typography is `ArcadeFonts.Display` for the level number and `ArcadeFonts.Pixel` for the helper copy. The cards form a consistent family across the three games.
+- **Bottom navigation bar redesigned as icon-only tabs.** `BottomNavItem` gains a `arcadeAccent: Color` field keyed by the four category hues (Progress = gold, World = pink, Games = cyan, Words = green). `ArcadeBottomBar` replaces the rotating chevron + text label with an `ArcadeIconButton` 3D pill that flips to the tab's accent when selected and tints the inactive icon with a `lerp(accent, palette.textDim, 0.5f)` blend so every tab keeps its identity. TalkBack still announces "Progress", "World", "Games", "Words" via the icon's `contentDescription`. The bar also drops its visible border so it does not collide with the rounded bezel of round-screen devices (Wear OS, etc.).
+- **Bottom navigation follows the theme.** `ArcadeBottomBar` now reads `LocalArcadePalette.current` instead of hardcoding `ArcadePalettes.Dark`, so the bar flips between dark-navy and pale-blue variants alongside the rest of the app.
+- **Arcade palette swap to blue tones.** `ArcadePalettes.Dark` and `ArcadePalettes.Light` migrate from purple / cream to deep-navy / pale-sky-blue. `Dark`: background `#0B1426`, surface `#16213D`, textMain `#E6EDF7`, border `#324A7A`. `Light`: background `#EEF4FB`, surface `#D9E6F4`, textMain `#0F2444`, border `#7FA1C8`. Accent hues (`primary` pink, `secondary` cyan, `highlight` gold, `success` lime, `error` red) stay the same so the brand language is invariant under theme. New `palette.error` token introduced for "Hard" difficulty chips and feedback borders.
+- **WordCard with TTS pronunciation.** Every card now carries a `Icons.AutoMirrored.Filled.VolumeUp` button in the header that pronounces the base word through the device TTS engine. For verbs (regular or irregular) with a non-blank `pastSimple` or `pastParticiple`, the expanded Forms table renders an inline `IconButton` next to each row so the user can hear each form in isolation — `palette.secondary` for the two past forms (the focus of the listening practice), `palette.success` for Base / Third / Present Participle. Idle tints are neutral (`palette.textMain`); only the actively-playing button turns green; empty values disable the button so the row's rectangular shape is preserved. The status menu icon for `LEARNED` flips from primary-pink to success-green so the "learned" checkmark reads as the canonical "done" cue everywhere.
+- **WordCard level chip with per-level colour.** `WordCard.LevelChip` reads `palette.levelColor(level)`, which cycles through the 8-hue palette (`highlight → secondary → primary → success → textDim → error → border → primary`) so L1-L8 are immediately distinguishable. `levelColor` is `@Composable` because it reads the live palette so the chips flip between dark and light with the rest of the UI.
+- **WordListScreen chrome migrated to the arcade style.** Background, FAB (`palette.highlight` gold with `palette.ink` text and icon — the user-facing "Add word" CTA now reads as a primary action), type-filter chips with per-category accent via the new `accentForFilter` helper (ALL → gold, MINE → green, the rest fall through to `palette.categoryColor(filter.type)`), sort chips in `palette.secondary`, the search field, the delete dialog and the empty-state all live in the arcade palette. The type-filter helper exists as a local `@Composable` so `ALL` and `MINE` (which share `WordTypeFilter.ALL` / `WordTypeFilter.MINE` with the progress screen) keep their distinct chips here without polluting the global `categoryColor()` mapping.
+- **WordFormScreen mirrored.** Top app bar, fields, difficulty chips, level chip, notes field, save / cancel buttons all live in the arcade palette. Save is an `ArcadeButton` (3D pink), Cancel is the inline `OutlinedArcadeButton` shared by the three mini-game end screens.
+- **`WordListViewModel` exposes TTS entry points.** New `speakWord(word)` invokes `ttsPlayer.speak(word)`; the card's per-row inline buttons call this same entry point with the form's text so a single shared method handles every pronunciation. `speakingText: StateFlow<String?>` mirrors `ttsPlayer.currentTextFlow` so the card can tint the active 🔊 green.
+- **Dev toggle of the bottom nav** — `BottomNavItem.arcadeAccent` is wired with the four recommended category hues (Progress gold, World pink, Games cyan, Words green); the bar reads `LocalArcadePalette.current` so it follows the theme instead of forcing dark.
 
 ### Phase 8.4 - Letter Soup: real word-search mechanic on a 12×12 grid
 

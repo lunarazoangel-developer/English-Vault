@@ -2,6 +2,7 @@ package com.example.englishvault.ui.words.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.englishvault.ui.games.common.TtsPlayer
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
 import data.database.dao.WordDao
@@ -46,7 +47,8 @@ import kotlinx.coroutines.launch
 class WordListViewModel @Inject constructor(
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
-    private val promotionNotifier: PromotionNotifier
+    private val promotionNotifier: PromotionNotifier,
+    private val ttsPlayer: TtsPlayer
 ) : ViewModel() {
 
     /**
@@ -62,6 +64,33 @@ class WordListViewModel @Inject constructor(
             started = SharingStarted.WhileSubscribed(STOP_TIMEOUT_MILLIS),
             initialValue = emptyList()
         )
+
+    /**
+     * Mirrors the [TtsPlayer.currentTextFlow] reactive stream so the
+     * Words screen can highlight whichever 🔊 button is currently
+     * speaking. Exposed as a `StateFlow` because the screen subscribes
+     * to it directly via `collectAsState`.
+     */
+    val speakingText: StateFlow<String?> = ttsPlayer.currentTextFlow
+
+    // region: TTS
+    /**
+     * Speaks [word] through the device TTS engine. No-op when the
+     * engine has not finished initialising — the button stays tappable
+     * so the user can retry after the engine binds.
+     *
+     * The card also reuses this entry point for each individual verb
+     * form (base, third person, present participle, past simple,
+     * past participle) — every form has its own inline 🔊 button
+     * wired to this method, so the VM does not need a separate
+     * "speak past forms" helper.
+     */
+    fun speakWord(word: String) {
+        if (word.isBlank()) return
+        ttsPlayer.ensureInitialized()
+        ttsPlayer.speak(word)
+    }
+    // endregion
 
     // region: Mutations
     /**

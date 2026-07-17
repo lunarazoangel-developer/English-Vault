@@ -20,10 +20,12 @@ import com.example.englishvault.ui.games.listening.model.ListeningQuestion
 import com.example.englishvault.ui.games.wordmatchverbs.util.DistractorGenerator
 import com.example.englishvault.ui.words.WordTypeFilter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.GameCoveredWordsDao
 import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
+import data.database.entities.GameCoveredWordEntity
 import data.database.entities.LearningStatus
 import data.database.entities.Skill
 import data.database.entities.UserProfileEntity
@@ -106,6 +108,7 @@ import kotlinx.coroutines.launch
 class ListeningViewModel @Inject constructor(
     private val wordDao: WordDao,
     private val categoryProgressDao: CategoryProgressDao,
+    private val gameCoveredWordsDao: GameCoveredWordsDao,
     private val userProfileDao: UserProfileDao,
     private val skillProgressDao: SkillProgressDao,
     private val soundEffectPlayer: SoundEffectPlayer,
@@ -157,6 +160,16 @@ class ListeningViewModel @Inject constructor(
      * two ticks running in parallel.
      */
     private var timerJob: Job? = null
+
+    /**
+     * Distinct `WordEntity.id` values the player has answered
+     * correctly in the current run. Deduplicated in memory so a
+     * re-encounter of the same word (Listening's word pool is
+     * unique-per-run, but the buffer is defensive) does not
+     * double-count. The buffer is flushed into `game_covered_words`
+     * at run end (see [persistRunCoverage]).
+     */
+    private val correctWordIds: MutableSet<Long> = mutableSetOf()
 
     private val _gameState = MutableStateFlow<ListeningGameState>(ListeningGameState.Loading)
     val gameState: StateFlow<ListeningGameState> = _gameState.asStateFlow()
@@ -217,6 +230,7 @@ class ListeningViewModel @Inject constructor(
      */
     fun startGame(level: Int) {
         currentLevel = level
+        correctWordIds.clear()
         viewModelScope.launch {
             _gameState.value = ListeningGameState.Loading
             ensureTtsReady()
@@ -316,6 +330,7 @@ class ListeningViewModel @Inject constructor(
             // per-category progress bar) AND the single
             // [CATEGORY_KEY] bucket (drives the listening level
             // unlock gating). Both rows persist at end of run.
+            correctWordIds.add(question.wordId.toLong())
             val perCategory = (question.category.name to
                 ((state.correctXpByCategory[question.category.name] ?: 0) +
                     CategoryGating.XP_PER_CORRECT_ANSWER))
@@ -426,7 +441,7 @@ class ListeningViewModel @Inject constructor(
         if (outOfQuestions || outOfLives) {
             cancelTimer()
             viewModelScope.launch {
-                grantPerCategoryXp(state.correctXpByCategory)
+                grantPerCategoryXp(currentLevel, state.correctXpByCategory)
                 grantSkillXp(state.correctXpByCategory)
                 _gameState.value = ListeningGameState.Finished(
                     totalQuestions = state.questions.size,
@@ -520,23 +535,27 @@ class ListeningViewModel @Inject constructor(
      *    progress bar on the Progress screen fills up.
      *  - **[CATEGORY_KEY] bucket** keyed by `"LISTENING"` — a
      *    single synthetic row that drives the listening level
-     *    unlock gating via [maxUnlockedListeningLevel]. Listening
-     *    is a game (no per-word "learned" status), so it satisfies
-     *    the XP-only rule (no learned-percentage requirement).
+     *    unlock gating via [maxUnlockedListeningLevel]. The
+     *    synthetic bucket now uses the **same hybrid gate** as the
+     *    grammatical rows: XP ≥ [CategoryGating.XP_MIN_PER_LEVEL]
+     *    **and** ≥ [CategoryGating.LEARNED_PCT_REQUIRED] of the
+     *    words at [runLevel] covered by the player (the
+     *    `correctWordIds` buffer persisted at the start of this
+     *    function).
      *
      * Unknown buckets are skipped defensively so a future category
      * change cannot crash the grant.
      */
-    private suspend fun grantPerCategoryXp(correctXpByCategory: Map<String, Int>) {
+    private suspend fun grantPerCategoryXp(runLevel: Int, correctXpByCategory: Map<String, Int>) {
         if (correctXpByCategory.isEmpty()) return
         for ((categoryKey, xp) in correctXpByCategory) {
             if (xp <= 0) continue
             if (categoryKey == CATEGORY_KEY) {
-                // Synthetic Listening bucket keeps its own single-gate
-                // (XP only) progression; the hybrid gate does not
-                // apply here because the bucket is not tied to the
-                // per-word learned percentage.
-                grantListeningLevelXp(xp)
+                // Persist coverage BEFORE evaluating the gate so the
+                // COUNT(*) the gate reads includes this run's
+                // correct answers.
+                persistRunCoverage(runLevel)
+                grantListeningLevelXp(runLevel, xp)
                 continue
             }
             val outcome = PromotionGate.evaluate(
@@ -558,33 +577,85 @@ class ListeningViewModel @Inject constructor(
     }
 
     /**
-     * Promotes the single [CATEGORY_KEY] listening bucket when the
-     * player has earned at least [CategoryGating.XP_MIN_PER_LEVEL]
-     * XP at the current level. Mirrors the old
-     * `tryUnlockListeningLevel` rule: XP-only gating (no
-     * learned-percentage requirement), capped at the highest
-     * dictionary level.
+     * Flushes the in-memory [correctWordIds] buffer into the
+     * `game_covered_words` table at [runLevel]. Each
+     * `(wordId, runLevel)` triple is inserted with
+     * `INSERT OR IGNORE`, so re-covering a word across multiple
+     * runs is a no-op at the SQL layer.
+     *
+     * No-op when the buffer is empty so a run with zero correct
+     * answers does not produce a useless write. Errors are
+     * swallowed (matching the auto-marking fan-out) so a failed
+     * coverage write cannot crash the grant pipeline.
      */
-    private suspend fun grantListeningLevelXp(xpToGrant: Int) {
+    private suspend fun persistRunCoverage(runLevel: Int) {
+        if (correctWordIds.isEmpty()) return
+        runCatching {
+            val now = System.currentTimeMillis()
+            val rows = correctWordIds.map { wordId ->
+                GameCoveredWordEntity(
+                    categoryKey = CATEGORY_KEY,
+                    wordId = wordId,
+                    level = runLevel,
+                    coveredAt = now
+                )
+            }
+            gameCoveredWordsDao.insertAll(rows)
+        }
+    }
+
+    /**
+     * Promotes the single [CATEGORY_KEY] Listening bucket when
+     * **both** halves of the hybrid gate are satisfied at the
+     * current level:
+     *  - The player has earned at least
+     *    [CategoryGating.XP_MIN_PER_LEVEL] XP since the last
+     *    level-up.
+     *  - The player has covered at least
+     *    [CategoryGating.LEARNED_PCT_REQUIRED] of the words at
+     *    [runLevel] (see
+     *    [WordDao.countListeningWordsAtLevel]).
+     *
+     * When the gate passes and a promotion fires, the coverage
+     * rows for the just-completed level are cleared so the next
+     * level starts with a fresh coverage counter.
+     *
+     * Caps the new unlocked level at the highest dictionary level
+     * available for the mini-game (see [maxLevel]).
+     */
+    private suspend fun grantListeningLevelXp(runLevel: Int, xpToGrant: Int) {
         if (xpToGrant <= 0) return
         val maxLevel = maxLevel()
         categoryProgressDao.seedIfMissing(CATEGORY_KEY)
         val progress = categoryProgressDao.get(CATEGORY_KEY)
             ?: CategoryProgressEntity.initial(CATEGORY_KEY)
 
-        val currentLevel = progress.unlockedLevel.coerceAtMost(maxLevel)
-        val nextLevel = (currentLevel + 1).coerceAtMost(maxLevel)
+        val unlocked = progress.unlockedLevel.coerceAtMost(maxLevel)
+        val nextLevel = (unlocked + 1).coerceAtMost(maxLevel)
         val newXpSince = progress.xpSinceLevelUp + xpToGrant
-        val shouldUnlock = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL &&
-            nextLevel > currentLevel
+
+        val totalAtLevel = wordDao.countListeningWordsAtLevel(runLevel)
+        val coveredAtLevel = gameCoveredWordsDao.countCovered(CATEGORY_KEY, runLevel)
+        val coveredPct = if (totalAtLevel == 0) {
+            1f
+        } else {
+            coveredAtLevel.toFloat() / totalAtLevel.toFloat()
+        }
+
+        val meetsXp = newXpSince >= CategoryGating.XP_MIN_PER_LEVEL
+        val meetsLearnedPct = coveredPct >= CategoryGating.LEARNED_PCT_REQUIRED
+        val shouldUnlock = meetsXp && meetsLearnedPct && nextLevel > unlocked
 
         categoryProgressDao.grantXpAndMaybeUnlock(
             categoryKey = CATEGORY_KEY,
             amount = xpToGrant,
             meetsXp = shouldUnlock,
-            meetsLearnedPct = true,
-            targetUnlockedLevel = if (shouldUnlock) nextLevel else currentLevel
+            meetsLearnedPct = shouldUnlock,
+            targetUnlockedLevel = if (shouldUnlock) nextLevel else unlocked
         )
+        if (shouldUnlock) {
+            gameCoveredWordsDao.clearLevel(CATEGORY_KEY, unlocked)
+        }
     }
 
     /**

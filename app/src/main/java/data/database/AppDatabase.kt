@@ -9,11 +9,13 @@ import data.database.converters.FormsConverter
 import data.database.converters.ListStringConverter
 import data.database.converters.PronunciationConverter
 import data.database.dao.CategoryProgressDao
+import data.database.dao.GameCoveredWordsDao
 import data.database.dao.SkillProgressDao
 import data.database.dao.UserProfileDao
 import data.database.dao.WordDao
 import data.database.entities.CategoryProgressEntity
 import data.database.entities.CoreWordEntity
+import data.database.entities.GameCoveredWordEntity
 import data.database.entities.SkillProgressEntity
 import data.database.entities.UserProfileEntity
 import data.database.entities.UserWordEntity
@@ -35,10 +37,14 @@ import data.database.entities.WordEntity
  *  - `skill_progress` — one row per language skill (Listening,
  *    Speaking, Reading, Writing) holding cumulative XP introduced in
  *    Phase 7.6.
+ *  - `game_covered_words` — coverage ledger backing the hybrid
+ *    promotion gate for the `LETTER_SOUP` and `LISTENING` synthetic
+ *    buckets introduced in Phase 7.x. Records every distinct
+ *    `(categoryKey, wordId, level)` triple the player has covered.
  *
  * The schema is wired through Hilt in `DatabaseModule`, which provides
  * all DAOs and registers the migrations that take the database from
- * version 1 to version 11.
+ * version 1 to version 13.
  */
 @Database(
     entities = [
@@ -46,12 +52,13 @@ import data.database.entities.WordEntity
         UserWordEntity::class,
         UserProfileEntity::class,
         CategoryProgressEntity::class,
-        SkillProgressEntity::class
+        SkillProgressEntity::class,
+        GameCoveredWordEntity::class
     ],
     views = [
         WordEntity::class
     ],
-    version = 12,
+    version = 13,
     exportSchema = false
 )
 @TypeConverters(
@@ -73,6 +80,9 @@ abstract class AppDatabase : RoomDatabase() {
 
     /** DAO for the four-skill progression table (`skill_progress`). */
     abstract fun skillProgressDao(): SkillProgressDao
+
+    /** DAO for the synthetic-bucket coverage table (`game_covered_words`). */
+    abstract fun gameCoveredWordsDao(): GameCoveredWordsDao
 
     companion object {
         /** Filename used by `Room.databaseBuilder` to create the SQLite file. */

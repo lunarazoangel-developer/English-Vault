@@ -561,4 +561,48 @@ object Migrations {
             )
         }
     }
+
+    /**
+     * Phase 7.x — synthetic-bucket hybrid gate.
+     *
+     * Adds the `game_covered_words` table that backs the coverage
+     * half of the new hybrid promotion gate for the `LETTER_SOUP`
+     * and `LISTENING` synthetic buckets. Each row records a single
+     * `(categoryKey, wordId, level)` triple so the
+     * [data.database.dao.GameCoveredWordsDao] can dedupe coverage
+     * automatically with `INSERT OR IGNORE` and count distinct
+     * covered words per level in O(1) (`SELECT COUNT(*)` over an
+     * indexed PK).
+     *
+     * The schema is purely additive: no existing table is touched
+     * and no rows are backfilled. Players who already unlocked
+     * higher levels keep their `unlockedLevel` value; the table
+     * starts empty for them so the first unlock attempt after the
+     * upgrade will require the new coverage rule instead of the
+     * old XP-only rule.
+     *
+     * The composite primary key `(categoryKey, wordId, level)`
+     * guarantees:
+     *  - The same word at the same level is counted once.
+     *  - A word covered at level 1 does NOT contribute to the
+     *    coverage count at level 2 (each level tracks its own
+     *    coverage).
+     *  - Two games with different `categoryKey` values do not
+     *    collide on the same word.
+     */
+    val MIGRATION_12_13: Migration = object : Migration(12, 13) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL(
+                """
+                CREATE TABLE IF NOT EXISTS `game_covered_words` (
+                    `categoryKey` TEXT NOT NULL,
+                    `wordId` INTEGER NOT NULL,
+                    `level` INTEGER NOT NULL,
+                    `coveredAt` INTEGER NOT NULL,
+                    PRIMARY KEY (`categoryKey`, `wordId`, `level`)
+                )
+                """.trimIndent()
+            )
+        }
+    }
 }

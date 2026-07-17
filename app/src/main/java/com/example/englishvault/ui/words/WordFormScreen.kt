@@ -1,8 +1,11 @@
 package com.example.englishvault.ui.words
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,14 +19,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.AssistChip
-import androidx.compose.material3.AssistChipDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
-import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -36,15 +34,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.englishvault.R
-import com.example.englishvault.ui.components.PrimaryButton
+import com.example.englishvault.ui.progress.arcade.ArcadeFonts
+import com.example.englishvault.ui.progress.arcade.LocalArcadePalette
+import com.example.englishvault.ui.progress.arcade.components.ArcadeButton
 import com.example.englishvault.ui.words.viewmodel.WordListViewModel
 import data.database.entities.Difficulty
+import data.database.entities.LearningStatus
 import data.database.entities.WordEntity
 
 /**
@@ -63,6 +66,11 @@ import data.database.entities.WordEntity
  *    including the `level` integer used to bucket the word into a
  *    progression tier.
  *
+ * Phase 7.x: rendered end-to-end against the arcade palette (reads
+ * [LocalArcadePalette] at the root). The Save button is now an
+ * [ArcadeButton] (3D pink pill) and the Cancel control is the
+ * outlined arcade variant defined at the bottom of this file.
+ *
  * @param wordId Optional id of the word being edited. `null` (or a
  *   negative value) means "new".
  * @param onBack Called when the user taps the back arrow.
@@ -79,6 +87,7 @@ fun WordFormScreen(
     modifier: Modifier = Modifier,
     viewModel: WordListViewModel = hiltViewModel()
 ) {
+    val palette = LocalArcadePalette.current
     val isEdit = wordId != null && wordId >= 0
 
     // region: Load existing word when editing
@@ -125,24 +134,30 @@ fun WordFormScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        containerColor = palette.background,
         topBar = {
             TopAppBar(
                 title = {
                     Text(
                         text = stringResource(id = titleRes),
-                        fontWeight = FontWeight.Bold
+                        color = palette.textMain,
+                        fontFamily = ArcadeFonts.Display,
+                        fontWeight = ArcadeFonts.DisplayWeight,
+                        fontSize = 18.sp
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(id = R.string.form_back)
+                            contentDescription = stringResource(id = R.string.form_back),
+                            tint = palette.textMain
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.background
+                    containerColor = palette.background,
+                    titleContentColor = palette.textMain
                 )
             )
         }
@@ -151,7 +166,7 @@ fun WordFormScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .background(MaterialTheme.colorScheme.background)
+                .background(palette.background)
                 .verticalScroll(rememberScrollState())
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -159,35 +174,79 @@ fun WordFormScreen(
             OutlinedTextField(
                 value = word,
                 onValueChange = { word = it },
-                label = { Text(stringResource(id = R.string.form_field_word)) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.form_field_word),
+                        color = palette.textDim,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 11.sp
+                    )
+                },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                textStyle = androidx.compose.ui.text.TextStyle(
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 14.sp
+                )
             )
 
             OutlinedTextField(
                 value = translation,
                 onValueChange = { translation = it },
-                label = { Text(stringResource(id = R.string.form_field_translation)) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.form_field_translation),
+                        color = palette.textDim,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 11.sp
+                    )
+                },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                textStyle = androidx.compose.ui.text.TextStyle(
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 14.sp
+                )
             )
 
             OutlinedTextField(
                 value = type,
                 onValueChange = { type = it },
-                label = { Text(stringResource(id = R.string.form_field_type)) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.form_field_type),
+                        color = palette.textDim,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 11.sp
+                    )
+                },
                 singleLine = true,
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                textStyle = androidx.compose.ui.text.TextStyle(
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 14.sp
+                )
             )
 
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 Text(
                     text = stringResource(id = R.string.form_field_difficulty),
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.SemiBold
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 11.sp
                 )
                 Row(
                     modifier = Modifier
@@ -196,20 +255,15 @@ fun WordFormScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     FormDifficulty.entries.forEach { level ->
-                        val selected = level == difficulty
-                        FilterChip(
-                            selected = selected,
-                            onClick = { difficulty = level },
-                            label = {
-                                Text(
-                                    text = stringResource(id = level.labelRes),
-                                    fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal
-                                )
+                        FormFilterChip(
+                            label = stringResource(id = level.labelRes),
+                            accent = when (level) {
+                                FormDifficulty.EASY -> palette.primary
+                                FormDifficulty.MEDIUM -> palette.secondary
+                                FormDifficulty.HARD -> palette.error
                             },
-                            colors = FilterChipDefaults.filterChipColors(
-                                selectedContainerColor = MaterialTheme.colorScheme.primary,
-                                selectedLabelColor = MaterialTheme.colorScheme.onPrimary
-                            )
+                            selected = level == difficulty,
+                            onClick = { difficulty = level }
                         )
                     }
                 }
@@ -223,26 +277,54 @@ fun WordFormScreen(
                         levelText = input
                     }
                 },
-                label = { Text(stringResource(id = R.string.form_field_level)) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.form_field_level),
+                        color = palette.textDim,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 11.sp
+                    )
+                },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                textStyle = androidx.compose.ui.text.TextStyle(
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 14.sp
+                )
             )
 
             OutlinedTextField(
                 value = notes,
                 onValueChange = { notes = it },
-                label = { Text(stringResource(id = R.string.form_field_notes)) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.form_field_notes),
+                        color = palette.textDim,
+                        fontFamily = ArcadeFonts.Pixel,
+                        fontWeight = ArcadeFonts.PixelWeight,
+                        fontSize = 11.sp
+                    )
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(120.dp),
-                shape = RoundedCornerShape(12.dp)
+                shape = RoundedCornerShape(12.dp),
+                textStyle = androidx.compose.ui.text.TextStyle(
+                    color = palette.textMain,
+                    fontFamily = ArcadeFonts.Pixel,
+                    fontWeight = ArcadeFonts.PixelWeight,
+                    fontSize = 14.sp
+                )
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            PrimaryButton(
+            ArcadeButton(
                 text = stringResource(id = R.string.form_save),
                 onClick = {
                     val parsedLevel = levelText.toIntOrNull()?.coerceAtLeast(1) ?: 1
@@ -272,8 +354,7 @@ fun WordFormScreen(
                             // user-owned counters when editing; default
                             // to NOT_LEARNED + zero counters for new
                             // words.
-                            status = original?.status
-                                ?: data.database.entities.LearningStatus.NOT_LEARNED,
+                            status = original?.status ?: LearningStatus.NOT_LEARNED,
                             // Persist as user-added so the row shows up
                             // in the Mine tab and exposes edit/delete.
                             source = WordEntity.SOURCE_USER,
@@ -286,20 +367,81 @@ fun WordFormScreen(
                         )
                     )
                 },
-                enabled = hasLoaded
+                enabled = hasLoaded,
+                modifier = Modifier.fillMaxWidth()
             )
 
-            AssistChip(
+            OutlinedArcadeButton(
+                text = stringResource(id = R.string.form_cancel),
                 onClick = onBack,
-                label = { Text(stringResource(id = R.string.form_cancel)) },
-                colors = AssistChipDefaults.assistChipColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    labelColor = MaterialTheme.colorScheme.onSurface
-                )
+                modifier = Modifier.fillMaxWidth()
             )
 
             Spacer(modifier = Modifier.height(16.dp))
         }
+    }
+}
+
+/**
+ * Arcade-style filter chip used by the form's difficulty selector.
+ * Matches the look of the chips in `WordListScreen` so the form feels
+ * like part of the same vocabulary flow.
+ */
+@Composable
+private fun FormFilterChip(
+    label: String,
+    accent: Color,
+    selected: Boolean,
+    onClick: () -> Unit
+) {
+    val palette = LocalArcadePalette.current
+    val containerColor = if (selected) accent else palette.surface
+    val contentColor = if (selected) palette.ink else accent
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(999.dp))
+            .background(containerColor)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 14.dp, vertical = 8.dp)
+    ) {
+        Text(
+            text = label,
+            color = contentColor,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 11.sp
+        )
+    }
+}
+
+/**
+ * Outlined arcade button — matches the helper used by the three
+ * mini-game end screens so the form's secondary "Cancel" action
+ * reads as part of the same brand language.
+ */
+@Composable
+private fun OutlinedArcadeButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val palette = LocalArcadePalette.current
+    Box(
+        modifier = modifier
+            .height(48.dp)
+            .clip(RoundedCornerShape(999.dp))
+            .background(palette.surface)
+            .border(width = 2.dp, color = palette.border, shape = RoundedCornerShape(999.dp))
+            .clickable(onClick = onClick),
+        contentAlignment = androidx.compose.ui.Alignment.Center
+    ) {
+        Text(
+            text = text,
+            color = palette.textMain,
+            fontFamily = ArcadeFonts.Pixel,
+            fontWeight = ArcadeFonts.PixelWeight,
+            fontSize = 12.sp
+        )
     }
 }
 
